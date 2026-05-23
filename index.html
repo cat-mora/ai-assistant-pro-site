@@ -804,7 +804,7 @@
               <div class="demo-point"><span class="tick">✓</span><span>Emergency rules can be built in, so urgent calls are escalated instead of treated like standard bookings.</span></div>
               <div class="demo-point"><span class="tick">✓</span><span>Where the right systems are available, it can check records, update notes and route the call with context.</span></div>
             </div>
-            <p class="small-copy">The demo is there so you can hear the experience. The paid version is shaped around the owner’s business, customers and risk rules.</p>
+            <p class="small-copy">The demo is there so you can hear the experience. The paid version is shaped around the owner's business, customers and risk rules.</p>
           </aside>
         </div>
       </section>
@@ -990,29 +990,67 @@
       <div class="container footer-row">
         <p>© <span id="year"></span> AI Assistant Pro. A Kindred Systems product.</p>
         <p>Natural-sounding AI voice agents for calls, callbacks, bookings and rebooking.</p>
-      </div>    </footer>
+      </div>
+    </footer>
   </div>
 
-  <script>
-    const RECEPTIONIST_DEMO_LINK = "https://vapi.ai?demo=true&shareKey=e111e9e6-f69c-463d-a377-d71ae331537d";
-        const KAI_ADVISOR_LINK = "https://vapi.ai?demo=true&shareKey=71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2";
-    function applyDemoLinks(selector, url, fallbackMessage) {
-      document.querySelectorAll(selector).forEach((link) => {
-        if (url) {
-          link.href = url;
-        } else {
-          link.href = "#";
-          link.addEventListener("click", function (event) {
-            event.preventDefault();
-            alert(fallbackMessage);
-          });
-        }
-      });
+  <script type="module">
+    import Vapi from "https://esm.sh/@vapi-ai/web";
+
+    const VAPI_PUBLIC_KEY = "46223d21-06e8-4659-9957-fc497f108320";
+    const RECEPTIONIST_ASSISTANT_ID = "e111e9e6-f69c-463d-a377-d71ae331537d";
+    const KAI_ASSISTANT_ID = "71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2";
+
+    let vapiInstance = null;
+    let activeBtn = null;
+
+    function getVapi() {
+      if (!vapiInstance) {
+        vapiInstance = new Vapi(VAPI_PUBLIC_KEY);
+        vapiInstance.on("call-start", () => {
+          if (activeBtn) {
+            activeBtn.textContent = "End call";
+            activeBtn.style.opacity = "";
+            activeBtn.style.pointerEvents = "";
+          }
+        });
+        vapiInstance.on("call-end", () => {
+          if (activeBtn) { resetBtn(activeBtn); activeBtn = null; }
+        });
+        vapiInstance.on("error", () => {
+          if (activeBtn) { resetBtn(activeBtn); activeBtn = null; }
+        });
+      }
+      return vapiInstance;
     }
 
-    applyDemoLinks(".js-receptionist-link", RECEPTIONIST_DEMO_LINK, "The receptionist demo link has not been added yet. Add the phone number or web-call link in index.html.");
-    applyDemoLinks(".js-kai-link", KAI_ADVISOR_LINK, "Kai's call link has not been added yet. Add the phone number or web-call link in index.html.");
+    function resetBtn(btn) {
+      btn.textContent = btn.dataset.label;
+      btn.style.opacity = "";
+      btn.style.pointerEvents = "";
+    }
+
+    function startCall(assistantId, btn) {
+      if (activeBtn) { getVapi().stop(); return; }
+      activeBtn = btn;
+      btn.dataset.label = btn.textContent;
+      btn.textContent = "Connecting…";
+      btn.style.opacity = "0.7";
+      btn.style.pointerEvents = "none";
+      getVapi().start(assistantId);
+    }
+
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".js-receptionist-link").forEach(btn => {
+      btn.removeAttribute("href");
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(RECEPTIONIST_ASSISTANT_ID, btn); });
+    });
+
+    document.querySelectorAll(".js-kai-link").forEach(btn => {
+      btn.removeAttribute("href");
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ASSISTANT_ID, btn); });
+    });
   </script>
 </body>
 </html>
