@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "aiassistantpro.com"}],
+      "destination": "https://www.aiassistantpro.com.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.aiassistantpro.com"}],
+      "destination": "https://www.aiassistantpro.com.au/$1",
+      "permanent": true
+    }
+  ]
+}
