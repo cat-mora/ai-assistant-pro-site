@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://www.aiassistantpro.com.au/:path*",
+      "permanent": true
+    }
+  ]
+}
