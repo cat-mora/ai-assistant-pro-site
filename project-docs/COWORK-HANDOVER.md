@@ -67,11 +67,11 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 | Landing page + form | Vercel + GitHub | ✅ Live |
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
-| Phone + SMS | Twilio | ✅ Account created — number +61 480 844 608 pending regulatory bundle (ABN now available to complete this) |
+| Phone + SMS | Twilio | ⏳ Number +61 480 844 608 exists. Regulatory bundle "AI Assistant Pro - Australian Mobile" submitted — awaiting approval. Once approved: assign bundle to number, then import into Vapi. |
 | Payment | Stripe Payment Links | ✅ Account exists — payment links NOT yet created |
 | Booking | Google Calendar booking pages | ❌ Not set up yet |
-| Email | Google Workspace | ⚠️ Not confirmed active |
-| Australian voice | ElevenLabs | ⏳ Add when first client is close |
+| Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias — logged as task. |
+| Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See vapi-config.md for IDs and settings. |
 | Client change requests | Trello | ⏳ One board per client, auto-created on payment — to be set up in Session 1J |
 
 ---
@@ -89,12 +89,16 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 
 ## Vapi Assistants (Live)
 
-| Assistant | ID | Purpose |
-|---|---|---|
-| Electrician Receptionist Demo | `e111e9e6-f69c-463d-a377-d71ae331537d` | Demo call on homepage |
-| Kai (Sales Advisor) | `71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2` | Prospect discovery on homepage |
+| Assistant | ID | Purpose | Voice |
+|---|---|---|---|
+| Electrician Demo - Bright Side | `e111e9e6-f69c-463d-a377-d71ae331537d` | Demo call on homepage | Lily (ElevenLabs) |
+| Kai - AI Advisor | `71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2` | Prospect discovery on homepage | Damian (ElevenLabs) |
 
 **Vapi Public Key:** `46223d21-06e8-4659-9957-fc297f108320`
+
+**Default voice for all new agents:** Damian — ElevenLabs voice ID `L6n6lykkxcsgjmsqknme`
+
+See `vapi-config.md` for full voice details and Twilio number setup steps.
 
 Still to build:
 - Outbound Sales Agent (calls new leads from /tradies form) — Session 1E/1F
