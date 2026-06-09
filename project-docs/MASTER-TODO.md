@@ -12,6 +12,15 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **1A — Business Readiness Audit** → `session-1A-business-readiness.md` ✅
   Full audit complete. Report saved as `business-readiness-report.md`. ABN confirmed: 97 722 882 034.
 
+- [ ] **1K — Twilio + ElevenLabs Setup** → `session-1K-twilio-elevenlabs.md`
+  Activate the Australian phone number (+61 480 844 608) using ABN 97 722 882 034. Complete Twilio regulatory bundle. Connect ElevenLabs Australian voice to Vapi. Do this before building the outbound agent — everything should launch with the right number and voice from day one.
+
+- [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
+  Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
+
+- [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
+  Set up a Google Drive documentation library. Folder structure covering: business overview, systems and processes, agent scripts, client onboarding, change management, pricing, and handover guide. Written as if handing to a buyer who has never met Cathryn. Start populating with what already exists. Build to sell from day one.
+
 - [ ] **1B — Stripe Payment Links** → `session-1B-stripe.md`
   Set up all four pricing tiers as Stripe payment links (monthly + setup fee for each). Configure success page to show Google Calendar onboarding booking link.
 
@@ -37,26 +46,7 @@ These need to be done before you can sell with confidence. Work through them in 
   Submit a test lead. Confirm Supabase saves it, Vapi calls within 60 seconds, all three branches work, Stripe link fires, booking page loads.
 
 - [ ] **1J — Client Onboarding Flow** → `session-1J-onboarding.md`
-  Build the complete post-payment onboarding system. Must be ready before first client — this is the experience they get from the moment they pay.
-
-  **What this session builds:**
-  - Automated welcome email (triggered by Stripe payment): prep checklist + Trello board link + booking link for AI intake call
-  - AI intake interview agent in Vapi: frames itself as "you're experiencing the product right now", gathers all info needed to build their agent, offers to connect with Cathryn if needed
-  - Trello board auto-created per client on payment (via webhook/Zapier): one board per client, client invited as member, pre-populated with To Do / In Progress / Done lists and a template change-request card
-  - Transcript of intake call emailed to Cathryn for review
-  - Cathryn builds their agent, then short handover call or email
-
-  **Prep checklist email covers:**
-  - Business name and preferred phone greeting
-  - Services offered and rough prices
-  - Top 3–5 FAQs callers ask
-  - Booking process (what system, if any)
-  - What triggers an urgent transfer to the owner
-  - Trading hours
-  - Any call types the agent should never handle
-
-  **AI intake agent framing:**
-  "To get things moving quickly, I'm an AI agent — the same type we'll be setting up for your business. I'm going to ask you a few questions so we can get yours configured. If at any point you'd like to speak with Cathryn directly, just let me know and she'll be in touch."
+  Build the complete post-payment onboarding system. Stripe webhook triggers: welcome email (prep checklist + Trello link + intake call booking), Trello board auto-created per client. AI intake interview agent gathers all info needed to build their Vapi agent. Transcript emailed to Cathryn. Must be ready before first client.
 
 ---
 
@@ -73,30 +63,32 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - [ ] **2C — Missed Calls Cost Calculator** → `session-2C-free-tool.md`
   Build a free web tool: "How much are missed calls costing your business?" Captures email on result. Embeds on website.
 
-- [ ] **2D — Social Listening Agent (Claude Cowork version)** → `session-2D-social-listening.md`
-  Set up a Claude scheduled task that searches Reddit and X every 20 minutes for people asking about missed calls, AI receptionists, and phone answering — and drafts replies. Run on cheap model. Full allow/block rules included.
+- [ ] **2D — Social Listening Agent** → `session-2D-social-listening.md`
+  Set up a Claude scheduled task that searches Reddit and X every 20 minutes for people asking about missed calls, AI receptionists, and phone answering — and drafts replies.
 
 - [ ] **2E — AI Content Repurposing Engine** → `session-2E-content-engine.md`
-  Set up a repeatable system: one voice memo or idea per week → Claude turns it into LinkedIn posts, tweets, email, and a blog post automatically.
+  One voice memo or idea per week → Claude turns it into LinkedIn posts, tweets, email, and a blog post automatically.
 
 - [ ] **2F — Viral Artifact** → `session-2F-viral-artifact.md`
-  Build a shareable output (e.g. a "Your AI Agent Report Card" or "Missed Calls Audit") that users want to screenshot and share. Branded, subtle, drives traffic.
+  Build a shareable branded output (e.g. "Missed Calls Audit") that users want to screenshot and share.
 
 ---
 
 ## PHASE 3 — Paid Marketing (after Phase 2 is running)
 
 - [ ] **3A — Meta Ads Setup** → `session-3A-meta-ads.md`
-  Write two ad versions (problem-focused and demo-focused). Set up Meta Business Manager. Target AU tradies 28–55. Launch at $20–30/day pointing to /tradies.
+  Write two ad versions. Set up Meta Business Manager. Target AU tradies 28–55. Launch at $20–30/day pointing to /tradies.
 
 ---
 
 ## Notes
 
-- ABN confirmed: 97 722 882 034. Use this to complete the Twilio regulatory bundle and activate +61 480 844 608. Do this alongside or after 1B.
-- ASIC token for .com.au domain: domain is already live so token has been used. Nothing more needed.
-- Twilio/Australian number: once active, import into Vapi and update the /tradies confirmation screen (remove "international number" note).
-- ElevenLabs Australian voice: add when first client is close to signing.
-- Homepage (aiassistantpro.com.au) and /pricing page: Phase 2 items, build after first client.
-- Trello for client change requests: one board per client, auto-created on payment. Same system used across Cathryn's businesses.
+- ABN confirmed: 97 722 882 034.
+- ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
+- Twilio number +61 480 844 608 and ElevenLabs voice: set up in Session 1K — do this before building the outbound agent.
+- Kai upgrade (Session 1L): Kai is already live on the homepage. Upgrading him to a full sales agent is a priority — he's talking to the hottest prospects right now.
+- Documentation library (Session 1M): Google Drive, start now, build to sell. 5-year exit horizon.
+- Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
+- Trello for client change requests: one board per client, auto-created on payment.
+- Homepage /pricing page: Phase 2, after first client.
 - Digital Employee Pro (second business): separate project, separate chat sessions — not covered here.
