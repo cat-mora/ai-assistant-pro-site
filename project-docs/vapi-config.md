@@ -38,13 +38,15 @@ Still to build:
 
 | Number | Status | Regulatory Bundle |
 |---|---|---|
-| +61 480 844 608 | Pending bundle approval | AI Assistant Pro - Australian Mobile (Sent for review) |
+| +61 468 154 584 | ✅ Active — purchased 2026-06-12 | AI Assistant Pro - Australian Mobile (SID: BU07e54ef4e39483553565ea00588e2503) |
 
-Once the bundle is approved:
-1. Go to Twilio Console → Phone Numbers → Active Numbers
-2. Click the number → assign the regulatory bundle
-3. Go to Vapi → Phone Numbers → Import Twilio number
+**Next step:** Import into Vapi
+1. Go to Vapi → Phone Numbers → Add Phone Number → Import Twilio
+2. Enter Twilio Account SID and Auth Token
+3. Select +61 468 154 584
 4. Use this number for all outbound and inbound calls
+
+**Also to do:** Register with caller ID services (Truecaller etc.) so it displays "AI Assistant Pro" on smartphones.
 
 ---
 
