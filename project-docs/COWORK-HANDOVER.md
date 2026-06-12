@@ -67,7 +67,7 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 | Landing page + form | Vercel + GitHub | ✅ Live |
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
-| Phone + SMS | Twilio | ⏳ Number +61 480 844 608 exists. Regulatory bundle "AI Assistant Pro - Australian Mobile" submitted — awaiting approval. Once approved: assign bundle to number, then import into Vapi. |
+| Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Next: import into Vapi. Also: register with caller ID services (Truecaller etc.). |
 | Payment | Stripe Payment Links | ✅ Account exists — payment links NOT yet created |
 | Booking | Google Calendar booking pages | ❌ Not set up yet |
 | Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias — logged as task. |
