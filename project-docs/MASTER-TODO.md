@@ -12,8 +12,8 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **1A — Business Readiness Audit** → `session-1A-business-readiness.md` ✅
   Full audit complete. Report saved as `business-readiness-report.md`. ABN confirmed: 97 722 882 034.
 
-- [ ] **1K — Twilio + ElevenLabs Setup** → `session-1K-twilio-elevenlabs.md`
-  Activate the Australian phone number (+61 480 844 608) using ABN 97 722 882 034. Complete Twilio regulatory bundle. Connect ElevenLabs Australian voice to Vapi. Do this before building the outbound agent — everything should launch with the right number and voice from day one.
+- [x] **1K — Twilio + ElevenLabs Setup** → `session-1K-twilio-elevenlabs.md` ✅
+  Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number +61 468 154 584 purchased and active. Damian (male AU) and Lily (female AU) voices confirmed in ElevenLabs. All connected to Vapi. Number imported into Vapi as "AI Assistant Pro - Australia". See `vapi-config.md` for all IDs. Still to do: register number with caller ID services (Truecaller etc.) + set up AI Assistant Pro email under Kindred Systems Google Workspace.
 
 - [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
   Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
@@ -85,7 +85,7 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 
 - ABN confirmed: 97 722 882 034.
 - ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
-- Twilio number +61 480 844 608 and ElevenLabs voice: set up in Session 1K — do this before building the outbound agent.
+- Twilio number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle approved. Number imported into Vapi. Still to do: register with Truecaller/caller ID services + set up AI Assistant Pro email.
 - Kai upgrade (Session 1L): Kai is already live on the homepage. Upgrading him to a full sales agent is a priority — he's talking to the hottest prospects right now.
 - Documentation library (Session 1M): Google Drive, start now, build to sell. 5-year exit horizon.
 - Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
