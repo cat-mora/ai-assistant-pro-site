@@ -1,58 +1,24 @@
-# Session 1K — Twilio + ElevenLabs Setup
+# Session 1K — Twilio + ElevenLabs Setup ✅ COMPLETE
 
-## What this session is for
-Activate the Australian phone number (+61 480 844 608) through the Twilio regulatory bundle, then connect an ElevenLabs Australian voice to Vapi. Both must be done before building the outbound sales agent — the business should launch with the right number and voice from day one.
+## What this session was for
+Activate an Australian phone number through the Twilio regulatory bundle, then connect ElevenLabs Australian voices to Vapi.
 
-## Context
-Read COWORK-HANDOVER.md and sales-flow.md in this folder first.
+## Outcomes (completed 2026-06-12)
 
-## Part 1 — Twilio Regulatory Bundle
+### Part 1 — Twilio ✅
+- Regulatory bundle "AI Assistant Pro - Australian Mobile" submitted and approved (SID: BU07e54ef4e39483553565ea00588e2503)
+- ABN: 97 722 882 034 | Address: 8 Channel St, Cleveland QLD 4163
+- Note: original number +61 480 844 608 was not in Twilio inventory — replaced with +61 468 154 584
+- Number +61 468 154 584 purchased at $8.25/month, bundle assigned, address assigned
+- Number imported into Vapi as "AI Assistant Pro - Australia" (Vapi ID: 8514aa38-1960-4261-bfb3-01d50a20fcd9)
 
-### What it is
-Australian phone numbers require identity verification before Twilio will activate them. The regulatory bundle proves AI Assistant Pro is a legitimate Australian business.
+### Part 2 — ElevenLabs + Vapi ✅
+- Existing voices confirmed: Damian (male AU, `L6n6lykkxcsgjmsqknme`) and Lily (female AU, `0qt4ordtvpdlupmfsuwn`)
+- Both connected to Vapi via ElevenLabs provider
+- Damian set as default voice for all new agents
+- Kai assistant updated to use Damian; Electrician Demo uses Lily
+- All details saved in `vapi-config.md`
 
-### What's needed
-- ABN: 97 722 882 034
-- Business name: AI Assistant Pro
-- Business address: Brisbane, QLD, Australia
-- Cathryn's name and contact details
-- The number to activate: +61 480 844 608
-
-### Steps
-1. Log into Twilio console (twilio.com/console)
-2. Go to Phone Numbers → Regulatory Compliance
-3. Find the pending regulatory bundle (may already be started)
-4. Complete all required fields using ABN above
-5. Submit for approval (usually approved within minutes to hours)
-6. Once approved, the number +61 480 844 608 becomes active
-7. Import the number into Vapi (Phone Numbers section in Vapi dashboard)
-8. Update /tradies confirmation screen — remove "international number" note
-
-## Part 2 — ElevenLabs Australian Voice
-
-### What's needed
-- ElevenLabs account (already exists)
-- Choose or create an Australian-sounding voice
-- Connect to Vapi via ElevenLabs API key
-
-### Steps
-1. Log into ElevenLabs
-2. Browse Voice Library — filter by accent: Australian
-3. Test 3–5 voices. Choose one that sounds warm, professional, and clearly Australian (not British, not American)
-4. Note the Voice ID
-5. In Vapi dashboard → Voices → add ElevenLabs as provider
-6. Enter ElevenLabs API key
-7. Select the chosen voice
-8. Test a sample call to confirm it sounds right
-9. This voice will be used for: outbound sales agent, AI intake interview agent
-
-## Outputs expected
-- Twilio number +61 480 844 608 active and imported into Vapi
-- ElevenLabs Australian voice connected to Vapi and tested
-- Voice ID and name saved to `vapi-config.md`
-- Confirmation screen on /tradies updated (or noted for update in Session 1G)
-
-## Notes
-- Australian accent is non-negotiable. Test the voice carefully before confirming.
-- The same voice should be used consistently across all AI agents for brand consistency
-- If regulatory bundle approval takes more than 24 hours, proceed with other sessions and return to this one
+## Still to do (not part of this session)
+- Register +61 468 154 584 with Truecaller/carrier CLI so it shows "AI Assistant Pro" on smartphones
+- Set up AI Assistant Pro email mailbox/alias under Kindred Systems Google Workspace
