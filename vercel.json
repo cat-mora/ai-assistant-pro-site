@@ -3,7 +3,13 @@
     {
       "source": "/:path*",
       "destination": "https://www.aiassistantpro.com.au/:path*",
-      "permanent": true
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "aiassistantpro.com.au"
+        }
+      ]
     }
   ]
 }
