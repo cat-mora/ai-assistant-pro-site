@@ -530,6 +530,44 @@
 
     .package-card li + li { margin-top: 8px; }
 
+    .package-minutes {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(189, 152, 92, 0.10);
+      border: 1px solid rgba(189, 152, 92, 0.20);
+      color: #6b4c1e;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .package-addon {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(23, 40, 63, 0.05);
+      border: 1px solid rgba(23, 40, 63, 0.10);
+      color: #3a4f66;
+      font-size: 0.88rem;
+    }
+
+    .running-costs-box {
+      margin-top: 40px;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(23, 40, 63, 0.12);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08);
+    }
+
+    .running-costs-box h4 {
+      margin-bottom: 14px;
+    }
+
+    .running-costs-box p {
+      color: #536176;
+      margin-top: 10px;
+      max-width: 860px;
+    }
+
     .kai-section {
       padding: 88px 0;
       background:
@@ -708,7 +746,7 @@
   </style>
 </head>
 <body>
-  <!-- AI Assistant Pro site draft v11: package hierarchy corrected, exact pricing, public escalation language -->
+  <!-- AI Assistant Pro site draft v12: pricing section updated with minute inclusions, per-employee add-ons, running costs explainer -->
   <div class="site-shell">
     <header>
       <div class="container nav">
@@ -807,10 +845,10 @@
             <h3>This is a basic demo.</h3>
             <p>A live client agent is configured around the business it represents. That means the agent can use the business name, service area, hours, FAQs, booking rules, escalation rules and approved wording.</p>
             <div class="demo-points">
-              <div class="demo-point"><span class="tick">✓</span><span>Voice style can be chosen: accent, gender, pace and a friendlier or more formal tone.</span></div>
-              <div class="demo-point"><span class="tick">✓</span><span>Guardrails stop it diagnosing issues, inventing policy or giving firm quotes outside the approved script.</span></div>
-              <div class="demo-point"><span class="tick">✓</span><span>Emergency rules can be built in, so urgent calls are escalated instead of treated like standard bookings.</span></div>
-              <div class="demo-point"><span class="tick">✓</span><span>Where the right systems are available, it can check records, update notes and route the call with context.</span></div>
+              <div class="demo-point"><span class="tick">&#10003;</span><span>Voice style can be chosen: accent, gender, pace and a friendlier or more formal tone.</span></div>
+              <div class="demo-point"><span class="tick">&#10003;</span><span>Guardrails stop it diagnosing issues, inventing policy or giving firm quotes outside the approved script.</span></div>
+              <div class="demo-point"><span class="tick">&#10003;</span><span>Emergency rules can be built in, so urgent calls are escalated instead of treated like standard bookings.</span></div>
+              <div class="demo-point"><span class="tick">&#10003;</span><span>Where the right systems are available, it can check records, update notes and route the call with context.</span></div>
             </div>
             <p class="small-copy">The demo is there so you can hear the experience. The paid version is shaped around the owner's business, customers and risk rules.</p>
           </aside>
@@ -854,7 +892,7 @@
             <div class="eyebrow"><span class="eyebrow-dot"></span> Productised options</div>
             <h2>Choose the level that matches the money leak.</h2>
           </div>
-          <p class="lead">Start with the workflow most likely to pay for itself first. Answer & Book is the core booking package. Lead Callback and Rebook & Reactivate both include Answer & Book, then add the extra workflow needed for leads or repeat customers.</p>
+          <p class="lead">Start with the workflow most likely to pay for itself first. Answer &amp; Book is the core booking package. Lead Callback and Rebook &amp; Reactivate both include Answer &amp; Book, then add the extra workflow needed for leads or repeat customers.</p>
         </div>
 
         <div class="container inclusions-note">
@@ -865,7 +903,7 @@
         <div class="container grid-4">
           <article class="package-card">
             <span class="pill">Level 1</span>
-            <h3>Answer & Message</h3>
+            <h3>Answer &amp; Message</h3>
             <p>For businesses that need calls answered while they work.</p>
             <ul>
               <li>Natural-sounding call answering</li>
@@ -874,6 +912,7 @@
               <li>Urgent or complex calls escalated</li>
               <li>Weekly tweaks included where needed</li>
             </ul>
+            <div class="package-minutes">Includes 300 call minutes per month. That covers around 3 to 4 inbound calls a day at typical conversation length.</div>
             <div class="package-price">
               <strong>A$295/month</strong>
               <span class="small-copy">approx US$210/month + A$495 setup</span>
@@ -883,7 +922,7 @@
 
           <article class="package-card">
             <span class="pill">Level 2</span>
-            <h3>Answer & Book</h3>
+            <h3>Answer &amp; Book</h3>
             <p>For businesses that want suitable calls turned into appointments.</p>
             <ul>
               <li>Answers calls and checks key booking details</li>
@@ -891,6 +930,7 @@
               <li>Calendar connection checked during setup</li>
               <li>Weekly tweaks included where needed</li>
             </ul>
+            <div class="package-minutes">Includes 400 call minutes per month. That covers around 4 to 5 inbound calls a day, including the extra time needed to check availability and confirm bookings.</div>
             <div class="package-price">
               <strong>A$395/month</strong>
               <span class="small-copy">approx US$280/month + A$695 setup</span>
@@ -903,13 +943,15 @@
             <h3>Lead Callback</h3>
             <p>For businesses already getting leads through ads, forms, Google enquiries or directories.</p>
             <ul>
-              <li>Includes Answer & Book</li>
+              <li>Includes Answer &amp; Book</li>
               <li>Calls new leads back fast</li>
               <li>Uses form answers to qualify the enquiry</li>
               <li>Books or escalates depending on fit</li>
               <li>Helps existing lead spend work harder</li>
               <li>Weekly tweaks included where needed</li>
             </ul>
+            <div class="package-minutes">Includes 600 call minutes per month for a sole operator. That covers inbound answering plus calling back 2 to 3 new leads a day.</div>
+            <div class="package-addon">Running a team? Add A$95/month per extra employee. Each person adds inbound and callback volume, and the price reflects actual usage.</div>
             <div class="package-price">
               <strong>A$595/month</strong>
               <span class="small-copy">approx US$425/month + A$995 setup</span>
@@ -919,10 +961,10 @@
 
           <article class="package-card">
             <span class="pill">Level 4</span>
-            <h3>Rebook & Reactivate</h3>
+            <h3>Rebook &amp; Reactivate</h3>
             <p>For repeat-service businesses that want customer records turned into booked return visits.</p>
             <ul>
-              <li>Includes Answer & Book</li>
+              <li>Includes Answer &amp; Book</li>
               <li>Does not require ads or new lead campaigns</li>
               <li>Accesses customer records or service history where available</li>
               <li>Creates a due-to-rebook list for owner review</li>
@@ -930,12 +972,22 @@
               <li>Useful for pest control, maintenance and annual services</li>
               <li>Weekly tweaks included where needed</li>
             </ul>
+            <div class="package-minutes">Includes 800 call minutes per month for a sole operator. That covers inbound calls plus proactively working through a rebook list each day.</div>
+            <div class="package-addon">Running a team? Add A$175/month per extra employee. A team of three generates roughly four times the call volume of a sole operator, and the pricing reflects that.</div>
             <div class="package-price">
               <strong>A$995/month</strong>
               <span class="small-copy">approx US$705/month + A$1,495 setup</span>
             </div>
             <p class="value-line">Best when past customers should be coming back but nobody has time to chase them.</p>
           </article>
+        </div>
+
+        <div class="container running-costs-box">
+          <h4>Why team size affects the price</h4>
+          <p>AI voice agents are not free to run. Every call, inbound or outbound, uses real infrastructure: AI processing time, voice generation and phone network costs. The bigger the team, the more customers in the system, the more calls the agent handles each day, and the higher those running costs are.</p>
+          <p>The base price for Level 3 and Level 4 covers a sole operator. If you have employees, there is a small monthly amount per person to cover the extra call volume they generate. This keeps the service running properly as the business grows, rather than degrading at higher volumes.</p>
+          <p>Think of it like a phone plan with a data allowance. A business with three technicians uses more than a sole operator, the same way a family uses more data than one person. The per-employee add-on reflects actual usage, not an arbitrary surcharge.</p>
+          <p>We would rather be upfront about this than bury it in fine print. If you are not sure which level or team size applies to your business, talk to Kai below and he can work it out with you.</p>
         </div>
       </section>
 
@@ -954,10 +1006,10 @@
           <aside class="kai-card">
             <h3>Why talk to Kai?</h3>
             <div class="kai-list">
-              <div><span class="tick">✓</span><span>You experience the same type of voice technology your customers would hear</span></div>
-              <div><span class="tick">✓</span><span>You find out whether call answering, bookings, lead callback or rebooking should come first</span></div>
-              <div><span class="tick">✓</span><span>You can move towards signup without waiting for a sales call</span></div>
-              <div><span class="tick">✓</span><span>You can still ask for a real person to review the setup if needed</span></div>
+              <div><span class="tick">&#10003;</span><span>You experience the same type of voice technology your customers would hear</span></div>
+              <div><span class="tick">&#10003;</span><span>You find out whether call answering, bookings, lead callback or rebooking should come first</span></div>
+              <div><span class="tick">&#10003;</span><span>You can move towards signup without waiting for a sales call</span></div>
+              <div><span class="tick">&#10003;</span><span>You can still ask for a real person to review the setup if needed</span></div>
             </div>
             <p class="small-copy">Kai is part of the sales process and part of the proof. If the conversation is useful for your business, the same approach can be useful for your customers.</p>
           </aside>
@@ -996,7 +1048,7 @@
 
     <footer>
       <div class="container footer-row">
-        <p>© <span id="year"></span> AI Assistant Pro. A Kindred Systems product.</p>
+        <p>&copy; <span id="year"></span> AI Assistant Pro. A Kindred Systems product.</p>
         <p>Natural-sounding AI voice agents for calls, callbacks, bookings and rebooking.</p>
       </div>
     </footer>
