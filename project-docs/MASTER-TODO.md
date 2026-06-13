@@ -15,17 +15,21 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **1K — Twilio + ElevenLabs Setup** → `session-1K-twilio-elevenlabs.md` ✅
   Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number +61 468 154 584 purchased and active. Damian (male AU) and Lily (female AU) voices confirmed in ElevenLabs. All connected to Vapi. Number imported into Vapi as "AI Assistant Pro - Australia". See `vapi-config.md` for all IDs. Still to do: register number with caller ID services (Truecaller etc.) + set up AI Assistant Pro email under Kindred Systems Google Workspace.
 
-- [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
-  Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
-
-- [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
-  Set up a Google Drive documentation library. Folder structure covering: business overview, systems and processes, agent scripts, client onboarding, change management, pricing, and handover guide. Written as if handing to a buyer who has never met Cathryn. Start populating with what already exists. Build to sell from day one.
+- [x] **Pricing model & website update** ✅ (completed 2026-06-13)
+  Full cost modelling done for all four levels including Vapi/Twilio/ElevenLabs/Supabase usage costs. Pricing confirmed profitable at all levels. Added minute inclusions per level, per-employee add-ons for L3/L4, and running costs explainer to pricing section on homepage. Pricing model saved locally as `aap_pricing_model.xlsx`. Website fixes: minutes text moved below price, bold removed from minutes, logo 404 fixed with cache-buster, vercel.json redirect bug fixed.
 
 - [ ] **1B — Stripe Payment Links** → `session-1B-stripe.md`
   Set up all four pricing tiers as Stripe payment links (monthly + setup fee for each). Configure success page to show Google Calendar onboarding booking link.
 
 - [ ] **1C — Google Calendar Booking Pages** → `session-1C-google-calendar.md`
   Create two booking pages: AI Intake Call (new paid clients, triggers onboarding flow) and Sales Call (prospects who want to speak to Cathryn). Set availability. Copy both URLs — needed for Stripe and Vapi.
+
+- [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
+  Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
+  **Blocked on:** Stripe payment link URLs (1B) and Google Calendar booking URL (1C).
+
+- [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
+  Set up a Google Drive documentation library. Folder structure covering: business overview, systems and processes, agent scripts, client onboarding, change management, pricing, and handover guide. Written as if handing to a buyer who has never met Cathryn. Start populating with what already exists. Build to sell from day one.
 
 - [ ] **1D — Supabase Lead Database** → `session-1D-supabase.md`
   Create a new Supabase project for AI Assistant Pro (separate from other projects). Set up the leads table. Wire it to the /tradies form. Test that submissions save correctly.
@@ -86,9 +90,12 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - ABN confirmed: 97 722 882 034.
 - ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
 - Twilio number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle approved. Number imported into Vapi. Still to do: register with Truecaller/caller ID services + set up AI Assistant Pro email.
-- Kai upgrade (Session 1L): Kai is already live on the homepage. Upgrading him to a full sales agent is a priority — he's talking to the hottest prospects right now.
+- Kai upgrade (Session 1L): Blocked on 1B (Stripe links) and 1C (Calendar URL). Do 1B and 1C first, then come back to 1L.
 - Documentation library (Session 1M): Google Drive, start now, build to sell. 5-year exit horizon.
 - Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
 - Trello for client change requests: one board per client, auto-created on payment.
 - Homepage /pricing page: Phase 2, after first client.
 - Digital Employee Pro (second business): separate project, separate chat sessions — not covered here.
+- Pricing model spreadsheet: saved locally as `aap_pricing_model.xlsx` in the AI Business to sell folder. Two sheets: Assumptions (blue inputs) and Per-Client P&L (calculated). Use this to check profitability before changing prices.
+- Per-employee add-ons confirmed: L3 +A$95/mo per extra employee, L4 +A$175/mo per extra employee.
+- vercel.json: fixed 2026-06-13. Was incorrectly redirecting all requests (including preview URLs) to www domain. Now only redirects the non-www domain.

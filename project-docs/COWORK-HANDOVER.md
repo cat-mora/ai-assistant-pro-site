@@ -49,14 +49,18 @@ Everything in Growth plus: outbound cold calling campaigns, trigger-based outbou
 
 The website uses a 4-level structure:
 
-| Level | Name | Monthly | Setup |
-|---|---|---|---|
-| Level 1 | Answer & Message | A$295/mo | A$495 |
-| Level 2 | Answer & Book | A$395/mo | A$695 |
-| Level 3 | Lead Callback | A$595/mo | A$995 |
-| Level 4 | Rebook & Reactivate | A$995/mo | A$1,495 |
+| Level | Name | Monthly | Setup | Minutes included | Per-employee add-on |
+|---|---|---|---|---|---|
+| Level 1 | Answer & Message | A$295/mo | A$495 | 300 mins/mo | n/a |
+| Level 2 | Answer & Book | A$395/mo | A$695 | 400 mins/mo | n/a |
+| Level 3 | Lead Callback | A$595/mo | A$995 | 600 mins/mo (sole operator) | +A$95/mo per employee |
+| Level 4 | Rebook & Reactivate | A$995/mo | A$1,495 | 800 mins/mo (sole operator) | +A$175/mo per employee |
 
 All prices in AUD. GST registration needed at $75,000 revenue.
+
+Minute inclusions are shown on the website below each price. The per-employee add-on applies to L3 and L4 because outbound call volume scales with team size.
+
+Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs include Vapi (~A$0.20/min all-in), Twilio AU inbound (A$0.013/min) and outbound (A$0.026/min), Supabase Pro (~A$38/mo shared), ElevenLabs (included in Vapi cost).
 
 ---
 
@@ -67,10 +71,10 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 | Landing page + form | Vercel + GitHub | ✅ Live |
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
-| Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Next: import into Vapi. Also: register with caller ID services (Truecaller etc.). |
+| Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number imported into Vapi. Still to do: register with caller ID services (Truecaller etc.). |
 | Payment | Stripe Payment Links | ✅ Account exists — payment links NOT yet created |
 | Booking | Google Calendar booking pages | ❌ Not set up yet |
-| Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias — logged as task. |
+| Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias. |
 | Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See vapi-config.md for IDs and settings. |
 | Client change requests | Trello | ⏳ One board per client, auto-created on payment — to be set up in Session 1J |
 
@@ -83,7 +87,11 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 **Branch:** main  
 **Language:** Plain HTML/CSS/JS (no framework, no build step)  
 **Deployed via:** Vercel (auto-deploys on push to main)  
+**Vercel team:** kindred-systems-team  
+**Vercel project ID:** prj_Qi6cD0H9lvFM5cEdO1xRoEF7ZhgY  
 **Project docs:** stored in `/project-docs/` folder in this repo
+
+**Note on vercel.json:** Fixed 2026-06-13. The redirect rule now only fires for the non-www domain (aiassistantpro.com.au → www.aiassistantpro.com.au). Earlier versions had a blanket redirect that broke all preview URL deployments.
 
 ---
 
@@ -96,7 +104,8 @@ All prices in AUD. GST registration needed at $75,000 revenue.
 
 **Vapi Public Key:** `46223d21-06e8-4659-9957-fc297f108320`
 
-**Default voice for all new agents:** Damian — ElevenLabs voice ID `L6n6lykkxcsgjmsqknme`
+**Default voice for all new agents:** Damian — ElevenLabs voice ID `L6n6lykkxcsgjmsqknme`  
+**Lily voice ID:** `0qt4ordtvpdlupmfsuwn`
 
 See `vapi-config.md` for full voice details and Twilio number setup steps.
 
@@ -109,7 +118,17 @@ Still to build:
 ## Website — Current State
 
 **Live URL:** https://www.aiassistantpro.com.au  
-**Current page:** Homepage only. No other pages live yet.
+**Current page:** Homepage only. No other pages live yet.  
+**Current version:** v13 (2026-06-13)
+
+**Recent changes (2026-06-13):**
+- Added minute inclusions per level to pricing cards
+- Added per-employee add-on boxes for L3 and L4
+- Added running costs explainer section below pricing grid
+- Fixed: minutes text now appears below price (not above)
+- Fixed: minutes text is normal weight (not bold)
+- Fixed: logo 404 resolved with ?v=2 cache-buster
+- Fixed: vercel.json blanket redirect that was blocking preview deployments
 
 **Design system:**
 - Navy: `#17283f`
@@ -196,13 +215,14 @@ Plain English always. Warm but straight-talking. Australian. Like a smart mate w
 - "While you're on the tools, your agent is on the phones"
 - "You're a tradie, not a receptionist"
 
-**Avoid:** Corporate speak, American spelling, "cutting-edge", "revolutionary", em dashes, staccato sentence triplets.
+**Avoid:** Corporate speak, American spelling, "cutting-edge", "revolutionary", em dashes, staccato sentence triplets, and all words on the AI-tells banned list (see memory: feedback-writing-style).
 
 ---
 
 ## Session Rules for Cowork
 
 - Always assume full context from this document — never ask what the business does
+- Read COWORK-HANDOVER.md and MASTER-TODO.md at the start of every session
 - Australian English always
 - Prices always in AUD
 - Explain what code does in plain English before and after writing it
