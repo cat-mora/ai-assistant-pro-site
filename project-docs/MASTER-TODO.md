@@ -18,15 +18,15 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **Pricing model & website update** ✅ (completed 2026-06-13)
   Full cost modelling done for all four levels including Vapi/Twilio/ElevenLabs/Supabase usage costs. Pricing confirmed profitable at all levels. Added minute inclusions per level, per-employee add-ons for L3/L4, and running costs explainer to pricing section on homepage. Pricing model saved locally as `aap_pricing_model.xlsx`. Website fixes: minutes text moved below price, bold removed from minutes, logo 404 fixed with cache-buster, vercel.json redirect bug fixed.
 
-- [ ] **1B — Stripe Payment Links** → `session-1B-stripe.md`
-  Set up all four pricing tiers as Stripe payment links (monthly + setup fee for each). Configure success page to show Google Calendar onboarding booking link.
+- [x] **1B — Stripe Payment Links** → `session-1B-stripe.md` ✅ (completed 2026-06-14)
+  10 payment links created in live mode (AUD) in the AI Assistant Pro Stripe account. 4 monthly subscriptions, 4 one-time setup fees, 2 per-employee add-ons (L3 +$95/mo, L4 +$175/mo). All URLs saved to `stripe-payment-links.md`. Success message placeholder in place — update redirect to Google Calendar booking URL after Session 1C. Stripe account set up as a separate account from Cultivate the Fruits.
 
 - [ ] **1C — Google Calendar Booking Pages** → `session-1C-google-calendar.md`
   Create two booking pages: AI Intake Call (new paid clients, triggers onboarding flow) and Sales Call (prospects who want to speak to Cathryn). Set availability. Copy both URLs — needed for Stripe and Vapi.
 
 - [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
   Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
-  **Blocked on:** Stripe payment link URLs (1B) and Google Calendar booking URL (1C).
+  **Blocked on:** Google Calendar booking URL (1C). Stripe links now ready.
 
 - [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
   Set up a Google Drive documentation library. Folder structure covering: business overview, systems and processes, agent scripts, client onboarding, change management, pricing, and handover guide. Written as if handing to a buyer who has never met Cathryn. Start populating with what already exists. Build to sell from day one.
@@ -90,7 +90,7 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - ABN confirmed: 97 722 882 034.
 - ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
 - Twilio number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle approved. Number imported into Vapi. Still to do: register with Truecaller/caller ID services + set up AI Assistant Pro email.
-- Kai upgrade (Session 1L): Blocked on 1B (Stripe links) and 1C (Calendar URL). Do 1B and 1C first, then come back to 1L.
+- Kai upgrade (Session 1L): Blocked on 1C (Calendar URL) only. Stripe links now done. Do 1C first, then come back to 1L.
 - Documentation library (Session 1M): Google Drive, start now, build to sell. 5-year exit horizon.
 - Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
 - Trello for client change requests: one board per client, auto-created on payment.
@@ -99,3 +99,4 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - Pricing model spreadsheet: saved locally as `aap_pricing_model.xlsx` in the AI Business to sell folder. Two sheets: Assumptions (blue inputs) and Per-Client P&L (calculated). Use this to check profitability before changing prices.
 - Per-employee add-ons confirmed: L3 +A$95/mo per extra employee, L4 +A$175/mo per extra employee.
 - vercel.json: fixed 2026-06-13. Was incorrectly redirecting all requests (including preview URLs) to www domain. Now only redirects the non-www domain.
+- Stripe: AI Assistant Pro is a separate Stripe account from Cultivate the Fruits. Payment links saved in `stripe-payment-links.md`. Success page needs updating after Session 1C.
