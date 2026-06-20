@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment received — AI Assistant Pro</title>
+  <meta name="description" content="Payment received. We'll be in touch shortly to get your AI Assistant set up.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#17283f">
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <style>
+    :root {
+      --navy: #17283f;
+      --navy-2: #223753;
+      --cream: #f7f0e5;
+      --cream-light: #fffaf2;
+      --white: #fffdf8;
+      --sand: #eadcc9;
+      --gold: #bd985c;
+      --gold-dark: #9f7d44;
+      --ink: #17283f;
+      --muted: #5f6e82;
+      --line: rgba(23, 40, 63, 0.14);
+      --shadow: 0 24px 64px rgba(23, 40, 63, 0.15);
+      --radius-lg: 30px;
+      --radius-md: 22px;
+      --radius-sm: 15px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .nav {
+      background: var(--navy);
+      padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .nav-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 4vw, 2.5rem);
+      background:
+        radial-gradient(circle at 6% 10%, rgba(217, 189, 174, 0.5), transparent 28rem),
+        radial-gradient(circle at 92% 80%, rgba(189, 152, 92, 0.08), transparent 24rem),
+        var(--cream);
+    }
+    .card {
+      background: var(--cream-light);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      max-width: 580px;
+      width: 100%;
+      padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1.75rem, 5vw, 3rem);
+      text-align: center;
+    }
+    .tick-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4caf7d, #2e9e60);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      box-shadow: 0 8px 28px rgba(46, 158, 96, 0.25);
+    }
+    .tick-wrap svg { width: 36px; height: 36px; }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      color: var(--navy);
+      margin: 0 0 0.85rem;
+      line-height: 1.25;
+    }
+    .sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 2rem;
+      line-height: 1.6;
+    }
+    .steps {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .steps-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      margin-bottom: 1rem;
+    }
+    .step {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      margin-bottom: 0.85rem;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-text { font-size: 0.92rem; color: var(--ink); line-height: 1.5; padding-top: 3px; }
+    .step-text strong { font-weight: 600; }
+    .disclosure {
+      background: rgba(23, 40, 63, 0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .disclosure p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .disclosure strong { color: var(--ink); font-weight: 600; }
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 2.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .btn:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .footer-note {
+      margin-top: 1.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-note a { color: var(--gold-dark); text-decoration: none; }
+    .footer-note a:hover { text-decoration: underline; }
+    footer {
+      background: var(--navy);
+      color: rgba(247, 240, 229, 0.55);
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+      flex-shrink: 0;
+    }
+    footer a { color: rgba(247, 240, 229, 0.55); text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+    @media (max-width: 480px) {
+      .card { border-radius: var(--radius-md); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="https://www.aiassistantpro.com.au" class="nav-logo">
+      AI Assistant <span>Pro</span>
+    </a>
+  </nav>
+  <main class="hero">
+    <div class="card">
+      <div class="tick-wrap" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="7,18 15,26 29,10" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Payment received. You're in.</h1>
+      <p class="sub">Your AI Assistant Pro subscription is confirmed. Here's what happens next.</p>
+      <div class="steps">
+        <div class="steps-title">What happens next</div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Fill in your business details.</strong> Takes about 5 minutes. The more detail you give us, the better your agent will perform from day one.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Book your onboarding call.</strong> A 20-minute call with our team to confirm your setup and answer any questions.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Your agent goes live.</strong> We build and test your AI assistant, then flip it on. Most clients are live within 3–5 business days of onboarding.</div>
+        </div>
+      </div>
+      <div class="disclosure" role="note" aria-label="AI disclosure">
+        <p>
+          <strong>Heads up: your assistant is AI-powered.</strong>
+          Your new AI assistant uses a voice AI platform to answer and make calls on your behalf.
+          Callers will be told they are speaking with an AI assistant.
+          All calls are recorded for quality and training purposes, consistent with Australian privacy law.
+          If you have any questions, reply to your confirmation SMS or email us at
+          <a href="mailto:hello@aiassistantpro.com.au" style="color: var(--gold-dark);">hello@aiassistantpro.com.au</a>.
+        </p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.85rem; align-items:center;">
+        <a href="/intake" id="intakeLink" class="btn" style="width:100%; max-width:340px; text-align:center;">
+          Fill in business details &rarr;
+        </a>
+        <a href="https://tidycal.com/kindredsystems/aap-connor-intake" target="_blank" rel="noopener"
+           class="btn" style="background:transparent; border:2px solid var(--gold); color:var(--navy); width:100%; max-width:340px; text-align:center;">
+          Book onboarding call
+        </a>
+      </div>
+      <p class="footer-note" style="margin-top:1.5rem;">
+        Confirmation also sent to your email. Questions?
+        <a href="mailto:hello@aiassistantpro.com.au">hello@aiassistantpro.com.au</a>
+      </p>
+    </div>
+  </main>
+  <footer>
+    <p>
+      &copy; 2026 AI Assistant Pro &mdash; a Kindred Systems product &nbsp;|&nbsp;
+      <a href="https://www.aiassistantpro.com.au/privacy">Privacy</a> &nbsp;|&nbsp;
+      <a href="https://www.aiassistantpro.com.au/terms">Terms</a>
+    </p>
+  </footer>
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var intakeBase = "/intake";
+      var qs = [];
+      if (params.get("lead_id")) qs.push("lead_id=" + encodeURIComponent(params.get("lead_id")));
+      if (params.get("plan")) qs.push("plan=" + encodeURIComponent(params.get("plan")));
+      if (qs.length) {
+        document.getElementById("intakeLink").href = intakeBase + "?" + qs.join("&");
+      }
+    })();
+  </script>
+</body>
+</html>
