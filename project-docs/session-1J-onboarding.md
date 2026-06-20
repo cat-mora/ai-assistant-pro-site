@@ -1,110 +1,200 @@
 # Session 1J — Client Onboarding Flow
 
 ## What this session is for
-Build the complete automated onboarding experience that every new client receives from the moment they pay. This must be ready before any marketing starts — the first client should get the full system, not a manual workaround.
+Build the complete post-payment onboarding system. Every step after Stripe payment fires should be automated or clearly documented. The only manual step in this entire flow is Cathryn reviewing the intake transcript and building the client's Vapi agent.
 
 ## Context
-Read COWORK-HANDOVER.md in this folder first.
+Read COWORK-HANDOVER.md and sales-flow.md in this folder first.
+DEPENDENCIES: Requires `calendar-booking-urls.md` (done ✅), Session 1M documentation library (do 1M first or in parallel).
 
-The goal is for Cathryn to be mostly hands-off during onboarding. The client pays → automation takes over → Cathryn receives a clean intake transcript → she builds their agent → short handover. Cathryn only steps in if the client specifically requests it.
+## Design principles
+- The client should feel looked after from the moment they pay, without Cathryn lifting a finger
+- Connor (AI agent) is the default intake path — human intake only if client explicitly refuses the AI during the call
+- The client never needs to learn or log into Trello
+- Nothing goes live until the client has approved their agent configuration
+- Every client has a documented failure plan before go-live
 
-## The Full Post-Payment Flow to Build
+---
+
+## Step 1 — Stripe webhook fires (automatic)
+
+Two things trigger immediately on payment:
+
+**A. Welcome email to client**
+Sent from: support@aiassistantpro.com.au (or Cathryn's Google Workspace)
+Contains:
+- Welcome message
+- What happens next (clear 5-step summary)
+- Prep checklist (what to have ready before their intake call)
+- Link to book their Connor intake call: https://tidycal.com/kindredsystems/aap-connor-intake
+- Their dedicated change request email address: changes@aiassistantpro.com.au
+
+**B. Trello board created for client**
+- Auto-named: "[Client Business Name] — AI Assistant Pro"
+- Cathryn invited as member
+- Client is NOT added to Trello — they never see it
+- Board columns: To Do / In Progress / Done / Waiting on Client
+- First card auto-created: "Initial Setup — [Client Name]"
+
+---
+
+## Step 2 — Client books Connor intake call
+
+Client clicks the TidyCal link in their welcome email.
+Booking page: https://tidycal.com/kindredsystems/aap-connor-intake
+Duration: 20 minutes. Available 24/7. No conflict checks (Connor is an AI agent).
+
+---
+
+## Step 3 — Connor AI intake interview
+
+Connor calls the client at the booked time.
+
+**Connor's opening:**
+"Hi, this is Connor from AI Assistant Pro. I'm an AI agent — and this is actually the same type of technology we'll be setting up for your business. So right now you're getting a live demo of what your customers will experience. Let's get your agent configured."
+
+**Information Connor collects:**
+- Business name and how calls should be answered
+- Services offered (and services they don't take)
+- Service area / suburbs covered
+- Business hours
+- Pricing / quote boundaries (what they can and can't quote on the call)
+- Booking process (calendar system, how appointments work)
+- Transfer contacts (who to transfer urgent calls to, and when they're available)
+- Emergency / urgent job rules (what counts as urgent, what to do)
+- FAQs (top 5–10 questions customers ask)
+- Anything the agent should never say or do
+- Client's own phone number for forwarding setup
+
+**If client refuses the AI intake:**
+Connor says: "No problem at all. I'll let Cathryn know and she'll be in touch to go through this with you directly."
+Triggers a Trello card: "Client requested human intake — [Name]"
+Cathryn handles it manually.
+
+**Call recorded and transcribed automatically.**
+
+---
+
+## Step 4 — Approval summary sent to client
+
+After the intake call, Claude processes the transcript and generates a structured approval summary:
 
 ```
-Client pays via Stripe
-      ↓
-Stripe webhook fires
-      ↓
-Two things happen automatically:
-  1. Welcome email sent to client
-  2. Trello board created for client
-      ↓
-Client reads prep checklist, books AI intake call
-      ↓
-AI intake agent calls them (or they call in)
-Agent frames: "I'm an AI agent — same type we're setting up for you"
-Agent interviews them (10–15 mins)
-Agent offers Cathryn contact if needed
-      ↓
-Call transcript + summary emailed to Cathryn
-      ↓
-Cathryn reviews, builds their agent in Vapi
-      ↓
-Handover: email or short call
-      ↓
-Ongoing changes submitted via Trello board
+AGENT CONFIGURATION SUMMARY — [Business Name]
+To be approved before your agent goes live.
+
+Business name / call greeting: ...
+Services offered: ...
+Services not offered: ...
+Service area: ...
+Hours: ...
+Pricing / quote rules: ...
+Booking process: ...
+Transfer contacts: ...
+Emergency rules: ...
+Key FAQs: ...
+Things to never say: ...
+Forwarding number: ...
+
+Please reply YES to approve, or reply with any changes.
 ```
 
-## What to Build in This Session
+Sent to client via email. Client replies to approve or request changes.
+Cathryn also receives a copy.
 
-### 1. Welcome Email (auto-sent on Stripe payment)
-Triggered by Stripe webhook. Warm, Australian tone. Contains:
-- Congratulations and what happens next
-- Prep checklist (see below)
-- Link to book their AI intake call (Google Calendar booking page from Session 1C)
-- Link to their Trello board (auto-created — see step 3)
-- Cathryn's contact details for urgent matters
+---
 
-**Prep checklist content:**
-- Your exact business name and how you like the phone to be answered
-- Your services and rough prices (ballpark is fine)
-- Your top 3–5 questions callers usually ask
-- How you currently handle bookings (do you use any software?)
-- What would make you want a call transferred to you urgently
-- Your trading hours
-- Any types of calls the agent should never handle
+## Step 5 — Cathryn builds the Vapi agent
 
-### 2. AI Intake Interview Agent (Vapi)
-A new Vapi assistant. Inbound — client calls in after booking.
+Using the approved summary, Cathryn builds the client's agent in Vapi.
+Time: approximately 30–60 minutes.
+This is the only manual step in the entire onboarding flow.
 
-**Opening framing (non-negotiable):**
-"Hi [name], this is an AI agent from AI Assistant Pro — actually, the same type of agent we'll be setting up for your business, so you're getting a live demo right now. I'm going to ask you a few questions to get your agent configured. This usually takes about 10 minutes. And if at any point you'd like to speak with Cathryn directly, just say so and she'll follow up with you personally. Ready to get started?"
+---
 
-**Questions to cover:**
-1. Business name and preferred phone greeting (word for word)
-2. What services do you offer, and are there prices you're happy for the agent to share?
-3. What are the most common questions callers ask you?
-4. How do you handle bookings — do you use any software, or is it manual?
-5. What's your availability like — days and hours?
-6. Are there any call types that should always be transferred to you?
-7. Anything else callers regularly ask that we should program in?
-8. Is there anything specific you want the agent to avoid saying or doing?
+## Step 6 — Internal test calls
 
-**End of call:**
-"Brilliant — I've got everything I need. Cathryn will review this and your agent will be configured within [X] business days. You'll receive a confirmation once it's live. Your Trello board is already set up — that's where you can send any updates or change requests once you're live. Any questions before we finish?"
+Before anything goes live:
+- Cathryn (or Claude) runs internal test calls against the agent
+- Tests: normal enquiry, urgent/complex call, booking or escalation
+- Any issues fixed before client sees it
 
-**Recording:** ON. Transcript delivered to cathryn@aiassistantpro.com.au.
+---
 
-### 3. Trello Board Auto-Creation
-Triggered by same Stripe webhook as welcome email.
+## Step 7 — Client test and approval
 
-**Board setup per client:**
-- Board name: [Client Business Name] — AI Assistant Pro
-- Lists: Requested Changes | In Progress | Done | Reference Info
-- Template card in "Requested Changes":
-  Title: [Short description of change]
-  Description: What needs to change, and why. Include any example calls or scripts if helpful.
-  Label options: Urgent / Normal / Question
-- Client invited as member using email provided at payment
+Client is sent a test number and asked to try 3 scenarios:
+1. A normal customer enquiry
+2. An urgent or complex call
+3. A booking or transfer request
 
-**How to trigger:** Zapier (Stripe → Trello) is the simplest no-code option.
+Client approves in writing (email reply: "Approved" or notes changes).
+No forwarding goes live until written approval received.
 
-### 4. Webhook Orchestration
-The Stripe payment webhook needs to trigger:
-- Welcome email send
-- Trello board creation + client invite
-- (Optional) Outbound Vapi intake call reminder if client hasn't booked within 24 hours
+---
 
-## Outputs Expected from This Session
-- Welcome email copy written and saved
-- Intake agent script written and formatted for Vapi
-- Intake agent created in Vapi and tested
-- Trello automation wired up (Stripe payment → board created → client invited)
-- Welcome email automation wired up (Stripe payment → email sent)
-- End-to-end test: simulate a Stripe payment, confirm email fires, Trello board appears, intake call works
+## Step 8 — Go live
 
-## Notes
-- Australian English throughout all copy
-- The "you're experiencing the product" framing is a feature, not a disclaimer — lean into it
-- Cathryn wants to be hands-off — every step that can be automated should be
-- Trello is also used in Cathryn's other businesses — keep the board structure consistent (one board per client)
+Phone forwarding activated to the client's number.
+Client notified: "Your agent is live."
+Handover email includes:
+- How their agent works
+- What to expect in the first week
+- How to request changes (email changes@aiassistantpro.com.au)
+- Links to connect calendar, CRM, Google Drive if applicable
+
+---
+
+## Step 9 — Ongoing change requests
+
+**Client experience:**
+Client emails changes@aiassistantpro.com.au with their request.
+They get an auto-reply confirming receipt.
+That's all they need to do.
+
+**Behind the scenes:**
+The email auto-creates a Trello card on their board under "To Do."
+Cathryn reviews and actions it.
+Client never sees Trello. Never needs to create an account. Never needs to learn anything new.
+
+**Tweak policy:** One weekly batch of reasonable tweaks included in all packages. Business-critical issues (affecting calls, bookings, or customer handoff) prioritised sooner.
+
+---
+
+## Step 10 — Failure plan (documented per client before go-live)
+
+Every client must have a documented failure plan before their agent goes live. Saved to their Trello board.
+
+Covers:
+- What happens if the agent is unavailable? (fallback: voicemail / owner mobile / backup number)
+- What happens if the calendar connection fails? (fallback: agent takes message and notifies owner)
+- What happens if an urgent call can't be transferred? (fallback: specific instructions)
+- Who receives call summaries?
+- Who can authorise emergency changes outside the normal weekly cycle?
+- What's the client's mobile for emergencies?
+
+---
+
+## Technical dependencies
+
+| Dependency | Session | Status |
+|---|---|---|
+| TidyCal Connor intake booking page | 1C | ✅ Done |
+| Stripe webhook | 1J (this session) | ⏳ |
+| Welcome email template | 1J (this session) | ⏳ |
+| Trello auto-board creation | 1J (this session) | ⏳ |
+| changes@aiassistantpro.com.au email → Trello | 1J (this session) | ⏳ |
+| Connor AI intake agent in Vapi | 1J (this session) | ⏳ |
+| Approval summary generation | 1J (this session) | ⏳ |
+
+---
+
+## Outputs expected
+- Stripe webhook configured and tested
+- Welcome email template written and wired
+- Trello board auto-creation working
+- changes@aiassistantpro.com.au set up and wired to Trello
+- Connor AI intake agent built in Vapi and tested
+- Approval summary template created
+- Failure plan template created
+- Full flow tested end to end with a dummy client
