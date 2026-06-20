@@ -19,21 +19,24 @@ These need to be done before you can sell with confidence. Work through them in 
   Full cost modelling done for all four levels including Vapi/Twilio/ElevenLabs/Supabase usage costs. Pricing confirmed profitable at all levels. Added minute inclusions per level, per-employee add-ons for L3/L4, and running costs explainer to pricing section on homepage. Pricing model saved locally as `aap_pricing_model.xlsx`. Website fixes: minutes text moved below price, bold removed from minutes, logo 404 fixed with cache-buster, vercel.json redirect bug fixed.
 
 - [x] **1B — Stripe Payment Links** → `session-1B-stripe.md` ✅ (completed 2026-06-14)
-  10 payment links created in live mode (AUD) in the AI Assistant Pro Stripe account. 4 monthly subscriptions, 4 one-time setup fees, 2 per-employee add-ons (L3 +$95/mo, L4 +$175/mo). All URLs saved to `stripe-payment-links.md`. Success message placeholder in place — update redirect to intake call booking URL after Session 1C. Stripe account set up as a separate account from Cultivate the Fruits.
+  10 payment links created in live mode (AUD) in the AI Assistant Pro Stripe account. 4 monthly subscriptions, 4 one-time setup fees, 2 per-employee add-ons (L3 +$95/mo, L4 +$175/mo). All URLs saved to `stripe-payment-links.md`. Success message placeholder in place — update redirect to intake call booking URL (now confirmed: https://tidycal.com/kindredsystems/aap-connor-intake). Stripe account set up as a separate account from Cultivate the Fruits.
 
-- [x] **1C — Google Calendar Booking Pages** → `session-1C-google-calendar.md` ✅ (completed 2026-06-20)
-  Booking tool: TidyCal Agency plan (lifetime, AppSumo). Account slug changed to `kindredsystems`. Two booking pages created:
-  - AI Intake Call: https://tidycal.com/kindredsystems/ai-intake-call (20 min, agent calls client, conflicts OFF, dedicated Google Calendar)
-  - Sales Call with Cathryn: https://tidycal.com/kindredsystems/sales-call (20 min, conflicts ON, respects Cathryn's calendar)
-  Dedicated Google Calendar created: "AI Assistant Intake Agent — Kindred Systems"
-  Still to do: reconnect Google Calendar in TidyCal to assign intake call to dedicated calendar; update Stripe success page redirect; set Cathryn's real availability on Sales Call page. See `calendar-booking-urls.md`.
+- [x] **1C — Booking Pages** → `session-1C-google-calendar.md` ✅ (completed 2026-06-20)
+  Booking tool: TidyCal Agency plan (lifetime, AppSumo ~$79 AUD one-time). Account slug: `kindredsystems`. Two booking pages created and fully configured:
+  - **Connor intake:** https://tidycal.com/kindredsystems/aap-connor-intake — "AI Assistant Pro — Intake Call with Connor (AI Agent)", 20 min, TidyCal only, conflicts OFF, 14 days, 1hr notice
+  - **Cathryn intro:** https://tidycal.com/kindredsystems/aap-cathryn-intro — "Chat with Cathryn — AI Assistant Pro", 20 min, Google Calendar synced, conflicts ON, 14 days, 4hr notice
+  Cathryn's availability set: M/T/W/F 5–7pm, Thu 9am–5pm, Sat 9am–12pm, Sun off.
+  Google Calendar connected to TidyCal. 3 default booking types deleted.
+  Descriptions written for both pages. See `calendar-booking-urls.md` for full detail.
+  ⚠️ STILL TO DO: Update Stripe success page redirect to https://tidycal.com/kindredsystems/aap-connor-intake
 
 - [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
   Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
-  **Now unblocked.** Sales call URL: https://tidycal.com/kindredsystems/sales-call. Stripe links in `stripe-payment-links.md`.
+  **NOW UNBLOCKED.** Cathryn intro call URL: https://tidycal.com/kindredsystems/aap-cathryn-intro. Stripe links in `stripe-payment-links.md`.
 
 - [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
   Set up a Google Drive documentation library. Folder structure covering: business overview, systems and processes, agent scripts, client onboarding, change management, pricing, and handover guide. Written as if handing to a buyer who has never met Cathryn. Build to sell from day one.
+  NOTE: Session 1M should also document the full client onboarding/handover process including what goes in the post-setup email (links to connect calendar, CRM, Google Drive etc.). This detail needs to be mapped before Session 1J is built.
 
 - [ ] **1D — Supabase Lead Database** → `session-1D-supabase.md`
   Create a new Supabase project for AI Assistant Pro (separate from other projects). Set up the leads table. Wire it to the /tradies form. Test that submissions save correctly.
@@ -54,7 +57,8 @@ These need to be done before you can sell with confidence. Work through them in 
   Submit a test lead. Confirm Supabase saves it, Vapi calls within 60 seconds, all three branches work, Stripe link fires, booking page loads.
 
 - [ ] **1J — Client Onboarding Flow** → `session-1J-onboarding.md`
-  Build the complete post-payment onboarding system. Stripe webhook triggers: welcome email (prep checklist + Trello link + intake call booking), Trello board auto-created per client. AI intake interview agent gathers all info needed to build their Vapi agent. Transcript emailed to Cathryn. Must be ready before first client.
+  Build the complete post-payment onboarding system. Stripe webhook triggers: welcome email (prep checklist + Trello link + Connor intake booking link), Trello board auto-created per client. Connor AI intake agent interviews the client (covers: business greeting, services, FAQs, hours, booking process, transfer rules). Transcript emailed to Cathryn. Cathryn builds their Vapi agent. Handover email sent with links for client to connect their calendar, CRM, Google Drive etc.
+  DEPENDENCIES: Requires `calendar-booking-urls.md` (done), Session 1M onboarding process doc (do 1M first or in parallel).
 
 ---
 
@@ -94,8 +98,10 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - ABN confirmed: 97 722 882 034.
 - ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
 - Twilio number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle approved. Number imported into Vapi. Still to do: register with Truecaller/caller ID services + set up AI Assistant Pro email.
-- Kai upgrade (Session 1L): NOW UNBLOCKED. Sales call URL: https://tidycal.com/kindredsystems/sales-call. Stripe links in stripe-payment-links.md.
-- Documentation library (Session 1M): Google Drive, start now, build to sell. $100M exit target, 5-year horizon.
+- TidyCal: Agency plan, slug `kindredsystems`. Booking pages fully set up. See `calendar-booking-urls.md`.
+- Stripe success page: needs redirect updated to https://tidycal.com/kindredsystems/aap-connor-intake (⚠️ not yet done).
+- Kai upgrade (Session 1L): NOW UNBLOCKED. Cathryn intro URL: https://tidycal.com/kindredsystems/aap-cathryn-intro. Stripe links in `stripe-payment-links.md`.
+- Documentation library (Session 1M): Google Drive, start now, build to sell. $100M exit target, 5-year horizon. Also use 1M to document the client onboarding/handover process.
 - Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
 - Trello for client change requests: one board per client, auto-created on payment.
 - Homepage /pricing page: Phase 2, after first client.
@@ -103,5 +109,4 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - Pricing model spreadsheet: saved locally as `aap_pricing_model.xlsx` in the AI Business to sell folder.
 - Per-employee add-ons confirmed: L3 +A$95/mo per extra employee, L4 +A$175/mo per extra employee.
 - vercel.json: fixed 2026-06-13.
-- Stripe: AI Assistant Pro is a separate Stripe account. Payment links in `stripe-payment-links.md`. Stripe success page needs updating to https://tidycal.com/kindredsystems/ai-intake-call.
-- TidyCal: Agency plan, slug `kindredsystems`. See `calendar-booking-urls.md` for all booking URLs and outstanding tasks.
+- Stripe: AI Assistant Pro is a separate Stripe account. Payment links in `stripe-payment-links.md`.
