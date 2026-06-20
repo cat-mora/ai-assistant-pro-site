@@ -18,8 +18,8 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **Pricing model & website update** ✅ (completed 2026-06-13)
   Full cost modelling done for all four levels including Vapi/Twilio/ElevenLabs/Supabase usage costs. Pricing confirmed profitable at all levels. Added minute inclusions per level, per-employee add-ons for L3/L4, and running costs explainer to pricing section on homepage. Pricing model saved locally as `aap_pricing_model.xlsx`. Website fixes: minutes text moved below price, bold removed from minutes, logo 404 fixed with cache-buster, vercel.json redirect bug fixed.
 
-- [x] **1B — Stripe Payment Links** → `session-1B-stripe.md` ✅ (completed 2026-06-14)
-  10 payment links created in live mode (AUD) in the AI Assistant Pro Stripe account. 4 monthly subscriptions, 4 one-time setup fees, 2 per-employee add-ons (L3 +$95/mo, L4 +$175/mo). All URLs saved to `stripe-payment-links.md`. Success message placeholder in place — update redirect to intake call booking URL (now confirmed: https://tidycal.com/kindredsystems/aap-connor-intake). Stripe account set up as a separate account from Cultivate the Fruits.
+- [x] **1B — Stripe Payment Links** → `session-1B-stripe.md` ✅ (completed 2026-06-14, redirect updated 2026-06-20)
+  10 payment links created in live mode (AUD) in the AI Assistant Pro Stripe account. 4 monthly subscriptions, 4 one-time setup fees, 2 per-employee add-ons (L3 +$95/mo, L4 +$175/mo). All URLs saved to `stripe-payment-links.md`. Success page on all 10 links redirects to https://tidycal.com/kindredsystems/aap-connor-intake ✅. Stripe account set up as a separate account from Cultivate the Fruits.
 
 - [x] **1C — Booking Pages** → `session-1C-google-calendar.md` ✅ (completed 2026-06-20)
   Booking tool: TidyCal Agency plan (lifetime, AppSumo ~$79 AUD one-time). Account slug: `kindredsystems`. Two booking pages created and fully configured:
@@ -28,7 +28,7 @@ These need to be done before you can sell with confidence. Work through them in 
   Cathryn's availability set: M/T/W/F 5–7pm, Thu 9am–5pm, Sat 9am–12pm, Sun off.
   Google Calendar connected to TidyCal. 3 default booking types deleted.
   Descriptions written for both pages. See `calendar-booking-urls.md` for full detail.
-  ⚠️ STILL TO DO: Update Stripe success page redirect to https://tidycal.com/kindredsystems/aap-connor-intake
+  Stripe success redirect updated to Connor intake URL ✅
 
 - [ ] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md`
   Upgrade Kai from a discovery/qualifier agent to a full sales agent that can close deals. Kai should pitch, handle objections, and send a Stripe payment link via SMS at any point. "Book a call with Cathryn" is a last resort only — offered if the prospect explicitly asks for a human, or after two nos. If they say no, Kai asks: follow-up later, or speak to Cathryn?
@@ -99,7 +99,7 @@ Each strategy gets its own session. Do them in order — earlier ones feed later
 - ASIC token for .com.au domain: domain is already live, token has been used. Nothing more needed.
 - Twilio number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle approved. Number imported into Vapi. Still to do: register with Truecaller/caller ID services + set up AI Assistant Pro email.
 - TidyCal: Agency plan, slug `kindredsystems`. Booking pages fully set up. See `calendar-booking-urls.md`.
-- Stripe success page: needs redirect updated to https://tidycal.com/kindredsystems/aap-connor-intake (⚠️ not yet done).
+- Stripe success page: all 10 payment links now redirect to https://tidycal.com/kindredsystems/aap-connor-intake ✅ (updated 2026-06-20).
 - Kai upgrade (Session 1L): NOW UNBLOCKED. Cathryn intro URL: https://tidycal.com/kindredsystems/aap-cathryn-intro. Stripe links in `stripe-payment-links.md`.
 - Documentation library (Session 1M): Google Drive, start now, build to sell. $100M exit target, 5-year horizon. Also use 1M to document the client onboarding/handover process.
 - Sales flow agreed and saved as `sales-flow.md` — reference this in all build sessions.
