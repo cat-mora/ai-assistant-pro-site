@@ -2,8 +2,7 @@
 
 All links are live (AUD). Created 2026-06-14.
 
-Success message on all links: "Payment confirmed. Your AI intake call booking link will be sent shortly."
-**TODO:** Update success page to redirect to Google Calendar AI Intake Call booking URL once Session 1C is complete.
+Success page on all links: redirects to https://tidycal.com/kindredsystems/aap-connor-intake ✅ (updated 2026-06-20)
 
 ---
 
@@ -44,4 +43,4 @@ Success message on all links: "Payment confirmed. Your AI intake call booking li
 - When a client signs up, send both: the setup fee link first, then the monthly subscription link
 - For multi-employee clients on L3 or L4, send the relevant add-on link and ask them to purchase one per additional employee
 - The Vapi outbound sales agent uses the monthly subscription links when a lead says yes on the call
-- Update success page redirect URL after Session 1C (Google Calendar booking page)
+- All success pages redirect to https://tidycal.com/kindredsystems/aap-connor-intake ✅
