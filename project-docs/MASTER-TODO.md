@@ -30,11 +30,15 @@ These need to be done before you can sell with confidence. Work through them in 
 - [x] **1L — Kai Sales Agent Upgrade** → `session-1L-kai-update.md` ✅ (completed 2026-06-20)
   Kai fully upgraded to sales agent. System prompt rewritten. Knowledge base built and attached. See full notes below.
 
-- [ ] **1N — Direct Checkout + Compatibility Check** → `session-1N-direct-checkout.md`
-  Add "Start this package" CTAs to each pricing card on the homepage.
-  - L1 and L2: go straight to Stripe checkout
-  - L3 and L4: short compatibility check first (5 questions) — if compatible, straight to Stripe; if not, route to Cathryn call
-  Kai remains available as an option throughout, not a mandatory step.
+- [x] **1N — Direct Checkout + Compatibility Check** → `session-1N-direct-checkout.md` ✅ (completed 2026-06-20)
+  "Start this package" CTAs added to all 4 pricing cards on the homepage.
+  - L1 and L2: CTA routes to a pre-checkout summary page (features, inclusions, cancellation policy, what happens next) then to Stripe.
+  - L3 and L4: 5-question compatibility check first — if compatible, routes to summary page then Stripe; if not, routes to Kai or Cathryn booking.
+  - Summary pages live at /start/answer-and-message.html, /start/answer-and-book.html, /start/lead-callback.html, /start/rebook-and-reactivate.html.
+  - Kai stays available as an option throughout — not a mandatory step.
+
+- [ ] **1P — About Page** *(new — 2026-06-20)*
+  Build an About page at aiassistantpro.com.au/about. Cathryn's background, why she built this, what makes Kindred Systems different. Should feel like a real person, not a brochure. Helps buyers trust the business before paying. Style to match the existing site design system (navy/cream/gold, Georgia/Inter). Link it from the main nav.
 
 - [ ] **1M — Documentation Library** → `session-1M-docs-library.md`
   Set up a Google Drive documentation library. Written as if handing to a buyer. Build to sell from day one.
@@ -90,6 +94,13 @@ These need to be done before you can sell with confidence. Work through them in 
 
 ---
 
+## KINDRED SYSTEMS GROUP — Separate tasks (not AAP-specific)
+
+- [ ] **KS-A — Kindred Systems homepage rejig** *(new — 2026-06-20)*
+  The current kindredsystems.com.au homepage leads with the product portfolio (AI Assistant Pro, Digital Employee Pro, etc.). Cathryn wants to reposition it so that her advisory and consulting work is the primary offering, with the products as a secondary story ("here is what I have built while doing this work"). Claude should read the current page and the group brief before starting. Flag to ChatGPT first for positioning direction before building.
+
+---
+
 ## Notes
 
 - ABN: 97 722 882 034
@@ -101,8 +112,9 @@ These need to be done before you can sell with confidence. Work through them in 
 - Kai knowledge base covers: packages (deep detail), Cathryn/Kindred Systems background, Digital Employee Pro, how the system works, common Q&A, sales psychology.
 - Digital Employee Pro: Kai CAN mention and sell DEP if the prospect needs more than a phone agent.
 - Vapi files: 2 active files. Electrician Demo KB (`102db6e7`), Kai KB (`e228de48`). Two old duplicate files deleted 2026-06-20.
-- Direct checkout (Session 1N): L1/L2 straight to Stripe. L3/L4 via compatibility check. Kai stays optional.
+- Direct checkout (Session 1N ✅): All 4 levels have CTAs. L1/L2 route through summary page then Stripe. L3/L4 route through compatibility check then summary page then Stripe. Kai stays optional.
+- Pre-checkout summary pages (Session 1N ✅): Live at /start/answer-and-message.html, /start/answer-and-book.html, /start/lead-callback.html, /start/rebook-and-reactivate.html. Each shows features, inclusions, what happens after payment, cancellation and refund policy, then a single Pay button to Stripe.
 - Documentation library (Session 1M): Google Drive, build to sell. $100M exit target. Also document client onboarding/handover process.
-- Cancellation policy: month-to-month, 5 days notice before billing date, no lock-in, setup fee non-refundable.
+- Cancellation policy: month-to-month, 5 days notice before billing date, no lock-in, setup fee non-refundable once build work commences.
 - Go-live timeline: 5 business days after intake call.
 - Build everything now. Don't wait for clients. Every channel compounds.
