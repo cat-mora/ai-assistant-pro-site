@@ -115,6 +115,7 @@ These need to be done before you can sell with confidence. Work through them in 
 - Direct checkout (Session 1N ✅): All 4 levels have CTAs. L1/L2 route through summary page then Stripe. L3/L4 route through compatibility check then summary page then Stripe. Kai stays optional.
 - Pre-checkout summary pages (Session 1N ✅): Live at /start/answer-and-message.html, /start/answer-and-book.html, /start/lead-callback.html, /start/rebook-and-reactivate.html. Each shows features, inclusions, what happens after payment, cancellation and refund policy, then a single Pay button to Stripe.
 - Documentation library (Session 1M): Google Drive, build to sell. $100M exit target. Also document client onboarding/handover process.
-- Cancellation policy: month-to-month, 5 days notice before billing date, no lock-in, setup fee non-refundable once build work commences.
+- Cancellation policy: month-to-month, cancel with 5 days notice before billing date, no lock-in, setup fee non-refundable once build work commences.
+- Overage pricing: A$9.90 per 30-minute block above the included monthly minutes.
 - Go-live timeline: 5 business days after intake call.
 - Build everything now. Don't wait for clients. Every channel compounds.
