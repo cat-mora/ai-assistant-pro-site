@@ -4,6 +4,18 @@ This document gives Claude Cowork full context on the AI Assistant Pro business.
 
 ---
 
+## CRITICAL: How Claude Must Work in This Project
+
+### Connector-First Rule (MANDATORY)
+Before ever asking Cathryn to do something manually, Claude MUST:
+1. **Check for a connected MCP or connector** that can do it (Stripe, GitHub, Supabase, Vercel, Google Calendar, Canva, Twilio, etc.)
+2. **Check for the Claude in Chrome extension** — if the task is in a web app with no dedicated MCP, use Chrome to navigate and interact with it directly
+3. **Only ask Cathryn to do it manually as a last resort** — and only if there is a genuine technical reason neither option works (e.g. the tool has no API at all)
+
+Cathryn has connected: GitHub, Google Calendar, Google Drive, Stripe, Supabase, Vercel, Canva, Twilio, and the Claude in Chrome browser extension. Always try these before defaulting to manual instructions.
+
+---
+
 ## The Business
 
 **Business name:** AI Assistant Pro  
@@ -72,11 +84,31 @@ Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs i
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
 | Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number imported into Vapi. Still to do: register with caller ID services (Truecaller etc.). |
-| Payment | Stripe Payment Links | ✅ Account exists — payment links NOT yet created |
-| Booking | Google Calendar booking pages | ❌ Not set up yet |
+| Payment | Stripe Payment Links | ✅ Links created. See stripe-payment-links.md. Success page redirect needs updating to TidyCal intake call URL after Session 1C. |
+| Booking | TidyCal (Agency plan) | ⏳ Account created (2026-06-20). Team "AI Assistant Pro" being set up at tidycal.com/team/aiassistantpro. Two booking types needed: AI Intake Call (20 min) and Sales Call with Cathryn (20 min). Google Calendar also has one booking page created: https://calendar.app.google/WYboHhy36wV4Qeof8 (AI Intake Call — may be superseded by TidyCal). |
 | Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias. |
 | Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See vapi-config.md for IDs and settings. |
 | Client change requests | Trello | ⏳ One board per client, auto-created on payment — to be set up in Session 1J |
+
+---
+
+## Booking Tool — TidyCal
+
+**Plan:** Agency (lifetime, purchased 2026-06-20 via AppSumo)  
+**Account:** Cathryn's personal account (signup email: cathrynmora.therapy@gmail.com — do not expose this in any booking URLs)  
+**Brand teams:** Use TidyCal Teams to create separate branded URLs per business. Never use the personal account slug.
+
+| Brand | TidyCal team slug | Status |
+|---|---|---|
+| AI Assistant Pro | aiassistantpro | ⏳ Being created |
+| Kindred Systems | kindredsystems | ❌ Not yet created |
+
+**Booking pages needed for AI Assistant Pro:**
+
+| Page | URL (target) | Duration | Conflict check | Purpose |
+|---|---|---|---|---|
+| AI Intake Call | tidycal.com/team/aiassistantpro/ai-intake-call | 20 min | OFF | Post-payment onboarding — AI agent calls the client |
+| Sales Call with Cathryn | tidycal.com/team/aiassistantpro/sales-call | 20 min | ON | Prospects who want to speak to a human |
 
 ---
 
@@ -231,3 +263,4 @@ Plain English always. Warm but straight-talking. Australian. Like a smart mate w
 - Default to doing, not planning
 - Cathryn wants to be hands-off — automate everything possible
 - Build for scale from the start — architecture should support 50+ clients
+- **CONNECTOR FIRST:** Always check for an MCP connector or Claude in Chrome before asking Cathryn to do anything manually. See "CRITICAL" section at top of this document.
