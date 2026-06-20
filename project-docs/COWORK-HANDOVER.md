@@ -84,31 +84,38 @@ Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs i
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
 | Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number imported into Vapi. Still to do: register with caller ID services (Truecaller etc.). |
-| Payment | Stripe Payment Links | ✅ Links created. See stripe-payment-links.md. Success page redirect needs updating to TidyCal intake call URL after Session 1C. |
-| Booking | TidyCal (Agency plan) | ⏳ Account created (2026-06-20). Team "AI Assistant Pro" being set up at tidycal.com/team/aiassistantpro. Two booking types needed: AI Intake Call (20 min) and Sales Call with Cathryn (20 min). Google Calendar also has one booking page created: https://calendar.app.google/WYboHhy36wV4Qeof8 (AI Intake Call — may be superseded by TidyCal). |
+| Payment | Stripe Payment Links | ✅ Links created. See `stripe-payment-links.md`. ⚠️ Stripe success page redirect still needs updating to: https://tidycal.com/kindredsystems/aap-connor-intake |
+| Booking | TidyCal Agency plan | ✅ Fully set up (2026-06-20). Slug: `kindredsystems`. Two booking pages live. See `calendar-booking-urls.md`. |
 | Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias. |
-| Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See vapi-config.md for IDs and settings. |
+| Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See `vapi-config.md` for IDs and settings. |
 | Client change requests | Trello | ⏳ One board per client, auto-created on payment — to be set up in Session 1J |
 
 ---
 
 ## Booking Tool — TidyCal
 
-**Plan:** Agency (lifetime, purchased 2026-06-20 via AppSumo)  
-**Account:** Cathryn's personal account (signup email: cathrynmora.therapy@gmail.com — do not expose this in any booking URLs)  
-**Brand teams:** Use TidyCal Teams to create separate branded URLs per business. Never use the personal account slug.
+**Plan:** Agency (lifetime, purchased 2026-06-20 via AppSumo — one-time cost ~$79 AUD)  
+**Account slug:** `kindredsystems`  
+**Login:** cathrynmora.therapy@gmail.com (never expose this in booking URLs — the slug `kindredsystems` is what clients see)  
+**Google Calendar:** Connected. Cathryn's primary Google Calendar synced for conflict checking.
 
-| Brand | TidyCal team slug | Status |
+### Booking Pages (both live ✅)
+
+| Page | URL | Purpose |
 |---|---|---|
-| AI Assistant Pro | aiassistantpro | ⏳ Being created |
-| Kindred Systems | kindredsystems | ❌ Not yet created |
+| Connor intake | https://tidycal.com/kindredsystems/aap-connor-intake | Post-payment AI onboarding call |
+| Cathryn intro | https://tidycal.com/kindredsystems/aap-cathryn-intro | Human intro call for prospects |
 
-**Booking pages needed for AI Assistant Pro:**
+**Connor intake:** 20 min, TidyCal only (no Google Calendar), conflicts OFF (AI agent, available 24/7), 14 days ahead, 1hr notice. Title: "AI Assistant Pro — Intake Call with Connor (AI Agent)".
 
-| Page | URL (target) | Duration | Conflict check | Purpose |
-|---|---|---|---|---|
-| AI Intake Call | tidycal.com/team/aiassistantpro/ai-intake-call | 20 min | OFF | Post-payment onboarding — AI agent calls the client |
-| Sales Call with Cathryn | tidycal.com/team/aiassistantpro/sales-call | 20 min | ON | Prospects who want to speak to a human |
+**Cathryn intro:** 20 min, Google Calendar synced, conflicts ON, 14 days ahead, 4hr notice. Title: "Chat with Cathryn — AI Assistant Pro".
+
+**Cathryn's availability:** M/T/W/F 5–7pm, Thu 9am–5pm, Sat 9am–12pm, Sun unavailable.
+
+### Scalability
+TidyCal Agency supports Teams and round-robin. As the team grows, add team members under the relevant TidyCal Team. Naming convention: `[biz]-[person]-[purpose]` (e.g. `aap-sarah-intro`).
+
+Full detail in `calendar-booking-urls.md`.
 
 ---
 
@@ -143,7 +150,7 @@ See `vapi-config.md` for full voice details and Twilio number setup steps.
 
 Still to build:
 - Outbound Sales Agent (calls new leads from /tradies form) — Session 1E/1F
-- AI Intake Interview Agent (onboards new clients post-payment) — Session 1J
+- Connor AI Intake Agent (onboards new clients post-payment) — Session 1J
 
 ---
 
@@ -183,24 +190,31 @@ Client pays via Stripe
       ↓
 Stripe webhook fires
       ↓
-1. Welcome email sent (prep checklist + Trello link + intake call booking link)
+1. Welcome email sent (prep checklist + Trello link + Connor intake call booking link)
+   Booking link: https://tidycal.com/kindredsystems/aap-connor-intake
 2. Trello board auto-created (one per client, client invited as member)
       ↓
-Client books AI intake call
+Client books Connor intake call
       ↓
-AI intake agent interviews them (10–15 min)
+Connor (AI agent) interviews them (15–20 min)
 Opening: "I'm an AI agent — same type we're setting up for you"
-Covers: greeting, services, FAQs, bookings, hours, transfer rules
-Offers Cathryn contact if needed
+Covers: business greeting, services, FAQs, booking process, hours, transfer rules
       ↓
 Transcript emailed to Cathryn
       ↓
 Cathryn builds their agent in Vapi
       ↓
-Handover email or short call
+Handover email (#3) sent to client:
+- Links to connect their calendar (Google Calendar or Calendly)
+- CRM connection (if applicable)
+- Google Drive folder with their scripts and docs
+- Twilio phone number info
+- What to expect next
       ↓
 Ongoing changes via Trello board
 ```
+
+NOTE: The detail of what goes in the handover email (what systems clients need to connect, what links to include) needs to be designed and documented as part of Session 1M before Session 1J is built.
 
 ---
 
@@ -219,8 +233,8 @@ Confirmation screen: "Our AI agent is about to call you"
       ↓
 Agent calls, discovers, pitches, handles objections
       ↓
-BRANCH A — Yes: Stripe payment link via SMS → success page → intake call booking
-BRANCH B — Maybe: Sales call booking link via SMS
+BRANCH A — Yes: Stripe payment link via SMS → success page → Connor intake call booking
+BRANCH B — Maybe: Cathryn intro call booking link via SMS (https://tidycal.com/kindredsystems/aap-cathryn-intro)
 BRANCH C — Not ready: follow-up SMS
 ```
 
@@ -262,5 +276,5 @@ Plain English always. Warm but straight-talking. Australian. Like a smart mate w
 - Speed to launch is the standing priority
 - Default to doing, not planning
 - Cathryn wants to be hands-off — automate everything possible
-- Build for scale from the start — architecture should support 50+ clients
+- Build for scale from the start — architecture should support 50+ clients and multiple team members per business unit
 - **CONNECTOR FIRST:** Always check for an MCP connector or Claude in Chrome before asking Cathryn to do anything manually. See "CRITICAL" section at top of this document.
