@@ -70,10 +70,6 @@ The website uses a 4-level structure:
 
 All prices in AUD. GST registration needed at $75,000 revenue.
 
-Minute inclusions are shown on the website below each price. The per-employee add-on applies to L3 and L4 because outbound call volume scales with team size.
-
-Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs include Vapi (~A$0.20/min all-in), Twilio AU inbound (A$0.013/min) and outbound (A$0.026/min), Supabase Pro (~A$38/mo shared), ElevenLabs (included in Vapi cost).
-
 ---
 
 ## Tech Stack
@@ -84,7 +80,7 @@ Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs i
 | Lead database | Supabase | ✅ Account exists — AAP project NOT yet created |
 | AI voice agent platform | Vapi.ai | ✅ Account created, demo assistants live |
 | Phone + SMS | Twilio | ✅ Number +61 468 154 584 active (purchased 2026-06-12). Regulatory bundle "AI Assistant Pro - Australian Mobile" approved (SID: BU07e54ef4e39483553565ea00588e2503). Number imported into Vapi. Still to do: register with caller ID services (Truecaller etc.). |
-| Payment | Stripe Payment Links | ✅ Links created. See `stripe-payment-links.md`. ⚠️ Stripe success page redirect still needs updating to: https://tidycal.com/kindredsystems/aap-connor-intake |
+| Payment | Stripe Payment Links | ✅ All 10 links live. Success page redirects to https://tidycal.com/kindredsystems/aap-connor-intake ✅ (updated 2026-06-20). See `stripe-payment-links.md`. |
 | Booking | TidyCal Agency plan | ✅ Fully set up (2026-06-20). Slug: `kindredsystems`. Two booking pages live. See `calendar-booking-urls.md`. |
 | Email | Google Workspace | ⚠️ Kindred Systems account active. Need to add AI Assistant Pro mailbox/alias. |
 | Australian voice | ElevenLabs | ✅ Two Australian voices saved: Damian (male) and Lily (female). Both connected to Vapi. See `vapi-config.md` for IDs and settings. |
@@ -106,15 +102,6 @@ Profitability confirmed via cost model (aap_pricing_model.xlsx). Running costs i
 | Connor intake | https://tidycal.com/kindredsystems/aap-connor-intake | Post-payment AI onboarding call |
 | Cathryn intro | https://tidycal.com/kindredsystems/aap-cathryn-intro | Human intro call for prospects |
 
-**Connor intake:** 20 min, TidyCal only (no Google Calendar), conflicts OFF (AI agent, available 24/7), 14 days ahead, 1hr notice. Title: "AI Assistant Pro — Intake Call with Connor (AI Agent)".
-
-**Cathryn intro:** 20 min, Google Calendar synced, conflicts ON, 14 days ahead, 4hr notice. Title: "Chat with Cathryn — AI Assistant Pro".
-
-**Cathryn's availability:** M/T/W/F 5–7pm, Thu 9am–5pm, Sat 9am–12pm, Sun unavailable.
-
-### Scalability
-TidyCal Agency supports Teams and round-robin. As the team grows, add team members under the relevant TidyCal Team. Naming convention: `[biz]-[person]-[purpose]` (e.g. `aap-sarah-intro`).
-
 Full detail in `calendar-booking-urls.md`.
 
 ---
@@ -130,8 +117,6 @@ Full detail in `calendar-booking-urls.md`.
 **Vercel project ID:** prj_Qi6cD0H9lvFM5cEdO1xRoEF7ZhgY  
 **Project docs:** stored in `/project-docs/` folder in this repo
 
-**Note on vercel.json:** Fixed 2026-06-13. The redirect rule now only fires for the non-www domain (aiassistantpro.com.au → www.aiassistantpro.com.au). Earlier versions had a blanket redirect that broke all preview URL deployments.
-
 ---
 
 ## Vapi Assistants (Live)
@@ -139,7 +124,7 @@ Full detail in `calendar-booking-urls.md`.
 | Assistant | ID | Purpose | Voice |
 |---|---|---|---|
 | Electrician Demo - Bright Side | `e111e9e6-f69c-463d-a377-d71ae331537d` | Demo call on homepage | Lily (ElevenLabs) |
-| Kai - AI Advisor | `71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2` | Prospect discovery on homepage | Damian (ElevenLabs) |
+| Kai - AI Advisor | `71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2` | Prospect sales agent on homepage — **upgrade in progress (Session 1L)** | Damian (ElevenLabs) |
 
 **Vapi Public Key:** `46223d21-06e8-4659-9957-fc297f108320`
 
@@ -160,108 +145,12 @@ Still to build:
 **Current page:** Homepage only. No other pages live yet.  
 **Current version:** v13 (2026-06-13)
 
-**Recent changes (2026-06-13):**
-- Added minute inclusions per level to pricing cards
-- Added per-employee add-on boxes for L3 and L4
-- Added running costs explainer section below pricing grid
-- Fixed: minutes text now appears below price (not above)
-- Fixed: minutes text is normal weight (not bold)
-- Fixed: logo 404 resolved with ?v=2 cache-buster
-- Fixed: vercel.json blanket redirect that was blocking preview deployments
-
 **Design system:**
 - Navy: `#17283f`
 - Cream: `#f7f0e5`
 - Gold: `#bd985c`
 - Font: Inter (sans-serif), Georgia (headings)
 - Radius: 30px (large), 22px (medium), 15px (small)
-
-**Pages still to build:**
-- `/tradies` — ad landing page, Phase 1 priority (Session 1G)
-- `/pricing` — Phase 2
-- `/fitness`, `/roofing`, `/mortgage-brokers` — Phase 2/3
-
----
-
-## Client Onboarding Flow (to be built in Session 1J)
-
-```
-Client pays via Stripe
-      ↓
-Stripe webhook fires
-      ↓
-1. Welcome email sent (prep checklist + Trello link + Connor intake call booking link)
-   Booking link: https://tidycal.com/kindredsystems/aap-connor-intake
-2. Trello board auto-created (one per client, client invited as member)
-      ↓
-Client books Connor intake call
-      ↓
-Connor (AI agent) interviews them (15–20 min)
-Opening: "I'm an AI agent — same type we're setting up for you"
-Covers: business greeting, services, FAQs, booking process, hours, transfer rules
-      ↓
-Transcript emailed to Cathryn
-      ↓
-Cathryn builds their agent in Vapi
-      ↓
-Handover email (#3) sent to client:
-- Links to connect their calendar (Google Calendar or Calendly)
-- CRM connection (if applicable)
-- Google Drive folder with their scripts and docs
-- Twilio phone number info
-- What to expect next
-      ↓
-Ongoing changes via Trello board
-```
-
-NOTE: The detail of what goes in the handover email (what systems clients need to connect, what links to include) needs to be designed and documented as part of Session 1M before Session 1J is built.
-
----
-
-## Sales Funnel (Target State)
-
-```
-Facebook/Google Ad
-      ↓
-/tradies landing page
-      ↓
-Form: name, mobile, business type, pain point, suburb, consent
-      ↓
-Form saves to Supabase → triggers Vapi outbound call within 60 seconds
-      ↓
-Confirmation screen: "Our AI agent is about to call you"
-      ↓
-Agent calls, discovers, pitches, handles objections
-      ↓
-BRANCH A — Yes: Stripe payment link via SMS → success page → Connor intake call booking
-BRANCH B — Maybe: Cathryn intro call booking link via SMS (https://tidycal.com/kindredsystems/aap-cathryn-intro)
-BRANCH C — Not ready: follow-up SMS
-```
-
----
-
-## Target Markets
-
-**Phase 1 — Tradies (launch focus)**
-Plumbers, electricians, carpenters, HVAC, roofers, landscapers. Pain: on the tools, can't answer phone, miss jobs worth $200–$2,000+.
-
-**Phase 2:** PTs, gym owners, mobile beauty, dog groomers, cleaning companies.
-
-**Phase 3:** Mortgage brokers, real estate, allied health, cosmetic clinics.
-
----
-
-## Brand Voice
-
-Plain English always. Warm but straight-talking. Australian. Like a smart mate who knows tech explaining it to a business owner.
-
-**Key phrases:**
-- "Most callers won't realise they're talking to AI"
-- "Not a phone menu. Not a bot. A real conversation."
-- "While you're on the tools, your agent is on the phones"
-- "You're a tradie, not a receptionist"
-
-**Avoid:** Corporate speak, American spelling, "cutting-edge", "revolutionary", em dashes, staccato sentence triplets, and all words on the AI-tells banned list (see memory: feedback-writing-style).
 
 ---
 
