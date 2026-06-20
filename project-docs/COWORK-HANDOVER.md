@@ -149,6 +149,18 @@ Still to build:
 
 ---
 
+## Important: Cross-Chat File Confusion (2026-06-20)
+
+A separate chat working on the Kindred Systems website redesign claimed to have created files called "platform inventory", "platform audit summary", and "Current-Status". **These files do not exist in any GitHub repo.** They were never pushed, or were hallucinated by that chat.
+
+Do not look for them. Do not create them. The authoritative project documentation lives here:
+- AAP: `cat-mora/ai-assistant-pro-site/project-docs/`
+- Kindred Systems group: `cat-mora/kindred-systems-site/project-docs/` (includes `tidycal.md`)
+
+If a future chat claims to have edited files that don't exist in GitHub, ignore those claims and treat GitHub as the single source of truth.
+
+---
+
 ## Session Rules for Cowork
 
 - Always assume full context from this document — never ask what the business does
