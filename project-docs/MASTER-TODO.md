@@ -119,3 +119,4 @@ These need to be done before you can sell with confidence. Work through them in 
 - Overage pricing: A$9.90 per 30-minute block above the included monthly minutes.
 - Go-live timeline: 5 business days after intake call.
 - Build everything now. Don't wait for clients. Every channel compounds.
+- Cross-chat file investigation (2026-06-20): A separate chat working on the Kindred Systems website redesign claimed to have created/updated files called "platform inventory", "platform audit summary", and "Current-Status". These files do not exist in any known GitHub repo (kindred-systems-site, ai-assistant-pro-site, cultivating-the-fruit, cultivating-the-fruit-app). That chat was likely working in a local folder that was never pushed to GitHub, or the file names were hallucinated. The authoritative TidyCal reference across all Kindred Systems businesses is `kindred-systems-site/project-docs/tidycal.md` (created 2026-06-20 this session).
