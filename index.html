@@ -798,6 +798,75 @@
     .connection strong { color: var(--navy); }
     .connection span { text-align: right; max-width: 260px; }
 
+    .about-section {
+      background: rgba(255, 253, 248, 0.66);
+      border-radius: 42px;
+      width: min(calc(100% - 40px), 1320px);
+      margin: 20px auto;
+      border: 1px solid rgba(23, 40, 63, 0.08);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(280px, 0.6fr);
+      gap: 52px;
+      align-items: start;
+    }
+
+    .about-body {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-body p { color: #536176; }
+
+    .about-sidebar {
+      background: rgba(255, 253, 248, 0.92);
+      border: 1px solid rgba(23, 40, 63, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 18px 48px rgba(23, 40, 63, 0.08);
+    }
+
+    .about-sidebar h4 { margin-bottom: 14px; }
+
+    .about-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .about-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(23, 40, 63, 0.12);
+      background: #fff;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 700;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .about-link:hover {
+      border-color: var(--gold);
+      background: rgba(189, 152, 92, 0.07);
+    }
+
+    .about-link-arrow {
+      margin-left: auto;
+      color: var(--gold-dark);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 980px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-section { border-radius: 30px; }
+    }
+
     .cta-final {
       text-align: center;
       padding: 86px 0 92px;
@@ -921,6 +990,7 @@
           <a href="#demo">Demo</a>
           <a href="#packages">Packages</a>
           <a href="#kai">Talk to Kai</a>
+          <a href="#about">About</a>
         </nav>
       </div>
     </header>
@@ -1218,6 +1288,41 @@
         </div>
       </section>
 
+      <section class="about-section section" id="about">
+        <div class="container about-grid">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> About the founder</div>
+            <h2>Built by someone who has spent 20 years on the commercial side of business.</h2>
+            <div class="about-body">
+              <p>That background covers marketing, sales, customer experience, CRM and growth. Cathryn has built acquisition systems from scratch, managed full customer journeys from first contact through to retention and referral, and led the teams delivering behind the scenes.</p>
+              <p>Before founding Kindred Systems, Cathryn built and scaled an international business across offer development, marketing, sales and delivery. When the market shifted during COVID, she repositioned the business and led it through 400% revenue growth over two years, managing a team of 21 before exiting through acquisition.</p>
+              <p>That experience shaped how she thinks about AI. Not technology for its own sake, but what is actually costing a business money, where calls are being missed, where leads fall through the cracks, and what needs to work reliably at scale.</p>
+              <p>AI Assistant Pro exists because the same problem kept appearing: good service businesses losing work simply because no one picked up the phone. The solution did not need to be complicated. It needed to be dependable, sound natural, and fit into how a trades business already operates.</p>
+              <p>Every part of the product has been built with that in mind.</p>
+            </div>
+          </div>
+
+          <aside class="about-sidebar">
+            <h4>More from Kindred Systems</h4>
+            <p class="small-copy" style="margin-bottom:18px;">AI Assistant Pro is one product within a broader suite. Through Kindred Systems, Cathryn also works with businesses across advisory, AI consultancy and managed digital employee services.</p>
+            <div class="about-links">
+              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
+                Kindred Systems
+                <span class="about-link-arrow">&#8599;</span>
+              </a>
+              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
+                Digital Employee Pro
+                <span class="about-link-arrow">&#8599;</span>
+              </a>
+              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
+                Advisory &amp; Consultancy
+                <span class="about-link-arrow">&#8599;</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
       <section class="cta-final">
         <div class="container">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Hear it before you decide</div>
@@ -1395,7 +1500,7 @@
         <div class="compat-step" data-step="3">
           <p class="compat-q">Do you have consent to contact past customers by phone?</p>
           <div class="compat-options">
-            <button class="compat-option" data-val="yes">They have agreed to be contacted</button>
+            <button class="compat-option" data-val="yes">Yes, they have agreed to be contacted</button>
             <button class="compat-option" data-val="notsure">Not sure &mdash; they are existing customers but I have not asked</button>
           </div>
           <div class="compat-nav">
