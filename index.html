@@ -1326,7 +1326,7 @@
           <div class="about-left">
             <div class="eyebrow"><span class="eyebrow-dot"></span> About the founder</div>
             <div class="about-founder-row">
-              <img class="founder-photo" src="/assets/cathryn.jpg" alt="Cathryn, founder of AI Assistant Pro">
+              <img class="founder-photo" src="/assets/cathryn.jpg?v=3" width="110" height="110" alt="Cathryn, founder of AI Assistant Pro">
               <div>
                 <h2>Built by someone who has spent 20 years on the commercial side of business.</h2>
               </div>
@@ -1653,18 +1653,14 @@
 
     // L3 compatibility logic
     function isL3Compatible(ans) {
-      // Not compatible if they have zero leads and no plan
       if (ans[2] === "0") return false;
-      // Need some lead source
       if (ans[0] === "other" && ans[2] === "0") return false;
       return true;
     }
 
     // L4 compatibility logic
     function isL4Compatible(ans) {
-      // Not compatible if no customer list
       if (ans[0] === "no") return false;
-      // Not compatible if list is not in a system and sort-of
       if (ans[0] === "sort-of" && ans[1] === "none") return false;
       return true;
     }
@@ -1676,11 +1672,9 @@
       overlay.classList.add("open");
       document.body.style.overflow = "hidden";
 
-      // Show the right level block
       document.getElementById("compat-L3").style.display = level === "L3" ? "block" : "none";
       document.getElementById("compat-L4").style.display = level === "L4" ? "block" : "none";
 
-      // Reset steps
       const block = document.getElementById("compat-" + level);
       block.querySelectorAll(".compat-step").forEach((s, i) => {
         s.classList.toggle("active", i === 0);
@@ -1714,7 +1708,6 @@
       const block = document.getElementById("compat-" + level);
       const steps = block.querySelectorAll(".compat-step");
 
-      // Option selection
       if (e.target.classList.contains("compat-option")) {
         const stepEl = e.target.closest(".compat-step");
         stepEl.querySelectorAll(".compat-option").forEach(o => o.classList.remove("selected"));
@@ -1725,22 +1718,18 @@
         return;
       }
 
-      // Next
       if (e.target.classList.contains("js-next")) {
         const totalSteps = steps.length;
         if (currentStep < totalSteps - 1) {
           steps[currentStep].classList.remove("active");
           currentStep++;
           steps[currentStep].classList.add("active");
-          // Re-disable next until selection
           const nextBtn = steps[currentStep].querySelector(".js-next");
           if (nextBtn) {
             nextBtn.disabled = !answers[currentStep];
-            // If already answered this step (going back then forward), leave enabled
           }
           updateProgress(level, currentStep);
         } else {
-          // Last step: evaluate
           steps[currentStep].classList.remove("active");
           updateProgress(level, totalSteps);
           const compatible = level === "L3" ? isL3Compatible(answers) : isL4Compatible(answers);
@@ -1750,14 +1739,12 @@
         return;
       }
 
-      // Back
       if (e.target.classList.contains("js-back")) {
         if (currentStep > 0) {
           steps[currentStep].classList.remove("active");
           currentStep--;
           steps[currentStep].classList.add("active");
           updateProgress(level, currentStep);
-          // Re-enable next if this step was already answered
           const nextBtn = steps[currentStep].querySelector(".js-next");
           if (nextBtn && answers[currentStep]) nextBtn.disabled = false;
         }
@@ -1765,7 +1752,6 @@
       }
     });
 
-    // Kai links inside modal
     document.querySelectorAll(".js-kai-link-modal").forEach(btn => {
       btn.addEventListener("click", () => {
         closeModal();
@@ -1773,7 +1759,6 @@
       });
     });
 
-    // Keyboard close
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") closeModal();
     });
