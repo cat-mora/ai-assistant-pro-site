@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start Answer &amp; Book | AI Assistant Pro</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/favicon.ico">
+  <style>
+    :root {
+      --navy: #17283f;
+      --cream: #f7f0e5;
+      --cream-light: #fffaf2;
+      --gold: #bd985c;
+      --gold-dark: #9f7d44;
+      --muted: #5f6e82;
+      --line: rgba(23,40,63,0.12);
+      --max: 900px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    p { margin: 0; }
+    h1,h2,h3,h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--navy);
+    }
+    .page-shell {
+      background:
+        radial-gradient(circle at 5% 5%, rgba(217,189,174,0.4), transparent 28rem),
+        radial-gradient(circle at 95% 5%, rgba(189,152,92,0.15), transparent 28rem),
+        linear-gradient(180deg, var(--cream-light), var(--cream));
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+    header {
+      border-bottom: 1px solid rgba(23,40,63,0.08);
+      background: rgba(247,240,229,0.9);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav img { width: 200px; max-width: 54vw; display: block; }
+    .nav-back {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--navy); }
+    .page-content {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 24px 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(23,40,63,0.12);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    .eyebrow-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(189,152,92,0.18);
+    }
+    h1.page-title { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 10px; }
+    .page-subtitle { color: #415066; font-size: 1.05rem; max-width: 620px; margin-bottom: 40px; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .card {
+      background: rgba(255,253,248,0.9);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 16px 44px rgba(23,40,63,0.08);
+    }
+    .card h3 { font-size: 1.1rem; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .feature-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .feature-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.98rem; color: #3a4f66; }
+    .tick {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(189,152,92,0.16);
+      color: var(--gold-dark);
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 22px;
+      font-weight: 950;
+      font-size: 0.78rem;
+    }
+    .minutes-note {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(189,152,92,0.10);
+      border: 1px solid rgba(189,152,92,0.20);
+      color: #6b4c1e;
+      font-size: 0.88rem;
+    }
+    .price-block { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .price-main { font-family: Georgia, serif; font-size: 2rem; letter-spacing: -0.04em; color: var(--navy); }
+    .price-sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .steps-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .steps-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #3a4f66; }
+    .step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 24px;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .policy-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(23,40,63,0.04);
+      border: 1px solid rgba(23,40,63,0.10);
+      font-size: 0.88rem;
+      color: #4a5f77;
+    }
+    .policy-box strong { display: block; color: var(--navy); margin-bottom: 4px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cta-area { margin-top: 24px; }
+    .btn-pay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 850;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(189,152,92,0.28);
+      transition: transform 0.16s, box-shadow 0.16s;
+      letter-spacing: -0.01em;
+    }
+    .btn-pay:hover { transform: translateY(-1px); box-shadow: 0 18px 38px rgba(189,152,92,0.32); }
+    .cta-note { margin-top: 10px; font-size: 0.82rem; color: var(--muted); text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 32px; color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+    .back-link:hover { color: var(--navy); }
+    @media (max-width: 680px) { .columns { grid-template-columns: 1fr; } .page-content { padding-top: 36px; } h1.page-title { font-size: 2.2rem; } }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="nav">
+        <a href="/" aria-label="AI Assistant Pro home">
+          <img src="/assets/ai-assistant-pro-logo-transparent.png?v=2" alt="AI Assistant Pro">
+        </a>
+        <a class="nav-back" href="/#packages">&#8592; Back to packages</a>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Level 2</div>
+      <h1 class="page-title">Answer &amp; Book</h1>
+      <p class="page-subtitle">Here is exactly what you are signing up for, what happens after payment, and the cancellation and refund terms — before you pay anything.</p>
+
+      <div class="columns">
+
+        <div class="card">
+          <h3>What is included</h3>
+          <ul class="feature-list">
+            <li><span class="tick">&#10003;</span><span>Natural-sounding AI phone agent answers every call in your business name</span></li>
+            <li><span class="tick">&#10003;</span><span>Checks key booking details — job type, suburb, urgency, availability</span></li>
+            <li><span class="tick">&#10003;</span><span>Books suitable jobs directly into your calendar where a connection is available</span></li>
+            <li><span class="tick">&#10003;</span><span>Works with Google Calendar, Calendly and similar booking tools — calendar connection checked during setup</span></li>
+            <li><span class="tick">&#10003;</span><span>Caller details and call summary sent to you after every call</span></li>
+            <li><span class="tick">&#10003;</span><span>Urgent or complex calls escalated to you immediately</span></li>
+            <li><span class="tick">&#10003;</span><span>One weekly batch of reasonable tweaks included — hours, wording, booking rules, escalation</span></li>
+            <li><span class="tick">&#10003;</span><span>Full setup done by the Kindred Systems team — you do not need to build anything</span></li>
+          </ul>
+          <div class="minutes-note">Includes 400 call minutes per month — around 4 to 5 inbound calls a day, including the extra time needed to check availability and confirm bookings.</div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="price-block">
+              <div class="price-main">A$395<span style="font-size:1.1rem;font-family:Inter,sans-serif;font-weight:500">/month</span></div>
+              <div class="price-sub">approx US$280/month &nbsp;·&nbsp; A$695 setup fee (paid today)</div>
+            </div>
+
+            <h3 style="margin-bottom:14px">What happens after you pay</h3>
+            <ol class="steps-list">
+              <li><span class="step-num">1</span><span>You book a 30-minute intake call with Connor, our AI onboarding specialist</span></li>
+              <li><span class="step-num">2</span><span>Connor collects your business details — name, hours, service area, booking rules, escalation rules and FAQs</span></li>
+              <li><span class="step-num">3</span><span>We confirm your calendar connection during the intake call and set it up as part of the build</span></li>
+              <li><span class="step-num">4</span><span>The Kindred Systems team builds and configures your agent (5 business days)</span></li>
+              <li><span class="step-num">5</span><span>Your agent goes live — we send you a test call before any real customers do</span></li>
+              <li><span class="step-num">6</span><span>Monthly subscription of A$395 starts after go-live. You receive the subscription link by email.</span></li>
+            </ol>
+
+            <div class="policy-box">
+              <strong>Cancellation &amp; refund policy</strong>
+              Month-to-month — no lock-in contract. Cancel with 5 days notice at any time. The A$695 setup fee covers the build work and is non-refundable once that work has commenced. Your monthly subscription can be cancelled at any time with 5 days notice.
+            </div>
+
+            <div class="cta-area">
+              <a class="btn-pay" href="https://buy.stripe.com/cNi7sN67Gdljgr8cjafjG05" target="_blank" rel="noopener">Pay A$695 setup fee &rarr;</a>
+              <p class="cta-note">Secure payment via Stripe. Monthly subscription link sent after go-live.</p>
+            </div>
+          </div>
+
+          <a class="back-link" href="/#packages">&#8592; Back to all packages</a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
