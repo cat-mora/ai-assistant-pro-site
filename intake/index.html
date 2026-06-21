@@ -43,6 +43,8 @@
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
+
+    /* nav */
     .nav {
       background: var(--navy);
       padding: 0 clamp(1.25rem, 4vw, 2.5rem);
@@ -61,6 +63,8 @@
       letter-spacing: 0.01em;
     }
     .nav-logo span { color: var(--gold); }
+
+    /* page */
     .page {
       flex: 1;
       padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
@@ -71,8 +75,17 @@
         radial-gradient(circle at 6% 10%, rgba(217, 189, 174, 0.45), transparent 28rem),
         var(--cream);
     }
-    .form-wrap { max-width: 680px; width: 100%; }
-    .form-header { text-align: center; margin-bottom: 2.5rem; }
+
+    .form-wrap {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* header */
+    .form-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
     .badge {
       display: inline-block;
       font-size: 0.72rem;
@@ -94,255 +107,812 @@
       margin: 0 0 0.75rem;
       line-height: 1.25;
     }
-    .form-intro { font-size: 1rem; color: var(--muted); margin: 0; line-height: 1.6; }
-    .progress-bar { background: var(--sand); border-radius: 100px; height: 6px; margin-bottom: 2rem; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--gold); border-radius: 100px; transition: width 0.4s ease; }
-    .progress-label { font-size: 0.78rem; color: var(--muted); text-align: right; margin-top: 0.35rem; margin-bottom: 1.75rem; }
-    .section { display: none; }
-    .section.active { display: block; }
-    .section-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-dark); margin-bottom: 1.25rem; }
-    .card { background: var(--cream-light); border: 1px solid var(--sand); border-radius: var(--radius-md); box-shadow: var(--shadow); padding: clamp(1.75rem, 5vw, 2.5rem) clamp(1.5rem, 4vw, 2.25rem); margin-bottom: 1.5rem; }
+    .form-intro {
+      font-size: 1rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* progress */
+    .progress-bar {
+      background: var(--sand);
+      border-radius: 100px;
+      height: 6px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+    .progress-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 0.35rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* sections */
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    /* card */
+    .card {
+      background: var(--cream-light);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: clamp(1.75rem, 5vw, 2.5rem) clamp(1.5rem, 4vw, 2.25rem);
+      margin-bottom: 1.5rem;
+    }
+
+    /* fields */
     .field { margin-bottom: 1.25rem; }
     .field:last-child { margin-bottom: 0; }
-    label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
-    label .optional { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
-    label .hint { display: block; font-weight: 400; color: var(--muted); font-size: 0.8rem; margin-top: 0.15rem; }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], select, textarea {
-      width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--sand); border-radius: var(--radius-sm);
-      font-family: inherit; font-size: 0.92rem; color: var(--ink); background: var(--white); outline: none;
-      transition: border-color 0.15s; appearance: none;
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
     }
-    input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(189, 152, 92, 0.15); }
+    label .optional {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    label .hint {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--sand);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(189, 152, 92, 0.15);
+    }
     textarea { resize: vertical; min-height: 90px; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 520px) { .two-col { grid-template-columns: 1fr; } }
-    .check-field { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; padding: 1rem; background: rgba(23, 40, 63, 0.04); border-radius: var(--radius-sm); border: 1px solid var(--line); }
-    .check-field input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--gold-dark); cursor: pointer; }
-    .check-field label { font-size: 0.88rem; font-weight: 400; color: var(--ink); margin: 0; cursor: pointer; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 520px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* checkbox row */
+    .check-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(23, 40, 63, 0.04);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+    .check-field input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--gold-dark);
+      cursor: pointer;
+    }
+    .check-field label {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0;
+      cursor: pointer;
+    }
     .check-field label strong { font-weight: 600; }
-    .nav-btns { display: flex; gap: 0.75rem; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
-    .btn { display: inline-block; font-size: 0.95rem; font-weight: 700; padding: 0.85rem 2.25rem; border-radius: 100px; text-decoration: none; letter-spacing: 0.02em; cursor: pointer; border: none; transition: background 0.18s, transform 0.15s; }
-    .btn-primary { background: var(--gold); color: var(--navy); }
+
+    /* conditional block */
+    .l4-block {
+      display: none;
+      background: rgba(189, 152, 92, 0.06);
+      border: 1px solid rgba(189, 152, 92, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .l4-block.visible { display: block; }
+    .l4-block .section-title {
+      margin-bottom: 1rem;
+      color: var(--gold-dark);
+    }
+
+    /* nav buttons */
+    .nav-btns {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 2.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border: none;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
     .btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--muted); padding: 0.85rem 1.25rem; font-weight: 600; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      padding: 0.85rem 1.25rem;
+      font-weight: 600;
+    }
     .btn-secondary:hover { color: var(--ink); }
     .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
-    .field-error { font-size: 0.78rem; color: var(--red); margin-top: 0.3rem; display: none; }
+
+    /* error */
+    .field-error {
+      font-size: 0.78rem;
+      color: var(--red);
+      margin-top: 0.3rem;
+      display: none;
+    }
     .field-error.visible { display: block; }
-    .success-card { display: none; text-align: center; padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1.75rem, 5vw, 3rem); }
+
+    /* success */
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: clamp(2.25rem, 6vw, 3.5rem) clamp(1.75rem, 5vw, 3rem);
+    }
     .success-card.visible { display: block; }
-    .tick-wrap { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #4caf7d, #2e9e60); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; box-shadow: 0 8px 28px rgba(46, 158, 96, 0.25); }
+    .tick-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4caf7d, #2e9e60);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      box-shadow: 0 8px 28px rgba(46, 158, 96, 0.25);
+    }
     .tick-wrap svg { width: 36px; height: 36px; }
-    footer { background: var(--navy); color: rgba(247, 240, 229, 0.55); font-size: 0.78rem; text-align: center; padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem); flex-shrink: 0; }
+
+    /* footer */
+    footer {
+      background: var(--navy);
+      color: rgba(247, 240, 229, 0.55);
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+      flex-shrink: 0;
+    }
     footer a { color: rgba(247, 240, 229, 0.55); text-decoration: none; }
     footer a:hover { color: var(--cream); }
   </style>
 </head>
 <body>
-  <nav class="nav"><a href="https://www.aiassistantpro.com.au" class="nav-logo">AI Assistant <span>Pro</span></a></nav>
+
+  <nav class="nav">
+    <a href="https://www.aiassistantpro.com.au" class="nav-logo">
+      AI Assistant <span>Pro</span>
+    </a>
+  </nav>
+
   <main class="page">
     <div class="form-wrap">
+
       <div class="form-header">
         <div class="badge">Onboarding</div>
         <h1>Tell us about your business</h1>
         <p class="form-intro">Takes about 5 minutes. The more detail you give us, the better your AI assistant will perform from day one.</p>
       </div>
+
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
       <div class="progress-label" id="progressLabel">Step 1 of 5</div>
+
       <form id="intakeForm" novalidate>
+
+        <!-- SECTION 1: Business basics -->
         <div class="section active" id="section-1">
           <div class="card">
             <div class="section-title">Your business</div>
-            <div class="field"><label for="business_name">Business name <span class="hint">As you'd like callers to hear it</span></label><input type="text" id="business_name" name="business_name" placeholder="e.g. Metro Pest Control" required><div class="field-error" id="err-business_name">Please enter your business name.</div></div>
-            <div class="two-col">
-              <div class="field"><label for="business_type">Industry / trade</label><select id="business_type" name="business_type" required><option value="">Select…</option><option value="pest_control">Pest control</option><option value="plumbing">Plumbing</option><option value="electrical">Electrical</option><option value="hvac">HVAC / air conditioning</option><option value="cleaning">Cleaning</option><option value="landscaping">Landscaping / lawn</option><option value="building">Building / construction</option><option value="roofing">Roofing</option><option value="painting">Painting</option><option value="security">Security</option><option value="automotive">Automotive</option><option value="health">Health / allied health</option><option value="other">Other</option></select><div class="field-error" id="err-business_type">Please select your industry.</div></div>
-              <div class="field"><label for="abn">ABN <span class="optional">(optional)</span></label><input type="text" id="abn" name="abn" placeholder="e.g. 12 345 678 901"></div>
+
+            <div class="field">
+              <label for="business_name">Business name <span class="hint">As you'd like callers to hear it, e.g. "Metro Pest Control"</span></label>
+              <input type="text" id="business_name" name="business_name" placeholder="e.g. Metro Pest Control" required>
+              <div class="field-error" id="err-business_name">Please enter your business name.</div>
             </div>
+
             <div class="two-col">
-              <div class="field"><label for="owner_name">Your name</label><input type="text" id="owner_name" name="owner_name" placeholder="e.g. Sarah Jones" required><div class="field-error" id="err-owner_name">Please enter your name.</div></div>
-              <div class="field"><label for="owner_mobile">Your mobile</label><input type="tel" id="owner_mobile" name="owner_mobile" placeholder="e.g. 0412 345 678" required><div class="field-error" id="err-owner_mobile">Please enter your mobile number.</div></div>
+              <div class="field">
+                <label for="business_type">Industry / trade</label>
+                <select id="business_type" name="business_type" required>
+                  <option value="">Select...</option>
+                  <option value="pest_control">Pest control</option>
+                  <option value="plumbing">Plumbing</option>
+                  <option value="electrical">Electrical</option>
+                  <option value="hvac">HVAC / air conditioning</option>
+                  <option value="cleaning">Cleaning</option>
+                  <option value="landscaping">Landscaping / lawn</option>
+                  <option value="building">Building / construction</option>
+                  <option value="roofing">Roofing</option>
+                  <option value="painting">Painting</option>
+                  <option value="security">Security</option>
+                  <option value="automotive">Automotive</option>
+                  <option value="health">Health / allied health</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="field-error" id="err-business_type">Please select your industry.</div>
+              </div>
+              <div class="field">
+                <label for="abn">ABN <span class="optional">(optional)</span></label>
+                <input type="text" id="abn" name="abn" placeholder="e.g. 12 345 678 901">
+              </div>
             </div>
+
             <div class="two-col">
-              <div class="field"><label for="business_email">Business email</label><input type="email" id="business_email" name="business_email" placeholder="e.g. info@metropest.com.au" required><div class="field-error" id="err-business_email">Please enter a valid email.</div></div>
-              <div class="field"><label for="website">Website <span class="optional">(optional)</span></label><input type="url" id="website" name="website" placeholder="e.g. https://metropest.com.au"></div>
+              <div class="field">
+                <label for="owner_name">Your name</label>
+                <input type="text" id="owner_name" name="owner_name" placeholder="e.g. Sarah Jones" required>
+                <div class="field-error" id="err-owner_name">Please enter your name.</div>
+              </div>
+              <div class="field">
+                <label for="owner_mobile">Your mobile</label>
+                <input type="tel" id="owner_mobile" name="owner_mobile" placeholder="e.g. 0412 345 678" required>
+                <div class="field-error" id="err-owner_mobile">Please enter your mobile number.</div>
+              </div>
             </div>
+
             <div class="two-col">
-              <div class="field"><label for="suburb">Suburb / city</label><input type="text" id="suburb" name="suburb" placeholder="e.g. Parramatta" required><div class="field-error" id="err-suburb">Please enter your suburb.</div></div>
-              <div class="field"><label for="state">State</label><select id="state" name="state" required><option value="">Select…</option><option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option><option>SA</option><option>TAS</option><option>ACT</option><option>NT</option></select><div class="field-error" id="err-state">Please select your state.</div></div>
+              <div class="field">
+                <label for="business_email">Business email</label>
+                <input type="email" id="business_email" name="business_email" placeholder="e.g. info@metropest.com.au" required>
+                <div class="field-error" id="err-business_email">Please enter a valid email.</div>
+              </div>
+              <div class="field">
+                <label for="website">Website <span class="optional">(optional)</span></label>
+                <input type="url" id="website" name="website" placeholder="e.g. https://metropest.com.au">
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="suburb">Suburb / city</label>
+                <input type="text" id="suburb" name="suburb" placeholder="e.g. Parramatta" required>
+                <div class="field-error" id="err-suburb">Please enter your suburb.</div>
+              </div>
+              <div class="field">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                  <option value="">Select...</option>
+                  <option>NSW</option><option>VIC</option><option>QLD</option>
+                  <option>WA</option><option>SA</option><option>TAS</option>
+                  <option>ACT</option><option>NT</option>
+                </select>
+                <div class="field-error" id="err-state">Please select your state.</div>
+              </div>
             </div>
           </div>
-          <div class="nav-btns"><span></span><button type="button" class="btn btn-primary" onclick="nextSection(1)">Next &rarr;</button></div>
+
+          <div class="nav-btns">
+            <span></span>
+            <button type="button" class="btn btn-primary" onclick="nextSection(1)">Next &rarr;</button>
+          </div>
         </div>
+
+        <!-- SECTION 2: Operations -->
         <div class="section" id="section-2">
           <div class="card">
             <div class="section-title">Hours and coverage</div>
-            <div class="field"><label for="business_hours">Trading hours <span class="hint">Be specific — the AI will quote these to callers</span></label><textarea id="business_hours" name="business_hours" placeholder="e.g. Mon–Fri 7am–5pm, Sat 8am–12pm, closed Sunday" required></textarea><div class="field-error" id="err-business_hours">Please enter your trading hours.</div></div>
-            <div class="field"><label for="service_area">Service area</label><input type="text" id="service_area" name="service_area" placeholder="e.g. Greater Sydney, up to 50km from Parramatta" required><div class="field-error" id="err-service_area">Please describe your service area.</div></div>
-            <div class="field"><label for="after_hours_handling">After-hours calls <span class="hint">What should the AI do when someone calls outside your hours?</span></label><select id="after_hours_handling" name="after_hours_handling" required><option value="">Select…</option><option value="take_message">Take a message</option><option value="emergency_only">Emergency line only</option><option value="book_callback">Offer to book a callback</option><option value="nothing">Tell them to call back during hours</option></select><div class="field-error" id="err-after_hours_handling">Please select an option.</div></div>
-            <div class="field"><label for="team_size">Team size <span class="optional">(optional)</span></label><select id="team_size" name="team_size"><option value="">Select…</option><option value="solo">Just me (sole operator)</option><option value="2-5">2–5 people</option><option value="6-15">6–15 people</option><option value="16+">16+ people</option></select></div>
+
+            <div class="field">
+              <label for="business_hours">Trading hours <span class="hint">Be specific -- the AI will quote these to callers</span></label>
+              <textarea id="business_hours" name="business_hours" placeholder="e.g. Mon-Fri 7am-5pm, Sat 8am-12pm, closed Sunday" required></textarea>
+              <div class="field-error" id="err-business_hours">Please enter your trading hours.</div>
+            </div>
+
+            <div class="field">
+              <label for="service_area">Service area</label>
+              <input type="text" id="service_area" name="service_area" placeholder="e.g. Greater Sydney, up to 50km from Parramatta" required>
+              <div class="field-error" id="err-service_area">Please describe your service area.</div>
+            </div>
+
+            <div class="field">
+              <label for="after_hours_handling">After-hours calls <span class="hint">What should the AI do when someone calls outside your hours?</span></label>
+              <select id="after_hours_handling" name="after_hours_handling" required>
+                <option value="">Select...</option>
+                <option value="take_message">Take a message -- collect name, number, issue</option>
+                <option value="emergency_only">Emergency line only -- give a number for genuine emergencies</option>
+                <option value="book_callback">Offer to book a callback for next business day</option>
+                <option value="nothing">Tell them to call back during business hours</option>
+              </select>
+              <div class="field-error" id="err-after_hours_handling">Please select an option.</div>
+            </div>
+
+            <div class="field">
+              <label for="team_size">Team size <span class="optional">(optional)</span><span class="hint">Helps the AI answer questions about your business</span></label>
+              <select id="team_size" name="team_size">
+                <option value="">Select...</option>
+                <option value="solo">Just me (sole operator)</option>
+                <option value="2-5">2-5 people</option>
+                <option value="6-15">6-15 people</option>
+                <option value="16+">16+ people</option>
+              </select>
+            </div>
           </div>
-          <div class="nav-btns"><button type="button" class="btn btn-secondary" onclick="prevSection(2)">&larr; Back</button><button type="button" class="btn btn-primary" onclick="nextSection(2)">Next &rarr;</button></div>
+
+          <div class="nav-btns">
+            <button type="button" class="btn btn-secondary" onclick="prevSection(2)">&larr; Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextSection(2)">Next &rarr;</button>
+          </div>
         </div>
+
+        <!-- SECTION 3: Services and bookings -->
         <div class="section" id="section-3">
           <div class="card">
             <div class="section-title">Services and bookings</div>
-            <div class="field"><label for="services_offered">Services you offer <span class="hint">The AI will use these to answer enquiries</span></label><textarea id="services_offered" name="services_offered" placeholder="e.g. General pest inspection, termite treatment, spider spray, rodent control" required></textarea><div class="field-error" id="err-services_offered">Please list your services.</div></div>
-            <div class="two-col">
-              <div class="field"><label for="average_job_value">Average job value <span class="optional">(optional)</span></label><input type="text" id="average_job_value" name="average_job_value" placeholder="e.g. A$350"></div>
-              <div class="field"><label for="payment_method">How do clients pay? <span class="optional">(optional)</span></label><select id="payment_method" name="payment_method"><option value="">Select…</option><option value="invoice">Invoice after job</option><option value="card_on_day">Card on the day</option><option value="eftpos">EFTPOS / bank transfer</option><option value="online">Online before job</option><option value="mixed">Mix of methods</option></select></div>
+
+            <div class="field">
+              <label for="services_offered">Services you offer <span class="hint">List your main services -- the AI will use these to answer enquiries</span></label>
+              <textarea id="services_offered" name="services_offered" placeholder="e.g. General pest inspection, termite treatment, spider spray, rodent control, commercial pest management" required></textarea>
+              <div class="field-error" id="err-services_offered">Please list your services.</div>
             </div>
+
             <div class="two-col">
-              <div class="field"><label for="booking_system">Booking system</label><select id="booking_system" name="booking_system" required><option value="">Select…</option><option value="servicem8">ServiceM8</option><option value="google_calendar">Google Calendar</option><option value="outlook">Outlook / Microsoft 365</option><option value="simprocloud">Simpro</option><option value="jobber">Jobber</option><option value="housecall_pro">Housecall Pro</option><option value="aroflo">AroFlo</option><option value="calendly">Calendly</option><option value="paper">Paper / whiteboard</option><option value="none">None yet</option><option value="other">Other</option></select><div class="field-error" id="err-booking_system">Please select your booking system.</div></div>
-              <div class="field"><label for="crm_system">CRM <span class="optional">(optional)</span></label><select id="crm_system" name="crm_system"><option value="">Select…</option><option value="servicem8">ServiceM8</option><option value="hubspot">HubSpot</option><option value="zoho">Zoho CRM</option><option value="formitize">Formitize</option><option value="salesforce">Salesforce</option><option value="spreadsheet">Spreadsheet</option><option value="none">None</option><option value="other">Other</option></select></div>
+              <div class="field">
+                <label for="average_job_value">Average job value <span class="optional">(optional)</span></label>
+                <input type="text" id="average_job_value" name="average_job_value" placeholder="e.g. A$350">
+              </div>
+              <div class="field">
+                <label for="payment_method">How do clients pay you? <span class="optional">(optional)</span></label>
+                <select id="payment_method" name="payment_method">
+                  <option value="">Select...</option>
+                  <option value="invoice">Invoice after job</option>
+                  <option value="card_on_day">Card payment on the day</option>
+                  <option value="eftpos">EFTPOS / bank transfer</option>
+                  <option value="online">Online payment before job</option>
+                  <option value="mixed">Mix of methods</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="booking_system">Booking / scheduling system</label>
+                <select id="booking_system" name="booking_system" required>
+                  <option value="">Select...</option>
+                  <option value="servicem8">ServiceM8</option>
+                  <option value="google_calendar">Google Calendar</option>
+                  <option value="outlook">Outlook / Microsoft 365</option>
+                  <option value="simprocloud">Simpro</option>
+                  <option value="jobber">Jobber</option>
+                  <option value="housecall_pro">Housecall Pro</option>
+                  <option value="aroflo">AroFlo</option>
+                  <option value="calendly">Calendly</option>
+                  <option value="paper">Paper / whiteboard</option>
+                  <option value="none">None yet</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="field-error" id="err-booking_system">Please select your booking system.</div>
+              </div>
+              <div class="field">
+                <label for="crm_system">CRM / customer database <span class="optional">(optional)</span></label>
+                <select id="crm_system" name="crm_system">
+                  <option value="">Select...</option>
+                  <option value="servicem8">ServiceM8</option>
+                  <option value="hubspot">HubSpot</option>
+                  <option value="zoho">Zoho CRM</option>
+                  <option value="formitize">Formitize</option>
+                  <option value="salesforce">Salesforce</option>
+                  <option value="spreadsheet">Spreadsheet</option>
+                  <option value="none">None</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div class="nav-btns"><button type="button" class="btn btn-secondary" onclick="prevSection(3)">&larr; Back</button><button type="button" class="btn btn-primary" onclick="nextSection(3)">Next &rarr;</button></div>
+
+          <div class="nav-btns">
+            <button type="button" class="btn btn-secondary" onclick="prevSection(3)">&larr; Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextSection(3)">Next &rarr;</button>
+          </div>
         </div>
+
+        <!-- SECTION 4: Call handling -->
         <div class="section" id="section-4">
           <div class="card">
             <div class="section-title">How your AI should handle calls</div>
+
             <div class="two-col">
-              <div class="field"><label for="greeting_name">Business name for phone greeting</label><input type="text" id="greeting_name" name="greeting_name" placeholder="e.g. Metro Pest Control" required><div class="field-error" id="err-greeting_name">Please enter a greeting name.</div></div>
-              <div class="field"><label for="agent_persona_name">What to call your AI assistant</label><input type="text" id="agent_persona_name" name="agent_persona_name" placeholder="e.g. Max" required><div class="field-error" id="err-agent_persona_name">Please give your AI a name.</div></div>
+              <div class="field">
+                <label for="greeting_name">Business name for phone greeting <span class="hint">e.g. "Hi, you've reached Metro Pest Control..."</span></label>
+                <input type="text" id="greeting_name" name="greeting_name" placeholder="e.g. Metro Pest Control" required>
+                <div class="field-error" id="err-greeting_name">Please enter a greeting name.</div>
+              </div>
+              <div class="field">
+                <label for="agent_persona_name">What to call your AI assistant <span class="hint">e.g. "Max" or "Sam" -- a friendly first name</span></label>
+                <input type="text" id="agent_persona_name" name="agent_persona_name" placeholder="e.g. Max" required>
+                <div class="field-error" id="err-agent_persona_name">Please give your AI a name.</div>
+              </div>
             </div>
-            <div class="field"><label for="escalation_mobile">Emergency escalation number</label><input type="tel" id="escalation_mobile" name="escalation_mobile" placeholder="e.g. 0412 345 678" required><div class="field-error" id="err-escalation_mobile">Please enter an escalation mobile.</div></div>
-            <div class="field"><label for="faqs">Top 5 questions callers ask you <span class="hint">Write as Q&amp;A</span></label><textarea id="faqs" name="faqs" rows="8" placeholder="Q: Do you do same-day inspections?&#10;A: Yes, usually same-day or next-day." required></textarea><div class="field-error" id="err-faqs">Please add your top questions and answers.</div></div>
+
+            <div class="field">
+              <label for="escalation_mobile">Emergency escalation number <span class="hint">For genuine emergencies (e.g. active termite swarm, gas leak) -- who should the AI transfer to?</span></label>
+              <input type="tel" id="escalation_mobile" name="escalation_mobile" placeholder="e.g. 0412 345 678" required>
+              <div class="field-error" id="err-escalation_mobile">Please enter an escalation mobile.</div>
+            </div>
+
+            <div class="field">
+              <label for="faqs">Top 5 questions callers ask you <span class="hint">Write them as Q&amp;A -- the AI will use these to answer without putting people on hold</span></label>
+              <textarea id="faqs" name="faqs" rows="8"
+                placeholder="Q: Do you do same-day inspections?&#10;A: Yes, we usually have availability same-day or next-day. The agent will check our calendar.&#10;&#10;Q: Are you licensed?&#10;A: Yes, fully licensed and insured in NSW.&#10;&#10;Q: How much is a general pest inspection?&#10;A: Starts from $180 for a standard 3-bedroom home." required></textarea>
+              <div class="field-error" id="err-faqs">Please add your top questions and answers.</div>
+            </div>
           </div>
-          <div class="nav-btns"><button type="button" class="btn btn-secondary" onclick="prevSection(4)">&larr; Back</button><button type="button" class="btn btn-primary" onclick="nextSection(4)">Next &rarr;</button></div>
+
+          <div class="nav-btns">
+            <button type="button" class="btn btn-secondary" onclick="prevSection(4)">&larr; Back</button>
+            <button type="button" class="btn btn-primary" onclick="nextSection(4)">Next &rarr;</button>
+          </div>
         </div>
+
+        <!-- SECTION 5: L4 + consent -->
         <div class="section" id="section-5">
-          <div class="card" id="l4-card" style="display:none;">
+
+          <!-- L4 conditional block -->
+          <div class="card" id="l4-card">
             <div class="section-title">Rebook &amp; Reactivate setup <span style="font-weight:400;color:var(--muted);">(L4 clients only)</span></div>
-            <p style="font-size:0.88rem;color:var(--muted);margin:0 0 1.25rem;">We need access to your calendar and customer database so your AI can identify who is due for their next service.</p>
+            <p style="font-size:0.88rem;color:var(--muted);margin:0 0 1.25rem;">You're on the Rebook &amp; Reactivate plan. We need access to your calendar and customer database so your AI can identify who is due for their next service.</p>
+
             <div class="two-col">
-              <div class="field"><label for="l4_calendar_type">Calendar system</label><select id="l4_calendar_type" name="l4_calendar_type"><option value="">Select…</option><option value="servicem8">ServiceM8</option><option value="google_calendar">Google Calendar</option><option value="outlook">Outlook</option><option value="simprocloud">Simpro</option><option value="jobber">Jobber</option><option value="aroflo">AroFlo</option><option value="other">Other</option></select></div>
-              <div class="field"><label for="l4_crm_type">Customer database / CRM</label><select id="l4_crm_type" name="l4_crm_type"><option value="">Select…</option><option value="servicem8">ServiceM8</option><option value="hubspot">HubSpot</option><option value="formitize">Formitize</option><option value="zoho">Zoho</option><option value="spreadsheet">Spreadsheet (we'll guide you)</option><option value="none">No formal CRM</option><option value="other">Other</option></select></div>
+              <div class="field">
+                <label for="l4_calendar_type">Calendar system</label>
+                <select id="l4_calendar_type" name="l4_calendar_type">
+                  <option value="">Select...</option>
+                  <option value="servicem8">ServiceM8</option>
+                  <option value="google_calendar">Google Calendar</option>
+                  <option value="outlook">Outlook / Microsoft 365</option>
+                  <option value="simprocloud">Simpro</option>
+                  <option value="jobber">Jobber</option>
+                  <option value="aroflo">AroFlo</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="l4_crm_type">Customer database / CRM</label>
+                <select id="l4_crm_type" name="l4_crm_type">
+                  <option value="">Select...</option>
+                  <option value="servicem8">ServiceM8</option>
+                  <option value="hubspot">HubSpot</option>
+                  <option value="formitize">Formitize</option>
+                  <option value="zoho">Zoho CRM</option>
+                  <option value="spreadsheet">Spreadsheet (we'll guide you)</option>
+                  <option value="none">No formal CRM -- customer list in email/paper</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
-            <div class="field"><label for="l4_calendar_access">How to access your calendar <span class="hint">Login URL, share link, or note — we'll discuss on the call</span></label><textarea id="l4_calendar_access" name="l4_calendar_access" rows="2" placeholder="e.g. Google Calendar share link, or 'ServiceM8 — will share login on onboarding call'"></textarea></div>
-            <div class="two-col">
-              <div class="field"><label for="l4_service_cycle">Service cycle length</label><select id="l4_service_cycle" name="l4_service_cycle"><option value="">Select…</option><option value="3_months">Every 3 months</option><option value="6_months">Every 6 months</option><option value="12_months">Every 12 months</option><option value="mixed">Mixed</option></select></div>
-              <div class="field"><label for="l4_outreach_order">Outreach order</label><select id="l4_outreach_order" name="l4_outreach_order"><option value="">Select…</option><option value="email_then_call">Email first, call 48h later</option><option value="call_then_email">Call first, email if no answer</option><option value="call_only">Call only</option><option value="email_only">Email only</option></select></div>
+
+            <div class="field">
+              <label for="l4_calendar_access">How to access your calendar <span class="hint">Login URL, read-only share link, or API key note -- we'll discuss security in your onboarding call</span></label>
+              <textarea id="l4_calendar_access" name="l4_calendar_access" rows="2"
+                placeholder="e.g. Google Calendar share link, or 'ServiceM8 -- will share login on onboarding call'"></textarea>
             </div>
+
             <div class="two-col">
-              <div class="field"><label for="l4_email_domain">Email sending domain</label><input type="text" id="l4_email_domain" name="l4_email_domain" placeholder="e.g. metropest.com.au"></div>
-              <div class="field"><label for="l4_email_sender_name">Sender display name</label><input type="text" id="l4_email_sender_name" name="l4_email_sender_name" placeholder="e.g. Max from Metro Pest"></div>
+              <div class="field">
+                <label for="l4_service_cycle">Service cycle length <span class="hint">How often do customers need their service?</span></label>
+                <select id="l4_service_cycle" name="l4_service_cycle">
+                  <option value="">Select...</option>
+                  <option value="3_months">Every 3 months</option>
+                  <option value="6_months">Every 6 months</option>
+                  <option value="12_months">Every 12 months</option>
+                  <option value="mixed">Mixed -- depends on service type</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="l4_outreach_order">Outreach order <span class="hint">When re-engaging a customer, what should happen first?</span></label>
+                <select id="l4_outreach_order" name="l4_outreach_order">
+                  <option value="">Select...</option>
+                  <option value="email_then_call">Email first, call 48h later if no response</option>
+                  <option value="call_then_email">Call first, email if no answer</option>
+                  <option value="call_only">Call only</option>
+                  <option value="email_only">Email only</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="l4_email_domain">Email sending domain <span class="hint">The domain your outreach emails will come from</span></label>
+                <input type="text" id="l4_email_domain" name="l4_email_domain" placeholder="e.g. metropest.com.au">
+              </div>
+              <div class="field">
+                <label for="l4_email_sender_name">Sender display name <span class="hint">What customers see in their inbox</span></label>
+                <input type="text" id="l4_email_sender_name" name="l4_email_sender_name" placeholder="e.g. Max from Metro Pest">
+              </div>
             </div>
           </div>
+
+          <!-- consent + submit -->
           <div class="card">
             <div class="section-title">Confirm and submit</div>
-            <div class="check-field"><input type="checkbox" id="consent_ai_disclosure" name="consent_ai_disclosure"><label for="consent_ai_disclosure"><strong>AI disclosure:</strong> I understand that my AI assistant will tell callers they are speaking with an AI, and that all calls will be recorded, consistent with Australian privacy law.</label></div>
-            <div class="check-field"><input type="checkbox" id="consent_recording" name="consent_recording"><label for="consent_recording"><strong>Call recording:</strong> I accept that calls will be recorded and will inform my business contacts as required.</label></div>
-            <div class="check-field" id="spam-act-check" style="display:none;"><input type="checkbox" id="consent_spam_act" name="consent_spam_act"><label for="consent_spam_act"><strong>Spam Act (L4):</strong> I confirm I have consent from customers in my reactivation list to receive outreach, as required under the Australian Spam Act 2003 and Privacy Act 1988.</label></div>
-            <div class="field" style="margin-top:1rem;"><label for="notes">Anything else we should know? <span class="optional">(optional)</span></label><textarea id="notes" name="notes" placeholder="e.g. We'd like the agent to upsell our annual protection plan."></textarea></div>
-            <div id="consent-error" class="field-error" style="margin-top:0.5rem;">Please tick both required consent boxes before submitting.</div>
+
+            <div class="check-field">
+              <input type="checkbox" id="consent_ai_disclosure" name="consent_ai_disclosure">
+              <label for="consent_ai_disclosure">
+                <strong>AI disclosure:</strong> I understand that my AI assistant will tell callers they are speaking with an AI, and that all calls will be recorded for quality and training purposes, consistent with Australian privacy law.
+              </label>
+            </div>
+
+            <div class="check-field">
+              <input type="checkbox" id="consent_recording" name="consent_recording">
+              <label for="consent_recording">
+                <strong>Call recording:</strong> I accept that calls handled by my AI assistant will be recorded, and I will inform my business contacts of this as required.
+              </label>
+            </div>
+
+            <div class="check-field" id="spam-act-check" style="display:none;">
+              <input type="checkbox" id="consent_spam_act" name="consent_spam_act">
+              <label for="consent_spam_act">
+                <strong>Spam Act (L4 outreach):</strong> I confirm that I have obtained consent from the customers in my reactivation list to receive marketing or service reminder communications from my business, as required under the Australian Spam Act 2003 and Privacy Act 1988.
+              </label>
+            </div>
+
+            <div class="field" style="margin-top:1rem;">
+              <label for="notes">Anything else we should know? <span class="optional">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="e.g. We have a franchise model, our branded scripts need approval. Or: we'd like the agent to upsell our annual protection plan."></textarea>
+            </div>
+
+            <div id="consent-error" class="field-error" style="margin-top:0.5rem;">Please tick both required consent boxes above before submitting.</div>
           </div>
-          <div class="nav-btns"><button type="button" class="btn btn-secondary" onclick="prevSection(5)">&larr; Back</button><button type="submit" class="btn btn-primary" id="submitBtn">Submit details</button></div>
+
+          <div class="nav-btns">
+            <button type="button" class="btn btn-secondary" onclick="prevSection(5)">&larr; Back</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit details</button>
+          </div>
         </div>
+
+        <!-- SUCCESS -->
         <div class="section" id="section-success">
           <div class="card success-card visible">
-            <div class="tick-wrap" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><polyline points="7,18 15,26 29,10" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="tick-wrap" aria-hidden="true">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="7,18 15,26 29,10" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <h1>Details received.</h1>
-            <p style="font-size:1.02rem;color:var(--muted);margin:0 0 1.75rem;line-height:1.6;">We'll review your information before your onboarding call. If you haven't booked yet, do that now.</p>
-            <a href="https://tidycal.com/kindredsystems/aap-connor-intake" class="btn btn-primary" target="_blank" rel="noopener">Book onboarding call &rarr;</a>
-            <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);">Questions? <a href="mailto:hello@aiassistantpro.com.au" style="color:var(--gold-dark);">hello@aiassistantpro.com.au</a></p>
+            <p style="font-size:1.02rem;color:var(--muted);margin:0 0 1.75rem;line-height:1.6;">We'll review your information before your onboarding call. If you haven't already booked your call, do that now -- it only takes 20 minutes and gets your agent live faster.</p>
+            <a href="https://tidycal.com/kindredsystems/aap-connor-intake" class="btn btn-primary" target="_blank" rel="noopener">
+              Book onboarding call &rarr;
+            </a>
+            <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);">Questions? Email us at <a href="mailto:hello@aiassistantpro.com.au" style="color:var(--gold-dark);">hello@aiassistantpro.com.au</a></p>
           </div>
         </div>
+
       </form>
-    </div>
+
+    </div><!-- /form-wrap -->
   </main>
-  <footer><p>&copy; 2026 AI Assistant Pro &mdash; a Kindred Systems product &nbsp;|&nbsp;<a href="https://www.aiassistantpro.com.au/privacy">Privacy</a> &nbsp;|&nbsp;<a href="https://www.aiassistantpro.com.au/terms">Terms</a></p></footer>
+
+  <footer>
+    <p>
+      &copy; 2026 AI Assistant Pro &mdash; a Kindred Systems product &nbsp;|&nbsp;
+      <a href="https://www.aiassistantpro.com.au/privacy">Privacy</a> &nbsp;|&nbsp;
+      <a href="https://www.aiassistantpro.com.au/terms">Terms</a>
+    </p>
+  </footer>
+
   <script>
+    // Config
     const SUPABASE_URL = "https://whpyqlfwqprnognsobsj.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_Aj6onH-uJ-sX6EUAxuQBEQ_GHdkf7a8";
+
+    // Section nav
     const TOTAL = 5;
     let currentSection = 1;
+
     function showSection(n) {
       document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-      document.getElementById(n === "success" ? "section-success" : `section-${n}`).classList.add("active");
+      document.getElementById(n === "success" ? "section-success" : `section-${n}`)
+        .classList.add("active");
       if (n !== "success") {
-        document.getElementById("progressFill").style.width = Math.round((n/TOTAL)*100)+"%";
+        const pct = Math.round((n / TOTAL) * 100);
+        document.getElementById("progressFill").style.width = pct + "%";
         document.getElementById("progressLabel").textContent = `Step ${n} of ${TOTAL}`;
-        window.scrollTo({top:0,behavior:"smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
+
+    // Required fields per section
     const sectionRequired = {
-      1:["business_name","business_type","owner_name","owner_mobile","business_email","suburb","state"],
-      2:["business_hours","service_area","after_hours_handling"],
-      3:["services_offered","booking_system"],
-      4:["greeting_name","agent_persona_name","escalation_mobile","faqs"],
-      5:[]
+      1: ["business_name", "business_type", "owner_name", "owner_mobile", "business_email", "suburb", "state"],
+      2: ["business_hours", "service_area", "after_hours_handling"],
+      3: ["services_offered", "booking_system"],
+      4: ["greeting_name", "agent_persona_name", "escalation_mobile", "faqs"],
+      5: [],
     };
+
     function validateSection(n) {
       let ok = true;
-      for (const id of (sectionRequired[n]||[])) {
+      for (const id of (sectionRequired[n] || [])) {
         const el = document.getElementById(id);
         const err = document.getElementById(`err-${id}`);
         const val = el ? el.value.trim() : "";
-        if (!val) { if(err)err.classList.add("visible"); if(ok)el&&el.focus(); ok=false; } else { if(err)err.classList.remove("visible"); }
-        if (id==="business_email"&&val) { if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){if(err){err.textContent="Please enter a valid email address.";err.classList.add("visible");}ok=false;} }
+        if (!val) {
+          if (err) err.classList.add("visible");
+          if (ok) el && el.focus();
+          ok = false;
+        } else {
+          if (err) err.classList.remove("visible");
+        }
+        // Email format
+        if (id === "business_email" && val) {
+          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+          if (!emailOk) {
+            if (err) { err.textContent = "Please enter a valid email address."; err.classList.add("visible"); }
+            ok = false;
+          }
+        }
       }
       return ok;
     }
-    function nextSection(n) { if(!validateSection(n))return; currentSection=n+1; showSection(currentSection); }
-    function prevSection(n) { currentSection=n-1; showSection(currentSection); }
+
+    function nextSection(n) {
+      if (!validateSection(n)) return;
+      currentSection = n + 1;
+      showSection(currentSection);
+    }
+    function prevSection(n) {
+      currentSection = n - 1;
+      showSection(currentSection);
+    }
+
+    // L4 conditional display
     function checkL4() {
       const bt = document.getElementById("business_type").value;
       const params = new URLSearchParams(window.location.search);
-      const isL4 = bt==="pest_control"||params.get("plan")==="l4";
-      document.getElementById("l4-card").style.display = isL4?"block":"none";
-      document.getElementById("spam-act-check").style.display = isL4?"flex":"none";
+      const isL4 = bt === "pest_control" || params.get("plan") === "l4";
+      document.getElementById("l4-card").style.display = isL4 ? "block" : "none";
+      document.getElementById("spam-act-check").style.display = isL4 ? "flex" : "none";
     }
-    document.getElementById("business_type").addEventListener("change",checkL4);
+    document.getElementById("business_type").addEventListener("change", checkL4);
     checkL4();
+
     const urlParams = new URLSearchParams(window.location.search);
-    const leadIdFromUrl = urlParams.get("lead_id")||"";
-    document.getElementById("intakeForm").addEventListener("submit",async(e)=>{
+    const leadIdFromUrl = urlParams.get("lead_id") || "";
+
+    // Submit
+    document.getElementById("intakeForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      if(!validateSection(5))return;
-      const consentAI=document.getElementById("consent_ai_disclosure").checked;
-      const consentRec=document.getElementById("consent_recording").checked;
-      const consentErr=document.getElementById("consent-error");
-      if(!consentAI||!consentRec){consentErr.classList.add("visible");return;}
+      if (!validateSection(5)) return;
+
+      const consentAI = document.getElementById("consent_ai_disclosure").checked;
+      const consentRec = document.getElementById("consent_recording").checked;
+      const consentErr = document.getElementById("consent-error");
+
+      if (!consentAI || !consentRec) {
+        consentErr.classList.add("visible");
+        return;
+      }
       consentErr.classList.remove("visible");
-      const btn=document.getElementById("submitBtn");
-      btn.disabled=true; btn.textContent="Submitting…";
-      const f=document.getElementById("intakeForm");
-      const data={
-        lead_id:leadIdFromUrl||null,
-        business_name:f.business_name.value.trim(),business_type:f.business_type.value,
-        abn:f.abn.value.trim()||null,owner_name:f.owner_name.value.trim(),
-        owner_mobile:f.owner_mobile.value.trim(),business_email:f.business_email.value.trim(),
-        website:f.website.value.trim()||null,suburb:f.suburb.value.trim(),state:f.state.value,
-        service_area:f.service_area.value.trim(),business_hours:f.business_hours.value.trim(),
-        after_hours_handling:f.after_hours_handling.value,team_size:f.team_size.value||null,
-        services_offered:f.services_offered.value.trim(),average_job_value:f.average_job_value.value.trim()||null,
-        booking_system:f.booking_system.value,crm_system:f.crm_system.value||null,
-        payment_method:f.payment_method.value||null,greeting_name:f.greeting_name.value.trim(),
-        agent_persona_name:f.agent_persona_name.value.trim(),escalation_mobile:f.escalation_mobile.value.trim(),
-        faqs:f.faqs.value.trim(),l4_calendar_type:f.l4_calendar_type.value||null,
-        l4_crm_type:f.l4_crm_type.value||null,l4_calendar_access:f.l4_calendar_access.value.trim()||null,
-        l4_service_cycle:f.l4_service_cycle.value||null,l4_outreach_order:f.l4_outreach_order.value||null,
-        l4_email_domain:f.l4_email_domain.value.trim()||null,l4_email_sender_name:f.l4_email_sender_name.value.trim()||null,
-        consent_ai_disclosure:consentAI,consent_recording:consentRec,
-        consent_spam_act:document.getElementById("consent_spam_act").checked,
-        notes:f.notes.value.trim()||null
+
+      const btn = document.getElementById("submitBtn");
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+
+      const f = document.getElementById("intakeForm");
+      const data = {
+        lead_id: leadIdFromUrl || null,
+        business_name:          f.business_name.value.trim(),
+        business_type:          f.business_type.value,
+        abn:                    f.abn.value.trim() || null,
+        owner_name:             f.owner_name.value.trim(),
+        owner_mobile:           f.owner_mobile.value.trim(),
+        business_email:         f.business_email.value.trim(),
+        website:                f.website.value.trim() || null,
+        suburb:                 f.suburb.value.trim(),
+        state:                  f.state.value,
+        service_area:           f.service_area.value.trim(),
+        business_hours:         f.business_hours.value.trim(),
+        after_hours_handling:   f.after_hours_handling.value,
+        team_size:              f.team_size.value || null,
+        services_offered:       f.services_offered.value.trim(),
+        average_job_value:      f.average_job_value.value.trim() || null,
+        booking_system:         f.booking_system.value,
+        crm_system:             f.crm_system.value || null,
+        payment_method:         f.payment_method.value || null,
+        greeting_name:          f.greeting_name.value.trim(),
+        agent_persona_name:     f.agent_persona_name.value.trim(),
+        escalation_mobile:      f.escalation_mobile.value.trim(),
+        faqs:                   f.faqs.value.trim(),
+        l4_calendar_type:       f.l4_calendar_type.value || null,
+        l4_crm_type:            f.l4_crm_type.value || null,
+        l4_calendar_access:     f.l4_calendar_access.value.trim() || null,
+        l4_service_cycle:       f.l4_service_cycle.value || null,
+        l4_outreach_order:      f.l4_outreach_order.value || null,
+        l4_email_domain:        f.l4_email_domain.value.trim() || null,
+        l4_email_sender_name:   f.l4_email_sender_name.value.trim() || null,
+        consent_ai_disclosure:  consentAI,
+        consent_recording:      consentRec,
+        consent_spam_act:       document.getElementById("consent_spam_act").checked,
+        notes:                  f.notes.value.trim() || null,
       };
+
       try {
-        const res=await fetch(`${SUPABASE_URL}/rest/v1/onboarding_responses`,{
-          method:"POST",
-          headers:{"apikey":SUPABASE_ANON_KEY,"Authorization":`Bearer ${SUPABASE_ANON_KEY}`,"Content-Type":"application/json","Prefer":"return=minimal"},
-          body:JSON.stringify(data)
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/onboarding_responses`, {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal",
+          },
+          body: JSON.stringify(data),
         });
-        if(!res.ok)throw new Error(`HTTP ${res.status}`);
-        document.getElementById("progressFill").style.width="100%";
-        document.getElementById("progressLabel").textContent="Complete";
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+
+        document.getElementById("progressFill").style.width = "100%";
+        document.getElementById("progressLabel").textContent = "Complete";
         showSection("success");
-      } catch(err) {
-        console.error("Intake submit error:",err);
-        btn.disabled=false; btn.textContent="Submit details";
-        alert("Something went wrong — please try again or email us at hello@aiassistantpro.com.au");
+
+      } catch (err) {
+        console.error("Intake submit error:", err);
+        btn.disabled = false;
+        btn.textContent = "Submit details";
+        alert("Something went wrong -- please try again or email us at hello@aiassistantpro.com.au");
       }
     });
   </script>
+
 </body>
 </html>
