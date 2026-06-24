@@ -90,6 +90,8 @@
     .button-primary { background: var(--navy); color: #fff; box-shadow: 0 15px 32px rgba(23, 40, 63, 0.20); }
     .button-gold { background: var(--gold); color: #fff; box-shadow: 0 15px 32px rgba(189, 152, 92, 0.24); }
     .button-outline { background: transparent; color: var(--navy); border-color: rgba(23, 40, 63, 0.22); }
+    .button-ghost { background: transparent; color: var(--muted); border-color: transparent; font-size: 0.9rem; font-weight: 600; min-height: 40px; padding: 8px 14px; }
+    .button-ghost:hover { color: var(--navy); transform: none; }
     .button:disabled { opacity: 0.6; pointer-events: none; }
 
     .section { padding: 76px 0; }
@@ -113,60 +115,27 @@
     .lead { max-width: 600px; margin-top: 24px; color: #415066; font-size: clamp(1.08rem, 1.55vw, 1.25rem); }
     .small-copy { color: var(--muted); font-size: 0.95rem; }
 
-    .hero { padding: 64px 0 56px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 52px; align-items: start; }
+    .hero { padding: 72px 0 64px; }
 
-    .pain-list { display: grid; gap: 12px; margin-top: 28px; }
-    .pain-item { display: grid; grid-template-columns: 28px 1fr; align-items: start; gap: 12px; color: #263954; font-weight: 650; }
-    .pain-icon { width: 26px; height: 26px; display: inline-grid; place-items: center; border-radius: 50%; background: rgba(189, 152, 92, 0.16); color: var(--gold-dark); font-weight: 950; font-size: 0.82rem; }
+    .point-list { display: grid; gap: 12px; margin-top: 28px; }
+    .point-item { display: grid; grid-template-columns: 28px 1fr; align-items: start; gap: 12px; color: #263954; font-weight: 650; }
+    .point-icon { width: 26px; height: 26px; display: inline-grid; place-items: center; border-radius: 50%; font-weight: 950; font-size: 0.82rem; }
+    .point-icon.neg { background: rgba(189, 152, 92, 0.16); color: var(--gold-dark); }
+    .point-icon.pos { background: rgba(50, 140, 80, 0.12); color: #2a7a48; }
 
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; align-items: center; }
-    .demo-note { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; align-items: center; }
 
-    .demo-card {
+    .demo-strip {
       background: rgba(255, 253, 248, 0.96);
       border: 1px solid rgba(23, 40, 63, 0.12);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
-      padding: 30px;
+      padding: 32px 36px;
+      margin-top: 52px;
     }
-    .demo-card h3 { margin-bottom: 8px; }
-
-    .demo-divider {
-      display: flex; align-items: center; gap: 14px;
-      margin: 22px 0; color: var(--muted); font-size: 0.88rem; font-weight: 650;
-    }
-    .demo-divider::before, .demo-divider::after {
-      content: ""; flex: 1; height: 1px; background: rgba(23, 40, 63, 0.12);
-    }
-
-    .step-form { display: block; }
-    .step-form.hidden { display: none; }
-
-    .field { margin-bottom: 14px; }
-    .field label { display: block; font-weight: 750; font-size: 0.9rem; margin-bottom: 6px; color: var(--navy); }
-    .field input, .field select {
-      width: 100%; padding: 12px 14px; border-radius: var(--radius-sm);
-      border: 1px solid rgba(23, 40, 63, 0.18); background: #fff;
-      font-family: inherit; font-size: 1rem; color: var(--ink);
-      -webkit-appearance: none; appearance: none;
-    }
-    .field input:focus, .field select:focus { outline: 2px solid rgba(189,152,92,0.5); border-color: var(--gold); }
-
-    .step2-form { display: none; }
-    .step2-form.visible { display: block; }
-    .step2-greeting { font-weight: 750; color: var(--navy); margin-bottom: 14px; font-size: 1rem; }
-
-    .consent { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; margin: 16px 0 20px; }
-    .consent input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--gold-dark); }
-    .consent label { font-size: 0.86rem; color: #4d5c70; font-weight: 500; line-height: 1.5; }
-
-    .form-status { margin-top: 12px; font-size: 0.95rem; font-weight: 650; min-height: 1.2em; }
-    .form-status.error { color: #b4453c; }
-
-    .success-panel { display: none; text-align: center; padding: 8px 0; }
-    .success-panel.show { display: block; }
-    .tick-big { width: 64px; height: 64px; border-radius: 50%; background: rgba(189,152,92,0.16); color: var(--gold-dark); display: grid; place-items: center; font-size: 1.8rem; font-weight: 950; margin: 0 auto 16px; }
+    .demo-strip p { color: #536176; margin-top: 8px; margin-bottom: 24px; }
+    .demo-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+    .demo-label { font-size: 0.82rem; color: var(--muted); margin-top: 12px; }
 
     .trust-bar {
       padding: 26px 0;
@@ -184,26 +153,6 @@
     .info-card p { color: #536176; }
     .benefit-number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; margin-bottom: 14px; background: rgba(189, 152, 92, 0.16); color: var(--gold-dark); font-weight: 950; }
 
-    .how-section {
-      background: var(--navy); color: #fff; border-radius: 42px;
-      margin: 20px auto; width: min(calc(100% - 40px), 1320px);
-      overflow: hidden; position: relative;
-    }
-    .how-section::before {
-      content: ""; position: absolute; inset: -20% 55% auto -10%;
-      width: 420px; height: 420px;
-      background: radial-gradient(circle, rgba(189, 152, 92, 0.28), transparent 62%);
-      pointer-events: none;
-    }
-    .how-section h2, .how-section h3 { color: #fff; }
-    .how-section p { color: rgba(255,255,255,0.76); }
-    .how-section .eyebrow { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.18); }
-
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
-    .step { border-radius: var(--radius-md); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); padding: 22px; }
-    .step-number { width: 38px; height: 38px; border-radius: 50%; background: #fff; color: var(--navy); display: grid; place-items: center; font-weight: 950; margin-bottom: 14px; }
-    .step p { color: rgba(255,255,255,0.76); margin-top: 10px; }
-
     .scenario-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
     .scenario-card {
       background: rgba(23, 40, 63, 0.05); border: 1px solid rgba(23, 40, 63, 0.10);
@@ -212,6 +161,23 @@
     .scenario-time { font-size: 0.82rem; font-weight: 800; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
     .scenario-card strong { display: block; color: var(--navy); margin-bottom: 6px; font-size: 1rem; }
     .scenario-card span { color: #536176; font-size: 0.93rem; }
+
+    .kai-band {
+      background: var(--navy); border-radius: 42px;
+      margin: 20px auto; width: min(calc(100% - 40px), 1320px);
+      overflow: hidden; position: relative;
+      padding: 64px 0;
+    }
+    .kai-band::before {
+      content: ""; position: absolute; inset: -20% 55% auto -10%;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(189, 152, 92, 0.28), transparent 62%);
+      pointer-events: none;
+    }
+    .kai-band h2, .kai-band h3 { color: #fff; }
+    .kai-band .lead { color: rgba(255,255,255,0.76); }
+    .kai-band .eyebrow { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.18); }
+    .kai-band .small-copy { color: rgba(255,255,255,0.5); margin-top: 14px; }
 
     .price-band { text-align: center; }
     .price-card {
@@ -223,15 +189,15 @@
     .price-amount { font-family: Georgia, serif; font-size: clamp(2.6rem, 6vw, 3.6rem); color: var(--navy); letter-spacing: -0.04em; line-height: 1; }
     .price-card ul { text-align: left; margin: 20px auto 0; padding-left: 20px; color: #4d5c70; max-width: 420px; }
     .price-card li { margin-top: 8px; }
+    .price-card .small-copy { margin-top: 8px; }
 
     footer { padding: 32px 0; border-top: 1px solid rgba(23, 40, 63, 0.1); color: var(--muted); font-size: 0.92rem; }
     .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
 
     @media (max-width: 980px) {
       .nav { min-height: 76px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .grid-3, .steps, .scenario-strip { grid-template-columns: 1fr; }
-      .how-section { border-radius: 30px; }
+      .grid-3, .scenario-strip { grid-template-columns: 1fr; }
+      .kai-band { border-radius: 30px; }
       .hero { padding-top: 40px; }
     }
     @media (max-width: 640px) {
@@ -243,11 +209,12 @@
       h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
       h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
       .button { width: 100%; white-space: normal; text-align: center; }
-      .hero-ctas { display: grid; grid-template-columns: 1fr; }
-      .how-section { width: calc(100% - 22px); border-radius: 26px; }
+      .hero-ctas, .demo-buttons { display: grid; grid-template-columns: 1fr; }
+      .kai-band { width: calc(100% - 22px); border-radius: 26px; }
       .trust-bar-inner { gap: 14px 22px; }
       .footer-row { display: block; }
       .footer-row p + p { margin-top: 10px; }
+      .demo-strip { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -259,104 +226,42 @@
         <a href="https://www.aiassistantpro.com.au/" aria-label="AI Assistant Pro home">
           <img class="logo" src="/assets/ai-assistant-pro-logo-transparent.png?v=2" alt="AI Assistant Pro">
         </a>
-        <a class="button button-primary" href="#get-started">Get started</a>
+        <a class="button button-gold" href="#talk-to-kai">Talk to Kai</a>
       </div>
     </header>
 
     <main id="top">
 
       <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> For Australian pest control businesses</div>
-            <h1>Your past customers are due again. Is anyone calling them?</h1>
-            <p class="lead">AI Assistant Pro reads your customer records, works out who is overdue for their annual or quarterly treatment, and calls them to rebook. No chasing. No missed calls. No lost revenue.</p>
-            <div class="pain-list">
-              <div class="pain-item"><span class="pain-icon">&#x2715;</span><span>Last year's termite inspection customers are due now. Nobody has rung them.</span></div>
-              <div class="pain-item"><span class="pain-icon">&#x2715;</span><span>Calls come in while you're under a house. They go to voicemail and the job goes elsewhere.</span></div>
-              <div class="pain-item"><span class="pain-icon">&#x2715;</span><span>Annual treatments are your easiest revenue. Someone just needs to make the call.</span></div>
-            </div>
-            <div class="hero-ctas">
-              <a class="button button-gold" href="#get-started">Tell us about your business</a>
-              <a class="button button-outline" href="https://www.aiassistantpro.com.au/#demo">Hear the AI first</a>
-            </div>
-            <p class="demo-note">The demo on the main page is a live electrician receptionist — the same technology, different script.</p>
+        <div class="container">
+
+          <div class="eyebrow"><span class="eyebrow-dot"></span> For pest control businesses</div>
+          <h1>Your past customers are due again. Is anyone calling them?</h1>
+          <p class="lead">No need to spend hours every week searching last year's diary and contacting people. AI Assistant Pro reads your customer records, works out who is overdue, and handles the outreach for you.</p>
+
+          <div class="point-list">
+            <div class="point-item"><span class="point-icon neg">✕</span><span>Last year's termite inspection customers are due now. Nobody has rung them.</span></div>
+            <div class="point-item"><span class="point-icon neg">✕</span><span>Calls come in while you're under a house. They go to voicemail and the job goes elsewhere.</span></div>
+            <div class="point-item"><span class="point-icon pos">✓</span><span>The agent emails first, then follows up with a call if there's no booking. You approve the list before anyone is contacted.</span></div>
+            <div class="point-item"><span class="point-icon pos">✓</span><span>Every new inbound call gets answered 24/7 and booked straight into your calendar. You get a summary.</span></div>
           </div>
 
-          <aside class="demo-card" id="get-started">
-            <div class="success-panel" id="successPanel">
-              <div class="tick-big">&#10003;</div>
-              <h3>Got it. We'll be in touch.</h3>
-              <p class="small-copy" style="margin-top:12px">We'll call you at the number you provided. The call may come from our AI agent, Kai, who will ask a few questions to confirm the right fit for your business.</p>
-            </div>
+          <div class="hero-ctas">
+            <a class="button button-gold" href="#talk-to-kai">Talk to Kai</a>
+            <a class="button button-outline" href="#demo">Try the demo first</a>
+          </div>
 
-            <div class="step-form" id="step1">
-              <h3>Tell us about your business.</h3>
-              <p class="small-copy" style="margin-bottom:0">Takes 30 seconds. No commitment. We'll follow up to show you exactly how it works for pest control.</p>
-              <form id="step1Form" novalidate style="margin-top:18px">
-                <div class="field">
-                  <label for="first_name">First name</label>
-                  <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder="Dave" required>
-                </div>
-                <div class="field">
-                  <label for="business_name">Business name</label>
-                  <input id="business_name" name="business_name" type="text" autocomplete="organization" placeholder="Dave's Pest Control">
-                </div>
-                <div class="field">
-                  <label for="pest_service">What services do you mainly offer?</label>
-                  <select id="pest_service" name="pest_service">
-                    <option value="" disabled selected>Select</option>
-                    <option value="general_pest">General pest treatment</option>
-                    <option value="termite">Termite inspection and treatment</option>
-                    <option value="rodent">Rodent control</option>
-                    <option value="commercial">Commercial pest management</option>
-                    <option value="mixed">A mix of the above</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="customer_records">Do you have a list of past customers with contact details?</label>
-                  <select id="customer_records" name="customer_records">
-                    <option value="" disabled selected>Select</option>
-                    <option value="yes_system">Yes, in a job management system</option>
-                    <option value="yes_spreadsheet">Yes, in a spreadsheet</option>
-                    <option value="scattered">Sort of — scattered across a few places</option>
-                    <option value="no">Not really</option>
-                  </select>
-                </div>
-                <div class="form-status" id="step1Status" role="status" aria-live="polite"></div>
-                <button class="button button-gold" type="submit" id="step1Btn" style="width:100%; margin-top:8px">Next &rarr;</button>
-              </form>
-              <div class="demo-divider">or</div>
-              <a class="button button-outline" href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener" style="width:100%; text-align:center">Book a call with Cathryn</a>
+          <div class="demo-strip" id="demo">
+            <div class="eyebrow" style="margin-bottom:14px"><span class="eyebrow-dot"></span> Try the demo</div>
+            <h3>Hear Rachel in action.</h3>
+            <p>Two demos. Same voice agent, two different jobs. Call as if you're a real customer, or listen in on an outbound rebook call.</p>
+            <div class="demo-buttons">
+              <button class="button button-gold js-rachel-inbound">Call Rachel (inbound)</button>
+              <button class="button button-outline js-rachel-outbound">Hear the rebook call</button>
             </div>
+            <p class="demo-label">You're speaking to a demo AI agent, not a real person (although you can speak to her like one). Calls are made via your browser microphone — although people will call with a phone when it's set up in your business.</p>
+          </div>
 
-            <div class="step2-form" id="step2">
-              <p class="step2-greeting" id="step2Greeting">Great. Last step.</p>
-              <p class="small-copy" style="margin-bottom:18px">We'll call you at a time that suits to show you how the AI works for pest control and which package fits best.</p>
-              <form id="step2Form" novalidate>
-                <div class="field">
-                  <label for="phone">Mobile number</label>
-                  <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required>
-                </div>
-                <div class="field">
-                  <label for="best_time">Best time to call</label>
-                  <select id="best_time" name="best_time">
-                    <option value="" disabled selected>Pick a time</option>
-                    <option value="morning">Morning (7am to 12pm)</option>
-                    <option value="afternoon">Afternoon (12pm to 5pm)</option>
-                    <option value="evening">Evening (5pm to 7pm)</option>
-                    <option value="anytime">Anytime</option>
-                  </select>
-                </div>
-                <div class="consent">
-                  <input id="consent" name="consent" type="checkbox" required>
-                  <label for="consent">I agree to be contacted by phone and SMS by AI Assistant Pro about this enquiry. Calls may be made by an AI voice agent. Reply STOP to any message or ask to be removed on the call to opt out.</label>
-                </div>
-                <button class="button button-gold" type="submit" id="step2Btn" style="width:100%">Get my callback</button>
-                <div class="form-status" id="step2Status" role="status" aria-live="polite"></div>
-              </form>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -364,16 +269,43 @@
         <div class="container trust-bar-inner">
           <div class="trust-item"><span class="trust-dot"></span>Month to month, no contracts</div>
           <div class="trust-item"><span class="trust-dot"></span>Live within 48 hours</div>
-          <div class="trust-item"><span class="trust-dot"></span>Natural Australian voice</div>
+          <div class="trust-item"><span class="trust-dot"></span>Turn it on or off by text</div>
+          <div class="trust-item"><span class="trust-dot"></span>Changes sent via email anytime</div>
+          <div class="trust-item"><span class="trust-dot"></span>Choose your voice and accent</div>
           <div class="trust-item"><span class="trust-dot"></span>100% after-hours coverage</div>
         </div>
       </div>
 
       <section class="section-tight">
         <div class="container">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Why pest control is different</div>
+          <h2>Your best revenue is already in your records.</h2>
+          <p class="lead">Pest control runs on recurring treatments. The customer from twelve months ago is not a cold lead. They need the service again and they already trust you.</p>
+          <div class="grid-3" style="margin-top:34px">
+            <article class="info-card">
+              <div class="benefit-number">1</div>
+              <h3>It finds who's due</h3>
+              <p>Reads your records and works out who is due for their yearly service. Builds the list. You review it and approve who gets contacted before anything goes out.</p>
+            </article>
+            <article class="info-card">
+              <div class="benefit-number">2</div>
+              <h3>It emails, then calls</h3>
+              <p>Each approved customer gets a reminder email first. If they haven't booked after a few days, the agent follows up with a call. No spam. No simultaneous blasting.</p>
+            </article>
+            <article class="info-card">
+              <div class="benefit-number">3</div>
+              <h3>Treatments get booked</h3>
+              <p>The agent books straight into your calendar. You're not chasing. Your Mrs isn't spending Saturday morning working through last year's diary. The admin is done.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" style="padding-top:0">
+        <div class="container">
           <div class="eyebrow"><span class="eyebrow-dot"></span> What it handles</div>
           <h2>Every call. Every rebook. Without you stopping work.</h2>
-          <p class="lead">Whether it's a new enquiry at 11pm or a past customer who hasn't heard from you since last year, the agent handles it.</p>
+          <p class="lead">Whether it's a new enquiry at 11pm or a past customer who hasn't heard from you in a year, the agent handles it.</p>
           <div class="scenario-strip">
             <div class="scenario-card">
               <div class="scenario-time">4:12 AM</div>
@@ -383,7 +315,7 @@
             <div class="scenario-card">
               <div class="scenario-time">Annual rebook</div>
               <strong>Last year's general pest customers</strong>
-              <span>Agent works through your customer list, emails and calls each one. Books treatments straight into your calendar.</span>
+              <span>Agent emails each approved customer, waits a few days, then calls anyone who hasn't booked. You approve the list before contact is made.</span>
             </div>
             <div class="scenario-card">
               <div class="scenario-time">Saturday 9:30 AM</div>
@@ -394,58 +326,15 @@
         </div>
       </section>
 
-      <section class="section-tight" style="padding-top:0">
+      <section class="kai-band" id="talk-to-kai">
         <div class="container">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Why pest control is different</div>
-          <h2>Your best revenue is already in your records.</h2>
-          <p class="lead">Pest control runs on recurring treatments. The customer from twelve months ago is not a cold lead. They need the service again and they already trust you.</p>
-          <div class="grid-3" style="margin-top:34px">
-            <article class="info-card">
-              <div class="benefit-number">1</div>
-              <h3>It finds who's due</h3>
-              <p>Reads your calendar and customer records, works out who is due for their yearly service, and builds the list for you to review.</p>
-            </article>
-            <article class="info-card">
-              <div class="benefit-number">2</div>
-              <h3>You approve first</h3>
-              <p>You see exactly who it wants to contact and can remove anyone before a single call or message goes out. You stay in control.</p>
-            </article>
-            <article class="info-card">
-              <div class="benefit-number">3</div>
-              <h3>It emails and calls them</h3>
-              <p>Each approved customer gets a reminder email and a call from a natural-sounding Australian voice. Treatments get booked. You get revenue.</p>
-            </article>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> See if it's right for you</div>
+          <h2>Talk to Kai.</h2>
+          <p class="lead">Kai is our AI advisor. Have a conversation, ask questions about how it works, and see whether it fits what you do. No pressure, no pitch. Just a straight chat.</p>
+          <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+            <button class="button button-gold js-kai-call">Talk to Kai now</button>
           </div>
-        </div>
-      </section>
-
-      <section class="how-section section" id="how">
-        <div class="container">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> How it works</div>
-          <h2>From customer records to booked treatments.</h2>
-          <p style="margin-top:18px; color:rgba(255,255,255,0.76)">Setup is a single call. After that it runs without you.</p>
-          <div class="steps">
-            <article class="step">
-              <div class="step-number">1</div>
-              <h3>Connect</h3>
-              <p>We connect your calendar and customer records during a 30-minute setup call. No complicated IT required.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">2</div>
-              <h3>Find and approve</h3>
-              <p>The agent identifies who is due for service and sends you the list. You approve who gets contacted before anything goes out.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">3</div>
-              <h3>Email and call</h3>
-              <p>It contacts each approved customer, reminds them of their service, and books their next treatment straight into your calendar.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">4</div>
-              <h3>Answer every call</h3>
-              <p>The same agent answers all new inbound calls 24/7. Qualifies, books suitable jobs, escalates urgent or complex ones to you.</p>
-            </article>
-          </div>
+          <p class="small-copy">Kai is an AI agent. Your call is not recorded for marketing purposes.</p>
         </div>
       </section>
 
@@ -455,19 +344,24 @@
           <div class="price-card">
             <span class="price-pill">Level 4 &middot; Rebook &amp; Reactivate</span>
             <div class="price-amount">A$995<span style="font-size:1.1rem; color:var(--muted); font-family:Inter,sans-serif">/month</span></div>
-            <p class="small-copy" style="margin-top:8px">approx US$705/month + A$1,495 one-time setup. Month to month, cancel anytime.</p>
+            <p class="small-copy">approx US$705/month + A$1,495 one-time setup. Month to month, cancel anytime.</p>
             <ul>
               <li>Answers and qualifies every incoming call, 24/7</li>
-              <li>Reads your calendar and records to find customers due for service</li>
+              <li>Reads your records to find customers due for service</li>
               <li>Sends you the list for approval before anyone is contacted</li>
-              <li>Emails and calls approved customers to book their next treatment</li>
+              <li>Emails approved customers first, then calls if no booking after a few days</li>
               <li>Books new enquiries straight into your calendar</li>
-              <li>Weekly tweaks included</li>
+              <li>After-hours answering included (you can switch it on/off or answer after X rings)</li>
               <li>800 call minutes per month included</li>
+              <li>Weekly tweaks included</li>
             </ul>
-            <a class="button button-gold" href="#get-started" style="margin-top:28px; display:inline-flex">Get started</a>
+            <button class="button button-gold js-kai-call" style="margin-top:28px">Talk to Kai to get started</button>
           </div>
-          <p class="small-copy" style="margin-top:18px">Only need calls answered or bookings taken? Smaller packages start from A$295/month. Mention it when we call.</p>
+          <p class="small-copy" style="margin-top:18px">Only need calls answered or bookings taken? <a href="https://www.aiassistantpro.com.au/#packages" style="color:var(--gold-dark); text-decoration:underline;">Smaller packages start from A$295/month.</a></p>
+          <p style="margin-top:28px; font-size:0.88rem; color:var(--muted); text-align:center;">
+            Prefer to speak to a human?
+            <a href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener" style="color:var(--muted); text-decoration:underline;">Book a call with Cathryn.</a>
+          </p>
         </div>
       </section>
 
@@ -483,104 +377,55 @@
   </div>
 
   <script type="module">
-    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+    import Vapi from "https://esm.sh/@vapi-ai/web";
 
-    const SUPABASE_URL = "https://whpyqlfwqprnognsobsj.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_Aj6onH-uJ-sX6EUAxuQBEQ_GHdkf7a8";
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const VAPI_PUBLIC_KEY    = "46223d21-06e8-4659-9957-fc297f108320";
+    const RACHEL_INBOUND_ID  = "514ae949-0a23-423c-ac31-3d2c7fb2c59d";
+    const RACHEL_OUTBOUND_ID = "e7be064e-63ea-4fcc-975b-9553e1080cd6";
+    const KAI_ID             = "71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2";
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    let vapiInstance = null;
+    let activeBtn = null;
 
-    function getUtm() {
-      const p = new URLSearchParams(location.search);
-      const utm = {};
-      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k => {
-        if (p.get(k)) utm[k] = p.get(k);
-      });
-      return Object.keys(utm).length ? utm : null;
+    function getVapi() {
+      if (!vapiInstance) {
+        vapiInstance = new Vapi(VAPI_PUBLIC_KEY);
+        vapiInstance.on("call-start", () => {
+          if (activeBtn) { activeBtn.textContent = "End call"; activeBtn.style.opacity = ""; activeBtn.style.pointerEvents = ""; }
+        });
+        vapiInstance.on("call-end",  () => { if (activeBtn) { resetBtn(activeBtn); activeBtn = null; } });
+        vapiInstance.on("error",     () => { if (activeBtn) { resetBtn(activeBtn); activeBtn = null; } });
+      }
+      return vapiInstance;
     }
 
-    let step1Data = {};
+    function resetBtn(btn) {
+      btn.textContent = btn.dataset.label;
+      btn.style.opacity = "";
+      btn.style.pointerEvents = "";
+    }
 
-    const step1Form = document.getElementById("step1Form");
-    const step1Status = document.getElementById("step1Status");
+    function startCall(assistantId, btn) {
+      if (activeBtn) { getVapi().stop(); return; }
+      activeBtn = btn;
+      btn.dataset.label = btn.textContent;
+      btn.textContent = "Connecting…";
+      btn.style.opacity = "0.7";
+      btn.style.pointerEvents = "none";
+      getVapi().start(assistantId);
+    }
 
-    step1Form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      step1Status.className = "form-status";
-      step1Status.textContent = "";
+    document.querySelectorAll(".js-rachel-inbound").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(RACHEL_INBOUND_ID, btn); })
+    );
+    document.querySelectorAll(".js-rachel-outbound").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(RACHEL_OUTBOUND_ID, btn); })
+    );
+    document.querySelectorAll(".js-kai-call").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ID, btn); })
+    );
 
-      const firstName = step1Form.first_name.value.trim();
-      if (!firstName) {
-        step1Status.className = "form-status error";
-        step1Status.textContent = "Please add your first name.";
-        return;
-      }
-
-      step1Data = {
-        first_name: firstName,
-        business_name: step1Form.business_name.value.trim() || null,
-        pest_service: step1Form.pest_service.value || null,
-        customer_records: step1Form.customer_records.value || null,
-        business_type: "pest_control",
-        recommended_level: "L4",
-        source: "pest-control-lp",
-        utm: getUtm()
-      };
-
-      document.getElementById("step2Greeting").textContent =
-        `Good one, ${firstName}. One more thing.`;
-
-      document.getElementById("step1").classList.add("hidden");
-      document.getElementById("step2").classList.add("visible");
-    });
-
-    const step2Form = document.getElementById("step2Form");
-    const step2Status = document.getElementById("step2Status");
-    const step2Btn = document.getElementById("step2Btn");
-
-    step2Form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      step2Status.className = "form-status";
-      step2Status.textContent = "";
-
-      const phone = step2Form.phone.value.trim();
-      const consent = step2Form.consent.checked;
-
-      if (!phone) {
-        step2Status.className = "form-status error";
-        step2Status.textContent = "Please add your mobile number so we can call you.";
-        return;
-      }
-      if (!consent) {
-        step2Status.className = "form-status error";
-        step2Status.textContent = "Please tick the box so we can contact you.";
-        return;
-      }
-
-      step2Btn.disabled = true;
-      step2Btn.textContent = "Sending…";
-
-      const payload = {
-        ...step1Data,
-        phone,
-        best_time: step2Form.best_time.value || null,
-        consent: true
-      };
-
-      const { error } = await supabase.from("leads").insert(payload);
-
-      if (error) {
-        step2Btn.disabled = false;
-        step2Btn.textContent = "Get my callback";
-        step2Status.className = "form-status error";
-        step2Status.textContent = "Something went wrong. Please try again or call us directly.";
-        return;
-      }
-
-      document.getElementById("step2").classList.remove("visible");
-      document.getElementById("successPanel").classList.add("show");
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
