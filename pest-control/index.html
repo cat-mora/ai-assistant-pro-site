@@ -125,6 +125,7 @@
 
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; align-items: center; }
 
+    /* Demo strip */
     .demo-strip {
       background: rgba(255, 253, 248, 0.96);
       border: 1px solid rgba(23, 40, 63, 0.12);
@@ -137,6 +138,7 @@
     .demo-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
     .demo-label { font-size: 0.82rem; color: var(--muted); margin-top: 12px; }
 
+    /* Trust bar */
     .trust-bar {
       padding: 26px 0;
       border-top: 1px solid rgba(23, 40, 63, 0.08);
@@ -147,12 +149,14 @@
     .trust-item { display: flex; align-items: center; gap: 9px; color: #415066; font-size: 0.93rem; font-weight: 650; }
     .trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
+    /* Info cards */
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .info-card { background: rgba(255, 253, 248, 0.82); border: 1px solid rgba(23, 40, 63, 0.12); border-radius: var(--radius-md); padding: 24px; box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08); }
     .info-card h3 { margin-bottom: 10px; }
     .info-card p { color: #536176; }
     .benefit-number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; margin-bottom: 14px; background: rgba(189, 152, 92, 0.16); color: var(--gold-dark); font-weight: 950; }
 
+    /* Scenario strip */
     .scenario-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
     .scenario-card {
       background: rgba(23, 40, 63, 0.05); border: 1px solid rgba(23, 40, 63, 0.10);
@@ -162,6 +166,7 @@
     .scenario-card strong { display: block; color: var(--navy); margin-bottom: 6px; font-size: 1rem; }
     .scenario-card span { color: #536176; font-size: 0.93rem; }
 
+    /* Kai band */
     .kai-band {
       background: var(--navy); border-radius: 42px;
       margin: 20px auto; width: min(calc(100% - 40px), 1320px);
@@ -179,6 +184,16 @@
     .kai-band .eyebrow { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.18); }
     .kai-band .small-copy { color: rgba(255,255,255,0.5); margin-top: 14px; }
 
+    .kai-band-inner { display: flex; align-items: center; gap: 48px; }
+    .kai-band-text { flex: 1; }
+    .kai-band-image { flex-shrink: 0; width: 320px; }
+    .kai-hero-img { width: 100%; border-radius: 24px; display: block; }
+    .kai-identity { display: flex; align-items: center; gap: 16px; margin: 24px 0 20px; }
+    .kai-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(189,152,92,0.5); flex-shrink: 0; }
+    .kai-name { margin: 0; font-weight: 700; font-size: 1rem; color: #fff; }
+    .kai-role { margin: 3px 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+    /* Pricing */
     .price-band { text-align: center; }
     .price-card {
       max-width: 540px; margin: 28px auto 0;
@@ -194,6 +209,10 @@
     footer { padding: 32px 0; border-top: 1px solid rgba(23, 40, 63, 0.1); color: var(--muted); font-size: 0.92rem; }
     .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
 
+    @media (max-width: 860px) {
+      .kai-band-inner { flex-direction: column-reverse; }
+      .kai-band-image { width: 100%; max-width: 340px; margin: 0 auto; }
+    }
     @media (max-width: 980px) {
       .nav { min-height: 76px; }
       .grid-3, .scenario-strip { grid-template-columns: 1fr; }
@@ -226,12 +245,13 @@
         <a href="https://www.aiassistantpro.com.au/" aria-label="AI Assistant Pro home">
           <img class="logo" src="/assets/ai-assistant-pro-logo-transparent.png?v=2" alt="AI Assistant Pro">
         </a>
-        <a class="button button-gold" href="#talk-to-kai">Talk to Kai</a>
+        <a class="button button-gold" href="#talk-to-kai">Ask Kai a question</a>
       </div>
     </header>
 
     <main id="top">
 
+      <!-- HERO -->
       <section class="hero">
         <div class="container">
 
@@ -240,31 +260,40 @@
           <p class="lead">No need to spend hours every week searching last year's diary and contacting people. AI Assistant Pro reads your customer records, works out who is overdue, and handles the outreach for you.</p>
 
           <div class="point-list">
-            <div class="point-item"><span class="point-icon neg">✕</span><span>Last year's termite inspection customers are due now. Nobody has rung them.</span></div>
-            <div class="point-item"><span class="point-icon neg">✕</span><span>Calls come in while you're under a house. They go to voicemail and the job goes elsewhere.</span></div>
-            <div class="point-item"><span class="point-icon pos">✓</span><span>The agent emails first, then follows up with a call if there's no booking. You approve the list before anyone is contacted.</span></div>
-            <div class="point-item"><span class="point-icon pos">✓</span><span>Every new inbound call gets answered 24/7 and booked straight into your calendar. You get a summary.</span></div>
+            <div class="point-item"><span class="point-icon neg">&#x2715;</span><span>Last year's termite inspection customers are due now. Nobody has rung them.</span></div>
+            <div class="point-item"><span class="point-icon neg">&#x2715;</span><span>Calls come in while you're under a house. They go to voicemail and the job goes elsewhere.</span></div>
+            <div class="point-item"><span class="point-icon pos">&#x2713;</span><span>The agent emails first, then follows up with a call if there's no booking. You approve the list before anyone is contacted.</span></div>
+            <div class="point-item"><span class="point-icon pos">&#x2713;</span><span>Every new inbound call gets answered 24/7 and booked straight into your calendar. You get a summary.</span></div>
           </div>
 
           <div class="hero-ctas">
-            <a class="button button-gold" href="#talk-to-kai">Talk to Kai</a>
+            <a class="button button-gold js-kai-info" href="#talk-to-kai">Ask Kai a question</a>
             <a class="button button-outline" href="#demo">Try the demo first</a>
           </div>
 
+          <!-- DEMO STRIP -->
           <div class="demo-strip" id="demo">
             <div class="eyebrow" style="margin-bottom:14px"><span class="eyebrow-dot"></span> Try the demo</div>
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+              <img src="/assets/rachel-avatar.jpg" alt="Rachel, AI receptionist demo" style="width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid rgba(189,152,92,0.4); flex-shrink:0;">
+              <div>
+                <p style="margin:0; font-weight:700; font-size:1rem; color:var(--navy)">Rachel</p>
+                <p style="margin:3px 0 0; font-size:0.85rem; color:var(--muted)">AI receptionist (demo agent)</p>
+              </div>
+            </div>
             <h3>Hear Rachel in action.</h3>
-            <p>Two demos. Same voice agent, two different jobs. Call as if you're a real customer, or listen in on an outbound rebook call.</p>
+            <p style="color:#536176; margin-top:8px; margin-bottom:24px;">Two demos. Same voice agent, two different jobs. Call as if you're a real customer, or listen in on an outbound rebook call.</p>
             <div class="demo-buttons">
               <button class="button button-gold js-rachel-inbound">Call Rachel (inbound)</button>
               <button class="button button-outline js-rachel-outbound">Hear the rebook call</button>
             </div>
-            <p class="demo-label">You're speaking to a demo AI agent, not a real person (although you can speak to her like one). Calls are made via your browser microphone — although people will call with a phone when it's set up in your business.</p>
+            <p class="demo-label">You're speaking to a demo AI agent, not a real person (although you can speak to her like one). Calls are made via your browser microphone. When it's set up in your business, people will call on a normal phone.</p>
           </div>
 
         </div>
       </section>
 
+      <!-- TRUST BAR -->
       <div class="trust-bar">
         <div class="container trust-bar-inner">
           <div class="trust-item"><span class="trust-dot"></span>Month to month, no contracts</div>
@@ -276,6 +305,7 @@
         </div>
       </div>
 
+      <!-- WHY PEST CONTROL -->
       <section class="section-tight">
         <div class="container">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Why pest control is different</div>
@@ -301,6 +331,7 @@
         </div>
       </section>
 
+      <!-- SCENARIOS -->
       <section class="section-tight" style="padding-top:0">
         <div class="container">
           <div class="eyebrow"><span class="eyebrow-dot"></span> What it handles</div>
@@ -326,18 +357,34 @@
         </div>
       </section>
 
+      <!-- KAI BAND -->
       <section class="kai-band" id="talk-to-kai">
         <div class="container">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> See if it's right for you</div>
-          <h2>Talk to Kai.</h2>
-          <p class="lead">Kai is our AI advisor. Have a conversation, ask questions about how it works, and see whether it fits what you do. No pressure, no pitch. Just a straight chat.</p>
-          <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
-            <button class="button button-gold js-kai-call">Talk to Kai now</button>
+          <div class="kai-band-inner">
+            <div class="kai-band-text">
+              <div class="eyebrow"><span class="eyebrow-dot"></span> See if it's right for you</div>
+              <h2>Talk to Kai.</h2>
+              <div class="kai-identity">
+                <img src="/assets/kai-avatar.jpg" alt="Kai, AI Advisor" class="kai-avatar">
+                <div>
+                  <p class="kai-name">Kai</p>
+                  <p class="kai-role">AI Advisor (not a human)</p>
+                </div>
+              </div>
+              <p class="lead">Ask Kai how it works, whether it suits your business, and what it costs. He'll give you a straight answer. No pressure, no pitch.</p>
+              <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+                <button class="button button-gold js-kai-call">Talk to Kai now</button>
+              </div>
+              <p class="small-copy">Kai is an AI. Your call is not recorded for marketing purposes.</p>
+            </div>
+            <div class="kai-band-image">
+              <img src="/assets/kai-avatar.jpg" alt="Kai, AI Advisor" class="kai-hero-img">
+            </div>
           </div>
-          <p class="small-copy">Kai is an AI agent. Your call is not recorded for marketing purposes.</p>
         </div>
       </section>
 
+      <!-- PRICING -->
       <section class="section price-band">
         <div class="container">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Rebook and reactivate</div>
@@ -405,14 +452,20 @@
       btn.style.pointerEvents = "";
     }
 
-    function startCall(assistantId, btn) {
+    function startCall(assistantId, btn, context) {
       if (activeBtn) { getVapi().stop(); return; }
       activeBtn = btn;
       btn.dataset.label = btn.textContent;
       btn.textContent = "Connecting…";
       btn.style.opacity = "0.7";
       btn.style.pointerEvents = "none";
-      getVapi().start(assistantId);
+      const startOptions = {};
+      if (context === "info") {
+        startOptions.firstMessage = "Hey, I'm Kai, an AI advisor for AI Assistant Pro. What questions do you have?";
+      } else if (context === "start") {
+        startOptions.firstMessage = "Hey, I'm Kai, an AI advisor for AI Assistant Pro. Sounds like you might be ready to get started. What would you like to know before we do?";
+      }
+      getVapi().start(assistantId, startOptions);
     }
 
     document.querySelectorAll(".js-rachel-inbound").forEach(btn =>
@@ -422,7 +475,10 @@
       btn.addEventListener("click", e => { e.preventDefault(); startCall(RACHEL_OUTBOUND_ID, btn); })
     );
     document.querySelectorAll(".js-kai-call").forEach(btn =>
-      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ID, btn); })
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ID, btn, "start"); })
+    );
+    document.querySelectorAll(".js-kai-info").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ID, btn, "info"); })
     );
 
     document.getElementById("year").textContent = new Date().getFullYear();
