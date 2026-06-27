@@ -1,469 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
-  <head>
-    <meta charset="utf-8" />
-    <title>Pest Control Client Cheat Sheet | AI Assistant Pro</title>
-    <style>
-      @media print {
-        body {
-          margin: 0;
-        }
-        .no-print {
-          display: none;
-        }
-        .page {
-          page-break-after: always;
-        }
-      }
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f5f5f5;
-        color: #17283f;
-        margin: 0;
-        padding: 20px;
-      }
-      .no-print {
-        background: #17283f;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        display: inline-block;
-        margin-bottom: 20px;
-        cursor: pointer;
-        font-size: 15px;
-        border: none;
-      }
-      .sheet {
-        background: white;
-        max-width: 210mm;
-        margin: 0 auto 32px;
-        padding: 32px 36px;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
-      }
-      .header {
-        border-bottom: 3px solid #bd985c;
-        padding-bottom: 14px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-      }
-      .header h1 {
-        margin: 0;
-        font-size: 22px;
-        color: #17283f;
-      }
-      .header .sub {
-        font-size: 13px;
-        color: #5f6e82;
-        margin: 4px 0 0;
-      }
-      .badge {
-        background: #17283f;
-        color: white;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-bottom: 20px;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 20px;
-      }
-      .box {
-        border: 1.5px solid #e0d5c5;
-        border-radius: 8px;
-        padding: 14px 16px;
-      }
-      .box h3 {
-        margin: 0 0 10px;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-        color: #bd985c;
-        font-weight: 700;
-      }
-      .box p,
-      .box li {
-        font-size: 13px;
-        margin: 0 0 6px;
-        line-height: 1.5;
-      }
-      .box ul {
-        margin: 0;
-        padding-left: 16px;
-      }
-      .box .value {
-        font-size: 18px;
-        font-weight: 700;
-        color: #17283f;
-        margin: 4px 0;
-      }
-      .box .note {
-        font-size: 12px;
-        color: #5f6e82;
-      }
-      .full {
-        grid-column: 1 / -1;
-      }
-      .agents-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 13px;
-      }
-      .agents-table th {
-        background: #17283f;
-        color: white;
-        padding: 8px 10px;
-        text-align: left;
-        font-size: 12px;
-      }
-      .agents-table td {
-        padding: 8px 10px;
-        border-bottom: 1px solid #e8e0d4;
-        vertical-align: top;
-      }
-      .agents-table tr:nth-child(even) td {
-        background: #faf7f2;
-      }
-      .tag {
-        display: inline-block;
-        background: #eadcc9;
-        color: #17283f;
-        border-radius: 4px;
-        padding: 2px 8px;
-        font-size: 11px;
-        font-weight: 600;
-        margin: 2px 2px 2px 0;
-      }
-      .tag.gold {
-        background: #bd985c;
-        color: white;
-      }
-      .objection {
-        margin-bottom: 10px;
-      }
-      .objection .q {
-        font-weight: 700;
-        font-size: 13px;
-        margin-bottom: 3px;
-      }
-      .objection .a {
-        font-size: 13px;
-        color: #344;
-        line-height: 1.5;
-        padding-left: 12px;
-        border-left: 3px solid #bd985c;
-      }
-      .footer-band {
-        background: #17283f;
-        color: white;
-        padding: 12px 16px;
-        border-radius: 6px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 12px;
-        margin-top: 20px;
-      }
-      .footer-band a {
-        color: #bd985c;
-      }
-      h2 {
-        font-size: 15px;
-        color: #17283f;
-        margin: 20px 0 10px;
-        border-left: 4px solid #bd985c;
-        padding-left: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <button class="no-print" onclick="window.print()">
-      Print this cheat sheet
-    </button>
+<head>
+  <meta charset="utf-8" />
+  <title>Pest Control Client Cheat Sheet | AI Assistant Pro</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    @media print {
+      body { margin: 0; padding: 0; background: white; }
+      .no-print { display: none; }
+      .sheet { box-shadow: none; padding: 0; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #17283f;
+      margin: 0;
+      padding: 16px;
+      font-size: 12px;
+    }
+    .no-print {
+      background: #17283f;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 16px;
+      cursor: pointer;
+      font-size: 13px;
+      border: none;
+    }
+    .sheet {
+      background: white;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    }
+    .header {
+      border-bottom: 3px solid #bd985c;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header h1 { margin: 0; font-size: 18px; color: #17283f; }
+    .header .sub { font-size: 11px; color: #5f6e82; margin: 3px 0 0; }
+    .badge { background: #17283f; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 0.05em; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .grid2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .box { border: 1.5px solid #e0d5c5; border-radius: 6px; padding: 10px 12px; }
+    .box h3 { margin: 0 0 7px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: #bd985c; font-weight: 700; }
+    .box p, .box li { font-size: 11px; margin: 0 0 4px; line-height: 1.45; }
+    .box ul { margin: 0; padding-left: 14px; }
+    .box .value { font-size: 15px; font-weight: 700; color: #17283f; margin: 2px 0; }
+    .box .note { font-size: 10px; color: #5f6e82; }
+    .tag { display: inline-block; background: #eadcc9; color: #17283f; border-radius: 3px; padding: 1px 6px; font-size: 10px; font-weight: 600; margin: 2px 2px 2px 0; }
+    .tag.gold { background: #bd985c; color: white; }
+    .tag.green { background: #2d7a4f; color: white; }
+    table.agents { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 14px; }
+    table.agents th { background: #17283f; color: white; padding: 6px 8px; text-align: left; font-size: 10px; }
+    table.agents td { padding: 6px 8px; border-bottom: 1px solid #e8e0d4; vertical-align: top; }
+    table.agents tr:nth-child(even) td { background: #faf7f2; }
+    .objection { margin-bottom: 8px; }
+    .objection .q { font-weight: 700; font-size: 11px; margin-bottom: 2px; }
+    .objection .a { font-size: 11px; color: #344; line-height: 1.45; padding-left: 10px; border-left: 3px solid #bd985c; }
+    h2 { font-size: 12px; color: #17283f; margin: 14px 0 8px; border-left: 4px solid #bd985c; padding-left: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .footer-band { background: #17283f; color: white; padding: 8px 14px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; margin-top: 14px; }
+    .footer-band a { color: #bd985c; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <button class="no-print" onclick="window.print()">&#128438; Print this cheat sheet</button>
 
-    <div class="sheet">
-      <div class="header">
-        <div>
-          <h1>Pest Control Client Cheat Sheet</h1>
-          <div class="sub">
-            AI Assistant Pro &mdash; Internal Reference. Last updated June 2026.
-          </div>
-        </div>
-        <span class="badge">PEST CONTROL</span>
+  <div class="sheet">
+    <div class="header">
+      <div>
+        <h1>Pest Control Client Cheat Sheet</h1>
+        <div class="sub">AI Assistant Pro &nbsp;&mdash;&nbsp; Internal reference &nbsp;&mdash;&nbsp; Last updated June 2026</div>
       </div>
+      <span class="badge">PEST CONTROL</span>
+    </div>
 
-      <!-- Vertical overview -->
-      <div class="grid">
-        <div class="box">
-          <h3>Target customer</h3>
-          <ul>
-            <li>Australian pest control operators</li>
-            <li>1&ndash;10 staff, owner-operated</li>
-            <li>Running recurring annual treatments</li>
-            <li>Losing jobs to missed calls or slow rebook follow-up</li>
-            <li>Can't answer calls while on a job</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3>Core pain points</h3>
-          <ul>
-            <li>Calls going to voicemail while under a house</li>
-            <li>Last year's customers due again and nobody's rung them</li>
-            <li>Saturday morning enquiries going unanswered</li>
-            <li>Admin time following up quotes and rebooks</li>
-            <li>
-              The missus is doing the admin and is sick of it, or too busy
-            </li>
-            <li>After-hours calls going to competitors</li>
-          </ul>
-        </div>
+    <!-- Target + Pain Points -->
+    <div class="grid2">
+      <div class="box">
+        <h3>Target customer</h3>
+        <ul>
+          <li>Australian pest control operator, 1&ndash;10 staff</li>
+          <li>Running recurring annual treatments</li>
+          <li>Losing jobs to missed calls or slow rebook follow-up</li>
+          <li>Can't answer calls while under a house or on a job</li>
+          <li>The missus is doing the admin and is sick of it or too busy</li>
+        </ul>
       </div>
-
-      <!-- Plans -->
-      <h2>Plans and pricing</h2>
-      <div class="grid-3">
-        <div class="box">
-          <h3>L1 &mdash; Answer &amp; Message</h3>
-          <div class="value">A$295/mo</div>
-          <div class="note">+ A$495 setup</div>
-          <p style="margin-top: 8px">
-            Answers every call 24/7. Takes a message. SMS summary to owner.
-          </p>
-          <p><span class="tag">Inbound only</span></p>
-        </div>
-        <div class="box">
-          <h3>L2 &mdash; Answer &amp; Book</h3>
-          <div class="value">A$395/mo</div>
-          <div class="note">+ A$695 setup</div>
-          <p style="margin-top: 8px">
-            As above, plus books jobs directly into calendar.
-          </p>
-          <p>
-            <span class="tag">Inbound</span> <span class="tag">Calendar</span>
-          </p>
-        </div>
-        <div class="box">
-          <h3>L4 &mdash; Rebook &amp; Reactivate</h3>
-          <div class="value">A$995/mo</div>
-          <div class="note">+ A$1,495 setup</div>
-          <p style="margin-top: 8px">
-            Full suite. Inbound + rebooks past customers due for treatment. Best
-            fit for pest control.
-          </p>
-          <p>
-            <span class="tag gold">Best fit</span>
-            <span class="tag">Outbound</span>
-          </p>
-        </div>
-      </div>
-      <div class="box" style="margin-bottom: 20px">
-        <h3>Overage and cancellation</h3>
-        <p>
-          Overage: A$9.90 per 30-minute block above included minutes.
-          Month-to-month. Cancel with 5 days notice. Setup fee non-refundable
-          once build starts.
-        </p>
-      </div>
-
-      <!-- Agents -->
-      <h2>Live demo agents (use during sales calls)</h2>
-      <table class="agents-table">
-        <tr>
-          <th>Agent</th>
-          <th>Name</th>
-          <th>What it does</th>
-          <th>How to demo</th>
-          <th>Vapi ID</th>
-        </tr>
-        <tr>
-          <td><span class="tag">Inbound</span></td>
-          <td>
-            <strong>Rachel</strong><br /><span
-              style="color: #5f6e82; font-size: 12px"
-              >Zapper Pest Control</span
-            >
-          </td>
-          <td>
-            Answers inbound call. Qualifies job type and suburb. Books or takes
-            message.
-          </td>
-          <td>
-            Go to aiassistantpro.com.au/pest-control &rarr; "Call Rachel
-            (inbound)"
-          </td>
-          <td style="font-size: 11px; color: #5f6e82">514ae949</td>
-        </tr>
-        <tr>
-          <td><span class="tag">Outbound</span></td>
-          <td>
-            <strong>Rachel</strong><br /><span
-              style="color: #5f6e82; font-size: 12px"
-              >Outbound rebook</span
-            >
-          </td>
-          <td>
-            Calls a past customer due for annual treatment. Polite, brief, books
-            on the spot.
-          </td>
-          <td>
-            Go to aiassistantpro.com.au/pest-control &rarr; "Hear the rebook
-            call"
-          </td>
-          <td style="font-size: 11px; color: #5f6e82">e7be064e</td>
-        </tr>
-        <tr>
-          <td><span class="tag gold">Sales</span></td>
-          <td>
-            <strong>Kai</strong><br /><span
-              style="color: #5f6e82; font-size: 12px"
-              >AI Advisor</span
-            >
-          </td>
-          <td>
-            Answers questions about AI Assistant Pro. Helps prospects understand
-            what they'd get.
-          </td>
-          <td>
-            Go to aiassistantpro.com.au/pest-control &rarr; "Talk to Kai now"
-          </td>
-          <td style="font-size: 11px; color: #5f6e82">71f4bbf5</td>
-        </tr>
-      </table>
-
-      <!-- Tech stack -->
-      <h2>Tech stack (for reference)</h2>
-      <div class="grid">
-        <div class="box">
-          <h3>Client setup</h3>
-          <ul>
-            <li><strong>Voice platform:</strong> Vapi</li>
-            <li>
-              <strong>Voice synthesis:</strong> ElevenLabs (Australian accent)
-            </li>
-            <li>
-              <strong>AAP control number:</strong> +61 468 154 584 (clients text
-              PAUSE/RESUME to this number to control their agent)
-            </li>
-            <li><strong>Database:</strong> Supabase</li>
-            <li><strong>Payments:</strong> Stripe (10 live links)</li>
-            <li><strong>Intake booking:</strong> TidyCal (Connor AI)</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3>Onboarding flow</h3>
-          <ul>
-            <li>1. Client pays via Stripe</li>
-            <li>2. Welcome email auto-sent</li>
-            <li>3. Client books Connor intake (TidyCal)</li>
-            <li>4. Connor collects business details via call</li>
-            <li>5. Agent built in Vapi (48hr turnaround)</li>
-            <li>6. Cat tests and approves</li>
-            <li>7. Goes live on client's number</li>
-            <li>8. Client's mobile registered for PAUSE/RESUME by text</li>
-            <li>
-              9. Client notified: email changes@aiassistantpro.com.au for any
-              updates
-            </li>
-            <li>
-              10. Urgent issue = client texts PAUSE, Cat fixes, client texts
-              RESUME
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Objections -->
-      <h2>Common objections and responses</h2>
-      <div class="grid">
-        <div class="box">
-          <div class="objection">
-            <div class="q">"Will customers know it's AI?"</div>
-            <div class="a">
-              Most won't. Natural Australian accent. If they ask directly, the
-              agent is honest. In practice, callers just want to book a job.
-            </div>
-          </div>
-          <div class="objection">
-            <div class="q">"What if it makes a mistake?"</div>
-            <div class="a">
-              It escalates anything it can't handle via SMS straight to you. You
-              stay in control of complex or sensitive situations.
-            </div>
-          </div>
-          <div class="objection">
-            <div class="q">"Is it locked in?"</div>
-            <div class="a">
-              Month to month. Cancel with 5 days notice. No contracts.
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="objection">
-            <div class="q">"Is cold outbound calling legal?"</div>
-            <div class="a">
-              The rebook system only contacts your existing customers who are
-              due for their next treatment. That's a legitimate business
-              communication under ACMA guidelines. Not cold calling.
-            </div>
-          </div>
-          <div class="objection">
-            <div class="q">"The setup fee is expensive."</div>
-            <div class="a">
-              It's a one-off. Covers building your agent from scratch with your
-              voice, your business rules, your booking flow. After that it's
-              just the monthly.
-            </div>
-          </div>
-          <div class="objection">
-            <div class="q">"We already use voicemail."</div>
-            <div class="a">
-              More than 80% of callers who hit voicemail hang up and call a
-              competitor. An AI agent has the conversation and captures the
-              lead.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key links -->
-      <h2>Key links</h2>
-      <div class="grid-3">
-        <div class="box">
-          <h3>Demos</h3>
-          <p>aiassistantpro.com.au/pest-control</p>
-        </div>
-        <div class="box">
-          <h3>Intake booking</h3>
-          <p>tidycal.com/kindredsystems/aap-connor-intake</p>
-        </div>
-        <div class="box">
-          <h3>Cat's intro call</h3>
-          <p>tidycal.com/kindredsystems/aap-cathryn-intro</p>
-        </div>
-      </div>
-
-      <div class="footer-band">
-        <span
-          >AI Assistant Pro &mdash; Pest Control Vertical &mdash; Internal use
-          only</span
-        >
-        <span
-          ><a href="mailto:hello@aiassistantpro.com.au"
-            >hello@aiassistantpro.com.au</a
-          ></span
-        >
+      <div class="box">
+        <h3>Core pain points</h3>
+        <ul>
+          <li>Calls going to voicemail while on a job</li>
+          <li>Last year's customers due again &mdash; nobody has rung them</li>
+          <li>Saturday morning enquiries going unanswered</li>
+          <li>Admin burden falling on partner or owner</li>
+          <li>After-hours calls going to competitors</li>
+        </ul>
       </div>
     </div>
-  </body>
+
+    <!-- Pricing - 4 columns -->
+    <h2>Plans and pricing</h2>
+    <div class="grid4">
+      <div class="box">
+        <h3>L1 &mdash; Answer &amp; Message</h3>
+        <div class="value">A$295/mo</div>
+        <div class="note">+ A$495 setup</div>
+        <p style="margin-top:6px">Answers every call 24/7. Takes a message. SMS summary to owner.</p>
+        <p><span class="tag">Inbound</span></p>
+      </div>
+      <div class="box">
+        <h3>L2 &mdash; Answer &amp; Book</h3>
+        <div class="value">A$395/mo</div>
+        <div class="note">+ A$695 setup</div>
+        <p style="margin-top:6px">As above, plus books jobs directly into calendar.</p>
+        <p><span class="tag">Inbound</span> <span class="tag">Calendar</span></p>
+      </div>
+      <div class="box">
+        <h3>L3 &mdash; Lead Callback</h3>
+        <div class="value">A$595/mo</div>
+        <div class="note">+ A$995 setup</div>
+        <p style="margin-top:6px">For businesses running ads. Agent calls new leads within seconds of form submission. No lead goes cold.</p>
+        <p><span class="tag green">Ads</span> <span class="tag">Outbound</span></p>
+      </div>
+      <div class="box">
+        <h3>L4 &mdash; Rebook &amp; Reactivate</h3>
+        <div class="value">A$995/mo</div>
+        <div class="note">+ A$1,495 setup</div>
+        <p style="margin-top:6px">Full suite. Inbound + outbound rebook of past customers due for treatment.</p>
+        <p><span class="tag gold">Best fit</span> <span class="tag">Outbound</span></p>
+      </div>
+    </div>
+    <div class="box" style="margin-bottom:14px">
+      <h3>Overage and cancellation</h3>
+      <p>Overage: A$9.90 per 30-min block above included minutes, charged as it occurs. Month-to-month. Cancel at least 5 days before next billing date (billed monthly in advance &mdash; e.g. billing date 25th = cancel by 20th). Setup fee non-refundable once build starts.</p>
+    </div>
+
+    <!-- Demo agents -->
+    <h2>Live demo agents</h2>
+    <table class="agents">
+      <tr>
+        <th>Agent</th>
+        <th>Name</th>
+        <th>What it does</th>
+        <th>How to demo</th>
+        <th>Vapi ID</th>
+      </tr>
+      <tr>
+        <td><span class="tag">Inbound</span></td>
+        <td><strong>Rachel</strong><br><span style="color:#5f6e82;font-size:10px">Zapper Pest Control</span></td>
+        <td>Answers call, qualifies job + suburb, books or takes message. Declares AI upfront.</td>
+        <td>aiassistantpro.com.au/pest-control &rarr; "Call Rachel (inbound)"</td>
+        <td style="font-size:10px;color:#5f6e82">514ae949</td>
+      </tr>
+      <tr>
+        <td><span class="tag">Outbound</span></td>
+        <td><strong>Rachel</strong><br><span style="color:#5f6e82;font-size:10px">Rebook caller</span></td>
+        <td>Calls past customer due for annual treatment. Polite, brief, books on the spot.</td>
+        <td>aiassistantpro.com.au/pest-control &rarr; "Hear the rebook call"</td>
+        <td style="font-size:10px;color:#5f6e82">e7be064e</td>
+      </tr>
+      <tr>
+        <td><span class="tag gold">Sales</span></td>
+        <td><strong>Kai</strong><br><span style="color:#5f6e82;font-size:10px">AI Advisor</span></td>
+        <td>Answers questions about AI Assistant Pro. Helps prospects understand what they'd get.</td>
+        <td>aiassistantpro.com.au/pest-control &rarr; "Talk to Kai now"</td>
+        <td style="font-size:10px;color:#5f6e82">71f4bbf5</td>
+      </tr>
+    </table>
+
+    <!-- Tech stack + Onboarding -->
+    <h2>Tech stack and onboarding</h2>
+    <div class="grid2">
+      <div class="box">
+        <h3>Tech stack</h3>
+        <ul>
+          <li><strong>Voice platform:</strong> Vapi</li>
+          <li><strong>Voice synthesis:</strong> ElevenLabs (Australian accent)</li>
+          <li><strong>AAP control number:</strong> +61 468 154 584 (clients text PAUSE/RESUME to this number)</li>
+          <li><strong>Database:</strong> Supabase</li>
+          <li><strong>Payments:</strong> Stripe (monthly in advance)</li>
+          <li><strong>Intake booking:</strong> TidyCal (Connor AI call)</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Onboarding flow</h3>
+        <ul>
+          <li>1. Client pays via Stripe</li>
+          <li>2. Welcome email sent automatically</li>
+          <li>3. Client books Connor intake call (TidyCal)</li>
+          <li>4. Connor collects all business details via call</li>
+          <li>5. Build brief sent to client for approval</li>
+          <li>6. Agent built in Vapi (48hr turnaround)</li>
+          <li>7. Cat tests and approves before go-live</li>
+          <li>8. Goes live on client's number</li>
+          <li>9. Client's mobile registered for PAUSE/RESUME</li>
+          <li>10. Client emails hello@ for any changes; urgent = PAUSE then Cat fixes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Objections -->
+    <h2>Common objections</h2>
+    <div class="grid2x2">
+      <div class="box">
+        <div class="objection">
+          <div class="q">"Will customers know it's AI?"</div>
+          <div class="a">Yes &mdash; the agent declares it upfront: "I'm an AI but you can speak to me like a real person." Required by Australian law. Most callers are fine with it once the call goes smoothly.</div>
+        </div>
+        <div class="objection">
+          <div class="q">"What if it makes a mistake?"</div>
+          <div class="a">It escalates anything it can't handle via SMS. Urgent issues: client texts PAUSE to stop the agent, Cat fixes it, client texts RESUME. Cat manages all changes.</div>
+        </div>
+        <div class="objection">
+          <div class="q">"Is it locked in?"</div>
+          <div class="a">Month to month. Cancel at least 5 days before next billing date or next month is charged. E.g. billing date 25th = cancel by 20th.</div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="objection">
+          <div class="q">"The setup fee is expensive."</div>
+          <div class="a">One-off. Covers building the agent from scratch &mdash; custom voice, business rules, booking flow. After that it's just the monthly.</div>
+        </div>
+        <div class="objection">
+          <div class="q">"We already use voicemail."</div>
+          <div class="a">More than 80% of callers who hit voicemail hang up and call the next business. An AI agent has the conversation and captures the lead.</div>
+        </div>
+        <div class="objection">
+          <div class="q">"Can it integrate with my booking system?"</div>
+          <div class="a">L2 and above connect to calendar/booking system. Confirmed during setup. Common: Google Calendar, ServiceM8.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key links -->
+    <h2>Key links</h2>
+    <div class="grid2x2" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="box">
+        <h3>Live demos</h3>
+        <p>aiassistantpro.com.au/pest-control</p>
+      </div>
+      <div class="box">
+        <h3>Intake booking (Connor)</h3>
+        <p>tidycal.com/kindredsystems/aap-connor-intake</p>
+      </div>
+      <div class="box">
+        <h3>Cat intro call</h3>
+        <p>tidycal.com/kindredsystems/aap-cathryn-intro</p>
+      </div>
+    </div>
+
+    <div class="footer-band">
+      <span>AI Assistant Pro &mdash; Pest Control &mdash; Internal use only</span>
+      <span><a href="mailto:hello@aiassistantpro.com.au">hello@aiassistantpro.com.au</a></span>
+    </div>
+  </div>
+</body>
 </html>
