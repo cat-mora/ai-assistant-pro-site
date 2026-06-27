@@ -1,393 +1,847 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Client Portal Mockup V2 — AI Assistant Pro</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #e8e2d9; color: #17283f; }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Client Portal Mockup V2 — AI Assistant Pro</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #e8e2d9;
+        color: #17283f;
+      }
 
-    .mockup-bar { background: #17283f; color: rgba(255,255,255,0.6); font-size: 12px; padding: 10px 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .mockup-bar strong { color: #bd985c; }
+      .mockup-bar {
+        background: #17283f;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
+        padding: 10px 16px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .mockup-bar strong {
+        color: #bd985c;
+      }
 
-    .screens { display: flex; gap: 16px; padding: 16px; overflow-x: auto; align-items: flex-start; }
+      .screens {
+        display: flex;
+        gap: 16px;
+        padding: 16px;
+        overflow-x: auto;
+        align-items: flex-start;
+      }
 
-    /* Phone frame */
-    .phone { flex-shrink: 0; width: 375px; }
-    .phone-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #5f6e82; margin-bottom: 8px; text-align: center; }
-    .phone-frame { background: #1a1a1a; border-radius: 44px; padding: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-    .phone-screen { background: #f7f4f0; border-radius: 34px; overflow: hidden; min-height: 720px; display: flex; flex-direction: column; }
+      /* Phone frame */
+      .phone {
+        flex-shrink: 0;
+        width: 375px;
+      }
+      .phone-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: #5f6e82;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .phone-frame {
+        background: #1a1a1a;
+        border-radius: 44px;
+        padding: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+      .phone-screen {
+        background: #f7f4f0;
+        border-radius: 34px;
+        overflow: hidden;
+        min-height: 720px;
+        display: flex;
+        flex-direction: column;
+      }
 
-    /* Status bar */
-    .status-bar { background: #17283f; padding: 10px 20px 8px; display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.6); }
+      /* Status bar */
+      .status-bar {
+        background: #17283f;
+        padding: 10px 20px 8px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.6);
+      }
 
-    /* App header */
-    .app-header { background: #17283f; padding: 14px 20px 16px; }
-    .app-header .greeting { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
-    .app-header .name { font-size: 18px; font-weight: 700; color: white; }
+      /* App header */
+      .app-header {
+        background: #17283f;
+        padding: 14px 20px 16px;
+      }
+      .app-header .greeting {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 2px;
+      }
+      .app-header .name {
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+      }
 
-    /* Screen body */
-    .screen-body { flex: 1; padding: 18px 16px; overflow-y: auto; }
+      /* Screen body */
+      .screen-body {
+        flex: 1;
+        padding: 18px 16px;
+        overflow-y: auto;
+      }
 
-    /* Big toggle */
-    .agent-toggle { background: white; border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .agent-toggle .left .agent-name { font-size: 15px; font-weight: 700; color: #17283f; }
-    .agent-toggle .left .agent-status { font-size: 12px; margin-top: 3px; display: flex; align-items: center; gap: 5px; }
-    .agent-toggle .left .agent-status.on { color: #2d7a4f; }
-    .agent-toggle .left .agent-status.off { color: #c0392b; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; display: inline-block; }
-    .toggle-switch { width: 52px; height: 30px; background: #2d7a4f; border-radius: 15px; position: relative; cursor: pointer; flex-shrink: 0; transition: background 0.2s; }
-    .toggle-switch.off { background: #ccc; }
-    .toggle-knob { width: 24px; height: 24px; background: white; border-radius: 50%; position: absolute; top: 3px; right: 3px; box-shadow: 0 1px 4px rgba(0,0,0,0.2); transition: right 0.2s; }
-    .toggle-switch.off .toggle-knob { right: auto; left: 3px; }
+      /* Big toggle */
+      .agent-toggle {
+        background: white;
+        border-radius: 16px;
+        padding: 18px 20px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .agent-toggle .left .agent-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #17283f;
+      }
+      .agent-toggle .left .agent-status {
+        font-size: 12px;
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .agent-toggle .left .agent-status.on {
+        color: #2d7a4f;
+      }
+      .agent-toggle .left .agent-status.off {
+        color: #c0392b;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+        display: inline-block;
+      }
+      .toggle-switch {
+        width: 52px;
+        height: 30px;
+        background: #2d7a4f;
+        border-radius: 15px;
+        position: relative;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.2s;
+      }
+      .toggle-switch.off {
+        background: #ccc;
+      }
+      .toggle-knob {
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        transition: right 0.2s;
+      }
+      .toggle-switch.off .toggle-knob {
+        right: auto;
+        left: 3px;
+      }
 
-    /* Menu cards */
-    .menu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .menu-card { background: white; border-radius: 14px; padding: 18px 16px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; transition: transform 0.1s; active: transform scale(0.97); text-decoration: none; color: inherit; display: block; }
-    .menu-card .card-icon { font-size: 26px; margin-bottom: 10px; display: block; }
-    .menu-card .card-title { font-size: 13px; font-weight: 700; color: #17283f; margin-bottom: 3px; }
-    .menu-card .card-sub { font-size: 11px; color: #5f6e82; line-height: 1.4; }
-    .menu-card .badge { position: absolute; top: 12px; right: 12px; background: #c0392b; color: white; font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .menu-card.highlight { background: #17283f; }
-    .menu-card.highlight .card-title { color: white; }
-    .menu-card.highlight .card-sub { color: rgba(255,255,255,0.6); }
+      /* Menu cards */
+      .menu-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .menu-card {
+        background: white;
+        border-radius: 14px;
+        padding: 18px 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        position: relative;
+        transition: transform 0.1s;
+        active: transform scale(0.97);
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .menu-card .card-icon {
+        font-size: 26px;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .menu-card .card-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #17283f;
+        margin-bottom: 3px;
+      }
+      .menu-card .card-sub {
+        font-size: 11px;
+        color: #5f6e82;
+        line-height: 1.4;
+      }
+      .menu-card .badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #c0392b;
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu-card.highlight {
+        background: #17283f;
+      }
+      .menu-card.highlight .card-title {
+        color: white;
+      }
+      .menu-card.highlight .card-sub {
+        color: rgba(255, 255, 255, 0.6);
+      }
 
-    /* Detail screens */
-    .detail-header { background: #17283f; padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
-    .back-btn { color: #bd985c; font-size: 20px; cursor: pointer; text-decoration: none; }
-    .detail-header .title { font-size: 16px; font-weight: 700; color: white; }
+      /* Detail screens */
+      .detail-header {
+        background: #17283f;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .back-btn {
+        color: #bd985c;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .detail-header .title {
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+      }
 
-    /* Call list */
-    .call-item { background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
-    .call-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
-    .call-name { font-size: 14px; font-weight: 600; }
-    .call-tag { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 8px; }
-    .call-tag.booked { background: #d4edda; color: #155724; }
-    .call-tag.message { background: #e2e3e5; color: #383d41; }
-    .call-tag.escalated { background: #fff3cd; color: #856404; }
-    .call-detail { font-size: 12px; color: #5f6e82; }
-    .call-summary { font-size: 12px; color: #17283f; margin-top:5px; font-style: italic; }
+      /* Call list */
+      .call-item {
+        background: white;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .call-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 4px;
+      }
+      .call-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .call-tag {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 8px;
+      }
+      .call-tag.booked {
+        background: #d4edda;
+        color: #155724;
+      }
+      .call-tag.message {
+        background: #e2e3e5;
+        color: #383d41;
+      }
+      .call-tag.escalated {
+        background: #fff3cd;
+        color: #856404;
+      }
+      .call-detail {
+        font-size: 12px;
+        color: #5f6e82;
+      }
+      .call-summary {
+        font-size: 12px;
+        color: #17283f;
+        margin-top: 5px;
+        font-style: italic;
+      }
 
-    /* Change request */
-    .change-option { background: white; border-radius: 12px; padding: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-    .change-option .opt-left .opt-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-    .change-option .opt-left .opt-sub { font-size: 11px; color: #5f6e82; }
-    .change-arrow { color: #bd985c; font-size: 18px; }
+      /* Change request */
+      .change-option {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+      .change-option .opt-left .opt-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .change-option .opt-left .opt-sub {
+        font-size: 11px;
+        color: #5f6e82;
+      }
+      .change-arrow {
+        color: #bd985c;
+        font-size: 18px;
+      }
 
-    /* Rebook */
-    .rebook-header { background: #fff3cd; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
-    .rebook-header p { font-size: 12px; color: #856404; line-height: 1.5; }
-    .rebook-item { background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
-    .rebook-check { width: 22px; height: 22px; accent-color: #bd985c; flex-shrink: 0; }
-    .rebook-info .rebook-name { font-size: 13px; font-weight: 600; }
-    .rebook-info .rebook-detail { font-size: 11px; color: #5f6e82; margin-top: 2px; }
-    .rebook-info .rebook-due { font-size: 10px; font-weight: 700; color: #bd985c; margin-top: 3px; }
-    .rebook-item.excluded { opacity: 0.5; }
+      /* Rebook */
+      .rebook-header {
+        background: #fff3cd;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 12px;
+      }
+      .rebook-header p {
+        font-size: 12px;
+        color: #856404;
+        line-height: 1.5;
+      }
+      .rebook-item {
+        background: white;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .rebook-check {
+        width: 22px;
+        height: 22px;
+        accent-color: #bd985c;
+        flex-shrink: 0;
+      }
+      .rebook-info .rebook-name {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .rebook-info .rebook-detail {
+        font-size: 11px;
+        color: #5f6e82;
+        margin-top: 2px;
+      }
+      .rebook-info .rebook-due {
+        font-size: 10px;
+        font-weight: 700;
+        color: #bd985c;
+        margin-top: 3px;
+      }
+      .rebook-item.excluded {
+        opacity: 0.5;
+      }
 
-    .btn { padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; width: 100%; margin-top: 4px; }
-    .btn-gold { background: #bd985c; color: white; }
-    .btn-outline { background: white; color: #17283f; border: 1.5px solid #e0d5c5; margin-top: 8px; }
+      .btn {
+        padding: 14px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 4px;
+      }
+      .btn-gold {
+        background: #bd985c;
+        color: white;
+      }
+      .btn-outline {
+        background: white;
+        color: #17283f;
+        border: 1.5px solid #e0d5c5;
+        margin-top: 8px;
+      }
 
-    /* Account */
-    .account-section { background: white; border-radius: 14px; padding: 16px; margin-bottom: 12px; }
-    .account-section h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #bd985c; margin-bottom: 12px; }
-    .account-row { display: flex; justify-content: space-between; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #f0ece4; }
-    .account-row:last-child { border-bottom: none; }
-    .account-row .lbl { color: #5f6e82; }
-    .account-row .val { font-weight: 600; }
+      /* Account */
+      .account-section {
+        background: white;
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+      .account-section h3 {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #bd985c;
+        margin-bottom: 12px;
+      }
+      .account-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 7px 0;
+        border-bottom: 1px solid #f0ece4;
+      }
+      .account-row:last-child {
+        border-bottom: none;
+      }
+      .account-row .lbl {
+        color: #5f6e82;
+      }
+      .account-row .val {
+        font-weight: 600;
+      }
 
-    .note-box { background: #f7f0e5; border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #5f6e82; margin-top: 12px; line-height: 1.5; }
-  </style>
-</head>
-<body>
+      .note-box {
+        background: #f7f0e5;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 12px;
+        color: #5f6e82;
+        margin-top: 12px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mockup-bar">
+      <strong>MOCKUP V2</strong> &mdash; Simplified card navigation. Scroll
+      right to see all screens. &nbsp;|&nbsp; Screen 1: Home &nbsp; Screen 2:
+      Recent Calls &nbsp; Screen 3: Request Change &nbsp; Screen 4: Rebook (L4)
+      &nbsp; Screen 5: Account
+    </div>
 
-<div class="mockup-bar">
-  <strong>MOCKUP V2</strong> &mdash; Simplified card navigation. Scroll right to see all screens. &nbsp;|&nbsp;
-  Screen 1: Home &nbsp; Screen 2: Recent Calls &nbsp; Screen 3: Request Change &nbsp; Screen 4: Rebook (L4) &nbsp; Screen 5: Account
-</div>
+    <div class="screens">
+      <!-- SCREEN 1: HOME -->
+      <div class="phone">
+        <div class="phone-label">Home screen</div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="status-bar">
+              <span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span>
+            </div>
+            <div class="app-header">
+              <div class="greeting">Good morning,</div>
+              <div class="name">Brett &#128075;</div>
+            </div>
+            <div class="screen-body">
+              <!-- Agent toggle - THE most important thing -->
+              <div class="agent-toggle">
+                <div class="left">
+                  <div class="agent-name">Rachel</div>
+                  <div class="agent-status on">
+                    <span class="dot"></span> Live and answering
+                  </div>
+                </div>
+                <div class="toggle-switch">
+                  <div class="toggle-knob"></div>
+                </div>
+              </div>
 
-<div class="screens">
+              <!-- Cards -->
+              <div class="menu-cards">
+                <div class="menu-card">
+                  <span class="card-icon">&#128222;</span>
+                  <div class="card-title">Recent calls</div>
+                  <div class="card-sub">47 calls this month</div>
+                </div>
+                <div class="menu-card highlight">
+                  <span class="card-icon">&#128257;</span>
+                  <div class="badge">14</div>
+                  <div class="card-title">Rebook list</div>
+                  <div class="card-sub">Needs your approval</div>
+                </div>
+                <div class="menu-card">
+                  <span class="card-icon">&#9997;&#65039;</span>
+                  <div class="card-title">Make a change</div>
+                  <div class="card-sub">Update your agent</div>
+                </div>
+                <div class="menu-card">
+                  <span class="card-icon">&#9881;&#65039;</span>
+                  <div class="card-title">My account</div>
+                  <div class="card-sub">Plan, billing, help</div>
+                </div>
+              </div>
 
-  <!-- SCREEN 1: HOME -->
-  <div class="phone">
-    <div class="phone-label">Home screen</div>
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <div class="status-bar"><span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span></div>
-        <div class="app-header">
-          <div class="greeting">Good morning,</div>
-          <div class="name">Brett &#128075;</div>
+              <div class="note-box" style="margin-top: 16px">
+                &#128161; <strong>Tip:</strong> Tap the toggle to pause Rachel
+                anytime — calls go to your voicemail while she's off.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="screen-body">
+      </div>
 
-          <!-- Agent toggle - THE most important thing -->
-          <div class="agent-toggle">
-            <div class="left">
-              <div class="agent-name">Rachel</div>
-              <div class="agent-status on"><span class="dot"></span> Live and answering</div>
+      <!-- SCREEN 2: RECENT CALLS -->
+      <div class="phone">
+        <div class="phone-label">Recent calls (tapped from home)</div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="status-bar">
+              <span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span>
             </div>
-            <div class="toggle-switch">
-              <div class="toggle-knob"></div>
+            <div class="detail-header">
+              <span class="back-btn">&#8592;</span>
+              <span class="title">Recent calls</span>
+            </div>
+            <div class="screen-body">
+              <div
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  letter-spacing: 0.06em;
+                  color: #5f6e82;
+                  margin-bottom: 10px;
+                "
+              >
+                Today
+              </div>
+
+              <div class="call-item">
+                <div class="call-top">
+                  <div class="call-name">Sandra Mitchell</div>
+                  <span class="call-tag booked">Booked</span>
+                </div>
+                <div class="call-detail">
+                  General pest &bull; Paddington &bull; 8:42am
+                </div>
+                <div class="call-summary">"Booked Tuesday 1 Jul, 9am"</div>
+              </div>
+
+              <div class="call-item">
+                <div class="call-top">
+                  <div class="call-name">Unknown caller</div>
+                  <span class="call-tag escalated">&#9888; Needs you</span>
+                </div>
+                <div class="call-detail">
+                  Termite concern &bull; New Farm &bull; 7:14am
+                </div>
+                <div class="call-summary">
+                  "Caller worried about active termites. Wants callback
+                  urgently."
+                </div>
+              </div>
+
+              <div
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  letter-spacing: 0.06em;
+                  color: #5f6e82;
+                  margin: 14px 0 10px;
+                "
+              >
+                Yesterday
+              </div>
+
+              <div class="call-item">
+                <div class="call-top">
+                  <div class="call-name">Dave Kowalski</div>
+                  <span class="call-tag message">Message</span>
+                </div>
+                <div class="call-detail">
+                  End of lease &bull; West End &bull; 6:03pm
+                </div>
+                <div class="call-summary">
+                  "Will call back tomorrow morning."
+                </div>
+              </div>
+
+              <div class="call-item">
+                <div class="call-top">
+                  <div class="call-name">Jess Tran</div>
+                  <span class="call-tag booked">Booked</span>
+                </div>
+                <div class="call-detail">
+                  Rodents &bull; Woolloongabba &bull; 2:31pm
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- Cards -->
-          <div class="menu-cards">
-            <div class="menu-card">
-              <span class="card-icon">&#128222;</span>
-              <div class="card-title">Recent calls</div>
-              <div class="card-sub">47 calls this month</div>
+      <!-- SCREEN 3: MAKE A CHANGE -->
+      <div class="phone">
+        <div class="phone-label">Make a change (tapped from home)</div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="status-bar">
+              <span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span>
             </div>
-            <div class="menu-card highlight">
-              <span class="card-icon">&#128257;</span>
-              <div class="badge">14</div>
-              <div class="card-title">Rebook list</div>
-              <div class="card-sub">Needs your approval</div>
+            <div class="detail-header">
+              <span class="back-btn">&#8592;</span>
+              <span class="title">Make a change</span>
             </div>
-            <div class="menu-card">
-              <span class="card-icon">&#9997;&#65039;</span>
-              <div class="card-title">Make a change</div>
-              <div class="card-sub">Update your agent</div>
-            </div>
-            <div class="menu-card">
-              <span class="card-icon">&#9881;&#65039;</span>
-              <div class="card-title">My account</div>
-              <div class="card-sub">Plan, billing, help</div>
+            <div class="screen-body">
+              <div
+                style="
+                  font-size: 13px;
+                  color: #5f6e82;
+                  margin-bottom: 16px;
+                  line-height: 1.5;
+                "
+              >
+                What do you want to update? Tap the option that fits.
+              </div>
+
+              <div class="change-option">
+                <div class="opt-left">
+                  <div class="opt-title">
+                    &#128337; My hours or availability
+                  </div>
+                  <div class="opt-sub">Closed dates, holiday hours</div>
+                </div>
+                <span class="change-arrow">&#8250;</span>
+              </div>
+              <div class="change-option">
+                <div class="opt-left">
+                  <div class="opt-title">&#128295; My services</div>
+                  <div class="opt-sub">Add, remove, or update</div>
+                </div>
+                <span class="change-arrow">&#8250;</span>
+              </div>
+              <div class="change-option">
+                <div class="opt-left">
+                  <div class="opt-title">&#128222; How calls are handled</div>
+                  <div class="opt-sub">Urgent calls, escalation rules</div>
+                </div>
+                <span class="change-arrow">&#8250;</span>
+              </div>
+              <div class="change-option">
+                <div class="opt-left">
+                  <div class="opt-title">
+                    &#128176; Pricing the agent mentions
+                  </div>
+                  <div class="opt-sub">Update quoted prices</div>
+                </div>
+                <span class="change-arrow">&#8250;</span>
+              </div>
+              <div class="change-option">
+                <div class="opt-left">
+                  <div class="opt-title">&#9997;&#65039; Something else</div>
+                  <div class="opt-sub">Describe it in your own words</div>
+                </div>
+                <span class="change-arrow">&#8250;</span>
+              </div>
+
+              <div class="note-box">
+                2 changes included each month. We'll have it done by next
+                business day and let you know when it's live.
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="note-box" style="margin-top:16px;">
-            &#128161; <strong>Tip:</strong> Tap the toggle to pause Rachel anytime — calls go to your voicemail while she's off.
+      <!-- SCREEN 4: REBOOK APPROVAL -->
+      <div class="phone">
+        <div class="phone-label">
+          Rebook approval — L4 only (tapped from home)
+        </div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="status-bar">
+              <span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span>
+            </div>
+            <div class="detail-header">
+              <span class="back-btn">&#8592;</span>
+              <span class="title">July rebook list</span>
+            </div>
+            <div class="screen-body">
+              <div class="rebook-header">
+                <p>
+                  &#128257;
+                  <strong>14 customers are due this month.</strong> Untick
+                  anyone you don't want contacted, then tap Approve. Rachel
+                  emails them first, then calls 3 days later if no reply.
+                </p>
+              </div>
+
+              <div class="rebook-item">
+                <input type="checkbox" class="rebook-check" checked />
+                <div class="rebook-info">
+                  <div class="rebook-name">Sandra Mitchell</div>
+                  <div class="rebook-detail">
+                    Paddington &bull; General pest
+                  </div>
+                  <div class="rebook-due">Due now &bull; Last Jul 2025</div>
+                </div>
+              </div>
+              <div class="rebook-item">
+                <input type="checkbox" class="rebook-check" checked />
+                <div class="rebook-info">
+                  <div class="rebook-name">Dave Kowalski</div>
+                  <div class="rebook-detail">West End &bull; General pest</div>
+                  <div class="rebook-due">Due now &bull; Last Aug 2025</div>
+                </div>
+              </div>
+              <div class="rebook-item excluded">
+                <input type="checkbox" class="rebook-check" />
+                <div class="rebook-info">
+                  <div
+                    class="rebook-name"
+                    style="text-decoration: line-through"
+                  >
+                    Mrs P. Smith
+                  </div>
+                  <div class="rebook-detail">
+                    Excluded &bull; Do not contact
+                  </div>
+                </div>
+              </div>
+              <div class="rebook-item">
+                <input type="checkbox" class="rebook-check" checked />
+                <div class="rebook-info">
+                  <div class="rebook-name">Rob Hennessy</div>
+                  <div class="rebook-detail">
+                    Annerley &bull; Termite inspection
+                  </div>
+                  <div class="rebook-due">Overdue &bull; Last Jun 2025</div>
+                </div>
+              </div>
+              <div
+                style="
+                  font-size: 11px;
+                  color: #5f6e82;
+                  text-align: center;
+                  margin: 8px 0 4px;
+                "
+              >
+                + 10 more
+              </div>
+
+              <button class="btn btn-gold">
+                Approve &amp; start outreach (13)
+              </button>
+              <button class="btn btn-outline">Save for later</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: ACCOUNT -->
+      <div class="phone">
+        <div class="phone-label">Account (tapped from home)</div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="status-bar">
+              <span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span>
+            </div>
+            <div class="detail-header">
+              <span class="back-btn">&#8592;</span>
+              <span class="title">My account</span>
+            </div>
+            <div class="screen-body">
+              <div class="account-section">
+                <h3>Your plan</h3>
+                <div class="account-row">
+                  <span class="lbl">Plan</span
+                  ><span class="val">L4 Rebook &amp; Reactivate</span>
+                </div>
+                <div class="account-row">
+                  <span class="lbl">Monthly fee</span
+                  ><span class="val">A$995/month</span>
+                </div>
+                <div class="account-row">
+                  <span class="lbl">Next billing</span
+                  ><span class="val">25 Jul 2026</span>
+                </div>
+                <div class="account-row">
+                  <span class="lbl">Changes used</span
+                  ><span class="val">1 of 2 this month</span>
+                </div>
+              </div>
+
+              <div class="account-section">
+                <h3>Get help</h3>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 0; margin-bottom: 8px; font-size: 13px"
+                >
+                  &#128233; Email hello@aiassistantpro.com.au
+                </button>
+                <button
+                  class="btn btn-outline"
+                  style="margin-top: 0; font-size: 13px"
+                >
+                  &#128197; Book a call with Cathryn
+                </button>
+              </div>
+
+              <div class="account-section">
+                <h3>Cancel my plan</h3>
+                <p style="font-size: 12px; color: #5f6e82; margin-bottom: 10px">
+                  Cancel at least 5 days before your next billing date to avoid
+                  being charged for the next month.
+                </p>
+                <button
+                  class="btn btn-outline"
+                  style="
+                    margin-top: 0;
+                    color: #c0392b;
+                    border-color: #f8d7da;
+                    font-size: 13px;
+                  "
+                >
+                  Request cancellation
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SCREEN 2: RECENT CALLS -->
-  <div class="phone">
-    <div class="phone-label">Recent calls (tapped from home)</div>
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <div class="status-bar"><span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span></div>
-        <div class="detail-header">
-          <span class="back-btn">&#8592;</span>
-          <span class="title">Recent calls</span>
-        </div>
-        <div class="screen-body">
-
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#5f6e82;margin-bottom:10px;">Today</div>
-
-          <div class="call-item">
-            <div class="call-top">
-              <div class="call-name">Sandra Mitchell</div>
-              <span class="call-tag booked">Booked</span>
-            </div>
-            <div class="call-detail">General pest &bull; Paddington &bull; 8:42am</div>
-            <div class="call-summary">"Booked Tuesday 1 Jul, 9am"</div>
-          </div>
-
-          <div class="call-item">
-            <div class="call-top">
-              <div class="call-name">Unknown caller</div>
-              <span class="call-tag escalated">&#9888; Needs you</span>
-            </div>
-            <div class="call-detail">Termite concern &bull; New Farm &bull; 7:14am</div>
-            <div class="call-summary">"Caller worried about active termites. Wants callback urgently."</div>
-          </div>
-
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#5f6e82;margin:14px 0 10px;">Yesterday</div>
-
-          <div class="call-item">
-            <div class="call-top">
-              <div class="call-name">Dave Kowalski</div>
-              <span class="call-tag message">Message</span>
-            </div>
-            <div class="call-detail">End of lease &bull; West End &bull; 6:03pm</div>
-            <div class="call-summary">"Will call back tomorrow morning."</div>
-          </div>
-
-          <div class="call-item">
-            <div class="call-top">
-              <div class="call-name">Jess Tran</div>
-              <span class="call-tag booked">Booked</span>
-            </div>
-            <div class="call-detail">Rodents &bull; Woolloongabba &bull; 2:31pm</div>
-          </div>
-
-        </div>
-      </div>
+    <div
+      style="
+        background: #17283f;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 14px 20px;
+        font-size: 12px;
+        line-height: 1.8;
+      "
+    >
+      <strong style="color: #bd985c"
+        >Key design decisions in this version:</strong
+      ><br />
+      &#10003; Home screen = agent toggle + 4 cards only. Nothing else.<br />
+      &#10003; Red badge on cards when action is needed (rebook list). Invisible
+      otherwise.<br />
+      &#10003; Rebook card only visible to L4 clients. L1/L2/L3 see 3 cards.<br />
+      &#10003; Make a change = pick from a list, not a blank form.<br />
+      &#10003; No stats, no tables, no columns on home screen.<br />
+      <br />
+      <strong style="color: #bd985c">Questions before we build:</strong>
+      Is this the right level of simplicity? &nbsp;|&nbsp; Should "Needs you"
+      calls send a push notification? &nbsp;|&nbsp; Happy with magic link login?
+      &nbsp;|&nbsp; Do you want a separate admin app to manage all clients from
+      your side?
     </div>
-  </div>
-
-  <!-- SCREEN 3: MAKE A CHANGE -->
-  <div class="phone">
-    <div class="phone-label">Make a change (tapped from home)</div>
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <div class="status-bar"><span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span></div>
-        <div class="detail-header">
-          <span class="back-btn">&#8592;</span>
-          <span class="title">Make a change</span>
-        </div>
-        <div class="screen-body">
-
-          <div style="font-size:13px;color:#5f6e82;margin-bottom:16px;line-height:1.5;">What do you want to update? Tap the option that fits.</div>
-
-          <div class="change-option">
-            <div class="opt-left">
-              <div class="opt-title">&#128337; My hours or availability</div>
-              <div class="opt-sub">Closed dates, holiday hours</div>
-            </div>
-            <span class="change-arrow">&#8250;</span>
-          </div>
-          <div class="change-option">
-            <div class="opt-left">
-              <div class="opt-title">&#128295; My services</div>
-              <div class="opt-sub">Add, remove, or update</div>
-            </div>
-            <span class="change-arrow">&#8250;</span>
-          </div>
-          <div class="change-option">
-            <div class="opt-left">
-              <div class="opt-title">&#128222; How calls are handled</div>
-              <div class="opt-sub">Urgent calls, escalation rules</div>
-            </div>
-            <span class="change-arrow">&#8250;</span>
-          </div>
-          <div class="change-option">
-            <div class="opt-left">
-              <div class="opt-title">&#128176; Pricing the agent mentions</div>
-              <div class="opt-sub">Update quoted prices</div>
-            </div>
-            <span class="change-arrow">&#8250;</span>
-          </div>
-          <div class="change-option">
-            <div class="opt-left">
-              <div class="opt-title">&#9997;&#65039; Something else</div>
-              <div class="opt-sub">Describe it in your own words</div>
-            </div>
-            <span class="change-arrow">&#8250;</span>
-          </div>
-
-          <div class="note-box">2 changes included each month. We'll have it done by next business day and let you know when it's live.</div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN 4: REBOOK APPROVAL -->
-  <div class="phone">
-    <div class="phone-label">Rebook approval — L4 only (tapped from home)</div>
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <div class="status-bar"><span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span></div>
-        <div class="detail-header">
-          <span class="back-btn">&#8592;</span>
-          <span class="title">July rebook list</span>
-        </div>
-        <div class="screen-body">
-
-          <div class="rebook-header">
-            <p>&#128257; <strong>14 customers are due this month.</strong> Untick anyone you don't want contacted, then tap Approve. Rachel emails them first, then calls 3 days later if no reply.</p>
-          </div>
-
-          <div class="rebook-item">
-            <input type="checkbox" class="rebook-check" checked>
-            <div class="rebook-info">
-              <div class="rebook-name">Sandra Mitchell</div>
-              <div class="rebook-detail">Paddington &bull; General pest</div>
-              <div class="rebook-due">Due now &bull; Last Jul 2025</div>
-            </div>
-          </div>
-          <div class="rebook-item">
-            <input type="checkbox" class="rebook-check" checked>
-            <div class="rebook-info">
-              <div class="rebook-name">Dave Kowalski</div>
-              <div class="rebook-detail">West End &bull; General pest</div>
-              <div class="rebook-due">Due now &bull; Last Aug 2025</div>
-            </div>
-          </div>
-          <div class="rebook-item excluded">
-            <input type="checkbox" class="rebook-check">
-            <div class="rebook-info">
-              <div class="rebook-name" style="text-decoration:line-through;">Mrs P. Smith</div>
-              <div class="rebook-detail">Excluded &bull; Do not contact</div>
-            </div>
-          </div>
-          <div class="rebook-item">
-            <input type="checkbox" class="rebook-check" checked>
-            <div class="rebook-info">
-              <div class="rebook-name">Rob Hennessy</div>
-              <div class="rebook-detail">Annerley &bull; Termite inspection</div>
-              <div class="rebook-due">Overdue &bull; Last Jun 2025</div>
-            </div>
-          </div>
-          <div style="font-size:11px;color:#5f6e82;text-align:center;margin:8px 0 4px;">+ 10 more</div>
-
-          <button class="btn btn-gold">Approve &amp; start outreach (13)</button>
-          <button class="btn btn-outline">Save for later</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN 5: ACCOUNT -->
-  <div class="phone">
-    <div class="phone-label">Account (tapped from home)</div>
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <div class="status-bar"><span>9:41</span><span>&#9679;&#9679;&#9679; WiFi</span></div>
-        <div class="detail-header">
-          <span class="back-btn">&#8592;</span>
-          <span class="title">My account</span>
-        </div>
-        <div class="screen-body">
-
-          <div class="account-section">
-            <h3>Your plan</h3>
-            <div class="account-row"><span class="lbl">Plan</span><span class="val">L4 Rebook &amp; Reactivate</span></div>
-            <div class="account-row"><span class="lbl">Monthly fee</span><span class="val">A$995/month</span></div>
-            <div class="account-row"><span class="lbl">Next billing</span><span class="val">25 Jul 2026</span></div>
-            <div class="account-row"><span class="lbl">Changes used</span><span class="val">1 of 2 this month</span></div>
-          </div>
-
-          <div class="account-section">
-            <h3>Get help</h3>
-            <button class="btn btn-outline" style="margin-top:0;margin-bottom:8px;font-size:13px;">&#128233; Email hello@aiassistantpro.com.au</button>
-            <button class="btn btn-outline" style="margin-top:0;font-size:13px;">&#128197; Book a call with Cathryn</button>
-          </div>
-
-          <div class="account-section">
-            <h3>Cancel my plan</h3>
-            <p style="font-size:12px;color:#5f6e82;margin-bottom:10px;">Cancel at least 5 days before your next billing date to avoid being charged for the next month.</p>
-            <button class="btn btn-outline" style="margin-top:0;color:#c0392b;border-color:#f8d7da;font-size:13px;">Request cancellation</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div style="background:#17283f;color:rgba(255,255,255,0.7);padding:14px 20px;font-size:12px;line-height:1.8;">
-  <strong style="color:#bd985c;">Key design decisions in this version:</strong><br>
-  &#10003; Home screen = agent toggle + 4 cards only. Nothing else.<br>
-  &#10003; Red badge on cards when action is needed (rebook list). Invisible otherwise.<br>
-  &#10003; Rebook card only visible to L4 clients. L1/L2/L3 see 3 cards.<br>
-  &#10003; Make a change = pick from a list, not a blank form.<br>
-  &#10003; No stats, no tables, no columns on home screen.<br>
-  <br>
-  <strong style="color:#bd985c;">Questions before we build:</strong>
-  Is this the right level of simplicity? &nbsp;|&nbsp;
-  Should "Needs you" calls send a push notification? &nbsp;|&nbsp;
-  Happy with magic link login? &nbsp;|&nbsp;
-  Do you want a separate admin app to manage all clients from your side?
-</div>
-
-</body>
+  </body>
 </html>
