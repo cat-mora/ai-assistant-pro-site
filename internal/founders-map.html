@@ -1,257 +1,605 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
-<head>
-  <meta charset="utf-8" />
-  <title>Founder's System Map | AI Assistant Pro</title>
-  <style>
-    @page { size: A4 landscape; margin: 12mm; }
-    @media print {
-      body { margin: 0; padding: 0; background: white; }
-      .no-print { display: none; }
-      .sheet { box-shadow: none; padding: 0; }
-      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    }
-    body { font-family: Arial, Helvetica, sans-serif; background: #f0ece4; color: #17283f; margin: 0; padding: 16px; font-size: 11px; }
-    .no-print { background: #17283f; color: white; padding: 9px 16px; border-radius: 6px; display: inline-block; margin-bottom: 14px; cursor: pointer; font-size: 12px; border: none; }
-    .sheet { background: white; max-width: 1050px; margin: 0 auto; padding: 22px 26px; box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
-    .header { border-bottom: 3px solid #bd985c; padding-bottom: 10px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; }
-    .header h1 { margin: 0; font-size: 17px; }
-    .header .sub { font-size: 10px; color: #5f6e82; margin: 3px 0 0; }
-    .badge { background: #17283f; color: white; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: bold; }
-    h2 { font-size: 11px; color: #17283f; margin: 14px 0 8px; border-left: 4px solid #bd985c; padding-left: 7px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-    .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-    .cols4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .box { border: 1.5px solid #e0d5c5; border-radius: 6px; padding: 10px 12px; }
-    .box h3 { margin: 0 0 7px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #bd985c; font-weight: 700; }
-    .box p, .box li { font-size: 11px; margin: 0 0 4px; line-height: 1.45; }
-    .box ul { margin: 0; padding-left: 13px; }
-    .box .val { font-size: 13px; font-weight: 700; margin: 2px 0; }
-    .box .note { font-size: 10px; color: #5f6e82; }
-    .tag { display: inline-block; background: #eadcc9; color: #17283f; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 600; margin: 1px; }
-    .tag.gold { background: #bd985c; color: white; }
-    .tag.navy { background: #17283f; color: white; }
-    .tag.green { background: #2d7a4f; color: white; }
-    .flow { display: flex; align-items: flex-start; gap: 0; margin-bottom: 12px; flex-wrap: wrap; }
-    .flow-step { background: #f7f0e5; border: 1.5px solid #e0d5c5; border-radius: 6px; padding: 8px 10px; font-size: 10px; min-width: 90px; flex: 1; text-align: center; position: relative; }
-    .flow-step strong { display: block; font-size: 11px; margin-bottom: 2px; color: #17283f; }
-    .flow-step.highlight { background: #17283f; color: white; border-color: #17283f; }
-    .flow-step.highlight strong { color: #bd985c; }
-    .arrow { display: flex; align-items: center; padding: 0 4px; color: #bd985c; font-size: 14px; font-weight: bold; align-self: center; flex-shrink: 0; }
-    table.simple { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 12px; }
-    table.simple th { background: #17283f; color: white; padding: 6px 8px; text-align: left; font-size: 10px; }
-    table.simple td { padding: 5px 8px; border-bottom: 1px solid #e8e0d4; vertical-align: top; }
-    table.simple tr:nth-child(even) td { background: #faf7f2; }
-    .footer-band { background: #17283f; color: white; padding: 7px 14px; border-radius: 5px; display: flex; justify-content: space-between; font-size: 10px; margin-top: 14px; }
-    .footer-band a { color: #bd985c; text-decoration: none; }
-    .alert { background: #fff3cd; border-left: 3px solid #bd985c; padding: 7px 10px; border-radius: 4px; font-size: 10px; margin-bottom: 10px; }
-  </style>
-</head>
-<body>
-  <button class="no-print" onclick="window.print()">&#128438; Print (landscape A4)</button>
+  <head>
+    <meta charset="utf-8" />
+    <title>Founder's System Map | AI Assistant Pro</title>
+    <style>
+      @page {
+        size: A4 landscape;
+        margin: 12mm;
+      }
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+          background: white;
+        }
+        .no-print {
+          display: none;
+        }
+        .sheet {
+          box-shadow: none;
+          padding: 0;
+        }
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f0ece4;
+        color: #17283f;
+        margin: 0;
+        padding: 16px;
+        font-size: 11px;
+      }
+      .no-print {
+        background: #17283f;
+        color: white;
+        padding: 9px 16px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 14px;
+        cursor: pointer;
+        font-size: 12px;
+        border: none;
+      }
+      .sheet {
+        background: white;
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 22px 26px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        border-bottom: 3px solid #bd985c;
+        padding-bottom: 10px;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .header .sub {
+        font-size: 10px;
+        color: #5f6e82;
+        margin: 3px 0 0;
+      }
+      .badge {
+        background: #17283f;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: bold;
+      }
+      h2 {
+        font-size: 11px;
+        color: #17283f;
+        margin: 14px 0 8px;
+        border-left: 4px solid #bd985c;
+        padding-left: 7px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .cols2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .cols3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .cols4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .box {
+        border: 1.5px solid #e0d5c5;
+        border-radius: 6px;
+        padding: 10px 12px;
+      }
+      .box h3 {
+        margin: 0 0 7px;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #bd985c;
+        font-weight: 700;
+      }
+      .box p,
+      .box li {
+        font-size: 11px;
+        margin: 0 0 4px;
+        line-height: 1.45;
+      }
+      .box ul {
+        margin: 0;
+        padding-left: 13px;
+      }
+      .box .val {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 2px 0;
+      }
+      .box .note {
+        font-size: 10px;
+        color: #5f6e82;
+      }
+      .tag {
+        display: inline-block;
+        background: #eadcc9;
+        color: #17283f;
+        border-radius: 3px;
+        padding: 1px 5px;
+        font-size: 10px;
+        font-weight: 600;
+        margin: 1px;
+      }
+      .tag.gold {
+        background: #bd985c;
+        color: white;
+      }
+      .tag.navy {
+        background: #17283f;
+        color: white;
+      }
+      .tag.green {
+        background: #2d7a4f;
+        color: white;
+      }
+      .flow {
+        display: flex;
+        align-items: flex-start;
+        gap: 0;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .flow-step {
+        background: #f7f0e5;
+        border: 1.5px solid #e0d5c5;
+        border-radius: 6px;
+        padding: 8px 10px;
+        font-size: 10px;
+        min-width: 90px;
+        flex: 1;
+        text-align: center;
+        position: relative;
+      }
+      .flow-step strong {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 2px;
+        color: #17283f;
+      }
+      .flow-step.highlight {
+        background: #17283f;
+        color: white;
+        border-color: #17283f;
+      }
+      .flow-step.highlight strong {
+        color: #bd985c;
+      }
+      .arrow {
+        display: flex;
+        align-items: center;
+        padding: 0 4px;
+        color: #bd985c;
+        font-size: 14px;
+        font-weight: bold;
+        align-self: center;
+        flex-shrink: 0;
+      }
+      table.simple {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11px;
+        margin-bottom: 12px;
+      }
+      table.simple th {
+        background: #17283f;
+        color: white;
+        padding: 6px 8px;
+        text-align: left;
+        font-size: 10px;
+      }
+      table.simple td {
+        padding: 5px 8px;
+        border-bottom: 1px solid #e8e0d4;
+        vertical-align: top;
+      }
+      table.simple tr:nth-child(even) td {
+        background: #faf7f2;
+      }
+      .footer-band {
+        background: #17283f;
+        color: white;
+        padding: 7px 14px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        margin-top: 14px;
+      }
+      .footer-band a {
+        color: #bd985c;
+        text-decoration: none;
+      }
+      .alert {
+        background: #fff3cd;
+        border-left: 3px solid #bd985c;
+        padding: 7px 10px;
+        border-radius: 4px;
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="no-print" onclick="window.print()">
+      &#128438; Print (landscape A4)
+    </button>
 
-  <div class="sheet">
-    <div class="header">
-      <div>
-        <h1>AI Assistant Pro &mdash; Founder's System Map</h1>
-        <div class="sub">How everything fits together &mdash; tech stack, money flow, client journey, your role &mdash; Internal reference, June 2026</div>
+    <div class="sheet">
+      <div class="header">
+        <div>
+          <h1>AI Assistant Pro &mdash; Founder's System Map</h1>
+          <div class="sub">
+            How everything fits together &mdash; tech stack, money flow, client
+            journey, your role &mdash; Internal reference, June 2026
+          </div>
+        </div>
+        <span class="badge">FOUNDER ONLY</span>
       </div>
-      <span class="badge">FOUNDER ONLY</span>
-    </div>
 
-    <!-- WHAT WE SELL -->
-    <h2>What we sell</h2>
-    <div class="cols4">
-      <div class="box">
-        <h3>L1 &mdash; Answer &amp; Message</h3>
-        <div class="val">A$295/mo</div><div class="note">+ A$495 setup</div>
-        <p style="margin-top:5px">Agent answers every inbound call 24/7. Takes a message. Owner gets SMS summary.</p>
-        <p><span class="tag">Inbound only</span></p>
+      <!-- WHAT WE SELL -->
+      <h2>What we sell</h2>
+      <div class="cols4">
+        <div class="box">
+          <h3>L1 &mdash; Answer &amp; Message</h3>
+          <div class="val">A$295/mo</div>
+          <div class="note">+ A$495 setup</div>
+          <p style="margin-top: 5px">
+            Agent answers every inbound call 24/7. Takes a message. Owner gets
+            SMS summary.
+          </p>
+          <p><span class="tag">Inbound only</span></p>
+        </div>
+        <div class="box">
+          <h3>L2 &mdash; Answer &amp; Book</h3>
+          <div class="val">A$395/mo</div>
+          <div class="note">+ A$695 setup</div>
+          <p style="margin-top: 5px">
+            As above + books jobs directly into client's calendar in real time.
+          </p>
+          <p>
+            <span class="tag">Inbound</span> <span class="tag">Calendar</span>
+          </p>
+        </div>
+        <div class="box">
+          <h3>L3 &mdash; Lead Callback</h3>
+          <div class="val">A$595/mo</div>
+          <div class="note">+ A$995 setup</div>
+          <p style="margin-top: 5px">
+            For businesses running ads. Agent calls new form leads within
+            seconds. No lead goes cold.
+          </p>
+          <p>
+            <span class="tag green">Ads</span> <span class="tag">Outbound</span>
+          </p>
+        </div>
+        <div class="box">
+          <h3>L4 &mdash; Rebook &amp; Reactivate</h3>
+          <div class="val">A$995/mo</div>
+          <div class="note">+ A$1,495 setup</div>
+          <p style="margin-top: 5px">
+            Full suite. Inbound + books + calls back new leads + proactively
+            contacts past customers due for next service. Approval required
+            before outbound list runs.
+          </p>
+          <p><span class="tag gold">Best fit pest control</span></p>
+        </div>
       </div>
-      <div class="box">
-        <h3>L2 &mdash; Answer &amp; Book</h3>
-        <div class="val">A$395/mo</div><div class="note">+ A$695 setup</div>
-        <p style="margin-top:5px">As above + books jobs directly into client's calendar in real time.</p>
-        <p><span class="tag">Inbound</span> <span class="tag">Calendar</span></p>
+      <div class="box" style="margin-bottom: 12px">
+        <h3>Billing rules</h3>
+        <p>
+          Billed monthly in advance via Stripe. Overage: A$9.90 per 30-min block
+          above included minutes, charged as it occurs. Cancel at least 5 days
+          before next billing date (e.g. billing date 25th = cancel by 20th).
+          Setup fee non-refundable once build commences. Month-to-month, no
+          contracts.
+        </p>
       </div>
-      <div class="box">
-        <h3>L3 &mdash; Lead Callback</h3>
-        <div class="val">A$595/mo</div><div class="note">+ A$995 setup</div>
-        <p style="margin-top:5px">For businesses running ads. Agent calls new form leads within seconds. No lead goes cold.</p>
-        <p><span class="tag green">Ads</span> <span class="tag">Outbound</span></p>
-      </div>
-      <div class="box">
-        <h3>L4 &mdash; Rebook &amp; Reactivate</h3>
-        <div class="val">A$995/mo</div><div class="note">+ A$1,495 setup</div>
-        <p style="margin-top:5px">Full suite. Inbound + books + calls back new leads + proactively contacts past customers due for next service. Approval required before outbound list runs.</p>
-        <p><span class="tag gold">Best fit pest control</span></p>
-      </div>
-    </div>
-    <div class="box" style="margin-bottom:12px">
-      <h3>Billing rules</h3>
-      <p>Billed monthly in advance via Stripe. Overage: A$9.90 per 30-min block above included minutes, charged as it occurs. Cancel at least 5 days before next billing date (e.g. billing date 25th = cancel by 20th). Setup fee non-refundable once build commences. Month-to-month, no contracts.</p>
-    </div>
 
-    <!-- TECH STACK -->
-    <h2>Full tech stack &mdash; how it all connects</h2>
-    <table class="simple">
-      <tr>
-        <th>Layer</th><th>Tool</th><th>What it does</th><th>Who manages it</th><th>Key detail</th>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Voice AI</span></td>
-        <td><strong>Vapi</strong> (vapi.ai)</td>
-        <td>Runs the voice agents. Handles call logic, LLM prompts, call routing, call logs.</td>
-        <td>Cat (via dashboard or scripts)</td>
-        <td>Each client gets their own agent config. Agent IDs stored in vapi_agent_ids.json (local only)</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Voice</span></td>
-        <td><strong>ElevenLabs</strong></td>
-        <td>Generates the actual voice audio. Australian accents. Rachel voice ID: 0QT4OrDTvpDlUPmFsUWN</td>
-        <td>Configured inside Vapi</td>
-        <td>Voice speed and style configurable. Currently speaking too slowly &mdash; needs tuning.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Phone</span></td>
-        <td><strong>Twilio</strong></td>
-        <td>Provides the phone numbers. Connects calls to Vapi. Handles SMS (PAUSE/RESUME).</td>
-        <td>Cat</td>
-        <td>AAP control number: +61 468 154 584. Each client's own number connects via Twilio &rarr; Vapi.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">AI Brain</span></td>
-        <td><strong>OpenAI GPT-4o-mini</strong></td>
-        <td>The language model inside each agent. Reads the system prompt and decides what to say.</td>
-        <td>Configured inside Vapi</td>
-        <td>System prompt = the agent's instructions. Knowledge base = business-specific facts.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Database</span></td>
-        <td><strong>Supabase</strong></td>
-        <td>Stores leads, client data, onboarding responses. Runs webhooks and automation logic.</td>
-        <td>Cat / Hermes</td>
-        <td>Project ID: whpyqlfwqprnognsobsj. Stripe webhook fires here on payment.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Payments</span></td>
-        <td><strong>Stripe</strong></td>
-        <td>Processes all payments. 10 payment links live (one per plan per tier). Fires webhook to Supabase on payment.</td>
-        <td>Cat only &mdash; never touch without approval</td>
-        <td>Billed monthly in advance. Overage charged as it occurs. All links redirect to Connor intake.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Website</span></td>
-        <td><strong>Vercel + GitHub</strong></td>
-        <td>Hosts aiassistantpro.com.au. Auto-deploys on every push to main branch.</td>
-        <td>Hermes (push code) / Vercel (hosts)</td>
-        <td>Repo: cat-mora/ai-assistant-pro-site. Push to main = live in 1-2 min.</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Booking</span></td>
-        <td><strong>TidyCal</strong></td>
-        <td>Connor intake call booking (24/7 AI agent). Cat advisory call booking.</td>
-        <td>Cat</td>
-        <td>Connor: tidycal.com/kindredsystems/aap-connor-intake. Cat: aap-cathryn-intro</td>
-      </tr>
-      <tr>
-        <td><span class="tag navy">Ops</span></td>
-        <td><strong>Hermes Agent</strong></td>
-        <td>Cat's AI operations agent. Builds, monitors, pushes code, manages files, writes content.</td>
-        <td>Runs on Cat's Windows PC</td>
-        <td>Loaded with SOUL.md identity. Connected to GitHub, Supabase. Vapi API blocked at network level (use dashboard).</td>
-      </tr>
-    </table>
+      <!-- TECH STACK -->
+      <h2>Full tech stack &mdash; how it all connects</h2>
+      <table class="simple">
+        <tr>
+          <th>Layer</th>
+          <th>Tool</th>
+          <th>What it does</th>
+          <th>Who manages it</th>
+          <th>Key detail</th>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Voice AI</span></td>
+          <td><strong>Vapi</strong> (vapi.ai)</td>
+          <td>
+            Runs the voice agents. Handles call logic, LLM prompts, call
+            routing, call logs.
+          </td>
+          <td>Cat (via dashboard or scripts)</td>
+          <td>
+            Each client gets their own agent config. Agent IDs stored in
+            vapi_agent_ids.json (local only)
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Voice</span></td>
+          <td><strong>ElevenLabs</strong></td>
+          <td>
+            Generates the actual voice audio. Australian accents. Rachel voice
+            ID: 0QT4OrDTvpDlUPmFsUWN
+          </td>
+          <td>Configured inside Vapi</td>
+          <td>
+            Voice speed and style configurable. Currently speaking too slowly
+            &mdash; needs tuning.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Phone</span></td>
+          <td><strong>Twilio</strong></td>
+          <td>
+            Provides the phone numbers. Connects calls to Vapi. Handles SMS
+            (PAUSE/RESUME).
+          </td>
+          <td>Cat</td>
+          <td>
+            AAP control number: +61 468 154 584. Each client's own number
+            connects via Twilio &rarr; Vapi.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">AI Brain</span></td>
+          <td><strong>OpenAI GPT-4o-mini</strong></td>
+          <td>
+            The language model inside each agent. Reads the system prompt and
+            decides what to say.
+          </td>
+          <td>Configured inside Vapi</td>
+          <td>
+            System prompt = the agent's instructions. Knowledge base =
+            business-specific facts.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Database</span></td>
+          <td><strong>Supabase</strong></td>
+          <td>
+            Stores leads, client data, onboarding responses. Runs webhooks and
+            automation logic.
+          </td>
+          <td>Cat / Hermes</td>
+          <td>
+            Project ID: whpyqlfwqprnognsobsj. Stripe webhook fires here on
+            payment.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Payments</span></td>
+          <td><strong>Stripe</strong></td>
+          <td>
+            Processes all payments. 10 payment links live (one per plan per
+            tier). Fires webhook to Supabase on payment.
+          </td>
+          <td>Cat only &mdash; never touch without approval</td>
+          <td>
+            Billed monthly in advance. Overage charged as it occurs. All links
+            redirect to Connor intake.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Website</span></td>
+          <td><strong>Vercel + GitHub</strong></td>
+          <td>
+            Hosts aiassistantpro.com.au. Auto-deploys on every push to main
+            branch.
+          </td>
+          <td>Hermes (push code) / Vercel (hosts)</td>
+          <td>
+            Repo: cat-mora/ai-assistant-pro-site. Push to main = live in 1-2
+            min.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Booking</span></td>
+          <td><strong>TidyCal</strong></td>
+          <td>
+            Connor intake call booking (24/7 AI agent). Cat advisory call
+            booking.
+          </td>
+          <td>Cat</td>
+          <td>
+            Connor: tidycal.com/kindredsystems/aap-connor-intake. Cat:
+            aap-cathryn-intro
+          </td>
+        </tr>
+        <tr>
+          <td><span class="tag navy">Ops</span></td>
+          <td><strong>Hermes Agent</strong></td>
+          <td>
+            Cat's AI operations agent. Builds, monitors, pushes code, manages
+            files, writes content.
+          </td>
+          <td>Runs on Cat's Windows PC</td>
+          <td>
+            Loaded with SOUL.md identity. Connected to GitHub, Supabase. Vapi
+            API blocked at network level (use dashboard).
+          </td>
+        </tr>
+      </table>
 
-    <!-- MONEY FLOW -->
-    <h2>How money flows</h2>
-    <div class="flow">
-      <div class="flow-step"><strong>Client pays</strong>Stripe payment link</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step"><strong>Stripe webhook</strong>Fires to Supabase</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step highlight"><strong>Welcome email</strong>Auto-sent to client</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step"><strong>Client books intake</strong>TidyCal (Connor AI)</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step"><strong>Connor intake call</strong>20 min, collects brief</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step"><strong>Build brief</strong>Cat reviews + approves</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step highlight"><strong>Agent built</strong>Vapi, 48hr turnaround</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step"><strong>Cat tests</strong>Then approves go-live</div>
-      <div class="arrow">&rarr;</div>
-      <div class="flow-step highlight"><strong>LIVE</strong>Client's number active</div>
-    </div>
+      <!-- MONEY FLOW -->
+      <h2>How money flows</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <strong>Client pays</strong>Stripe payment link
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step">
+          <strong>Stripe webhook</strong>Fires to Supabase
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step highlight">
+          <strong>Welcome email</strong>Auto-sent to client
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step">
+          <strong>Client books intake</strong>TidyCal (Connor AI)
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step">
+          <strong>Connor intake call</strong>20 min, collects brief
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step">
+          <strong>Build brief</strong>Cat reviews + approves
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step highlight">
+          <strong>Agent built</strong>Vapi, 48hr turnaround
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step">
+          <strong>Cat tests</strong>Then approves go-live
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="flow-step highlight">
+          <strong>LIVE</strong>Client's number active
+        </div>
+      </div>
 
-    <!-- CLIENT CONTROLS -->
-    <h2>How clients control their agent (post go-live)</h2>
-    <div class="cols3">
-      <div class="box">
-        <h3>PAUSE / RESUME (all levels)</h3>
-        <p>Client texts <strong>PAUSE</strong> or <strong>RESUME</strong> to <strong>+61 468 154 584</strong> from their registered mobile.</p>
-        <p style="margin-top:5px">PAUSE &rarr; calls go to voicemail / their number. Billing continues. No time limit.</p>
-        <p style="margin-top:5px">RESUME &rarr; agent back on within minutes.</p>
-        <p style="margin-top:5px"><strong>Urgent issue:</strong> client PAUSEs immediately, emails hello@ describing the problem. Cat fixes and confirms before RESUME.</p>
+      <!-- CLIENT CONTROLS -->
+      <h2>How clients control their agent (post go-live)</h2>
+      <div class="cols3">
+        <div class="box">
+          <h3>PAUSE / RESUME (all levels)</h3>
+          <p>
+            Client texts <strong>PAUSE</strong> or <strong>RESUME</strong> to
+            <strong>+61 468 154 584</strong> from their registered mobile.
+          </p>
+          <p style="margin-top: 5px">
+            PAUSE &rarr; calls go to voicemail / their number. Billing
+            continues. No time limit.
+          </p>
+          <p style="margin-top: 5px">
+            RESUME &rarr; agent back on within minutes.
+          </p>
+          <p style="margin-top: 5px">
+            <strong>Urgent issue:</strong> client PAUSEs immediately, emails
+            hello@ describing the problem. Cat fixes and confirms before RESUME.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Change requests (all levels)</h3>
+          <p>Client emails <strong>hello@aiassistantpro.com.au</strong></p>
+          <p style="margin-top: 4px">
+            Subject format:
+            <em
+              >CHANGE REQUEST &mdash; [Business Name] &mdash; [description]</em
+            >
+          </p>
+          <p style="margin-top: 4px">
+            2 changes included per month. Additional at A$95/hr.
+          </p>
+          <p style="margin-top: 4px">
+            Cat makes all changes to the agent in Vapi. Client never touches
+            Vapi.
+          </p>
+          <p style="margin-top: 4px">
+            SLA: same business day acknowledge, next business day complete.
+          </p>
+        </div>
+        <div class="box">
+          <h3>L4 &mdash; Rebook approval flow</h3>
+          <p>
+            Before any outbound calls run, client must approve the contact list.
+          </p>
+          <p style="margin-top: 4px">
+            <strong>Current process (manual):</strong>
+          </p>
+          <ul>
+            <li>
+              Agent/Cat generates proposed list from client's customer records
+            </li>
+            <li>Cat emails list to client for approval</li>
+            <li>Client replies: approved, or "remove Smith, Jones"</li>
+            <li>Cat updates list and runs the campaign</li>
+          </ul>
+          <p style="margin-top: 4px">
+            <span class="tag green">Planned</span> Client portal app will
+            automate this approval step.
+          </p>
+        </div>
       </div>
-      <div class="box">
-        <h3>Change requests (all levels)</h3>
-        <p>Client emails <strong>hello@aiassistantpro.com.au</strong></p>
-        <p style="margin-top:4px">Subject format: <em>CHANGE REQUEST &mdash; [Business Name] &mdash; [description]</em></p>
-        <p style="margin-top:4px">2 changes included per month. Additional at A$95/hr.</p>
-        <p style="margin-top:4px">Cat makes all changes to the agent in Vapi. Client never touches Vapi.</p>
-        <p style="margin-top:4px">SLA: same business day acknowledge, next business day complete.</p>
-      </div>
-      <div class="box">
-        <h3>L4 &mdash; Rebook approval flow</h3>
-        <p>Before any outbound calls run, client must approve the contact list.</p>
-        <p style="margin-top:4px"><strong>Current process (manual):</strong></p>
-        <ul>
-          <li>Agent/Cat generates proposed list from client's customer records</li>
-          <li>Cat emails list to client for approval</li>
-          <li>Client replies: approved, or "remove Smith, Jones"</li>
-          <li>Cat updates list and runs the campaign</li>
-        </ul>
-        <p style="margin-top:4px"><span class="tag green">Planned</span> Client portal app will automate this approval step.</p>
-      </div>
-    </div>
 
-    <!-- YOUR ROLE -->
-    <h2>Cat's role vs what's automated</h2>
-    <div class="cols2">
-      <div class="box">
-        <h3>Automated (no Cat needed)</h3>
-        <ul>
-          <li>All inbound call answering, 24/7</li>
-          <li>Job booking into client calendar</li>
-          <li>Lead callback within seconds (L3)</li>
-          <li>Welcome email after Stripe payment (once wired)</li>
-          <li>Connor intake call (AI agent, 24/7)</li>
-          <li>PAUSE/RESUME via SMS</li>
-          <li>Call summaries to client via SMS/email</li>
-          <li>Monthly Stripe billing</li>
-        </ul>
+      <!-- YOUR ROLE -->
+      <h2>Cat's role vs what's automated</h2>
+      <div class="cols2">
+        <div class="box">
+          <h3>Automated (no Cat needed)</h3>
+          <ul>
+            <li>All inbound call answering, 24/7</li>
+            <li>Job booking into client calendar</li>
+            <li>Lead callback within seconds (L3)</li>
+            <li>Welcome email after Stripe payment (once wired)</li>
+            <li>Connor intake call (AI agent, 24/7)</li>
+            <li>PAUSE/RESUME via SMS</li>
+            <li>Call summaries to client via SMS/email</li>
+            <li>Monthly Stripe billing</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Cat's manual steps (for now)</h3>
+          <ul>
+            <li>
+              Building each client's Vapi agent after intake (or outsource
+              ~A$300)
+            </li>
+            <li>Testing agent before go-live</li>
+            <li>Approving go-live (sending Email 5)</li>
+            <li>Processing all change requests in Vapi dashboard</li>
+            <li>L4 rebook list approval and campaign execution</li>
+            <li>Handling urgent issues and escalations</li>
+            <li>Two-week check-in call/email per client</li>
+            <li>Monitoring GitHub Issues from check.yml</li>
+          </ul>
+        </div>
       </div>
-      <div class="box">
-        <h3>Cat's manual steps (for now)</h3>
-        <ul>
-          <li>Building each client's Vapi agent after intake (or outsource ~A$300)</li>
-          <li>Testing agent before go-live</li>
-          <li>Approving go-live (sending Email 5)</li>
-          <li>Processing all change requests in Vapi dashboard</li>
-          <li>L4 rebook list approval and campaign execution</li>
-          <li>Handling urgent issues and escalations</li>
-          <li>Two-week check-in call/email per client</li>
-          <li>Monitoring GitHub Issues from check.yml</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="footer-band">
-      <span>AI Assistant Pro &mdash; Founder's System Map &mdash; Internal use only</span>
-      <span><a href="mailto:hello@aiassistantpro.com.au">hello@aiassistantpro.com.au</a> &nbsp;|&nbsp; aiassistantpro.com.au</span>
+      <div class="footer-band">
+        <span
+          >AI Assistant Pro &mdash; Founder's System Map &mdash; Internal use
+          only</span
+        >
+        <span
+          ><a href="mailto:hello@aiassistantpro.com.au"
+            >hello@aiassistantpro.com.au</a
+          >
+          &nbsp;|&nbsp; aiassistantpro.com.au</span
+        >
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
