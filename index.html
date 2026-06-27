@@ -1,1767 +1,2681 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Assistant Pro | AI voice agents for service businesses</title>
-  <meta name="description" content="AI Assistant Pro helps service businesses answer calls, call new leads back fast, book jobs and rebook customers with natural-sounding AI voice agents.">
-  <meta name="theme-color" content="#17283f">
-  <meta property="og:title" content="AI Assistant Pro | Answers calls. Books jobs. Brings customers back.">
-  <meta property="og:description" content="Stop losing jobs to missed calls and slow follow-up. AI Assistant Pro gives service businesses a natural-sounding AI phone agent that answers every call, calls new leads back within seconds, books appointments and brings customers back — automatically.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.aiassistantpro.com.au/">
-  <meta property="og:site_name" content="AI Assistant Pro">
-  <meta property="og:image" content="https://www.aiassistantpro.com.au/assets/aap_social-share.jpg?v=2">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="AI Assistant Pro — Answers calls. Books jobs. Brings customers back.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Assistant Pro | Answers calls. Books jobs. Brings customers back.">
-  <meta name="twitter:description" content="Stop losing jobs to missed calls and slow follow-up. AI Assistant Pro gives service businesses a natural-sounding AI phone agent that answers every call, calls new leads back within seconds, books appointments and brings customers back — automatically.">
-  <meta name="twitter:image" content="https://www.aiassistantpro.com.au/assets/aap_social-share.jpg?v=2">
-  <link rel="icon" href="/assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="manifest" href="/assets/site.webmanifest">
-  <style>
-    :root {
-      --navy: #17283f;
-      --navy-2: #223753;
-      --cream: #f7f0e5;
-      --cream-light: #fffaf2;
-      --white: #fffdf8;
-      --sand: #eadcc9;
-      --gold: #bd985c;
-      --gold-dark: #9f7d44;
-      --ink: #17283f;
-      --muted: #5f6e82;
-      --line: rgba(23, 40, 63, 0.14);
-      --shadow: 0 24px 64px rgba(23, 40, 63, 0.15);
-      --radius-lg: 30px;
-      --radius-md: 22px;
-      --radius-sm: 15px;
-      --max: 1160px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--cream);
-      line-height: 1.55;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; }
-
-    .site-shell {
-      min-height: 100vh;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 6% 6%, rgba(217, 189, 174, 0.48), transparent 30rem),
-        radial-gradient(circle at 94% 4%, rgba(189, 152, 92, 0.18), transparent 30rem),
-        linear-gradient(180deg, var(--cream-light), var(--cream));
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: rgba(247, 240, 229, 0.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(23, 40, 63, 0.08);
-    }
-
-    .nav {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .logo {
-      width: 285px;
-      max-width: 62vw;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: var(--navy);
-      font-size: 0.94rem;
-      font-weight: 750;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      opacity: 0.82;
-    }
-
-    .nav-links a:hover { opacity: 1; }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 850;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-      white-space: nowrap;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    .button:hover { transform: translateY(-1px); }
-    .button-primary { background: var(--navy); color: #fff; box-shadow: 0 15px 32px rgba(23, 40, 63, 0.20); }
-    .button-gold { background: var(--gold); color: #fff; box-shadow: 0 15px 32px rgba(189, 152, 92, 0.24); }
-    .button-light { background: #fff; color: var(--navy); border-color: rgba(23, 40, 63, 0.16); }
-
-    .section { padding: 76px 0; }
-    .section-tight { padding: 58px 0; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      color: var(--navy);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 22px;
-    }
-
-    .eyebrow-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 6px rgba(189, 152, 92, 0.16);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--navy);
-      letter-spacing: -0.045em;
-      line-height: 1.02;
-      margin: 0;
-    }
-
-    h1 { font-size: clamp(3.1rem, 7vw, 6.6rem); max-width: 880px; }
-    h2 { font-size: clamp(2.35rem, 5vw, 4.7rem); max-width: 880px; }
-    h3 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); letter-spacing: -0.035em; }
-    h4 { font-size: 1.35rem; letter-spacing: -0.03em; }
-
-    p { margin: 0; }
-
-    .lead {
-      max-width: 760px;
-      margin-top: 24px;
-      color: #415066;
-      font-size: clamp(1.08rem, 1.55vw, 1.32rem);
-    }
-
-    .small-copy {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .hero {
-      padding: 76px 0 70px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
-      gap: 44px;
-      align-items: start;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .hero-note {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 640px;
-    }
-
-    .demo-card {
-      background: rgba(255, 253, 248, 0.94);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .demo-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      width: max-content;
-      border-radius: 999px;
-      padding: 7px 12px;
-      background: rgba(247, 240, 229, 0.9);
-      color: #835f23;
-      font-size: 0.78rem;
-      font-weight: 950;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .phone-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: var(--navy);
-      color: #fff;
-      font-weight: 950;
-      font-size: 1.2rem;
-      box-shadow: 0 18px 34px rgba(23, 40, 63, 0.22);
-    }
-
-    .demo-card p { color: #536176; margin-top: 16px; }
-
-    .demo-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .demo-point {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: #435268;
-      font-size: 0.98rem;
-    }
-
-    .tick {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(189, 152, 92, 0.16);
-      color: var(--gold-dark);
-      display: inline-grid;
-      place-items: center;
-      flex: 0 0 24px;
-      font-weight: 950;
-    }
-
-    .card-actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .split-heading {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-      gap: 36px;
-      align-items: end;
-      margin-bottom: 34px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .info-card, .package-card {
-      background: rgba(255, 253, 248, 0.82);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08);
-    }
-
-    .info-card h3, .package-card h3 { margin-bottom: 12px; }
-    .info-card p, .package-card p { color: #536176; }
-
-    .benefit-number {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      margin-bottom: 16px;
-      background: rgba(189, 152, 92, 0.16);
-      color: var(--gold-dark);
-      font-weight: 950;
-    }
-
-    .how-section {
-      background: var(--navy);
-      color: #fff;
-      border-radius: 42px;
-      margin: 20px auto;
-      width: min(calc(100% - 40px), 1320px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .how-section::before {
-      content: "";
-      position: absolute;
-      inset: -22% 55% auto -10%;
-      width: 430px;
-      height: 430px;
-      background: radial-gradient(circle, rgba(189, 152, 92, 0.28), transparent 62%);
-      pointer-events: none;
-    }
-
-    .how-section h2, .how-section h3 { color: #fff; }
-    .how-section .lead, .how-section .small-copy { color: rgba(255,255,255,0.76); }
-    .how-section .eyebrow { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.18); }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 34px;
-    }
-
-    .step {
-      border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      padding: 22px;
-    }
-
-    .step-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--navy);
-      display: grid;
-      place-items: center;
-      font-weight: 950;
-      margin-bottom: 14px;
-    }
-
-    .step p { color: rgba(255,255,255,0.76); margin-top: 10px; }
-
-
-    .story-card {
-      background: rgba(255, 253, 248, 0.9);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 20px 58px rgba(23, 40, 63, 0.10);
-      padding: 30px;
-      max-width: 520px;
-      justify-self: end;
-    }
-
-    .story-card h3 { margin-top: 12px; }
-    .story-card p { color: #3f4f64; margin-top: 10px; }
-
-    .pain-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .pain-item {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      align-items: start;
-      gap: 10px;
-      color: #263954;
-      font-weight: 700;
-    }
-
-    .pain-icon {
-      width: 28px;
-      height: 28px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(189, 152, 92, 0.16);
-      color: var(--gold-dark);
-      font-weight: 950;
-      font-size: 0.86rem;
-    }
-
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .scenario-card {
-      background: rgba(255, 253, 248, 0.84);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: 0 16px 44px rgba(23, 40, 63, 0.07);
-    }
-
-    .scenario-card p {
-      color: #536176;
-      margin-top: 12px;
-    }
-
-    .reframe {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(189, 152, 92, 0.13);
-      color: #233852;
-      font-weight: 780;
-      border: 1px solid rgba(189, 152, 92, 0.22);
-    }
-
-    .proof-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .proof-card {
-      background: rgba(23, 40, 63, 0.05);
-      border: 1px solid rgba(23, 40, 63, 0.10);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .proof-card strong {
-      display: block;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .proof-card span { color: #536176; }
-
-    .demo-section {
-      background: rgba(255, 253, 248, 0.66);
-      border-radius: 42px;
-      width: min(calc(100% - 40px), 1320px);
-      margin: 20px auto;
-      border: 1px solid rgba(23, 40, 63, 0.08);
-    }
-
-    .demo-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.78fr);
-      gap: 42px;
-      align-items: start;
-    }
-
-    .demo-panel {
-      background: #fffdf8;
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: 0 18px 48px rgba(23, 40, 63, 0.08);
-    }
-
-    .demo-panel p {
-      color: #536176;
-      margin-top: 14px;
-    }
-
-    .packages {
-      background: linear-gradient(180deg, rgba(255,253,248,0.72), rgba(247,240,229,0.45));
-    }
-
-    .package-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-height: 100%;
-    }
-
-    .package-price {
-      padding-top: 6px;
-      border-top: 1px solid rgba(23, 40, 63, 0.1);
-    }
-
-    .package-price strong {
-      display: block;
-      font-size: 1.12rem;
-      color: var(--navy);
-    }
-
-    .package-card ul {
-      margin: 0;
-      padding-left: 20px;
-      color: #4d5c70;
-    }
-
-    .package-card li + li { margin-top: 8px; }
-
-    .package-minutes {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(189, 152, 92, 0.10);
-      border: 1px solid rgba(189, 152, 92, 0.20);
-      color: #6b4c1e;
-      font-size: 0.88rem;
-      font-weight: 400;
-    }
-
-    .package-addon {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(23, 40, 63, 0.05);
-      border: 1px solid rgba(23, 40, 63, 0.10);
-      color: #3a4f66;
-      font-size: 0.88rem;
-    }
-
-    /* ── Direct checkout CTA styles ── */
-    .pkg-cta {
-      margin-top: auto;
-      padding-top: 4px;
-    }
-
-    .pkg-cta .button {
-      width: 100%;
-      font-size: 0.96rem;
-      min-height: 46px;
-    }
-
-    .pkg-cta-note {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-align: center;
-    }
-
-    /* ── Compatibility check modal ── */
-    .compat-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(23, 40, 63, 0.58);
-      backdrop-filter: blur(4px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .compat-overlay.open { display: flex; }
-
-    .compat-modal {
-      background: var(--cream-light);
-      border: 1px solid rgba(23, 40, 63, 0.14);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 32px 80px rgba(23, 40, 63, 0.28);
-      width: min(560px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 36px;
-      position: relative;
-    }
-
-    .compat-close {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-      color: var(--muted);
-      line-height: 1;
-      padding: 4px 8px;
-    }
-
-    .compat-close:hover { color: var(--navy); }
-
-    .compat-step { display: none; }
-    .compat-step.active { display: block; }
-
-    .compat-progress {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 28px;
-    }
-
-    .compat-dot {
-      flex: 1;
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(23, 40, 63, 0.12);
-      transition: background 0.2s;
-    }
-
-    .compat-dot.done { background: var(--gold); }
-
-    .compat-q {
-      font-family: Georgia, serif;
-      font-size: 1.3rem;
-      color: var(--navy);
-      letter-spacing: -0.03em;
-      line-height: 1.18;
-      margin-bottom: 20px;
-    }
-
-    .compat-options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .compat-option {
-      display: block;
-      padding: 14px 18px;
-      border-radius: 14px;
-      border: 1.5px solid rgba(23, 40, 63, 0.14);
-      background: #fff;
-      color: var(--navy);
-      font-size: 0.98rem;
-      cursor: pointer;
-      text-align: left;
-      transition: border-color 0.15s, background 0.15s;
-      font-family: inherit;
-      font-weight: 500;
-    }
-
-    .compat-option:hover, .compat-option.selected {
-      border-color: var(--gold);
-      background: rgba(189, 152, 92, 0.07);
-    }
-
-    .compat-nav {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-      justify-content: flex-end;
-    }
-
-    .compat-nav .button { min-height: 44px; padding: 11px 22px; font-size: 0.94rem; }
-
-    /* Result panels */
-    .compat-result { display: none; }
-    .compat-result.active { display: block; }
-
-    .compat-result-title {
-      font-family: Georgia, serif;
-      font-size: 1.55rem;
-      color: var(--navy);
-      letter-spacing: -0.035em;
-      margin-bottom: 12px;
-    }
-
-    .compat-result p { color: #536176; margin-top: 10px; }
-
-    .compat-summary {
-      margin: 18px 0;
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(189, 152, 92, 0.10);
-      border: 1px solid rgba(189, 152, 92, 0.22);
-      color: #3a2a0e;
-      font-size: 0.95rem;
-    }
-
-    .compat-summary strong { display: block; margin-bottom: 4px; color: var(--navy); }
-
-    .compat-stripe-note {
-      margin-top: 12px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .compat-no-fit-actions {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    /* ── */
-    .running-costs-box {
-      margin-top: 40px;
-      background: rgba(255, 253, 248, 0.82);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-md);
-      padding: 32px;
-      box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08);
-    }
-
-    .running-costs-box h4 {
-      margin-bottom: 14px;
-    }
-
-    .running-costs-box p {
-      color: #536176;
-      margin-top: 10px;
-      max-width: 860px;
-    }
-
-    .kai-section {
-      padding: 88px 0;
-      background:
-        radial-gradient(circle at 88% 18%, rgba(189, 152, 92, 0.24), transparent 28rem),
-        linear-gradient(135deg, var(--navy), #0e1929);
-      color: #fff;
-    }
-
-    .kai-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
-      gap: 44px;
-      align-items: center;
-    }
-
-    .kai-section h2, .kai-section h3 { color: #fff; }
-    .kai-section .lead { color: rgba(255,255,255,0.78); }
-    .kai-section .eyebrow { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.18); }
-
-    .kai-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: 0 28px 70px rgba(0,0,0,0.22);
-    }
-
-    .kai-list {
-      display: grid;
-      gap: 14px;
-      margin: 22px 0 26px;
-    }
-
-    .kai-list div {
-      display: flex;
-      gap: 12px;
-      color: rgba(255,255,255,0.78);
-    }
-
-    .kai-list .tick { background: rgba(255,255,255,0.12); color: #fff; }
-
-    .integrations-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.9fr);
-      gap: 36px;
-      align-items: start;
-    }
-
-    .connection-box {
-      display: grid;
-      gap: 12px;
-    }
-
-    .connection {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      background: rgba(255,253,248,0.82);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: 18px;
-      padding: 16px 18px;
-      color: #435268;
-    }
-
-    .connection strong { color: var(--navy); }
-    .connection span { text-align: right; max-width: 260px; }
-
-    .about-section {
-      background: rgba(255, 253, 248, 0.66);
-      border-radius: 42px;
-      width: min(calc(100% - 40px), 1320px);
-      margin: 20px auto;
-      border: 1px solid rgba(23, 40, 63, 0.08);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.82fr) minmax(280px, 0.6fr);
-      gap: 52px;
-      align-items: start;
-    }
-
-    .about-body {
-      display: grid;
-      gap: 18px;
-    }
-
-    .about-founder-row {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      margin-bottom: 28px;
-    }
-
-    .founder-photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      flex-shrink: 0;
-      border: 3px solid rgba(189, 152, 92, 0.30);
-      box-shadow: 0 8px 28px rgba(23, 40, 63, 0.14);
-    }
-
-    .about-linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 12px;
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-      opacity: 0.72;
-      transition: opacity 0.15s;
-    }
-
-    .about-linkedin:hover { opacity: 1; }
-
-    .about-body p { color: #536176; }
-
-    .about-sidebar {
-      background: rgba(255, 253, 248, 0.92);
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: 0 18px 48px rgba(23, 40, 63, 0.08);
-    }
-
-    .about-sidebar h4 { margin-bottom: 14px; }
-
-    .about-links {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .about-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(23, 40, 63, 0.12);
-      background: #fff;
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 700;
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .about-link:hover {
-      border-color: var(--gold);
-      background: rgba(189, 152, 92, 0.07);
-    }
-
-    .about-link-arrow {
-      margin-left: auto;
-      color: var(--gold-dark);
-      font-size: 1rem;
-    }
-
-    @media (max-width: 980px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-section { border-radius: 30px; }
-    }
-
-    .cta-final {
-      text-align: center;
-      padding: 86px 0 92px;
-    }
-
-    .cta-final .lead { margin-left: auto; margin-right: auto; }
-    .cta-final .hero-actions { justify-content: center; }
-
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid rgba(23, 40, 63, 0.1);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-
-    .outcome-card,
-    .inclusions-note {
-      margin-top: 20px;
-      border: 1px solid rgba(18, 38, 62, 0.12);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 18px 45px rgba(18, 38, 62, 0.08);
-      padding: 26px;
-    }
-
-    .outcome-card {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .outcome-card h3 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3vw, 3.1rem);
-      line-height: 0.92;
-      color: var(--navy);
-      margin: 10px 0 0;
-      letter-spacing: -0.03em;
-    }
-
-    .outcome-card p,
-    .inclusions-note span {
-      color: var(--ink-soft);
-      line-height: 1.65;
-      font-size: 1rem;
-      margin: 0;
-    }
-
-    .inclusions-note {
-      margin-bottom: 26px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .inclusions-note strong {
-      color: var(--navy);
-      min-width: 210px;
-    }
-
-    @media (max-width: 980px) {
-      .nav { min-height: 76px; }
-      .nav-links a:not(.button) { display: none; }
-      .hero { padding-top: 52px; }
-      .hero-grid, .kai-grid, .integrations-grid, .split-heading, .demo-layout, .outcome-card { grid-template-columns: 1fr; }
-      .scenario-grid, .proof-strip { grid-template-columns: 1fr; }
-      .outcome-card p { margin-top: 12px; }
-      .inclusions-note { display: block; }
-      .inclusions-note strong { display: block; min-width: 0; margin-bottom: 8px; }
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3, .steps { grid-template-columns: 1fr; }
-      .how-section { border-radius: 30px; }
-    }
-
-    @media (max-width: 640px) {
-      .container { width: min(100% - 28px, var(--max)); }
-      .section { padding: 58px 0; }
-      .section-tight { padding: 44px 0; }
-      header { position: relative; }
-      .nav { align-items: center; min-height: 70px; }
-      .logo { width: 218px; max-width: 72vw; }
-      .nav-links .button { display: none; }
-      h1 { font-size: clamp(3rem, 16vw, 4.35rem); }
-      h2 { font-size: clamp(2.45rem, 13vw, 3.45rem); }
-      .lead { font-size: 1.06rem; }
-      .hero-actions, .card-actions { display: grid; grid-template-columns: 1fr; }
-      .button { width: 100%; white-space: normal; text-align: center; }
-      .demo-card, .info-card, .package-card, .kai-card, .story-card, .scenario-card, .demo-panel { padding: 22px; }
-      .story-card { justify-self: stretch; max-width: none; }
-      .pain-item { grid-template-columns: 30px 1fr; }
-      .grid-4 { grid-template-columns: 1fr; }
-      .how-section, .demo-section { width: calc(100% - 22px); border-radius: 26px; }
-      .connection { align-items: flex-start; flex-direction: column; gap: 4px; }
-      .connection span { text-align: left; max-width: none; }
-      .footer-row { display: block; }
-      .footer-row p + p { margin-top: 10px; }
-      .compat-modal { padding: 26px 20px; }
-    }
-  </style>
-</head>
-<body>
-  <!-- AI Assistant Pro site v14: direct checkout CTAs + L3/L4 compatibility check modal -->
-  <div class="site-shell">
-    <header>
-      <div class="container nav">
-        <a href="#top" aria-label="AI Assistant Pro home">
-          <img class="logo" src="/assets/ai-assistant-pro-logo-transparent.png?v=2" alt="AI Assistant Pro">
-        </a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#problem">The problem</a>
-          <a href="#demo">Demo</a>
-          <a href="#packages">Packages</a>
-          <a href="#kai">Talk to Kai</a>
-          <a href="#about">About</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> AI voice agents for service businesses</div>
-            <h1>Turn more calls and leads into booked jobs.</h1>
-            <p class="lead">AI Assistant Pro gives service businesses a natural-sounding phone agent that answers calls, calls new leads back within seconds, books appointments and follows up with customers who are due to rebook.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Assistant Pro | AI voice agents for service businesses</title>
+    <meta
+      name="description"
+      content="AI Assistant Pro helps service businesses answer calls, call new leads back fast, book jobs and rebook customers with natural-sounding AI voice agents."
+    />
+    <meta name="theme-color" content="#17283f" />
+    <meta
+      property="og:title"
+      content="AI Assistant Pro | Answers calls. Books jobs. Brings customers back."
+    />
+    <meta
+      property="og:description"
+      content="Stop losing jobs to missed calls and slow follow-up. AI Assistant Pro gives service businesses a natural-sounding AI phone agent that answers every call, calls new leads back within seconds, books appointments and brings customers back — automatically."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aiassistantpro.com.au/" />
+    <meta property="og:site_name" content="AI Assistant Pro" />
+    <meta
+      property="og:image"
+      content="https://www.aiassistantpro.com.au/assets/aap_social-share.jpg?v=2"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="AI Assistant Pro — Answers calls. Books jobs. Brings customers back."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AI Assistant Pro | Answers calls. Books jobs. Brings customers back."
+    />
+    <meta
+      name="twitter:description"
+      content="Stop losing jobs to missed calls and slow follow-up. AI Assistant Pro gives service businesses a natural-sounding AI phone agent that answers every call, calls new leads back within seconds, books appointments and brings customers back — automatically."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.aiassistantpro.com.au/assets/aap_social-share.jpg?v=2"
+    />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <style>
+      :root {
+        --navy: #17283f;
+        --navy-2: #223753;
+        --cream: #f7f0e5;
+        --cream-light: #fffaf2;
+        --white: #fffdf8;
+        --sand: #eadcc9;
+        --gold: #bd985c;
+        --gold-dark: #9f7d44;
+        --ink: #17283f;
+        --muted: #5f6e82;
+        --line: rgba(23, 40, 63, 0.14);
+        --shadow: 0 24px 64px rgba(23, 40, 63, 0.15);
+        --radius-lg: 30px;
+        --radius-md: 22px;
+        --radius-sm: 15px;
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.55;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 6% 6%,
+            rgba(217, 189, 174, 0.48),
+            transparent 30rem
+          ),
+          radial-gradient(
+            circle at 94% 4%,
+            rgba(189, 152, 92, 0.18),
+            transparent 30rem
+          ),
+          linear-gradient(180deg, var(--cream-light), var(--cream));
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgba(247, 240, 229, 0.9);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(23, 40, 63, 0.08);
+      }
+
+      .nav {
+        min-height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .logo {
+        width: 285px;
+        max-width: 62vw;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: var(--navy);
+        font-size: 0.94rem;
+        font-weight: 750;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        opacity: 0.82;
+      }
+
+      .nav-links a:hover {
+        opacity: 1;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 13px 20px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        font-weight: 850;
+        letter-spacing: -0.01em;
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+        white-space: nowrap;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+      .button-primary {
+        background: var(--navy);
+        color: #fff;
+        box-shadow: 0 15px 32px rgba(23, 40, 63, 0.2);
+      }
+      .button-gold {
+        background: var(--gold);
+        color: #fff;
+        box-shadow: 0 15px 32px rgba(189, 152, 92, 0.24);
+      }
+      .button-light {
+        background: #fff;
+        color: var(--navy);
+        border-color: rgba(23, 40, 63, 0.16);
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+      .section-tight {
+        padding: 58px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        color: var(--navy);
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 22px;
+      }
+
+      .eyebrow-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 6px rgba(189, 152, 92, 0.16);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--navy);
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(3.1rem, 7vw, 6.6rem);
+        max-width: 880px;
+      }
+      h2 {
+        font-size: clamp(2.35rem, 5vw, 4.7rem);
+        max-width: 880px;
+      }
+      h3 {
+        font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+        letter-spacing: -0.035em;
+      }
+      h4 {
+        font-size: 1.35rem;
+        letter-spacing: -0.03em;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 24px;
+        color: #415066;
+        font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+      }
+
+      .small-copy {
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .hero {
+        padding: 76px 0 70px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+        gap: 44px;
+        align-items: start;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .hero-note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.98rem;
+        max-width: 640px;
+      }
+
+      .demo-card {
+        background: rgba(255, 253, 248, 0.94);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 28px;
+      }
+
+      .demo-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        border-radius: 999px;
+        padding: 7px 12px;
+        background: rgba(247, 240, 229, 0.9);
+        color: #835f23;
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .phone-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: var(--navy);
+        color: #fff;
+        font-weight: 950;
+        font-size: 1.2rem;
+        box-shadow: 0 18px 34px rgba(23, 40, 63, 0.22);
+      }
+
+      .demo-card p {
+        color: #536176;
+        margin-top: 16px;
+      }
+
+      .demo-points {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .demo-point {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        color: #435268;
+        font-size: 0.98rem;
+      }
+
+      .tick {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(189, 152, 92, 0.16);
+        color: var(--gold-dark);
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 24px;
+        font-weight: 950;
+      }
+
+      .card-actions {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .split-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+        gap: 36px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .info-card,
+      .package-card {
+        background: rgba(255, 253, 248, 0.82);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08);
+      }
+
+      .info-card h3,
+      .package-card h3 {
+        margin-bottom: 12px;
+      }
+      .info-card p,
+      .package-card p {
+        color: #536176;
+      }
+
+      .benefit-number {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        margin-bottom: 16px;
+        background: rgba(189, 152, 92, 0.16);
+        color: var(--gold-dark);
+        font-weight: 950;
+      }
+
+      .how-section {
+        background: var(--navy);
+        color: #fff;
+        border-radius: 42px;
+        margin: 20px auto;
+        width: min(calc(100% - 40px), 1320px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .how-section::before {
+        content: "";
+        position: absolute;
+        inset: -22% 55% auto -10%;
+        width: 430px;
+        height: 430px;
+        background: radial-gradient(
+          circle,
+          rgba(189, 152, 92, 0.28),
+          transparent 62%
+        );
+        pointer-events: none;
+      }
+
+      .how-section h2,
+      .how-section h3 {
+        color: #fff;
+      }
+      .how-section .lead,
+      .how-section .small-copy {
+        color: rgba(255, 255, 255, 0.76);
+      }
+      .how-section .eyebrow {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .step {
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 22px;
+      }
+
+      .step-number {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--navy);
+        display: grid;
+        place-items: center;
+        font-weight: 950;
+        margin-bottom: 14px;
+      }
+
+      .step p {
+        color: rgba(255, 255, 255, 0.76);
+        margin-top: 10px;
+      }
+
+      .story-card {
+        background: rgba(255, 253, 248, 0.9);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 58px rgba(23, 40, 63, 0.1);
+        padding: 30px;
+        max-width: 520px;
+        justify-self: end;
+      }
+
+      .story-card h3 {
+        margin-top: 12px;
+      }
+      .story-card p {
+        color: #3f4f64;
+        margin-top: 10px;
+      }
+
+      .pain-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .pain-item {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        align-items: start;
+        gap: 10px;
+        color: #263954;
+        font-weight: 700;
+      }
+
+      .pain-icon {
+        width: 28px;
+        height: 28px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(189, 152, 92, 0.16);
+        color: var(--gold-dark);
+        font-weight: 950;
+        font-size: 0.86rem;
+      }
+
+      .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .scenario-card {
+        background: rgba(255, 253, 248, 0.84);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        box-shadow: 0 16px 44px rgba(23, 40, 63, 0.07);
+      }
+
+      .scenario-card p {
+        color: #536176;
+        margin-top: 12px;
+      }
+
+      .reframe {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(189, 152, 92, 0.13);
+        color: #233852;
+        font-weight: 780;
+        border: 1px solid rgba(189, 152, 92, 0.22);
+      }
+
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .proof-card {
+        background: rgba(23, 40, 63, 0.05);
+        border: 1px solid rgba(23, 40, 63, 0.1);
+        border-radius: 18px;
+        padding: 18px;
+      }
+
+      .proof-card strong {
+        display: block;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+
+      .proof-card span {
+        color: #536176;
+      }
+
+      .demo-section {
+        background: rgba(255, 253, 248, 0.66);
+        border-radius: 42px;
+        width: min(calc(100% - 40px), 1320px);
+        margin: 20px auto;
+        border: 1px solid rgba(23, 40, 63, 0.08);
+      }
+
+      .demo-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.78fr);
+        gap: 42px;
+        align-items: start;
+      }
+
+      .demo-panel {
+        background: #fffdf8;
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: 0 18px 48px rgba(23, 40, 63, 0.08);
+      }
+
+      .demo-panel p {
+        color: #536176;
+        margin-top: 14px;
+      }
+
+      .packages {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 253, 248, 0.72),
+          rgba(247, 240, 229, 0.45)
+        );
+      }
+
+      .package-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-height: 100%;
+      }
+
+      .package-price {
+        padding-top: 6px;
+        border-top: 1px solid rgba(23, 40, 63, 0.1);
+      }
+
+      .package-price strong {
+        display: block;
+        font-size: 1.12rem;
+        color: var(--navy);
+      }
+
+      .package-card ul {
+        margin: 0;
+        padding-left: 20px;
+        color: #4d5c70;
+      }
+
+      .package-card li + li {
+        margin-top: 8px;
+      }
+
+      .package-minutes {
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(189, 152, 92, 0.1);
+        border: 1px solid rgba(189, 152, 92, 0.2);
+        color: #6b4c1e;
+        font-size: 0.88rem;
+        font-weight: 400;
+      }
+
+      .package-addon {
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(23, 40, 63, 0.05);
+        border: 1px solid rgba(23, 40, 63, 0.1);
+        color: #3a4f66;
+        font-size: 0.88rem;
+      }
+
+      /* ── Direct checkout CTA styles ── */
+      .pkg-cta {
+        margin-top: auto;
+        padding-top: 4px;
+      }
+
+      .pkg-cta .button {
+        width: 100%;
+        font-size: 0.96rem;
+        min-height: 46px;
+      }
+
+      .pkg-cta-note {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      /* ── Compatibility check modal ── */
+      .compat-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(23, 40, 63, 0.58);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .compat-overlay.open {
+        display: flex;
+      }
+
+      .compat-modal {
+        background: var(--cream-light);
+        border: 1px solid rgba(23, 40, 63, 0.14);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 32px 80px rgba(23, 40, 63, 0.28);
+        width: min(560px, 100%);
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 36px;
+        position: relative;
+      }
+
+      .compat-close {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.4rem;
+        color: var(--muted);
+        line-height: 1;
+        padding: 4px 8px;
+      }
+
+      .compat-close:hover {
+        color: var(--navy);
+      }
+
+      .compat-step {
+        display: none;
+      }
+      .compat-step.active {
+        display: block;
+      }
+
+      .compat-progress {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 28px;
+      }
+
+      .compat-dot {
+        flex: 1;
+        height: 4px;
+        border-radius: 2px;
+        background: rgba(23, 40, 63, 0.12);
+        transition: background 0.2s;
+      }
+
+      .compat-dot.done {
+        background: var(--gold);
+      }
+
+      .compat-q {
+        font-family: Georgia, serif;
+        font-size: 1.3rem;
+        color: var(--navy);
+        letter-spacing: -0.03em;
+        line-height: 1.18;
+        margin-bottom: 20px;
+      }
+
+      .compat-options {
+        display: grid;
+        gap: 10px;
+      }
+
+      .compat-option {
+        display: block;
+        padding: 14px 18px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(23, 40, 63, 0.14);
+        background: #fff;
+        color: var(--navy);
+        font-size: 0.98rem;
+        cursor: pointer;
+        text-align: left;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+        font-family: inherit;
+        font-weight: 500;
+      }
+
+      .compat-option:hover,
+      .compat-option.selected {
+        border-color: var(--gold);
+        background: rgba(189, 152, 92, 0.07);
+      }
+
+      .compat-nav {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+        justify-content: flex-end;
+      }
+
+      .compat-nav .button {
+        min-height: 44px;
+        padding: 11px 22px;
+        font-size: 0.94rem;
+      }
+
+      /* Result panels */
+      .compat-result {
+        display: none;
+      }
+      .compat-result.active {
+        display: block;
+      }
+
+      .compat-result-title {
+        font-family: Georgia, serif;
+        font-size: 1.55rem;
+        color: var(--navy);
+        letter-spacing: -0.035em;
+        margin-bottom: 12px;
+      }
+
+      .compat-result p {
+        color: #536176;
+        margin-top: 10px;
+      }
+
+      .compat-summary {
+        margin: 18px 0;
+        padding: 16px;
+        border-radius: 14px;
+        background: rgba(189, 152, 92, 0.1);
+        border: 1px solid rgba(189, 152, 92, 0.22);
+        color: #3a2a0e;
+        font-size: 0.95rem;
+      }
+
+      .compat-summary strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--navy);
+      }
+
+      .compat-stripe-note {
+        margin-top: 12px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .compat-no-fit-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      /* ── */
+      .running-costs-box {
+        margin-top: 40px;
+        background: rgba(255, 253, 248, 0.82);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-md);
+        padding: 32px;
+        box-shadow: 0 16px 46px rgba(23, 40, 63, 0.08);
+      }
+
+      .running-costs-box h4 {
+        margin-bottom: 14px;
+      }
+
+      .running-costs-box p {
+        color: #536176;
+        margin-top: 10px;
+        max-width: 860px;
+      }
+
+      .kai-section {
+        padding: 88px 0;
+        background:
+          radial-gradient(
+            circle at 88% 18%,
+            rgba(189, 152, 92, 0.24),
+            transparent 28rem
+          ),
+          linear-gradient(135deg, var(--navy), #0e1929);
+        color: #fff;
+      }
+
+      .kai-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .kai-section h2,
+      .kai-section h3 {
+        color: #fff;
+      }
+      .kai-section .lead {
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .kai-section .eyebrow {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .kai-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+      }
+
+      .kai-list {
+        display: grid;
+        gap: 14px;
+        margin: 22px 0 26px;
+      }
+
+      .kai-list div {
+        display: flex;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .kai-list .tick {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+
+      .integrations-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.9fr);
+        gap: 36px;
+        align-items: start;
+      }
+
+      .connection-box {
+        display: grid;
+        gap: 12px;
+      }
+
+      .connection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        background: rgba(255, 253, 248, 0.82);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: 18px;
+        padding: 16px 18px;
+        color: #435268;
+      }
+
+      .connection strong {
+        color: var(--navy);
+      }
+      .connection span {
+        text-align: right;
+        max-width: 260px;
+      }
+
+      .about-section {
+        background: rgba(255, 253, 248, 0.66);
+        border-radius: 42px;
+        width: min(calc(100% - 40px), 1320px);
+        margin: 20px auto;
+        border: 1px solid rgba(23, 40, 63, 0.08);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(280px, 0.6fr);
+        gap: 52px;
+        align-items: start;
+      }
+
+      .about-body {
+        display: grid;
+        gap: 18px;
+      }
+
+      .about-founder-row {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+
+      .founder-photo {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        flex-shrink: 0;
+        border: 3px solid rgba(189, 152, 92, 0.3);
+        box-shadow: 0 8px 28px rgba(23, 40, 63, 0.14);
+      }
+
+      .about-linkedin {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 12px;
+        color: var(--navy);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 700;
+        opacity: 0.72;
+        transition: opacity 0.15s;
+      }
+
+      .about-linkedin:hover {
+        opacity: 1;
+      }
+
+      .about-body p {
+        color: #536176;
+      }
+
+      .about-sidebar {
+        background: rgba(255, 253, 248, 0.92);
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: 0 18px 48px rgba(23, 40, 63, 0.08);
+      }
+
+      .about-sidebar h4 {
+        margin-bottom: 14px;
+      }
+
+      .about-links {
+        display: grid;
+        gap: 10px;
+        margin-top: 4px;
+      }
+
+      .about-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(23, 40, 63, 0.12);
+        background: #fff;
+        color: var(--navy);
+        text-decoration: none;
+        font-size: 0.96rem;
+        font-weight: 700;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+
+      .about-link:hover {
+        border-color: var(--gold);
+        background: rgba(189, 152, 92, 0.07);
+      }
+
+      .about-link-arrow {
+        margin-left: auto;
+        color: var(--gold-dark);
+        font-size: 1rem;
+      }
+
+      @media (max-width: 980px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-section {
+          border-radius: 30px;
+        }
+      }
+
+      .cta-final {
+        text-align: center;
+        padding: 86px 0 92px;
+      }
+
+      .cta-final .lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .cta-final .hero-actions {
+        justify-content: center;
+      }
+
+      footer {
+        padding: 32px 0;
+        border-top: 1px solid rgba(23, 40, 63, 0.1);
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .outcome-card,
+      .inclusions-note {
+        margin-top: 20px;
+        border: 1px solid rgba(18, 38, 62, 0.12);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 18px 45px rgba(18, 38, 62, 0.08);
+        padding: 26px;
+      }
+
+      .outcome-card {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 26px;
+        align-items: center;
+      }
+
+      .outcome-card h3 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3vw, 3.1rem);
+        line-height: 0.92;
+        color: var(--navy);
+        margin: 10px 0 0;
+        letter-spacing: -0.03em;
+      }
+
+      .outcome-card p,
+      .inclusions-note span {
+        color: var(--ink-soft);
+        line-height: 1.65;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .inclusions-note {
+        margin-bottom: 26px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .inclusions-note strong {
+        color: var(--navy);
+        min-width: 210px;
+      }
+
+      @media (max-width: 980px) {
+        .nav {
+          min-height: 76px;
+        }
+        .nav-links a:not(.button) {
+          display: none;
+        }
+        .hero {
+          padding-top: 52px;
+        }
+        .hero-grid,
+        .kai-grid,
+        .integrations-grid,
+        .split-heading,
+        .demo-layout,
+        .outcome-card {
+          grid-template-columns: 1fr;
+        }
+        .scenario-grid,
+        .proof-strip {
+          grid-template-columns: 1fr;
+        }
+        .outcome-card p {
+          margin-top: 12px;
+        }
+        .inclusions-note {
+          display: block;
+        }
+        .inclusions-note strong {
+          display: block;
+          min-width: 0;
+          margin-bottom: 8px;
+        }
+        .grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-3,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .how-section {
+          border-radius: 30px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(100% - 28px, var(--max));
+        }
+        .section {
+          padding: 58px 0;
+        }
+        .section-tight {
+          padding: 44px 0;
+        }
+        header {
+          position: relative;
+        }
+        .nav {
+          align-items: center;
+          min-height: 70px;
+        }
+        .logo {
+          width: 218px;
+          max-width: 72vw;
+        }
+        .nav-links .button {
+          display: none;
+        }
+        h1 {
+          font-size: clamp(3rem, 16vw, 4.35rem);
+        }
+        h2 {
+          font-size: clamp(2.45rem, 13vw, 3.45rem);
+        }
+        .lead {
+          font-size: 1.06rem;
+        }
+        .hero-actions,
+        .card-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .button {
+          width: 100%;
+          white-space: normal;
+          text-align: center;
+        }
+        .demo-card,
+        .info-card,
+        .package-card,
+        .kai-card,
+        .story-card,
+        .scenario-card,
+        .demo-panel {
+          padding: 22px;
+        }
+        .story-card {
+          justify-self: stretch;
+          max-width: none;
+        }
+        .pain-item {
+          grid-template-columns: 30px 1fr;
+        }
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .how-section,
+        .demo-section {
+          width: calc(100% - 22px);
+          border-radius: 26px;
+        }
+        .connection {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .connection span {
+          text-align: left;
+          max-width: none;
+        }
+        .footer-row {
+          display: block;
+        }
+        .footer-row p + p {
+          margin-top: 10px;
+        }
+        .compat-modal {
+          padding: 26px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- AI Assistant Pro site v14: direct checkout CTAs + L3/L4 compatibility check modal -->
+    <div class="site-shell">
+      <header>
+        <div class="container nav">
+          <a href="#top" aria-label="AI Assistant Pro home">
+            <img
+              class="logo"
+              src="/assets/ai-assistant-pro-logo-transparent.png?v=2"
+              alt="AI Assistant Pro"
+            />
+          </a>
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="#problem">The problem</a>
+            <a href="#demo">Demo</a>
+            <a href="#packages">Packages</a>
+            <a href="#kai">Talk to Kai</a>
+            <a href="#about">About</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> AI voice agents for service
+                businesses
+              </div>
+              <h1>Turn more calls and leads into booked jobs.</h1>
+              <p class="lead">
+                AI Assistant Pro gives service businesses a natural-sounding
+                phone agent that answers calls, calls new leads back within
+                seconds, books appointments and follows up with customers who
+                are due to rebook.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#demo"
+                  >Try the receptionist demo</a
+                >
+              </div>
+              <p class="hero-note">
+                Level 1 is A$295/month (approx US$210/month) plus A$495 setup.
+                Booking, lead callback and rebooking packages are listed below.
+              </p>
+            </div>
+
+            <aside class="story-card" aria-labelledby="hero-story-title">
+              <span class="pill">What usually happens</span>
+              <h3 id="hero-story-title">The customer wants an answer now.</h3>
+              <p>
+                A homeowner with a leaking tap, a tripping switchboard or a pest
+                problem rarely waits patiently for the end of the day.
+              </p>
+              <p>
+                They call, fill in a form or respond to an ad because they want
+                the job handled. If they wait too long, they usually try the
+                next business.
+              </p>
+              <div class="pain-list">
+                <div class="pain-item">
+                  <span class="pain-icon">1</span
+                  ><span
+                    >Miss the call and the customer can book the next
+                    business.</span
+                  >
+                </div>
+                <div class="pain-item">
+                  <span class="pain-icon">2</span
+                  ><span
+                    >Take the call and the work in front of you loses
+                    momentum.</span
+                  >
+                </div>
+                <div class="pain-item">
+                  <span class="pain-icon">3</span
+                  ><span
+                    >Pay for the lead, then call back after the customer has
+                    already moved on.</span
+                  >
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section-tight" id="problem">
+          <div class="container split-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> The real-world problem
+              </div>
+              <h2>The phone rings at the worst possible time.</h2>
+            </div>
+            <p class="lead">
+              The cost is bigger than a missed call. It is lost focus, wasted ad
+              spend, slow follow-up, empty diary space and customers who move on
+              before anyone speaks to them.
+            </p>
+          </div>
+
+          <div class="container scenario-grid">
+            <article class="scenario-card">
+              <h3>The plumber in the middle of the job.</h3>
+              <p>
+                He is halfway through a messy repair. The phone rings. To answer
+                it properly, he has to stop, clean his hands, climb out, take
+                the details and then get his head back into the work.
+              </p>
+              <p>
+                Ten minutes later, the call is over. The customer may or may not
+                be a good fit. The job he was doing has lost momentum.
+              </p>
+              <div class="reframe">
+                AI Assistant Pro answers, captures the details and sends the
+                summary, so the job keeps moving and the caller gets a proper
+                response.
+              </div>
+            </article>
+
+            <article class="scenario-card">
+              <h3>The electrician who needs to concentrate.</h3>
+              <p>
+                He is wiring, fault-finding or working through something that
+                needs attention. The phone rings, and now he has to choose
+                between focus and a possible job.
+              </p>
+              <p>
+                If he lets it go, the caller may try the next electrician. If he
+                answers, the work in front of him gets interrupted.
+              </p>
+              <div class="reframe">
+                The AI receptionist can check urgency, collect the suburb and
+                job type, book suitable work or escalate anything that needs a
+                person, without interrupting the task in front of him.
+              </div>
+            </article>
+
+            <article class="scenario-card">
+              <h3>The lead that came through the ad.</h3>
+              <p>
+                The business paid for the click. The form came through. Then
+                everyone got busy, and the callback waited until late afternoon.
+              </p>
+              <p>
+                By then, the customer had already spoken to another business,
+                chosen a time and moved on.
+              </p>
+              <div class="reframe">
+                The AI callback agent can ring new leads within seconds, while
+                the customer is still ready to book and before the ad spend is
+                wasted.
+              </div>
+            </article>
+          </div>
+
+          <div class="container outcome-card">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> What changes
+              </div>
+              <h3>
+                Calls, leads and rebooking stop depending on whoever happens to
+                be free.
+              </h3>
+            </div>
+            <p>
+              The aim is simple: faster response, less owner interruption and
+              better use of the enquiries the business is already paying for.
+              When a caller or lead is handled quickly, the business has a
+              better chance of turning that moment of interest into booked work.
+            </p>
+          </div>
+        </section>
+
+        <section class="demo-section section" id="demo">
+          <div class="container demo-layout">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> Try the customer experience
+              </div>
+              <h2>Make a practice call to the electrician receptionist.</h2>
+              <p class="lead">
+                Call as if you are a real customer looking for an electrician.
+                Use your own words. Ask normal customer questions. The point is
+                to hear how the receptionist handles a real enquiry, not a
+                scripted demo.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-gold js-receptionist-link" href="#"
+                  >Make a practice call</a
+                >
+              </div>
+            </div>
+
+            <aside class="demo-panel">
+              <h3>This is a basic demo.</h3>
+              <p>
+                A live client agent is configured around the business it
+                represents. That means the agent can use the business name,
+                service area, hours, FAQs, booking rules, escalation rules and
+                approved wording.
+              </p>
+              <div class="demo-points">
+                <div class="demo-point">
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >Voice style can be chosen: accent, gender, pace and a
+                    friendlier or more formal tone.</span
+                  >
+                </div>
+                <div class="demo-point">
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >Guardrails stop it diagnosing issues, inventing policy or
+                    giving firm quotes outside the approved script.</span
+                  >
+                </div>
+                <div class="demo-point">
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >Emergency rules can be built in, so urgent calls are
+                    escalated instead of treated like standard bookings.</span
+                  >
+                </div>
+                <div class="demo-point">
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >Where the right systems are available, it can check
+                    records, update notes and route the call with context.</span
+                  >
+                </div>
+              </div>
+              <p class="small-copy">
+                The demo is there so you can hear the experience. The paid
+                version is shaped around the owner's business, customers and
+                risk rules.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="how-section section" id="how">
+          <div class="container">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span> How it creates the outcome
+            </div>
+            <h2>
+              It is not one feature. It is the path that turns enquiry into
+              booked work.
+            </h2>
+            <p class="lead">
+              The agent answers, qualifies, books or escalates, then records
+              what happened. That means more enquiries can be handled while the
+              team keeps working.
+            </p>
+
+            <div class="steps">
+              <article class="step">
+                <div class="step-number">1</div>
+                <h3>Answer</h3>
+                <p>
+                  Calls are answered in a natural voice, with the right
+                  transparency that the caller is speaking to an AI assistant.
+                </p>
+              </article>
+              <article class="step">
+                <div class="step-number">2</div>
+                <h3>Qualify</h3>
+                <p>
+                  The agent asks one question at a time and collects the details
+                  needed to decide what should happen next.
+                </p>
+              </article>
+              <article class="step">
+                <div class="step-number">3</div>
+                <h3>Book or escalate</h3>
+                <p>
+                  Suitable jobs can be booked. Urgent, unusual or complex calls
+                  can be sent to a person.
+                </p>
+              </article>
+              <article class="step">
+                <div class="step-number">4</div>
+                <h3>Follow up</h3>
+                <p>
+                  New leads and customers due to rebook can be contacted before
+                  they drift to another business.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section packages" id="packages">
+          <div class="container split-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> Productised options
+              </div>
+              <h2>Choose the level that matches the money leak.</h2>
+            </div>
+            <p class="lead">
+              Start with the workflow most likely to pay for itself first.
+              Answer &amp; Book is the core booking package. Lead Callback and
+              Rebook &amp; Reactivate both include Answer &amp; Book, then add
+              the extra workflow needed for leads or repeat customers.
+            </p>
+          </div>
+
+          <div class="container inclusions-note">
+            <strong>Ongoing tuning is included.</strong>
+            <span
+              >Every package includes one weekly batch of reasonable tweaks when
+              needed. Business-critical issues that affect calls, bookings or
+              customer handoff are prioritised sooner.</span
+            >
+          </div>
+
+          <div class="container grid-4">
+            <!-- L1 -->
+            <article class="package-card">
+              <span class="pill">Level 1</span>
+              <h3>Answer &amp; Message</h3>
+              <p>For businesses that need calls answered while they work.</p>
+              <ul>
+                <li>Natural-sounding call answering</li>
+                <li>Caller details and enquiry type captured</li>
+                <li>Call summary sent to the business</li>
+                <li>Urgent or complex calls escalated</li>
+                <li>Weekly tweaks included where needed</li>
+              </ul>
+              <div class="package-price">
+                <strong>A$295/month</strong>
+                <span class="small-copy"
+                  >approx US$210/month + A$495 setup</span
+                >
+              </div>
+              <div class="package-minutes">
+                Includes 300 call minutes per month. That covers around 3 to 4
+                inbound calls a day at typical conversation length.
+              </div>
+              <p class="value-line">
+                Best when the main problem is interruption or missed calls.
+              </p>
+              <div class="pkg-cta">
+                <a
+                  class="button button-gold"
+                  href="/start/answer-and-message.html"
+                  >Start Answer &amp; Message</a
+                >
+                <p class="pkg-cta-note">
+                  See full inclusions, policy and pricing before you pay.
+                </p>
+              </div>
+            </article>
+
+            <!-- L2 -->
+            <article class="package-card">
+              <span class="pill">Level 2</span>
+              <h3>Answer &amp; Book</h3>
+              <p>
+                For businesses that want suitable calls turned into
+                appointments.
+              </p>
+              <ul>
+                <li>Answers calls and checks key booking details</li>
+                <li>
+                  Works with Google Calendar, Calendly or similar booking tools
+                  where available
+                </li>
+                <li>Calendar connection checked during setup</li>
+                <li>Weekly tweaks included where needed</li>
+              </ul>
+              <div class="package-price">
+                <strong>A$395/month</strong>
+                <span class="small-copy"
+                  >approx US$280/month + A$695 setup</span
+                >
+              </div>
+              <div class="package-minutes">
+                Includes 400 call minutes per month. That covers around 4 to 5
+                inbound calls a day, including the extra time needed to check
+                availability and confirm bookings.
+              </div>
+              <p class="value-line">
+                Best when the business wants more calls turned into diary
+                entries.
+              </p>
+              <div class="pkg-cta">
+                <a class="button button-gold" href="/start/answer-and-book.html"
+                  >Start Answer &amp; Book</a
+                >
+                <p class="pkg-cta-note">
+                  See full inclusions, policy and pricing before you pay.
+                </p>
+              </div>
+            </article>
+
+            <!-- L3 -->
+            <article class="package-card">
+              <span class="pill">Level 3</span>
+              <h3>Lead Callback</h3>
+              <p>
+                For businesses already getting leads through ads, forms, Google
+                enquiries or directories.
+              </p>
+              <ul>
+                <li>Includes Answer &amp; Book</li>
+                <li>Calls new leads back fast</li>
+                <li>Uses form answers to qualify the enquiry</li>
+                <li>Books or escalates depending on fit</li>
+                <li>Helps existing lead spend work harder</li>
+                <li>Weekly tweaks included where needed</li>
+              </ul>
+              <div class="package-price">
+                <strong>A$595/month</strong>
+                <span class="small-copy"
+                  >approx US$425/month + A$995 setup</span
+                >
+              </div>
+              <div class="package-minutes">
+                Includes 600 call minutes per month for a sole operator. That
+                covers inbound answering plus calling back 2 to 3 new leads a
+                day.
+              </div>
+              <div class="package-addon">
+                Running a team? Add A$95/month per extra employee. Each person
+                adds inbound and callback volume, and the price reflects actual
+                usage.
+              </div>
+              <p class="value-line">
+                Best when paid or organic leads are going cold before anyone
+                calls.
+              </p>
+              <div class="pkg-cta">
+                <button
+                  class="button button-gold js-compat-check"
+                  data-level="L3"
+                >
+                  Check if this suits your business
+                </button>
+                <p class="pkg-cta-note">
+                  Takes about 60 seconds. Goes straight to Stripe if it fits.
+                </p>
+              </div>
+            </article>
+
+            <!-- L4 -->
+            <article class="package-card">
+              <span class="pill">Level 4</span>
+              <h3>Rebook &amp; Reactivate</h3>
+              <p>
+                For repeat-service businesses that want customer records turned
+                into booked return visits.
+              </p>
+              <ul>
+                <li>Includes Answer &amp; Book</li>
+                <li>Does not require ads or new lead campaigns</li>
+                <li>
+                  Accesses customer records or service history where available
+                </li>
+                <li>Creates a due-to-rebook list for owner review</li>
+                <li>Calls approved customers and books appointments</li>
+                <li>
+                  Useful for pest control, maintenance and annual services
+                </li>
+                <li>Weekly tweaks included where needed</li>
+              </ul>
+              <div class="package-price">
+                <strong>A$995/month</strong>
+                <span class="small-copy"
+                  >approx US$705/month + A$1,495 setup</span
+                >
+              </div>
+              <div class="package-minutes">
+                Includes 800 call minutes per month for a sole operator. That
+                covers inbound calls plus proactively working through a rebook
+                list each day.
+              </div>
+              <div class="package-addon">
+                Running a team? Add A$175/month per extra employee. A team of
+                three generates roughly four times the call volume of a sole
+                operator, and the pricing reflects that.
+              </div>
+              <p class="value-line">
+                Best when past customers should be coming back but nobody has
+                time to chase them.
+              </p>
+              <div class="pkg-cta">
+                <button
+                  class="button button-gold js-compat-check"
+                  data-level="L4"
+                >
+                  Check if this suits your business
+                </button>
+                <p class="pkg-cta-note">
+                  Takes about 60 seconds. Goes straight to Stripe if it fits.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="container running-costs-box">
+            <h4>Why team size affects the price</h4>
+            <p>
+              AI voice agents are not free to run. Every call, inbound or
+              outbound, uses real infrastructure: AI processing time, voice
+              generation and phone network costs. The bigger the team, the more
+              customers in the system, the more calls the agent handles each
+              day, and the higher those running costs are.
+            </p>
+            <p>
+              The base price for Level 3 and Level 4 covers a sole operator. If
+              you have employees, there is a small monthly amount per person to
+              cover the extra call volume they generate. This keeps the service
+              running properly as the business grows, rather than degrading at
+              higher volumes.
+            </p>
+            <p>
+              Think of it like a phone plan with a data allowance. A business
+              with three technicians uses more than a sole operator, the same
+              way a family uses more data than one person. The per-employee
+              add-on reflects actual usage, not an arbitrary surcharge.
+            </p>
+            <p>
+              We would rather be upfront about this than bury it in fine print.
+              If you are not sure which level or team size applies to your
+              business, talk to Kai below and he can work it out with you.
+            </p>
+          </div>
+        </section>
+
+        <section class="kai-section" id="kai">
+          <div class="container kai-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> Business owner experience
+              </div>
+              <h2>Talk to Kai, our AI advisor.</h2>
+              <p class="lead">
+                Want to learn more about working with us? Talk to Kai and make
+                sure this solution is the best fit for you.
+              </p>
+              <p class="lead">
+                Kai asks about your business, how many calls and leads you get,
+                whether you need more calls, their lead sources, how bookings
+                work now and whether customers should be rebooked on a schedule.
+                He can suggest the best starting package, collect setup details
+                and pass the enquiry to a real person if you need more detail.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-gold js-kai-link" href="#"
+                  >Talk to Kai</a
+                >
+              </div>
+            </div>
+
+            <aside class="kai-card">
+              <h3>Why talk to Kai?</h3>
+              <div class="kai-list">
+                <div>
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >You experience the same type of voice technology your
+                    customers would hear</span
+                  >
+                </div>
+                <div>
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >You find out whether call answering, bookings, lead
+                    callback or rebooking should come first</span
+                  >
+                </div>
+                <div>
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >You can move towards signup without waiting for a sales
+                    call</span
+                  >
+                </div>
+                <div>
+                  <span class="tick">&#10003;</span
+                  ><span
+                    >You can still ask for a real person to review the setup if
+                    needed</span
+                  >
+                </div>
+              </div>
+              <p class="small-copy">
+                Kai is part of the sales process and part of the proof. If the
+                conversation is useful for your business, the same approach can
+                be useful for your customers.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="integrations">
+          <div class="container integrations-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> Booking connections
+              </div>
+              <h2>Start with the tools you already use.</h2>
+              <p class="lead">
+                The simplest first booking setup usually uses Google Calendar,
+                Calendly or a similar booking calendar. For trades and larger
+                setups, we can look at ServiceM8, Tradify, Jobber, CRM tools or
+                customer records where the business case supports the extra
+                integration work.
+              </p>
+            </div>
+
+            <div class="connection-box">
+              <div class="connection">
+                <strong>Google Calendar</strong
+                ><span>Simple first booking option</span>
+              </div>
+              <div class="connection">
+                <strong>Calendly or similar</strong
+                ><span>Good for defined appointment slots</span>
+              </div>
+              <div class="connection">
+                <strong>ServiceM8 / Tradify / Jobber</strong
+                ><span>Useful for stickier trade workflows</span>
+              </div>
+              <div class="connection">
+                <strong>CRM or customer records</strong
+                ><span>Needed for rebooking and reactivation</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section section" id="about">
+          <div class="container about-grid">
+            <div class="about-left">
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> About the founder
+              </div>
+              <div class="about-founder-row">
+                <img
+                  class="founder-photo"
+                  src="/assets/cathryn.jpg?v=3"
+                  width="110"
+                  height="110"
+                  alt="Cathryn, founder of AI Assistant Pro"
+                />
+                <div>
+                  <h2>
+                    Built by someone who has spent 20 years on the commercial
+                    side of business.
+                  </h2>
+                </div>
+              </div>
+              <div class="about-body">
+                <p>
+                  That background covers marketing, sales, customer experience,
+                  CRM and growth. Cathryn has built acquisition systems from
+                  scratch, managed full customer journeys from first contact
+                  through to retention and referral, and led the teams
+                  delivering behind the scenes.
+                </p>
+                <p>
+                  Before founding Kindred Systems, Cathryn built and scaled an
+                  international business across offer development, marketing,
+                  sales and delivery. When the market shifted during COVID, she
+                  repositioned the business and led it through 400% revenue
+                  growth over two years, managing a team of 21 before exiting
+                  through acquisition.
+                </p>
+                <p>
+                  That experience shaped how she thinks about AI. Not technology
+                  for its own sake, but what is actually costing a business
+                  money, where calls are being missed, where leads fall through
+                  the cracks, and what needs to work reliably at scale.
+                </p>
+                <p>
+                  AI Assistant Pro exists because the same problem kept
+                  appearing: good service businesses losing work simply because
+                  no one picked up the phone. The solution did not need to be
+                  complicated. It needed to be dependable, sound natural, and
+                  fit into how a trades business already operates.
+                </p>
+                <p>
+                  Every part of the product has been built with that in mind.
+                </p>
+              </div>
+            </div>
+
+            <aside class="about-sidebar">
+              <h4>More from Kindred Systems</h4>
+              <p class="small-copy" style="margin-bottom: 18px">
+                AI Assistant Pro is one product within a broader suite. Through
+                Kindred Systems, Cathryn also works with businesses across
+                advisory, AI consultancy and managed digital employee services.
+              </p>
+              <div class="about-links">
+                <a
+                  class="about-link"
+                  href="https://www.kindredsystems.com.au/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Kindred Systems
+                  <span class="about-link-arrow">&#8599;</span>
+                </a>
+                <a
+                  class="about-link"
+                  href="https://www.kindredsystems.com.au/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Digital Employee Pro
+                  <span class="about-link-arrow">&#8599;</span>
+                </a>
+                <a
+                  class="about-link"
+                  href="https://www.kindredsystems.com.au/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Advisory &amp; Consultancy
+                  <span class="about-link-arrow">&#8599;</span>
+                </a>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="cta-final">
+          <div class="container">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span> Hear it before you decide
+            </div>
+            <h2>Try the receptionist. Then talk to Kai.</h2>
+            <p class="lead">
+              First, hear what a customer experience can sound like. Then talk
+              to Kai about whether AI Assistant Pro suits your business and
+              which package should come first.
+            </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#demo">Try the receptionist demo</a>
-            </div>
-            <p class="hero-note">Level 1 is A$295/month (approx US$210/month) plus A$495 setup. Booking, lead callback and rebooking packages are listed below.</p>
-          </div>
-
-          <aside class="story-card" aria-labelledby="hero-story-title">
-            <span class="pill">What usually happens</span>
-            <h3 id="hero-story-title">The customer wants an answer now.</h3>
-            <p>A homeowner with a leaking tap, a tripping switchboard or a pest problem rarely waits patiently for the end of the day.</p>
-            <p>They call, fill in a form or respond to an ad because they want the job handled. If they wait too long, they usually try the next business.</p>
-            <div class="pain-list">
-              <div class="pain-item"><span class="pain-icon">1</span><span>Miss the call and the customer can book the next business.</span></div>
-              <div class="pain-item"><span class="pain-icon">2</span><span>Take the call and the work in front of you loses momentum.</span></div>
-              <div class="pain-item"><span class="pain-icon">3</span><span>Pay for the lead, then call back after the customer has already moved on.</span></div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section-tight" id="problem">
-        <div class="container split-heading">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> The real-world problem</div>
-            <h2>The phone rings at the worst possible time.</h2>
-          </div>
-          <p class="lead">The cost is bigger than a missed call. It is lost focus, wasted ad spend, slow follow-up, empty diary space and customers who move on before anyone speaks to them.</p>
-        </div>
-
-        <div class="container scenario-grid">
-          <article class="scenario-card">
-            <h3>The plumber in the middle of the job.</h3>
-            <p>He is halfway through a messy repair. The phone rings. To answer it properly, he has to stop, clean his hands, climb out, take the details and then get his head back into the work.</p>
-            <p>Ten minutes later, the call is over. The customer may or may not be a good fit. The job he was doing has lost momentum.</p>
-            <div class="reframe">AI Assistant Pro answers, captures the details and sends the summary, so the job keeps moving and the caller gets a proper response.</div>
-          </article>
-
-          <article class="scenario-card">
-            <h3>The electrician who needs to concentrate.</h3>
-            <p>He is wiring, fault-finding or working through something that needs attention. The phone rings, and now he has to choose between focus and a possible job.</p>
-            <p>If he lets it go, the caller may try the next electrician. If he answers, the work in front of him gets interrupted.</p>
-            <div class="reframe">The AI receptionist can check urgency, collect the suburb and job type, book suitable work or escalate anything that needs a person, without interrupting the task in front of him.</div>
-          </article>
-
-          <article class="scenario-card">
-            <h3>The lead that came through the ad.</h3>
-            <p>The business paid for the click. The form came through. Then everyone got busy, and the callback waited until late afternoon.</p>
-            <p>By then, the customer had already spoken to another business, chosen a time and moved on.</p>
-            <div class="reframe">The AI callback agent can ring new leads within seconds, while the customer is still ready to book and before the ad spend is wasted.</div>
-          </article>
-        </div>
-
-        <div class="container outcome-card">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> What changes</div>
-            <h3>Calls, leads and rebooking stop depending on whoever happens to be free.</h3>
-          </div>
-          <p>The aim is simple: faster response, less owner interruption and better use of the enquiries the business is already paying for. When a caller or lead is handled quickly, the business has a better chance of turning that moment of interest into booked work.</p>
-        </div>
-      </section>
-
-      <section class="demo-section section" id="demo">
-        <div class="container demo-layout">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Try the customer experience</div>
-            <h2>Make a practice call to the electrician receptionist.</h2>
-            <p class="lead">Call as if you are a real customer looking for an electrician. Use your own words. Ask normal customer questions. The point is to hear how the receptionist handles a real enquiry, not a scripted demo.</p>
-            <div class="hero-actions">
-              <a class="button button-gold js-receptionist-link" href="#">Make a practice call</a>
-            </div>
-          </div>
-
-          <aside class="demo-panel">
-            <h3>This is a basic demo.</h3>
-            <p>A live client agent is configured around the business it represents. That means the agent can use the business name, service area, hours, FAQs, booking rules, escalation rules and approved wording.</p>
-            <div class="demo-points">
-              <div class="demo-point"><span class="tick">&#10003;</span><span>Voice style can be chosen: accent, gender, pace and a friendlier or more formal tone.</span></div>
-              <div class="demo-point"><span class="tick">&#10003;</span><span>Guardrails stop it diagnosing issues, inventing policy or giving firm quotes outside the approved script.</span></div>
-              <div class="demo-point"><span class="tick">&#10003;</span><span>Emergency rules can be built in, so urgent calls are escalated instead of treated like standard bookings.</span></div>
-              <div class="demo-point"><span class="tick">&#10003;</span><span>Where the right systems are available, it can check records, update notes and route the call with context.</span></div>
-            </div>
-            <p class="small-copy">The demo is there so you can hear the experience. The paid version is shaped around the owner's business, customers and risk rules.</p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="how-section section" id="how">
-        <div class="container">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> How it creates the outcome</div>
-          <h2>It is not one feature. It is the path that turns enquiry into booked work.</h2>
-          <p class="lead">The agent answers, qualifies, books or escalates, then records what happened. That means more enquiries can be handled while the team keeps working.</p>
-
-          <div class="steps">
-            <article class="step">
-              <div class="step-number">1</div>
-              <h3>Answer</h3>
-              <p>Calls are answered in a natural voice, with the right transparency that the caller is speaking to an AI assistant.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">2</div>
-              <h3>Qualify</h3>
-              <p>The agent asks one question at a time and collects the details needed to decide what should happen next.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">3</div>
-              <h3>Book or escalate</h3>
-              <p>Suitable jobs can be booked. Urgent, unusual or complex calls can be sent to a person.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">4</div>
-              <h3>Follow up</h3>
-              <p>New leads and customers due to rebook can be contacted before they drift to another business.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section packages" id="packages">
-        <div class="container split-heading">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Productised options</div>
-            <h2>Choose the level that matches the money leak.</h2>
-          </div>
-          <p class="lead">Start with the workflow most likely to pay for itself first. Answer &amp; Book is the core booking package. Lead Callback and Rebook &amp; Reactivate both include Answer &amp; Book, then add the extra workflow needed for leads or repeat customers.</p>
-        </div>
-
-        <div class="container inclusions-note">
-          <strong>Ongoing tuning is included.</strong>
-          <span>Every package includes one weekly batch of reasonable tweaks when needed. Business-critical issues that affect calls, bookings or customer handoff are prioritised sooner.</span>
-        </div>
-
-        <div class="container grid-4">
-
-          <!-- L1 -->
-          <article class="package-card">
-            <span class="pill">Level 1</span>
-            <h3>Answer &amp; Message</h3>
-            <p>For businesses that need calls answered while they work.</p>
-            <ul>
-              <li>Natural-sounding call answering</li>
-              <li>Caller details and enquiry type captured</li>
-              <li>Call summary sent to the business</li>
-              <li>Urgent or complex calls escalated</li>
-              <li>Weekly tweaks included where needed</li>
-            </ul>
-            <div class="package-price">
-              <strong>A$295/month</strong>
-              <span class="small-copy">approx US$210/month + A$495 setup</span>
-            </div>
-            <div class="package-minutes">Includes 300 call minutes per month. That covers around 3 to 4 inbound calls a day at typical conversation length.</div>
-            <p class="value-line">Best when the main problem is interruption or missed calls.</p>
-            <div class="pkg-cta">
-              <a class="button button-gold" href="/start/answer-and-message.html">Start Answer &amp; Message</a>
-              <p class="pkg-cta-note">See full inclusions, policy and pricing before you pay.</p>
-            </div>
-          </article>
-
-          <!-- L2 -->
-          <article class="package-card">
-            <span class="pill">Level 2</span>
-            <h3>Answer &amp; Book</h3>
-            <p>For businesses that want suitable calls turned into appointments.</p>
-            <ul>
-              <li>Answers calls and checks key booking details</li>
-              <li>Works with Google Calendar, Calendly or similar booking tools where available</li>
-              <li>Calendar connection checked during setup</li>
-              <li>Weekly tweaks included where needed</li>
-            </ul>
-            <div class="package-price">
-              <strong>A$395/month</strong>
-              <span class="small-copy">approx US$280/month + A$695 setup</span>
-            </div>
-            <div class="package-minutes">Includes 400 call minutes per month. That covers around 4 to 5 inbound calls a day, including the extra time needed to check availability and confirm bookings.</div>
-            <p class="value-line">Best when the business wants more calls turned into diary entries.</p>
-            <div class="pkg-cta">
-              <a class="button button-gold" href="/start/answer-and-book.html">Start Answer &amp; Book</a>
-              <p class="pkg-cta-note">See full inclusions, policy and pricing before you pay.</p>
-            </div>
-          </article>
-
-          <!-- L3 -->
-          <article class="package-card">
-            <span class="pill">Level 3</span>
-            <h3>Lead Callback</h3>
-            <p>For businesses already getting leads through ads, forms, Google enquiries or directories.</p>
-            <ul>
-              <li>Includes Answer &amp; Book</li>
-              <li>Calls new leads back fast</li>
-              <li>Uses form answers to qualify the enquiry</li>
-              <li>Books or escalates depending on fit</li>
-              <li>Helps existing lead spend work harder</li>
-              <li>Weekly tweaks included where needed</li>
-            </ul>
-            <div class="package-price">
-              <strong>A$595/month</strong>
-              <span class="small-copy">approx US$425/month + A$995 setup</span>
-            </div>
-            <div class="package-minutes">Includes 600 call minutes per month for a sole operator. That covers inbound answering plus calling back 2 to 3 new leads a day.</div>
-            <div class="package-addon">Running a team? Add A$95/month per extra employee. Each person adds inbound and callback volume, and the price reflects actual usage.</div>
-            <p class="value-line">Best when paid or organic leads are going cold before anyone calls.</p>
-            <div class="pkg-cta">
-              <button class="button button-gold js-compat-check" data-level="L3">Check if this suits your business</button>
-              <p class="pkg-cta-note">Takes about 60 seconds. Goes straight to Stripe if it fits.</p>
-            </div>
-          </article>
-
-          <!-- L4 -->
-          <article class="package-card">
-            <span class="pill">Level 4</span>
-            <h3>Rebook &amp; Reactivate</h3>
-            <p>For repeat-service businesses that want customer records turned into booked return visits.</p>
-            <ul>
-              <li>Includes Answer &amp; Book</li>
-              <li>Does not require ads or new lead campaigns</li>
-              <li>Accesses customer records or service history where available</li>
-              <li>Creates a due-to-rebook list for owner review</li>
-              <li>Calls approved customers and books appointments</li>
-              <li>Useful for pest control, maintenance and annual services</li>
-              <li>Weekly tweaks included where needed</li>
-            </ul>
-            <div class="package-price">
-              <strong>A$995/month</strong>
-              <span class="small-copy">approx US$705/month + A$1,495 setup</span>
-            </div>
-            <div class="package-minutes">Includes 800 call minutes per month for a sole operator. That covers inbound calls plus proactively working through a rebook list each day.</div>
-            <div class="package-addon">Running a team? Add A$175/month per extra employee. A team of three generates roughly four times the call volume of a sole operator, and the pricing reflects that.</div>
-            <p class="value-line">Best when past customers should be coming back but nobody has time to chase them.</p>
-            <div class="pkg-cta">
-              <button class="button button-gold js-compat-check" data-level="L4">Check if this suits your business</button>
-              <p class="pkg-cta-note">Takes about 60 seconds. Goes straight to Stripe if it fits.</p>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="container running-costs-box">
-          <h4>Why team size affects the price</h4>
-          <p>AI voice agents are not free to run. Every call, inbound or outbound, uses real infrastructure: AI processing time, voice generation and phone network costs. The bigger the team, the more customers in the system, the more calls the agent handles each day, and the higher those running costs are.</p>
-          <p>The base price for Level 3 and Level 4 covers a sole operator. If you have employees, there is a small monthly amount per person to cover the extra call volume they generate. This keeps the service running properly as the business grows, rather than degrading at higher volumes.</p>
-          <p>Think of it like a phone plan with a data allowance. A business with three technicians uses more than a sole operator, the same way a family uses more data than one person. The per-employee add-on reflects actual usage, not an arbitrary surcharge.</p>
-          <p>We would rather be upfront about this than bury it in fine print. If you are not sure which level or team size applies to your business, talk to Kai below and he can work it out with you.</p>
-        </div>
-      </section>
-
-      <section class="kai-section" id="kai">
-        <div class="container kai-grid">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Business owner experience</div>
-            <h2>Talk to Kai, our AI advisor.</h2>
-            <p class="lead">Want to learn more about working with us? Talk to Kai and make sure this solution is the best fit for you.</p>
-            <p class="lead">Kai asks about your business, how many calls and leads you get, whether you need more calls, their lead sources, how bookings work now and whether customers should be rebooked on a schedule. He can suggest the best starting package, collect setup details and pass the enquiry to a real person if you need more detail.</p>
-            <div class="hero-actions">
+              <a class="button button-primary js-receptionist-link" href="#"
+                >Try the receptionist demo</a
+              >
               <a class="button button-gold js-kai-link" href="#">Talk to Kai</a>
             </div>
           </div>
+        </section>
+      </main>
 
-          <aside class="kai-card">
-            <h3>Why talk to Kai?</h3>
-            <div class="kai-list">
-              <div><span class="tick">&#10003;</span><span>You experience the same type of voice technology your customers would hear</span></div>
-              <div><span class="tick">&#10003;</span><span>You find out whether call answering, bookings, lead callback or rebooking should come first</span></div>
-              <div><span class="tick">&#10003;</span><span>You can move towards signup without waiting for a sales call</span></div>
-              <div><span class="tick">&#10003;</span><span>You can still ask for a real person to review the setup if needed</span></div>
-            </div>
-            <p class="small-copy">Kai is part of the sales process and part of the proof. If the conversation is useful for your business, the same approach can be useful for your customers.</p>
-          </aside>
+      <footer>
+        <div class="container footer-row">
+          <p>
+            &copy; <span id="year"></span> AI Assistant Pro. A Kindred Systems
+            product.
+          </p>
+          <p>
+            Natural-sounding AI voice agents for calls, callbacks, bookings and
+            rebooking.
+          </p>
         </div>
-      </section>
-
-      <section class="section" id="integrations">
-        <div class="container integrations-grid">
-          <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Booking connections</div>
-            <h2>Start with the tools you already use.</h2>
-            <p class="lead">The simplest first booking setup usually uses Google Calendar, Calendly or a similar booking calendar. For trades and larger setups, we can look at ServiceM8, Tradify, Jobber, CRM tools or customer records where the business case supports the extra integration work.</p>
-          </div>
-
-          <div class="connection-box">
-            <div class="connection"><strong>Google Calendar</strong><span>Simple first booking option</span></div>
-            <div class="connection"><strong>Calendly or similar</strong><span>Good for defined appointment slots</span></div>
-            <div class="connection"><strong>ServiceM8 / Tradify / Jobber</strong><span>Useful for stickier trade workflows</span></div>
-            <div class="connection"><strong>CRM or customer records</strong><span>Needed for rebooking and reactivation</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section section" id="about">
-        <div class="container about-grid">
-          <div class="about-left">
-            <div class="eyebrow"><span class="eyebrow-dot"></span> About the founder</div>
-            <div class="about-founder-row">
-              <img class="founder-photo" src="/assets/cathryn.jpg?v=3" width="110" height="110" alt="Cathryn, founder of AI Assistant Pro">
-              <div>
-                <h2>Built by someone who has spent 20 years on the commercial side of business.</h2>
-              </div>
-            </div>
-            <div class="about-body">
-              <p>That background covers marketing, sales, customer experience, CRM and growth. Cathryn has built acquisition systems from scratch, managed full customer journeys from first contact through to retention and referral, and led the teams delivering behind the scenes.</p>
-              <p>Before founding Kindred Systems, Cathryn built and scaled an international business across offer development, marketing, sales and delivery. When the market shifted during COVID, she repositioned the business and led it through 400% revenue growth over two years, managing a team of 21 before exiting through acquisition.</p>
-              <p>That experience shaped how she thinks about AI. Not technology for its own sake, but what is actually costing a business money, where calls are being missed, where leads fall through the cracks, and what needs to work reliably at scale.</p>
-              <p>AI Assistant Pro exists because the same problem kept appearing: good service businesses losing work simply because no one picked up the phone. The solution did not need to be complicated. It needed to be dependable, sound natural, and fit into how a trades business already operates.</p>
-              <p>Every part of the product has been built with that in mind.</p>
-            </div>
-          </div>
-
-          <aside class="about-sidebar">
-            <h4>More from Kindred Systems</h4>
-            <p class="small-copy" style="margin-bottom:18px;">AI Assistant Pro is one product within a broader suite. Through Kindred Systems, Cathryn also works with businesses across advisory, AI consultancy and managed digital employee services.</p>
-            <div class="about-links">
-              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
-                Kindred Systems
-                <span class="about-link-arrow">&#8599;</span>
-              </a>
-              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
-                Digital Employee Pro
-                <span class="about-link-arrow">&#8599;</span>
-              </a>
-              <a class="about-link" href="https://www.kindredsystems.com.au/" target="_blank" rel="noopener">
-                Advisory &amp; Consultancy
-                <span class="about-link-arrow">&#8599;</span>
-              </a>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="cta-final">
-        <div class="container">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Hear it before you decide</div>
-          <h2>Try the receptionist. Then talk to Kai.</h2>
-          <p class="lead">First, hear what a customer experience can sound like. Then talk to Kai about whether AI Assistant Pro suits your business and which package should come first.</p>
-          <div class="hero-actions">
-            <a class="button button-primary js-receptionist-link" href="#">Try the receptionist demo</a>
-            <a class="button button-gold js-kai-link" href="#">Talk to Kai</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-row">
-        <p>&copy; <span id="year"></span> AI Assistant Pro. A Kindred Systems product.</p>
-        <p>Natural-sounding AI voice agents for calls, callbacks, bookings and rebooking.</p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- ── Compatibility check modal ── -->
-  <div class="compat-overlay" id="compatOverlay" role="dialog" aria-modal="true" aria-labelledby="compatTitle">
-    <div class="compat-modal">
-      <button class="compat-close" id="compatClose" aria-label="Close">&times;</button>
-
-      <!-- L3 questions -->
-      <div id="compat-L3" style="display:none">
-        <div class="compat-progress" id="progress-L3">
-          <div class="compat-dot" data-i="0"></div>
-          <div class="compat-dot" data-i="1"></div>
-          <div class="compat-dot" data-i="2"></div>
-          <div class="compat-dot" data-i="3"></div>
-          <div class="compat-dot" data-i="4"></div>
-        </div>
-
-        <div class="compat-step active" data-step="0">
-          <p class="compat-q" id="compatTitle">How do new leads currently reach your business?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="ads">Paid ads or online forms (Google, Meta, etc.)</button>
-            <button class="compat-option" data-val="google">Google Business enquiries or direct calls</button>
-            <button class="compat-option" data-val="directory">Directory listings (hipages, Oneflare, etc.)</button>
-            <button class="compat-option" data-val="other">Word of mouth or other</button>
-          </div>
-          <div class="compat-nav"><button class="button button-primary js-next" disabled>Next</button></div>
-        </div>
-
-        <div class="compat-step" data-step="1">
-          <p class="compat-q">Do you have a calendar or booking system?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="google">Google Calendar</button>
-            <button class="compat-option" data-val="calendly">Calendly or similar</button>
-            <button class="compat-option" data-val="servicem8">ServiceM8, Tradify, Jobber or similar</button>
-            <button class="compat-option" data-val="none">No booking system at the moment</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="2">
-          <p class="compat-q">Roughly how many new leads do you get per week?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="1-3">1 to 3</button>
-            <button class="compat-option" data-val="4-10">4 to 10</button>
-            <button class="compat-option" data-val="11+">More than 10</button>
-            <button class="compat-option" data-val="0">None yet, but I am about to start running ads</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="3">
-          <p class="compat-q">How quickly do you currently call new leads back?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="quick">Within the hour</button>
-            <button class="compat-option" data-val="sameday">Same day but often a few hours later</button>
-            <button class="compat-option" data-val="slow">Next day or longer</button>
-            <button class="compat-option" data-val="never">I do not always get to them</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="4">
-          <p class="compat-q">What state or territory are you based in?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="QLD">Queensland</button>
-            <button class="compat-option" data-val="NSW">New South Wales</button>
-            <button class="compat-option" data-val="VIC">Victoria</button>
-            <button class="compat-option" data-val="other">WA, SA, ACT, TAS or NT</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Check my fit</button>
-          </div>
-        </div>
-
-        <!-- L3 result: compatible -->
-        <div class="compat-result" id="L3-fit">
-          <p class="compat-result-title">Lead Callback looks like a good fit.</p>
-          <p>Based on your answers, your business has the right setup to get value from automated lead callbacks. The next step is the setup fee.</p>
-          <div class="compat-summary">
-            <strong>What you are signing up for</strong>
-            Lead Callback (Level 3) &mdash; A$595/month + A$995 setup fee. Includes Answer &amp; Book plus fast outbound callbacks to new leads. Month-to-month. 5 business days to go live after your intake call.
-          </div>
-          <a class="button button-gold" href="/start/lead-callback.html" style="width:100%;margin-top:8px;display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;text-decoration:none;font-weight:850">See full details and pay &rarr;</a>
-          <p class="compat-stripe-note">Full inclusions, cancellation policy and Stripe payment on the next page.</p>
-        </div>
-
-        <!-- L3 result: not compatible -->
-        <div class="compat-result" id="L3-nofit">
-          <p class="compat-result-title">Lead Callback may not be the right starting point.</p>
-          <p>Lead Callback works best when there are already leads coming in that need a faster response. It sounds like you might need to build that lead flow first, or a simpler package could be a better starting point.</p>
-          <div class="compat-no-fit-actions">
-            <button class="button button-gold js-kai-link-modal">Talk to Kai about your best option</button>
-            <a class="button button-light" href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener">Book a call with Cathryn instead</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- L4 questions -->
-      <div id="compat-L4" style="display:none">
-        <div class="compat-progress" id="progress-L4">
-          <div class="compat-dot" data-i="0"></div>
-          <div class="compat-dot" data-i="1"></div>
-          <div class="compat-dot" data-i="2"></div>
-          <div class="compat-dot" data-i="3"></div>
-          <div class="compat-dot" data-i="4"></div>
-        </div>
-
-        <div class="compat-step active" data-step="0">
-          <p class="compat-q">Do you have a list of past customers with phone numbers?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="yes">Yes, I have a proper list</button>
-            <button class="compat-option" data-val="sort-of">Sort of &mdash; it is scattered across a few places</button>
-            <button class="compat-option" data-val="no">No, I do not really have one</button>
-          </div>
-          <div class="compat-nav"><button class="button button-primary js-next" disabled>Next</button></div>
-        </div>
-
-        <div class="compat-step" data-step="1">
-          <p class="compat-q">What system is that customer list in?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="spreadsheet">A spreadsheet or document</button>
-            <button class="compat-option" data-val="servicem8">ServiceM8, Tradify or Jobber</button>
-            <button class="compat-option" data-val="crm">Another CRM or job management system</button>
-            <button class="compat-option" data-val="none">It is not really in a system</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="2">
-          <p class="compat-q">How often do your customers typically need to rebook?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="monthly">Monthly</button>
-            <button class="compat-option" data-val="quarterly">Every few months</button>
-            <button class="compat-option" data-val="annually">Once a year</button>
-            <button class="compat-option" data-val="varies">It varies a lot</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="3">
-          <p class="compat-q">Do you have consent to contact past customers by phone?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="yes">Yes, they have agreed to be contacted</button>
-            <button class="compat-option" data-val="notsure">Not sure &mdash; they are existing customers but I have not asked</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Next</button>
-          </div>
-        </div>
-
-        <div class="compat-step" data-step="4">
-          <p class="compat-q">What state or territory are you based in?</p>
-          <div class="compat-options">
-            <button class="compat-option" data-val="QLD">Queensland</button>
-            <button class="compat-option" data-val="NSW">New South Wales</button>
-            <button class="compat-option" data-val="VIC">Victoria</button>
-            <button class="compat-option" data-val="other">WA, SA, ACT, TAS or NT</button>
-          </div>
-          <div class="compat-nav">
-            <button class="button button-light js-back">Back</button>
-            <button class="button button-primary js-next" disabled>Check my fit</button>
-          </div>
-        </div>
-
-        <!-- L4 result: compatible -->
-        <div class="compat-result" id="L4-fit">
-          <p class="compat-result-title">Rebook &amp; Reactivate looks like a good fit.</p>
-          <p>Based on your answers, your business has existing customers it can reach out to and a service that makes sense to rebook. The next step is the setup fee.</p>
-          <div class="compat-summary">
-            <strong>What you are signing up for</strong>
-            Rebook &amp; Reactivate (Level 4) &mdash; A$995/month + A$1,495 setup fee. The agent reads your customer records, builds a due-to-rebook list for your approval, then calls and books the approved customers. Month-to-month. 5 business days to go live after your intake call.
-          </div>
-          <a class="button button-gold" href="/start/rebook-and-reactivate.html" style="width:100%;margin-top:8px;display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;text-decoration:none;font-weight:850">See full details and pay &rarr;</a>
-          <p class="compat-stripe-note">Full inclusions, cancellation policy and Stripe payment on the next page.</p>
-        </div>
-
-        <!-- L4 result: not compatible -->
-        <div class="compat-result" id="L4-nofit">
-          <p class="compat-result-title">Rebook &amp; Reactivate may not be the right starting point.</p>
-          <p>This level works best when there is a usable customer list and a recurring service. It sounds like you may need to start with a simpler package or build that foundation first.</p>
-          <div class="compat-no-fit-actions">
-            <button class="button button-gold js-kai-link-modal">Talk to Kai about your best option</button>
-            <a class="button button-light" href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener">Book a call with Cathryn instead</a>
-          </div>
-        </div>
-      </div>
-
+      </footer>
     </div>
-  </div>
 
-  <script type="module">
-    import Vapi from "https://esm.sh/@vapi-ai/web";
+    <!-- ── Compatibility check modal ── -->
+    <div
+      class="compat-overlay"
+      id="compatOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="compatTitle"
+    >
+      <div class="compat-modal">
+        <button class="compat-close" id="compatClose" aria-label="Close">
+          &times;
+        </button>
 
-    const VAPI_PUBLIC_KEY = "46223d21-06e8-4659-9957-fc297f108320";
-    const RECEPTIONIST_ASSISTANT_ID = "e111e9e6-f69c-463d-a377-d71ae331537d";
-    const KAI_ASSISTANT_ID = "71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2";
+        <!-- L3 questions -->
+        <div id="compat-L3" style="display: none">
+          <div class="compat-progress" id="progress-L3">
+            <div class="compat-dot" data-i="0"></div>
+            <div class="compat-dot" data-i="1"></div>
+            <div class="compat-dot" data-i="2"></div>
+            <div class="compat-dot" data-i="3"></div>
+            <div class="compat-dot" data-i="4"></div>
+          </div>
 
-    let vapiInstance = null;
-    let activeBtn = null;
+          <div class="compat-step active" data-step="0">
+            <p class="compat-q" id="compatTitle">
+              How do new leads currently reach your business?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="ads">
+                Paid ads or online forms (Google, Meta, etc.)
+              </button>
+              <button class="compat-option" data-val="google">
+                Google Business enquiries or direct calls
+              </button>
+              <button class="compat-option" data-val="directory">
+                Directory listings (hipages, Oneflare, etc.)
+              </button>
+              <button class="compat-option" data-val="other">
+                Word of mouth or other
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    function getVapi() {
-      if (!vapiInstance) {
-        vapiInstance = new Vapi(VAPI_PUBLIC_KEY);
-        vapiInstance.on("call-start", () => {
-          if (activeBtn) {
-            activeBtn.textContent = "End call";
-            activeBtn.style.opacity = "";
-            activeBtn.style.pointerEvents = "";
-          }
-        });
-        vapiInstance.on("call-end", () => {
-          if (activeBtn) { resetBtn(activeBtn); activeBtn = null; }
-        });
-        vapiInstance.on("error", () => {
-          if (activeBtn) { resetBtn(activeBtn); activeBtn = null; }
-        });
-      }
-      return vapiInstance;
-    }
+          <div class="compat-step" data-step="1">
+            <p class="compat-q">Do you have a calendar or booking system?</p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="google">
+                Google Calendar
+              </button>
+              <button class="compat-option" data-val="calendly">
+                Calendly or similar
+              </button>
+              <button class="compat-option" data-val="servicem8">
+                ServiceM8, Tradify, Jobber or similar
+              </button>
+              <button class="compat-option" data-val="none">
+                No booking system at the moment
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    function resetBtn(btn) {
-      btn.textContent = btn.dataset.label;
-      btn.style.opacity = "";
-      btn.style.pointerEvents = "";
-    }
+          <div class="compat-step" data-step="2">
+            <p class="compat-q">
+              Roughly how many new leads do you get per week?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="1-3">1 to 3</button>
+              <button class="compat-option" data-val="4-10">4 to 10</button>
+              <button class="compat-option" data-val="11+">More than 10</button>
+              <button class="compat-option" data-val="0">
+                None yet, but I am about to start running ads
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    function startCall(assistantId, btn) {
-      if (activeBtn) { getVapi().stop(); return; }
-      activeBtn = btn;
-      btn.dataset.label = btn.textContent;
-      btn.textContent = "Connecting…";
-      btn.style.opacity = "0.7";
-      btn.style.pointerEvents = "none";
-      getVapi().start(assistantId);
-    }
+          <div class="compat-step" data-step="3">
+            <p class="compat-q">
+              How quickly do you currently call new leads back?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="quick">
+                Within the hour
+              </button>
+              <button class="compat-option" data-val="sameday">
+                Same day but often a few hours later
+              </button>
+              <button class="compat-option" data-val="slow">
+                Next day or longer
+              </button>
+              <button class="compat-option" data-val="never">
+                I do not always get to them
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+          <div class="compat-step" data-step="4">
+            <p class="compat-q">What state or territory are you based in?</p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="QLD">Queensland</button>
+              <button class="compat-option" data-val="NSW">
+                New South Wales
+              </button>
+              <button class="compat-option" data-val="VIC">Victoria</button>
+              <button class="compat-option" data-val="other">
+                WA, SA, ACT, TAS or NT
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Check my fit
+              </button>
+            </div>
+          </div>
 
-    document.querySelectorAll(".js-receptionist-link").forEach(btn => {
-      btn.removeAttribute("href");
-      btn.addEventListener("click", e => { e.preventDefault(); startCall(RECEPTIONIST_ASSISTANT_ID, btn); });
-    });
+          <!-- L3 result: compatible -->
+          <div class="compat-result" id="L3-fit">
+            <p class="compat-result-title">
+              Lead Callback looks like a good fit.
+            </p>
+            <p>
+              Based on your answers, your business has the right setup to get
+              value from automated lead callbacks. The next step is the setup
+              fee.
+            </p>
+            <div class="compat-summary">
+              <strong>What you are signing up for</strong>
+              Lead Callback (Level 3) &mdash; A$595/month + A$995 setup fee.
+              Includes Answer &amp; Book plus fast outbound callbacks to new
+              leads. Month-to-month. 5 business days to go live after your
+              intake call.
+            </div>
+            <a
+              class="button button-gold"
+              href="/start/lead-callback.html"
+              style="
+                width: 100%;
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 46px;
+                border-radius: 999px;
+                text-decoration: none;
+                font-weight: 850;
+              "
+              >See full details and pay &rarr;</a
+            >
+            <p class="compat-stripe-note">
+              Full inclusions, cancellation policy and Stripe payment on the
+              next page.
+            </p>
+          </div>
 
-    document.querySelectorAll(".js-kai-link").forEach(btn => {
-      btn.removeAttribute("href");
-      btn.addEventListener("click", e => { e.preventDefault(); startCall(KAI_ASSISTANT_ID, btn); });
-    });
+          <!-- L3 result: not compatible -->
+          <div class="compat-result" id="L3-nofit">
+            <p class="compat-result-title">
+              Lead Callback may not be the right starting point.
+            </p>
+            <p>
+              Lead Callback works best when there are already leads coming in
+              that need a faster response. It sounds like you might need to
+              build that lead flow first, or a simpler package could be a better
+              starting point.
+            </p>
+            <div class="compat-no-fit-actions">
+              <button class="button button-gold js-kai-link-modal">
+                Talk to Kai about your best option
+              </button>
+              <a
+                class="button button-light"
+                href="https://tidycal.com/kindredsystems/aap-cathryn-intro"
+                target="_blank"
+                rel="noopener"
+                >Book a call with Cathryn instead</a
+              >
+            </div>
+          </div>
+        </div>
 
-    // ── Compatibility check modal ──
-    const overlay = document.getElementById("compatOverlay");
-    let currentLevel = null;
-    let currentStep = 0;
-    let answers = {};
+        <!-- L4 questions -->
+        <div id="compat-L4" style="display: none">
+          <div class="compat-progress" id="progress-L4">
+            <div class="compat-dot" data-i="0"></div>
+            <div class="compat-dot" data-i="1"></div>
+            <div class="compat-dot" data-i="2"></div>
+            <div class="compat-dot" data-i="3"></div>
+            <div class="compat-dot" data-i="4"></div>
+          </div>
 
-    // L3 compatibility logic
-    function isL3Compatible(ans) {
-      if (ans[2] === "0") return false;
-      if (ans[0] === "other" && ans[2] === "0") return false;
-      return true;
-    }
+          <div class="compat-step active" data-step="0">
+            <p class="compat-q">
+              Do you have a list of past customers with phone numbers?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="yes">
+                Yes, I have a proper list
+              </button>
+              <button class="compat-option" data-val="sort-of">
+                Sort of &mdash; it is scattered across a few places
+              </button>
+              <button class="compat-option" data-val="no">
+                No, I do not really have one
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    // L4 compatibility logic
-    function isL4Compatible(ans) {
-      if (ans[0] === "no") return false;
-      if (ans[0] === "sort-of" && ans[1] === "none") return false;
-      return true;
-    }
+          <div class="compat-step" data-step="1">
+            <p class="compat-q">What system is that customer list in?</p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="spreadsheet">
+                A spreadsheet or document
+              </button>
+              <button class="compat-option" data-val="servicem8">
+                ServiceM8, Tradify or Jobber
+              </button>
+              <button class="compat-option" data-val="crm">
+                Another CRM or job management system
+              </button>
+              <button class="compat-option" data-val="none">
+                It is not really in a system
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-    function openModal(level) {
-      currentLevel = level;
-      currentStep = 0;
-      answers = {};
-      overlay.classList.add("open");
-      document.body.style.overflow = "hidden";
+          <div class="compat-step" data-step="2">
+            <p class="compat-q">
+              How often do your customers typically need to rebook?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="monthly">Monthly</button>
+              <button class="compat-option" data-val="quarterly">
+                Every few months
+              </button>
+              <button class="compat-option" data-val="annually">
+                Once a year
+              </button>
+              <button class="compat-option" data-val="varies">
+                It varies a lot
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-      document.getElementById("compat-L3").style.display = level === "L3" ? "block" : "none";
-      document.getElementById("compat-L4").style.display = level === "L4" ? "block" : "none";
+          <div class="compat-step" data-step="3">
+            <p class="compat-q">
+              Do you have consent to contact past customers by phone?
+            </p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="yes">
+                Yes, they have agreed to be contacted
+              </button>
+              <button class="compat-option" data-val="notsure">
+                Not sure &mdash; they are existing customers but I have not
+                asked
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
 
-      const block = document.getElementById("compat-" + level);
-      block.querySelectorAll(".compat-step").forEach((s, i) => {
-        s.classList.toggle("active", i === 0);
-      });
-      block.querySelectorAll(".compat-result").forEach(r => r.classList.remove("active"));
-      block.querySelectorAll(".compat-option").forEach(o => o.classList.remove("selected"));
-      block.querySelectorAll(".js-next").forEach(b => b.disabled = true);
-      updateProgress(level, 0);
-    }
+          <div class="compat-step" data-step="4">
+            <p class="compat-q">What state or territory are you based in?</p>
+            <div class="compat-options">
+              <button class="compat-option" data-val="QLD">Queensland</button>
+              <button class="compat-option" data-val="NSW">
+                New South Wales
+              </button>
+              <button class="compat-option" data-val="VIC">Victoria</button>
+              <button class="compat-option" data-val="other">
+                WA, SA, ACT, TAS or NT
+              </button>
+            </div>
+            <div class="compat-nav">
+              <button class="button button-light js-back">Back</button>
+              <button class="button button-primary js-next" disabled>
+                Check my fit
+              </button>
+            </div>
+          </div>
 
-    function closeModal() {
-      overlay.classList.remove("open");
-      document.body.style.overflow = "";
-    }
+          <!-- L4 result: compatible -->
+          <div class="compat-result" id="L4-fit">
+            <p class="compat-result-title">
+              Rebook &amp; Reactivate looks like a good fit.
+            </p>
+            <p>
+              Based on your answers, your business has existing customers it can
+              reach out to and a service that makes sense to rebook. The next
+              step is the setup fee.
+            </p>
+            <div class="compat-summary">
+              <strong>What you are signing up for</strong>
+              Rebook &amp; Reactivate (Level 4) &mdash; A$995/month + A$1,495
+              setup fee. The agent reads your customer records, builds a
+              due-to-rebook list for your approval, then calls and books the
+              approved customers. Month-to-month. 5 business days to go live
+              after your intake call.
+            </div>
+            <a
+              class="button button-gold"
+              href="/start/rebook-and-reactivate.html"
+              style="
+                width: 100%;
+                margin-top: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 46px;
+                border-radius: 999px;
+                text-decoration: none;
+                font-weight: 850;
+              "
+              >See full details and pay &rarr;</a
+            >
+            <p class="compat-stripe-note">
+              Full inclusions, cancellation policy and Stripe payment on the
+              next page.
+            </p>
+          </div>
 
-    function updateProgress(level, step) {
-      const dots = document.querySelectorAll("#progress-" + level + " .compat-dot");
-      dots.forEach((d, i) => d.classList.toggle("done", i < step));
-    }
+          <!-- L4 result: not compatible -->
+          <div class="compat-result" id="L4-nofit">
+            <p class="compat-result-title">
+              Rebook &amp; Reactivate may not be the right starting point.
+            </p>
+            <p>
+              This level works best when there is a usable customer list and a
+              recurring service. It sounds like you may need to start with a
+              simpler package or build that foundation first.
+            </p>
+            <div class="compat-no-fit-actions">
+              <button class="button button-gold js-kai-link-modal">
+                Talk to Kai about your best option
+              </button>
+              <a
+                class="button button-light"
+                href="https://tidycal.com/kindredsystems/aap-cathryn-intro"
+                target="_blank"
+                rel="noopener"
+                >Book a call with Cathryn instead</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    document.querySelectorAll(".js-compat-check").forEach(btn => {
-      btn.addEventListener("click", () => openModal(btn.dataset.level));
-    });
+    <script type="module">
+      import Vapi from "https://esm.sh/@vapi-ai/web";
 
-    document.getElementById("compatClose").addEventListener("click", closeModal);
-    overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
+      const VAPI_PUBLIC_KEY = "46223d21-06e8-4659-9957-fc297f108320";
+      const RECEPTIONIST_ASSISTANT_ID = "e111e9e6-f69c-463d-a377-d71ae331537d";
+      const KAI_ASSISTANT_ID = "71f4bbf5-5ebb-44aa-a383-1a1d2b8272a2";
 
-    overlay.addEventListener("click", e => {
-      const level = currentLevel;
-      if (!level) return;
-      const block = document.getElementById("compat-" + level);
-      const steps = block.querySelectorAll(".compat-step");
+      let vapiInstance = null;
+      let activeBtn = null;
 
-      if (e.target.classList.contains("compat-option")) {
-        const stepEl = e.target.closest(".compat-step");
-        stepEl.querySelectorAll(".compat-option").forEach(o => o.classList.remove("selected"));
-        e.target.classList.add("selected");
-        answers[currentStep] = e.target.dataset.val;
-        const nextBtn = stepEl.querySelector(".js-next");
-        if (nextBtn) nextBtn.disabled = false;
-        return;
-      }
-
-      if (e.target.classList.contains("js-next")) {
-        const totalSteps = steps.length;
-        if (currentStep < totalSteps - 1) {
-          steps[currentStep].classList.remove("active");
-          currentStep++;
-          steps[currentStep].classList.add("active");
-          const nextBtn = steps[currentStep].querySelector(".js-next");
-          if (nextBtn) {
-            nextBtn.disabled = !answers[currentStep];
-          }
-          updateProgress(level, currentStep);
-        } else {
-          steps[currentStep].classList.remove("active");
-          updateProgress(level, totalSteps);
-          const compatible = level === "L3" ? isL3Compatible(answers) : isL4Compatible(answers);
-          const resultId = level + (compatible ? "-fit" : "-nofit");
-          document.getElementById(resultId).classList.add("active");
+      function getVapi() {
+        if (!vapiInstance) {
+          vapiInstance = new Vapi(VAPI_PUBLIC_KEY);
+          vapiInstance.on("call-start", () => {
+            if (activeBtn) {
+              activeBtn.textContent = "End call";
+              activeBtn.style.opacity = "";
+              activeBtn.style.pointerEvents = "";
+            }
+          });
+          vapiInstance.on("call-end", () => {
+            if (activeBtn) {
+              resetBtn(activeBtn);
+              activeBtn = null;
+            }
+          });
+          vapiInstance.on("error", () => {
+            if (activeBtn) {
+              resetBtn(activeBtn);
+              activeBtn = null;
+            }
+          });
         }
-        return;
+        return vapiInstance;
       }
 
-      if (e.target.classList.contains("js-back")) {
-        if (currentStep > 0) {
-          steps[currentStep].classList.remove("active");
-          currentStep--;
-          steps[currentStep].classList.add("active");
-          updateProgress(level, currentStep);
-          const nextBtn = steps[currentStep].querySelector(".js-next");
-          if (nextBtn && answers[currentStep]) nextBtn.disabled = false;
+      function resetBtn(btn) {
+        btn.textContent = btn.dataset.label;
+        btn.style.opacity = "";
+        btn.style.pointerEvents = "";
+      }
+
+      function startCall(assistantId, btn) {
+        if (activeBtn) {
+          getVapi().stop();
+          return;
         }
-        return;
+        activeBtn = btn;
+        btn.dataset.label = btn.textContent;
+        btn.textContent = "Connecting…";
+        btn.style.opacity = "0.7";
+        btn.style.pointerEvents = "none";
+        getVapi().start(assistantId);
       }
-    });
 
-    document.querySelectorAll(".js-kai-link-modal").forEach(btn => {
-      btn.addEventListener("click", () => {
-        closeModal();
-        startCall(KAI_ASSISTANT_ID, btn);
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.querySelectorAll(".js-receptionist-link").forEach((btn) => {
+        btn.removeAttribute("href");
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          startCall(RECEPTIONIST_ASSISTANT_ID, btn);
+        });
       });
-    });
 
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") closeModal();
-    });
-  </script>
-</body>
+      document.querySelectorAll(".js-kai-link").forEach((btn) => {
+        btn.removeAttribute("href");
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          startCall(KAI_ASSISTANT_ID, btn);
+        });
+      });
+
+      // ── Compatibility check modal ──
+      const overlay = document.getElementById("compatOverlay");
+      let currentLevel = null;
+      let currentStep = 0;
+      let answers = {};
+
+      // L3 compatibility logic
+      function isL3Compatible(ans) {
+        if (ans[2] === "0") return false;
+        if (ans[0] === "other" && ans[2] === "0") return false;
+        return true;
+      }
+
+      // L4 compatibility logic
+      function isL4Compatible(ans) {
+        if (ans[0] === "no") return false;
+        if (ans[0] === "sort-of" && ans[1] === "none") return false;
+        return true;
+      }
+
+      function openModal(level) {
+        currentLevel = level;
+        currentStep = 0;
+        answers = {};
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+
+        document.getElementById("compat-L3").style.display =
+          level === "L3" ? "block" : "none";
+        document.getElementById("compat-L4").style.display =
+          level === "L4" ? "block" : "none";
+
+        const block = document.getElementById("compat-" + level);
+        block.querySelectorAll(".compat-step").forEach((s, i) => {
+          s.classList.toggle("active", i === 0);
+        });
+        block
+          .querySelectorAll(".compat-result")
+          .forEach((r) => r.classList.remove("active"));
+        block
+          .querySelectorAll(".compat-option")
+          .forEach((o) => o.classList.remove("selected"));
+        block.querySelectorAll(".js-next").forEach((b) => (b.disabled = true));
+        updateProgress(level, 0);
+      }
+
+      function closeModal() {
+        overlay.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      function updateProgress(level, step) {
+        const dots = document.querySelectorAll(
+          "#progress-" + level + " .compat-dot",
+        );
+        dots.forEach((d, i) => d.classList.toggle("done", i < step));
+      }
+
+      document.querySelectorAll(".js-compat-check").forEach((btn) => {
+        btn.addEventListener("click", () => openModal(btn.dataset.level));
+      });
+
+      document
+        .getElementById("compatClose")
+        .addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+
+      overlay.addEventListener("click", (e) => {
+        const level = currentLevel;
+        if (!level) return;
+        const block = document.getElementById("compat-" + level);
+        const steps = block.querySelectorAll(".compat-step");
+
+        if (e.target.classList.contains("compat-option")) {
+          const stepEl = e.target.closest(".compat-step");
+          stepEl
+            .querySelectorAll(".compat-option")
+            .forEach((o) => o.classList.remove("selected"));
+          e.target.classList.add("selected");
+          answers[currentStep] = e.target.dataset.val;
+          const nextBtn = stepEl.querySelector(".js-next");
+          if (nextBtn) nextBtn.disabled = false;
+          return;
+        }
+
+        if (e.target.classList.contains("js-next")) {
+          const totalSteps = steps.length;
+          if (currentStep < totalSteps - 1) {
+            steps[currentStep].classList.remove("active");
+            currentStep++;
+            steps[currentStep].classList.add("active");
+            const nextBtn = steps[currentStep].querySelector(".js-next");
+            if (nextBtn) {
+              nextBtn.disabled = !answers[currentStep];
+            }
+            updateProgress(level, currentStep);
+          } else {
+            steps[currentStep].classList.remove("active");
+            updateProgress(level, totalSteps);
+            const compatible =
+              level === "L3"
+                ? isL3Compatible(answers)
+                : isL4Compatible(answers);
+            const resultId = level + (compatible ? "-fit" : "-nofit");
+            document.getElementById(resultId).classList.add("active");
+          }
+          return;
+        }
+
+        if (e.target.classList.contains("js-back")) {
+          if (currentStep > 0) {
+            steps[currentStep].classList.remove("active");
+            currentStep--;
+            steps[currentStep].classList.add("active");
+            updateProgress(level, currentStep);
+            const nextBtn = steps[currentStep].querySelector(".js-next");
+            if (nextBtn && answers[currentStep]) nextBtn.disabled = false;
+          }
+          return;
+        }
+      });
+
+      document.querySelectorAll(".js-kai-link-modal").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          closeModal();
+          startCall(KAI_ASSISTANT_ID, btn);
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
+  </body>
 </html>
