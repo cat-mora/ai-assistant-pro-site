@@ -1,356 +1,478 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | AI Assistant Pro</title>
-  <meta name="description" content="Meet Cathryn Mora, founder of AI Assistant Pro. Built for Australian trade businesses who are sick of losing jobs to missed calls." />
-  <link rel="canonical" href="https://aiassistantpro.com.au/about/" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | AI Assistant Pro</title>
+    <meta
+      name="description"
+      content="Meet Cathryn Mora, founder of AI Assistant Pro. Built for Australian trade businesses who are sick of losing jobs to missed calls."
+    />
+    <link rel="canonical" href="https://aiassistantpro.com.au/about/" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --navy: #17283f;
-      --cream: #f7f0e5;
-      --gold: #bd985c;
-      --text: #2c2c2c;
-      --white: #ffffff;
-    }
+      :root {
+        --navy: #17283f;
+        --cream: #f7f0e5;
+        --gold: #bd985c;
+        --text: #2c2c2c;
+        --white: #ffffff;
+      }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.7;
-    }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        line-height: 1.7;
+      }
 
-    /* ---- NAV ---- */
-    .site-nav {
-      background: var(--navy);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .site-nav .logo {
-      color: var(--gold);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .site-nav .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .site-nav .nav-links a {
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.95rem;
-      opacity: 0.88;
-      transition: opacity 0.2s;
-    }
-    .site-nav .nav-links a:hover { opacity: 1; color: var(--gold); }
+      /* ---- NAV ---- */
+      .site-nav {
+        background: var(--navy);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .site-nav .logo {
+        color: var(--gold);
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+      }
+      .site-nav .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .site-nav .nav-links a {
+        color: var(--cream);
+        text-decoration: none;
+        font-size: 0.95rem;
+        opacity: 0.88;
+        transition: opacity 0.2s;
+      }
+      .site-nav .nav-links a:hover {
+        opacity: 1;
+        color: var(--gold);
+      }
 
-    /* ---- HERO ---- */
-    .hero {
-      background: var(--navy);
-      color: var(--cream);
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-    }
-    .hero .eyebrow {
-      color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.2;
-      max-width: 720px;
-      margin: 0 auto 1.25rem;
-    }
-    .hero h1 span { color: var(--gold); }
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 580px;
-      margin: 0 auto;
-      opacity: 0.88;
-    }
+      /* ---- HERO ---- */
+      .hero {
+        background: var(--navy);
+        color: var(--cream);
+        padding: 5rem 2rem 4rem;
+        text-align: center;
+      }
+      .hero .eyebrow {
+        color: var(--gold);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.2;
+        max-width: 720px;
+        margin: 0 auto 1.25rem;
+      }
+      .hero h1 span {
+        color: var(--gold);
+      }
+      .hero p {
+        font-size: 1.15rem;
+        max-width: 580px;
+        margin: 0 auto;
+        opacity: 0.88;
+      }
 
-    /* ---- MAIN CONTENT ---- */
-    .content-wrap {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
+      /* ---- MAIN CONTENT ---- */
+      .content-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
 
-    .section {
-      margin-bottom: 3.5rem;
-    }
+      .section {
+        margin-bottom: 3.5rem;
+      }
 
-    .section-label {
-      display: inline-block;
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
+      .section-label {
+        display: inline-block;
+        color: var(--gold);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
 
-    .section h2 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      line-height: 1.3;
-    }
+      .section h2 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
 
-    .section p {
-      font-size: 1.05rem;
-      color: #3a3a3a;
-      margin-bottom: 1rem;
-    }
-    .section p:last-child { margin-bottom: 0; }
+      .section p {
+        font-size: 1.05rem;
+        color: #3a3a3a;
+        margin-bottom: 1rem;
+      }
+      .section p:last-child {
+        margin-bottom: 0;
+      }
 
-    /* ---- HUMAN NOTE ---- */
-    .human-note {
-      background: var(--navy);
-      color: var(--cream);
-      border-left: 4px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      padding: 2rem 2.25rem;
-      margin: 3rem 0;
-    }
-    .human-note .quote-mark {
-      color: var(--gold);
-      font-size: 3.5rem;
-      line-height: 1;
-      font-family: Georgia, serif;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .human-note p {
-      font-size: 1.1rem;
-      line-height: 1.75;
-      font-style: italic;
-      opacity: 0.95;
-      margin-bottom: 0.75rem;
-    }
-    .human-note .attribution {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--gold);
-      opacity: 1;
-    }
+      /* ---- HUMAN NOTE ---- */
+      .human-note {
+        background: var(--navy);
+        color: var(--cream);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 8px 8px 0;
+        padding: 2rem 2.25rem;
+        margin: 3rem 0;
+      }
+      .human-note .quote-mark {
+        color: var(--gold);
+        font-size: 3.5rem;
+        line-height: 1;
+        font-family: Georgia, serif;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .human-note p {
+        font-size: 1.1rem;
+        line-height: 1.75;
+        font-style: italic;
+        opacity: 0.95;
+        margin-bottom: 0.75rem;
+      }
+      .human-note .attribution {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--gold);
+        opacity: 1;
+      }
 
-    /* ---- DIFFERENCE GRID ---- */
-    .diff-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-    .diff-card {
-      background: var(--white);
-      border: 1px solid #e4ddd3;
-      border-top: 3px solid var(--gold);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-    .diff-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-    .diff-card p {
-      font-size: 0.95rem;
-      color: #555;
-      margin: 0;
-    }
+      /* ---- DIFFERENCE GRID ---- */
+      .diff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .diff-card {
+        background: var(--white);
+        border: 1px solid #e4ddd3;
+        border-top: 3px solid var(--gold);
+        border-radius: 8px;
+        padding: 1.5rem;
+      }
+      .diff-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+      }
+      .diff-card p {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 0;
+      }
 
-    /* ---- CTA ---- */
-    .cta-block {
-      background: var(--navy);
-      color: var(--cream);
-      border-radius: 12px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .cta-block h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 0.75rem;
-    }
-    .cta-block p {
-      font-size: 1.05rem;
-      opacity: 0.88;
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--cream);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border: 2px solid rgba(247,240,229,0.5);
-      border-radius: 6px;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(189,152,92,0.08);
-    }
+      /* ---- CTA ---- */
+      .cta-block {
+        background: var(--navy);
+        color: var(--cream);
+        border-radius: 12px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .cta-block h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 0.75rem;
+      }
+      .cta-block p {
+        font-size: 1.05rem;
+        opacity: 0.88;
+        max-width: 520px;
+        margin: 0 auto 2rem;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+      }
+      .btn-primary:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+      .btn-secondary {
+        display: inline-block;
+        background: transparent;
+        color: var(--cream);
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.85rem 2rem;
+        border: 2px solid rgba(247, 240, 229, 0.5);
+        border-radius: 6px;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(189, 152, 92, 0.08);
+      }
 
-    /* ---- FOOTER ---- */
-    .site-footer {
-      background: var(--navy);
-      color: var(--cream);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.88rem;
-      opacity: 0.85;
-    }
-    .site-footer a { color: var(--gold); text-decoration: none; }
+      /* ---- FOOTER ---- */
+      .site-footer {
+        background: var(--navy);
+        color: var(--cream);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.88rem;
+        opacity: 0.85;
+      }
+      .site-footer a {
+        color: var(--gold);
+        text-decoration: none;
+      }
 
-    @media (max-width: 600px) {
-      .site-nav .nav-links { display: none; }
-      .hero { padding: 3.5rem 1.25rem 3rem; }
-      .content-wrap { padding: 2.5rem 1.25rem; }
-      .cta-block { padding: 2rem 1.25rem; }
-    }
-  </style>
-</head>
-<body>
+      @media (max-width: 600px) {
+        .site-nav .nav-links {
+          display: none;
+        }
+        .hero {
+          padding: 3.5rem 1.25rem 3rem;
+        }
+        .content-wrap {
+          padding: 2.5rem 1.25rem;
+        }
+        .cta-block {
+          padding: 2rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="site-nav">
+      <a href="/" class="logo">AI Assistant Pro</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/about/">About</a></li>
+        <li>
+          <a
+            href="https://tidycal.com/kindredsystems/aap-cathryn-intro"
+            target="_blank"
+            rel="noopener"
+            >Book a Call</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-  <!-- NAV -->
-  <nav class="site-nav">
-    <a href="/" class="logo">AI Assistant Pro</a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener">Book a Call</a></li>
-    </ul>
-  </nav>
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">About AI Assistant Pro</p>
+      <h1>
+        Built by a founder who's <span>seen tradies lose work</span> for the
+        wrong reasons
+      </h1>
+      <p>
+        Not bad work. Not bad prices. Just a missed call when they were under a
+        house or up on a roof.
+      </p>
+    </section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="eyebrow">About AI Assistant Pro</p>
-    <h1>Built by a founder who's <span>seen tradies lose work</span> for the wrong reasons</h1>
-    <p>Not bad work. Not bad prices. Just a missed call when they were under a house or up on a roof.</p>
-  </section>
+    <!-- MAIN CONTENT -->
+    <main class="content-wrap">
+      <!-- WHO IS CAT -->
+      <div class="section">
+        <span class="section-label">The Founder</span>
+        <h2>Hi, I'm Cat</h2>
+        <p>
+          My full name is Cathryn Mora. I'm the founder of Kindred Systems
+          Group, based in Australia.
+        </p>
+        <p>
+          I've spent a lot of time working with small trade businesses across
+          the country, and the same story kept coming up. A job goes to someone
+          else. The tradie finds out later that a customer rang, left a
+          voicemail, and just called the next number on Google when nobody got
+          back to them fast enough.
+        </p>
+        <p>
+          It's not a skills problem. It's a communication problem. And it's
+          completely fixable.
+        </p>
+      </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="content-wrap">
+      <!-- THE PROBLEM -->
+      <div class="section">
+        <span class="section-label">The Problem</span>
+        <h2>The missed call is costing you more than you think</h2>
+        <p>
+          When you're on tools, you can't answer your phone. That's just the
+          reality of trade work. But customers don't wait. If they ring and get
+          voicemail, most of them call the next tradie on the list and don't
+          look back.
+        </p>
+        <p>
+          Slow follow-up has the same effect. If you're calling someone back at
+          7pm after a full day on site, the job is usually already gone. They've
+          moved on.
+        </p>
+        <p>
+          The tradies I watched lose work weren't bad at their job. They were
+          just unreachable at the moment it mattered.
+        </p>
+      </div>
 
-    <!-- WHO IS CAT -->
-    <div class="section">
-      <span class="section-label">The Founder</span>
-      <h2>Hi, I'm Cat</h2>
-      <p>My full name is Cathryn Mora. I'm the founder of Kindred Systems Group, based in Australia.</p>
-      <p>I've spent a lot of time working with small trade businesses across the country, and the same story kept coming up. A job goes to someone else. The tradie finds out later that a customer rang, left a voicemail, and just called the next number on Google when nobody got back to them fast enough.</p>
-      <p>It's not a skills problem. It's a communication problem. And it's completely fixable.</p>
-    </div>
+      <!-- HUMAN NOTE -->
+      <blockquote class="human-note">
+        <span class="quote-mark">"</span>
+        <p>
+          I built AI Assistant Pro because I watched really good tradespeople
+          lose work they deserved to win. Not because their pricing was off, not
+          because their reviews were bad. They just couldn't answer the phone
+          while they were under a house or on a roof doing the job they're
+          brilliant at.
+        </p>
+        <p>That felt like a problem worth solving.</p>
+        <span class="attribution">Cathryn Mora, Founder</span>
+      </blockquote>
 
-    <!-- THE PROBLEM -->
-    <div class="section">
-      <span class="section-label">The Problem</span>
-      <h2>The missed call is costing you more than you think</h2>
-      <p>When you're on tools, you can't answer your phone. That's just the reality of trade work. But customers don't wait. If they ring and get voicemail, most of them call the next tradie on the list and don't look back.</p>
-      <p>Slow follow-up has the same effect. If you're calling someone back at 7pm after a full day on site, the job is usually already gone. They've moved on.</p>
-      <p>The tradies I watched lose work weren't bad at their job. They were just unreachable at the moment it mattered.</p>
-    </div>
+      <!-- THE SOLUTION -->
+      <div class="section">
+        <span class="section-label">The Solution</span>
+        <h2>A fully managed AI voice agent, set up for your business</h2>
+        <p>
+          AI Assistant Pro gives your business a voice agent that answers every
+          call, sounds natural, and handles the conversation the way you'd want
+          it handled.
+        </p>
+        <p>
+          It books jobs, takes enquiries, and follows up, so you never lose a
+          lead while you're on site. It's not a bot that feels like a bot. It
+          sounds like a real person, speaks in a natural Australian accent, and
+          knows your business.
+        </p>
+        <p>
+          We handle all of the setup, training, and ongoing management. You
+          don't need to learn any software. You just start getting fewer missed
+          opportunities.
+        </p>
+      </div>
 
-    <!-- HUMAN NOTE -->
-    <blockquote class="human-note">
-      <span class="quote-mark">"</span>
-      <p>I built AI Assistant Pro because I watched really good tradespeople lose work they deserved to win. Not because their pricing was off, not because their reviews were bad. They just couldn't answer the phone while they were under a house or on a roof doing the job they're brilliant at.</p>
-      <p>That felt like a problem worth solving.</p>
-      <span class="attribution">Cathryn Mora, Founder</span>
-    </blockquote>
-
-    <!-- THE SOLUTION -->
-    <div class="section">
-      <span class="section-label">The Solution</span>
-      <h2>A fully managed AI voice agent, set up for your business</h2>
-      <p>AI Assistant Pro gives your business a voice agent that answers every call, sounds natural, and handles the conversation the way you'd want it handled.</p>
-      <p>It books jobs, takes enquiries, and follows up, so you never lose a lead while you're on site. It's not a bot that feels like a bot. It sounds like a real person, speaks in a natural Australian accent, and knows your business.</p>
-      <p>We handle all of the setup, training, and ongoing management. You don't need to learn any software. You just start getting fewer missed opportunities.</p>
-    </div>
-
-    <!-- WHAT MAKES AAP DIFFERENT -->
-    <div class="section">
-      <span class="section-label">What Makes Us Different</span>
-      <h2>Not just another software tool</h2>
-      <div class="diff-grid">
-        <div class="diff-card">
-          <h3>Built for Australian businesses</h3>
-          <p>Not a US product bolted onto Australian numbers. AAP is designed around how trade businesses work here, the lingo, the hours, the way customers talk.</p>
-        </div>
-        <div class="diff-card">
-          <h3>Natural Australian accents</h3>
-          <p>Your customers won't be greeted by a robotic voice or an obvious American accent. It sounds local, because it is.</p>
-        </div>
-        <div class="diff-card">
-          <h3>Fully managed, not DIY</h3>
-          <p>This isn't software you log into and configure yourself. We do it all. Setup, scripting, testing, and ongoing updates when anything changes.</p>
-        </div>
-        <div class="diff-card">
-          <h3>Month to month, no lock-in</h3>
-          <p>No annual contracts. No exit fees. If it's not working for your business, you can walk away. That said, most of our clients stick around.</p>
+      <!-- WHAT MAKES AAP DIFFERENT -->
+      <div class="section">
+        <span class="section-label">What Makes Us Different</span>
+        <h2>Not just another software tool</h2>
+        <div class="diff-grid">
+          <div class="diff-card">
+            <h3>Built for Australian businesses</h3>
+            <p>
+              Not a US product bolted onto Australian numbers. AAP is designed
+              around how trade businesses work here, the lingo, the hours, the
+              way customers talk.
+            </p>
+          </div>
+          <div class="diff-card">
+            <h3>Natural Australian accents</h3>
+            <p>
+              Your customers won't be greeted by a robotic voice or an obvious
+              American accent. It sounds local, because it is.
+            </p>
+          </div>
+          <div class="diff-card">
+            <h3>Fully managed, not DIY</h3>
+            <p>
+              This isn't software you log into and configure yourself. We do it
+              all. Setup, scripting, testing, and ongoing updates when anything
+              changes.
+            </p>
+          </div>
+          <div class="diff-card">
+            <h3>Month to month, no lock-in</h3>
+            <p>
+              No annual contracts. No exit fees. If it's not working for your
+              business, you can walk away. That said, most of our clients stick
+              around.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- CTA -->
-    <div class="cta-block">
-      <h2>Ready to stop missing calls?</h2>
-      <p>Have a look at our pricing, or book a quick call with me directly and I'll walk you through how it works for your trade.</p>
-      <div class="cta-buttons">
-        <a href="/#pricing" class="btn-primary">See Pricing</a>
-        <a href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener" class="btn-secondary">Book a Call with Cat</a>
+      <!-- CTA -->
+      <div class="cta-block">
+        <h2>Ready to stop missing calls?</h2>
+        <p>
+          Have a look at our pricing, or book a quick call with me directly and
+          I'll walk you through how it works for your trade.
+        </p>
+        <div class="cta-buttons">
+          <a href="/#pricing" class="btn-primary">See Pricing</a>
+          <a
+            href="https://tidycal.com/kindredsystems/aap-cathryn-intro"
+            target="_blank"
+            rel="noopener"
+            class="btn-secondary"
+            >Book a Call with Cat</a
+          >
+        </div>
       </div>
-    </div>
+    </main>
 
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>&copy; 2025 AI Assistant Pro &mdash; a Kindred Systems Group product &nbsp;|&nbsp; <a href="mailto:support@aiassistantpro.com.au">support@aiassistantpro.com.au</a> &nbsp;|&nbsp; <a href="https://aiassistantpro.com.au">aiassistantpro.com.au</a></p>
-  </footer>
-
-</body>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>
+        &copy; 2025 AI Assistant Pro &mdash; a Kindred Systems Group product
+        &nbsp;|&nbsp;
+        <a href="mailto:support@aiassistantpro.com.au"
+          >support@aiassistantpro.com.au</a
+        >
+        &nbsp;|&nbsp;
+        <a href="https://aiassistantpro.com.au">aiassistantpro.com.au</a>
+      </p>
+    </footer>
+  </body>
 </html>
